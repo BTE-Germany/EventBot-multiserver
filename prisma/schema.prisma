@@ -8,10 +8,15 @@ datasource db {
 }
 
 model User {
-  id           BigInt  @id @db.BigInt
-  banned       Boolean @default(false)
-  minecraft_id String  @unique
-  points       Float   @default(0)
+  id           BigInt    @id @db.BigInt
+  banned       Boolean   @default(false)
+  minecraft_id String    @unique
+  points       Float     @default(0)
+  team         String?
+  team_flag    String?
+  guild_id     String?
+  language     String    @default("en")
+  boosters     Booster[]
 }
 
 model Build {
@@ -22,8 +27,23 @@ model Build {
   A                 Float    @default(0)
   B                 Float    @default(0)
   base_points       Boolean  @default(true)
+  foreign_build     Boolean  @default(false)
   builder_id        BigInt   @db.BigInt
   judges            String[]
   images            String[]
   created_timestamp DateTime @default(now()) @db.Timestamptz(1)
+  guild_id          String?
+}
+
+model Booster {
+  id          Int       @id @default(autoincrement())
+  user_id     BigInt    @db.BigInt
+  user        User      @relation(fields: [user_id], references: [id])
+  type        String    // "points" or "multiplier"
+  value       Float     // fixed points or multiplier value (e.g., 2.0 for 2x)
+  duration    Int?      // duration in milliseconds (null for instant point boosters)
+  activated   Boolean   @default(false)
+  activated_at DateTime?
+  expires_at  DateTime?
+  created_at  DateTime  @default(now())
 }

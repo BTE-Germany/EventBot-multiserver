@@ -2,6 +2,7 @@ require("dotenv").config();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const { BlobServiceClient } = require("@azure/storage-blob");
+const { t, getUserLanguage } = require("../config/translations.js");
 const blobServiceClient = BlobServiceClient.fromConnectionString(
   process.env.AZURE_STORAGE_CONNECTION_STRING
 );
@@ -15,24 +16,42 @@ module.exports = {
   once: false,
   async execute(args) {
     if (args.author.id === args.client.user.id) return;
-    if (args.channel.id === process.env.SUBMISSION_CHANNEL) {
-      const dbUser = await prisma.user.findUnique({
-        where: {
-          id: BigInt(args.author.id),
+    
+    // Parse servers config to check if this channel is a submission channel
+    let serversConfig = {};
+    try {
+      serversConfig = JSON.parse(process.env.SERVERS_CONFIG || "{}");
+    } catch (e) {
+      console.error("Error parsing SERVERS_CONFIG:", e);
+      return;
+    }
+
+    // Check if message is in a submission channel
+    const serverConfig = serversConfig[args.guild.id];
+    if (!serverConfig || args.channel.id !== serverConfig.submission) {
+      return; // Not a submission channel
+    }
+
+    const dbUser = await prisma.user.findUnique({
+      where: {
+        id: BigInt(args.author.id),
+      },
+    });
+    
+    if (!dbUser) {
+      const lang = "en"; // Default language for non-registered users
+      const botmessage = await args.channel.send({
+        content: t(lang, "not_registered"),
+        messageReference: {
+          messageID: args.id,
         },
       });
-      if (!dbUser) {
-        const botmessage = await args.channel.send({
-          content: "You are not registered! Please register with `/register`.",
-          messageReference: {
-            messageID: args.id,
-          },
-        });
-        setTimeout(async () => {
-          await botmessage.delete();
-          await args.delete();
-        }, 5000);
-      } else {
+      setTimeout(async () => {
+        await botmessage.delete();
+        await args.delete();
+      }, 5000);
+    } else {
+      const lang = dbUser.language || "en";
         if (
           args.attachments.map((a) => a).length > 0 &&
           args.content.length > 0
@@ -44,6 +63,7 @@ module.exports = {
                 message: BigInt(args.id),
                 images: ["loading"],
                 location: args.content,
+                guild_id: args.guild.id, // Track which server this build is from
               },
             })
             .then(async (obj) => {
@@ -51,7 +71,7 @@ module.exports = {
               let embeds = [
                 {
                   title: `#${obj.id}`,
-                  description: "Koordinaten: " + obj.location,
+                  description: "Coordinates: " + obj.location,
                   url: "https://bte-germany.de",
                   author: {
                     name: `${dbUser.minecraft_id}`,
@@ -88,35 +108,46 @@ module.exports = {
                   images: images,
                 },
               });
-              args.channel
-                .send({
-                  content: " ",
-                  embeds: embeds,
-                  components: [
-                    {
-                      type: 1,
-                      components: [
-                        {
-                          type: 2,
-                          style: 2,
-                          label: "Zusätzliche Informationen",
-                          custom_id: `info_${obj.id}`,
-                          emoji: "📍"
-                        }
-                      ]
+              
+              // Send to ALL submission channels
+              for (const [guildId, config] of Object.entries(serversConfig)) {
+                try {
+                  const channel = await args.client.channels.fetch(config.submission);
+                  await channel.send({
+                    content: " ",
+                    embeds: embeds,
+                    components: [
+                      {
+                        type: 1,
+                        components: [
+                          {
+                            type: 2,
+                            style: 2,
+                          label: "Additional Information",
+                            custom_id: `info_${obj.id}`,
+                            emoji: "📍"
+                          }
+                        ]
+                      }
+                    ]
+                  }).then(async (message) => {
+                    // Only store the message ID from the original guild
+                    if (guildId === args.guild.id) {
+                      await prisma.build.update({
+                        where: {
+                          id: obj.id,
+                        },
+                        data: {
+                          message: BigInt(message.id),
+                        },
+                      });
                     }
-                  ]
-                })
-                .then(async (message) => {
-                  await prisma.build.update({
-                    where: {
-                      id: obj.id,
-                    },
-                    data: {
-                      message: BigInt(message.id),
-                    },
                   });
-                });
+                } catch (error) {
+                  console.error(`Error sending to submission channel ${config.submission}:`, error);
+                }
+              }
+              
               args.client.channels.cache
                 .get(process.env.JUDGE_CHANNEL)
                 .send({
@@ -149,8 +180,7 @@ module.exports = {
           });
         } else {
           const botmessage = await args.channel.send({
-            content:
-              "Bitte hänge ein Bild an und schreibe die Koordinaten in die Nachricht",
+            content: t(lang, "image_coords_required"),
           });
           setTimeout(async () => {
             await botmessage.delete();
@@ -159,5 +189,5 @@ module.exports = {
         }
       }
     }
-  },
-};
+  }
+

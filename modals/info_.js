@@ -1,8 +1,11 @@
+const { t, getUserLanguage } = require("../config/translations.js");
+
 module.exports = {
     modal: {
       name: "info_",
     },
     run: async (client, interaction, prisma) => {
+      const lang = "en"; // Force English for consistency
       try {
         // Get the judge message
         const judge_msg = await prisma.build.findUnique({
@@ -40,13 +43,13 @@ module.exports = {
               if (!inputValue || inputValue === "") return;
               switch (v) {
                 case "3d_view":
-                  return `3D-View benutzt: ${inputValue}`;
+                  return `3D-View used: ${inputValue}`;
                 case "street_view":
-                  return `Street-View benutzt: ${inputValue}`;
+                  return `Street-View used: ${inputValue}`;
                 case "street_view_link":
-                  return `Link zu Street-View: ${inputValue}`;
+                  return `Link to Street-View: ${inputValue}`;
                 case "other_info":
-                  return `Sonstige Informationen: ${inputValue}`;
+                  return `Other information: ${inputValue}`;
               }
             })
             .filter((v) => v !== undefined)
@@ -58,7 +61,7 @@ module.exports = {
           }
   
           firstEmbed.fields.push({
-            name: "Zusätzliche Informationen",
+            name: "Additional Information",
             value: value,
           });
   
@@ -74,13 +77,13 @@ module.exports = {
   
         // Reply to the user
         await interaction.reply({
-          content: "Zusätzliche Informationen hinzugefügt.",
+          content: "Additional information added.",
           ephemeral: true,
         });
       } catch (error) {
         console.error("Error during operation:", error);
         await interaction.reply({
-          content: "Etwas ist schiefgegangen. Bitte versuche es später noch einmal.",
+          content: "Something went wrong. Please try again later.",
           ephemeral: true,
         });
       }

@@ -1,16 +1,27 @@
+const { t, getUserLanguage } = require("../config/translations.js");
+
 module.exports = {
     button: {
         name: "leader-"
     },
     run: async (client, interaction, prisma) => {
+        const lang = await getUserLanguage(prisma, interaction.user.id);
         let pageNum = parseInt(interaction.customId.split("leader-")[1]);
 
+        // Get guild ID from the message to filter users
+        const guildId = interaction.guild.id;
+
         let users = await prisma.user.findMany();
+        
+        // Filter users by guild (same server/team)
+        users = users.filter((user) => user.guild_id === guildId);
+        
         users = users.map((user) => {
             return {
                 id: user.id.toString(),
                 points: user.points,
-                minecraft_id: user.minecraft_id
+                minecraft_id: user.minecraft_id,
+                team_flag: user.team_flag || ""
             };
         });
         users = users.sort((a, b) => b.points - a.points);
@@ -19,7 +30,7 @@ module.exports = {
 
         if(users.length === 0) {
             interaction.reply({
-                content: "Keine weitere Seite verfügbar.",
+                content: t(lang, "no_more_pages"),
                 ephemeral: true
             });
             return
@@ -33,18 +44,19 @@ module.exports = {
         let userlist = "";
         let increment = pageNum * 10 + 1;
         users.forEach((user) => {
-            userlist += `${increment}. \`${user.minecraft_id}\`  |  ${user.points} Punkte \n`
+            userlist += `${increment}. ${user.team_flag} \`${user.minecraft_id}\`  |  ${user.points} ${t(lang, "points")} \n`;
+            increment++;
         });
 
         interaction.reply({
             "content": null,
             "embeds": [
                 {
-                    "title": `Leaderboard - Seite ${pageNum}`,
+                    "title": t(lang, "leaderboard_page", { page: pageNum }),
                     "description": userlist,
                     "color": 13697024,
                     "footer": {
-                        "text": "Starte noch heute und kämpfe dich an die Spitze! Registrierung via /register"
+                        "text": t(lang, "leaderboard_footer")
                     },
                     "thumbnail": {
                         "url": process.env.EVENT_IMG
@@ -59,7 +71,7 @@ module.exports = {
                     "components": [
                         {
                             "style": 3,
-                            "label": `Seite ${pageNum + 1}`,
+                            "label": `${t(lang, "page")} ${pageNum + 1}`,
                             "custom_id": `leader-${pageNum + 1}`,
                             "disabled": false,
                             "emoji": {

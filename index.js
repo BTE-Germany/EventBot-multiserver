@@ -68,6 +68,7 @@ client.once("ready", async () => {
       new Date().toLocaleString(),
       `Schedule registriert: ${file} (${data.time}ms)`
     );
+    data.run(client, prisma);
     setInterval(() => {
       data.run(client, prisma);
     }, data.time);
