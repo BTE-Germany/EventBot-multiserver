@@ -10,7 +10,7 @@ module.exports = {
     // Register static file serving for web interface
     await fastify.register(require("@fastify/static"), {
       root: path.join(__dirname, "public"),
-      prefix: "/",
+      prefix: "/static",
     });
 
     const routeFiles = fs
