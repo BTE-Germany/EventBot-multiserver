@@ -1,10 +1,18 @@
 const Fastify = require("fastify");
 const cors = require("@fastify/cors");
+const path = require("path");
 const fs = require("fs");
 
 module.exports = {
   start: async () => {
     const fastify = Fastify();
+    
+    // Register static file serving for web interface
+    await fastify.register(require("@fastify/static"), {
+      root: path.join(__dirname, "public"),
+      prefix: "/",
+    });
+
     const routeFiles = fs
       .readdirSync("./api/endpoint")
       .filter((file) => file.endsWith(".js"));
