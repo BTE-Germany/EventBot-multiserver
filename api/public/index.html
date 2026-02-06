@@ -274,7 +274,7 @@
         async function loadUsers() {
             try {
                 userDropdown.innerHTML = '<div class="loading">Loading users...</div>';
-                const response = await fetch('/users');
+                const response = await fetch('/static/get_users');
                 allUsers = await response.json();
                 userDropdown.innerHTML = '';
                 console.log(`Loaded ${allUsers.length} users`);
@@ -373,7 +373,7 @@
 
             try {
                 // Make API request
-                const response = await fetch('/grant_booster', {
+                const response = await fetch('/static/grant_booster', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

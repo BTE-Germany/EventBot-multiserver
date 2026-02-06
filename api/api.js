@@ -27,12 +27,19 @@ module.exports = {
 
     //double register for /static
     let grant_booster = require("./endpoint/grant_booster.js");
+    let get_users = require("./endpoint/get_users.js");
     grant_booster.path = "/static" + grant_booster.path;
+    get_users.path = "/static" + get_users.path;
     console.log(
       new Date().toLocaleString(),
       `Route registriert: /${grant_booster.method} ${grant_booster.path}`
     );
+    console.log(
+      new Date().toLocaleString(),
+      `Route registriert: /${get_users.method} ${get_users.path}`
+    )
     fastify.route(grant_booster);
+    fastify.route(get_users);
 
     fastify.register(cors, {
       origin: true,
