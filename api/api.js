@@ -25,6 +25,15 @@ module.exports = {
       fastify.route(data);
     }
 
+    //double register for /static
+    let grant_booster = require("./endpoint/grant_booster.js");
+    grant_booster.path = "/static" + grant_booster.path;
+    console.log(
+      new Date().toLocaleString(),
+      `Route registriert: /${grant_booster.method} ${grant_booster.path}`
+    );
+    fastify.route(grant_booster);
+
     fastify.register(cors, {
       origin: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
