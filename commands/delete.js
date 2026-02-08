@@ -20,6 +20,14 @@ module.exports = {
     ],
   },
   run: async (client, interaction, prisma) => {
+    // Parse servers config
+    let serversConfig = {};
+    try {
+      serversConfig = JSON.parse(process.env.SERVERS_CONFIG || "{}");
+    } catch (e) {
+      console.error("Error parsing SERVERS_CONFIG:", e);
+    }
+    
     prisma.build
       .findUnique({
         where: {
@@ -33,11 +41,18 @@ module.exports = {
             ephemeral: true,
           });
         } else {
+          // Get the submission channel from the build's guild
+          const serverConfig = serversConfig[build.guild_id];
+          const submissionChannel = serverConfig?.submission;
+          
           if (build.judges.length < 2) {
-            client.channels.cache
-              .get(process.env.SUBMISSION_CHANNEL)
-              .messages.fetch(build.message)
-              .then((msg) => msg.delete());
+            if (submissionChannel) {
+              client.channels.cache
+                .get(submissionChannel)
+                .messages.fetch(build.message)
+                .then((msg) => msg.delete())
+                .catch(err => console.error("Error deleting submission message:", err));
+            }
             client.channels.cache
               .get(process.env.JUDGE_CHANNEL)
               .messages.fetch(build.judge_msg)
@@ -74,10 +89,13 @@ module.exports = {
                 );
               });
           } else {
-            client.channels.cache
-              .get(process.env.SUBMISSION_CHANNEL)
-              .messages.fetch(build.message)
-              .then((msg) => msg.delete());
+            if (submissionChannel) {
+              client.channels.cache
+                .get(submissionChannel)
+                .messages.fetch(build.message)
+                .then((msg) => msg.delete())
+                .catch(err => console.error("Error deleting submission message:", err));
+            }
             client.channels.cache
               .get(process.env.JUDGE_CHANNEL)
               .messages.fetch(build.judge_msg)

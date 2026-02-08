@@ -39,7 +39,7 @@ module.exports = {
     const reason = interaction.options.getString("reason");
 
     await prisma.build.deleteMany();
-    await prisma.$executeRaw`ALTER SEQUENCE "Build_id_seq" RESTART WITH 1;`;
+    await prisma.$executeRawUnsafe(`ALTER TABLE Build AUTO_INCREMENT = 1;`);
     await prisma.user.updateMany({
       data: {
         points: 0,

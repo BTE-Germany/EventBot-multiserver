@@ -62,6 +62,7 @@ module.exports = {
                 builder_id: BigInt(args.author.id),
                 message: BigInt(args.id),
                 images: ["loading"],
+                judges: [],
                 location: args.content,
                 guild_id: args.guild.id, // Track which server this build is from
               },
