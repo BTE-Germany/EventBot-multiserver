@@ -75,7 +75,7 @@ module.exports = {
                   description: "Coordinates: " + obj.location,
                   url: "https://bte-germany.de",
                   author: {
-                    name: `${dbUser.minecraft_id}`,
+                    name: `${dbUser.minecraft_id}${dbUser.team_flag ? ' ' + dbUser.team_flag : ''}`,
                   },
                 },
               ];

@@ -159,7 +159,7 @@ module.exports = {
               url: "https://bte-germany.de",
               color: 16761344,
               author: {
-                name: `${user.minecraft_id}`,
+                name: `${user.minecraft_id}${user.team_flag ? ' ' + user.team_flag : ''}`,
               },
             },
           ];
@@ -315,7 +315,7 @@ module.exports = {
               url: "https://bte-germany.de",
               color: 7119627,
               author: {
-                name: `${user.minecraft_id}`,
+                name: `${user.minecraft_id}${user.team_flag ? ' ' + user.team_flag : ''}`,
               },
               fields: [
                 {
