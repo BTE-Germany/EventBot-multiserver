@@ -155,11 +155,11 @@ module.exports = {
           let embeds = [
             {
               title: `#${build.id.toString()}`,
-              description: `${t(lang, "coordinates")}: ${build.location} \n ${t(lang, "base_points")}: ${base_points ? t(lang, "yes") : t(lang, "no")} \n ${t(lang, "foreign_build")}: ${foreign_build ? t(lang, "yes") : t(lang, "no")} \n ${t(lang, "judged_by")}: ${interaction.member.user.username}`,
+              description: `${user.team_flag ? user.team_flag + ' ' : ''}${t(lang, "coordinates")}: ${build.location} \n ${t(lang, "base_points")}: ${base_points ? t(lang, "yes") : t(lang, "no")} \n ${t(lang, "foreign_build")}: ${foreign_build ? t(lang, "yes") : t(lang, "no")} \n ${t(lang, "judged_by")}: ${interaction.member.user.username}`,
               url: "https://bte-germany.de",
               color: 16761344,
               author: {
-                name: `${user.minecraft_id}${user.team_flag ? ' ' + user.team_flag : ''}`,
+                name: `${user.minecraft_id}`,
               },
             },
           ];
@@ -311,11 +311,11 @@ module.exports = {
           let embeds = [
             {
               title: `#${build.id.toString()}`,
-              description: `${t(lang, "coordinates")}: ${build.location}`,
+              description: `${user.team_flag ? user.team_flag + ' ' : ''}${t(lang, "coordinates")}: ${build.location}`,
               url: "https://bte-germany.de",
               color: 7119627,
               author: {
-                name: `${user.minecraft_id}${user.team_flag ? ' ' + user.team_flag : ''}`,
+                name: `${user.minecraft_id}`,
               },
               fields: [
                 {
