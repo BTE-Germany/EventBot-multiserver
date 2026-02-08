@@ -96,6 +96,34 @@ module.exports = {
             typeof interaction.options.getBoolean("foreign_build") === "boolean"
               ? interaction.options.getBoolean("foreign_build")
               : false;
+          
+          // Check if foreign build boost can be applied (once per day per user)
+          let foreignBuildWarning = "";
+          if (foreign_build) {
+            const buildCreatedAt = new Date(build.created_timestamp);
+            const oneDayBeforeBuildCreated = new Date(buildCreatedAt.getTime() - 24 * 60 * 60 * 1000);
+            const lastForeignBuild = await prisma.build.findFirst({
+              where: {
+                builder_id: build.builder_id,
+                foreign_build: true,
+                created_timestamp: {
+                  gte: oneDayBeforeBuildCreated,
+                  lt: buildCreatedAt,
+                },
+                id: {
+                  not: build.id,
+                },
+              },
+              orderBy: {
+                created_timestamp: 'desc',
+              },
+            });
+            
+            if (lastForeignBuild) {
+              foreignBuildWarning = "\n⚠️ **Note:** This user already received a foreign build boost in the last 24 hours before this build was created. The multiplier will NOT be applied when the second judge rates this build.";
+            }
+          }
+          
           await prisma.build.update({
             where: {
               id: interaction.options.getInteger("id"),
@@ -109,7 +137,7 @@ module.exports = {
             },
           });
           await interaction.reply({
-            content: t(lang, "build_judged_first", { id: interaction.options.getInteger("id") }),
+            content: t(lang, "build_judged_first", { id: interaction.options.getInteger("id") }) + foreignBuildWarning,
             components: [
               {
                 type: 1,
@@ -182,14 +210,46 @@ module.exports = {
             (build.B + interaction.options.getInteger("effort")) / 2 +
             base_points;
 
-          // Apply foreign build multiplier if applicable
+          // Apply foreign build multiplier if applicable (once per day per user)
+          let foreignBuildApplied = false;
           if (build.foreign_build) {
-            const foreignBuildFactor = parseFloat(process.env.FOREIGN_BUILD_FACTOR || "1.0");
-            pointsToAward = pointsToAward * foreignBuildFactor;
-            console.log(
-              new Date().toLocaleString(),
-              `Foreign build multiplier (${foreignBuildFactor}x) applied for build ${build.id}`
-            );
+            const buildCreatedAt = new Date(build.created_timestamp);
+            const oneDayBeforeBuildCreated = new Date(buildCreatedAt.getTime() - 24 * 60 * 60 * 1000);
+            
+            // Check if user has already received foreign build boost in the 24 hours before this build was created
+            const lastForeignBuild = await prisma.build.findFirst({
+              where: {
+                builder_id: build.builder_id,
+                foreign_build: true,
+                created_timestamp: {
+                  gte: oneDayBeforeBuildCreated,
+                  lt: buildCreatedAt,
+                },
+                id: {
+                  not: build.id, // Exclude current build
+                },
+              },
+              orderBy: {
+                created_timestamp: 'desc',
+              },
+            });
+            
+            if (!lastForeignBuild) {
+              // No foreign build in the 24 hours before this build was created, apply the multiplier
+              const foreignBuildFactor = parseFloat(process.env.FOREIGN_BUILD_FACTOR || "1.0");
+              pointsToAward = pointsToAward * foreignBuildFactor;
+              foreignBuildApplied = true;
+              
+              console.log(
+                new Date().toLocaleString(),
+                `Foreign build multiplier (${foreignBuildFactor}x) applied for build ${build.id}`
+              );
+            } else {
+              console.log(
+                new Date().toLocaleString(),
+                `Foreign build multiplier NOT applied for build ${build.id} - user ${build.builder_id} already received boost within 24 hours before build creation (Build #${lastForeignBuild.id} at ${lastForeignBuild.created_timestamp})`
+              );
+            }
           }
 
           // Check for active multiplier boosters
@@ -222,8 +282,18 @@ module.exports = {
               points: user?.points + pointsToAward,
             },
           });
+          
+          // Create feedback message for the judge
+          let feedbackMessage = t(lang, "build_judged_second", { id: interaction.options.getInteger("id") });
+          if (build.foreign_build && !foreignBuildApplied) {
+            feedbackMessage += "\n⚠️ **Foreign build multiplier was NOT applied** - this user already received a foreign build boost within the last 24 hours.";
+          } else if (build.foreign_build && foreignBuildApplied) {
+            const foreignBuildFactor = parseFloat(process.env.FOREIGN_BUILD_FACTOR || "1.0");
+            feedbackMessage += `\n✅ **Foreign build multiplier (${foreignBuildFactor}x) was applied.**`;
+          }
+          
           interaction.reply({
-            content: t(lang, "build_judged_second", { id: interaction.options.getInteger("id") }),
+            content: feedbackMessage,
             components: [
               {
               type: 1,
