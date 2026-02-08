@@ -240,7 +240,7 @@ module.exports = {
                     <span id="selectedUserDisplay">None</span>
                 </div>
 
-                <form action="/static/grant_booster_api" method="POST" id="boosterForm">
+                <form id="boosterForm">
                     <input type="hidden" id="user_id" name="user_id" required>
 
                     <div class="form-group">
@@ -332,12 +332,55 @@ module.exports = {
             displayUsers(filteredUsers);
         });
 
-        // Form validation
-        boosterForm.addEventListener('submit', (e) => {
+        // Form validation and submission
+        boosterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
             if (!selectedUserId) {
-                e.preventDefault();
                 alert('Please select a user from the list');
                 return false;
+            }
+            
+            const formData = {
+                user_id: document.getElementById('user_id').value,
+                type: document.getElementById('type').value,
+                value: document.getElementById('value').value,
+                duration: document.getElementById('duration').value || null
+            };
+            
+            try {
+                const response = await fetch('/static/grant_booster_api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('text/html')) {
+                    // Server returned HTML (success or error page)
+                    const html = await response.text();
+                    document.open();
+                    document.write(html);
+                    document.close();
+                } else {
+                    // Server returned JSON
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert('Booster granted successfully!');
+                        boosterForm.reset();
+                        selectedUserId = null;
+                        selectedUserDisplay.textContent = 'None';
+                        document.querySelectorAll('.user-item').forEach(item => {
+                            item.classList.remove('selected');
+                        });
+                    } else {
+                        alert('Error: ' + (result.error || 'Unknown error'));
+                    }
+                }
+            } catch (error) {
+                alert('Error submitting form: ' + error.message);
             }
         });
 
