@@ -86,6 +86,10 @@ module.exports = {
             id: build.builder_id,
           },
         });
+        
+        // Defer the reply to prevent interaction timeout
+        await interaction.deferReply();
+        
         if (build.judges?.length === 0) {
           const judges = [interaction.user.id.toString()];
           const base_points =
@@ -136,7 +140,7 @@ module.exports = {
               foreign_build: foreign_build,
             },
           });
-          await interaction.reply({
+          await interaction.editReply({
             content: t(lang, "build_judged_first", { id: interaction.options.getInteger("id") }) + foreignBuildWarning,
             components: [
               {
@@ -292,7 +296,7 @@ module.exports = {
             feedbackMessage += `\n✅ **Foreign build multiplier (${foreignBuildFactor}x) was applied.**`;
           }
           
-          interaction.reply({
+          await interaction.editReply({
             content: feedbackMessage,
             components: [
               {
@@ -337,15 +341,31 @@ module.exports = {
               },
             });
           });
-          await client.channels.cache
-            .get(process.env.SUBMISSION_CHANNEL)
-            .messages.fetch(build.message.toString())
-            .then((message) => {
-              message.edit({
-                content: " ",
-                embeds: embeds,
-              });
-            });
+          
+          // Update message in all submission channels
+          try {
+            const serversConfig = JSON.parse(process.env.SERVERS_CONFIG || "{}");
+            for (const [guildId, config] of Object.entries(serversConfig)) {
+              try {
+                const channel = await client.channels.fetch(config.submission);
+                // For the original guild, fetch and update the stored message
+                if (guildId === build.guild_id) {
+                  await channel.messages.fetch(build.message.toString())
+                    .then((message) => {
+                      message.edit({
+                        content: " ",
+                        embeds: embeds,
+                      });
+                    })
+                    .catch(err => console.error(`Error updating message in guild ${guildId}:`, err));
+                }
+              } catch (error) {
+                console.error(`Error accessing submission channel for guild ${guildId}:`, error);
+              }
+            }
+          } catch (e) {
+            console.error("Error parsing SERVERS_CONFIG:", e);
+          }
 
             embeds[0].description += `\n ${t(lang, "judged_by")}: <@${build.judges[0]}> und <@${interaction.member.user.id}>`;
             await client.channels.cache
@@ -367,7 +387,9 @@ module.exports = {
           return;
         }
         if (build.judges?.length > 1) {
-          interaction.reply(t(lang, "build_already_judged"));
+          await interaction.editReply({
+            content: t(lang, "build_already_judged")
+          });
         }
       }
     } else {
