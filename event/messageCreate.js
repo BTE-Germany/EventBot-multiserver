@@ -83,7 +83,7 @@ module.exports = {
                 let uuid = crypto.randomUUID();
                 const response = await fetch(image.url);
                 const buffer = await response.arrayBuffer();
-                let filetype = image.url.match(/\.([^/?#]+)(?=[?#]|$)/)[1];
+                let filetype = image.name.split('.').pop().split('?')[0];
                 const blockBlobClient = containerClient.getBlockBlobClient(
                   `${user.id}/${uuid}.${filetype}`
                 );
