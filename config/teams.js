@@ -5,14 +5,8 @@ module.exports = {
       id: "team_germany",
       name: "Team Germany",
       flag: "🇩🇪",
-      guild_ids: ["1312832796556791808"],
-    },
-    {
-      id: "team_kazakhstan",
-      name: "Team Kazakhstan",
-      flag: "🇰🇿",
-      guild_ids: ["1364305760141709373"], // Replace with actual Guild B ID
-    },
+      guild_ids: ["692825222373703772"],
+    }
   ],
 
   // Get team by guild ID
