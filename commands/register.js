@@ -1,5 +1,6 @@
 const teamsConfig = require("../config/teams.js");
 const { t, languages } = require("../config/translations.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 
 module.exports = {
   command: {
@@ -72,38 +73,43 @@ module.exports = {
       return;
     }
 
-    // Create new user with team assignment and language
-    try {
-      await prisma.user.create({
-        data: {
-          minecraft_id: interaction.options.getString("minecraft"),
-          id: BigInt(interaction.member.user.id),
-          team: team.id,
-          team_flag: team.flag,
-          guild_id: interaction.guild.id,
-          language: selectedLang,
-        },
-      });
+    // Show TOS acceptance prompt (English only as specified)
+    const minecraftName = interaction.options.getString("minecraft");
+    const tosUrl = process.env.TOS_URL || "https://example.com/terms";
+    const impressumUrl = process.env.IMPRESSUM_URL || "https://example.com/impressum";
+    const privacyUrl = process.env.PRIVACY_POLICY_URL || "https://example.com/privacy";
 
-      await interaction.reply({
-        content: t(selectedLang, "registration_success", {
-          team: team.name,
-          flag: team.flag,
-        }),
-        ephemeral: true,
-      });
+    // Encode data in button customId (using base64 to handle special characters)
+    const registrationData = Buffer.from(
+      JSON.stringify({
+        minecraft: minecraftName,
+        lang: selectedLang,
+        userId: interaction.member.user.id,
+        guildId: interaction.guild.id,
+        teamId: team.id
+      })
+    ).toString('base64');
 
-      console.log(
-        new Date().toLocaleString(),
-        `${interaction.member.user.tag} registered (${interaction.member.user.id}) as ${interaction.options.getString("minecraft")} for Team ${team.name} in ${languages[selectedLang]}`
-      );
-    } catch (e) {
-      console.log(e);
-      console.log("Error creating user.");
-      await interaction.reply({
-        content: t(selectedLang, "registration_error"),
-        ephemeral: true,
-      });
-    }
+    const acceptButton = new ButtonBuilder()
+      .setCustomId(`accept_tos_${registrationData}`)
+      .setLabel(t(selectedLang, "tos_accept_button"))
+      .setStyle(ButtonStyle.Success);
+
+    const declineButton = new ButtonBuilder()
+      .setCustomId(`decline_tos_${selectedLang}`)
+      .setLabel(t(selectedLang, "tos_decline_button"))
+      .setStyle(ButtonStyle.Danger);
+
+    const row = new ActionRowBuilder()
+      .addComponents(acceptButton, declineButton);
+
+    await interaction.reply({
+      content: t(selectedLang, "tos_acceptance_title") + `\n\n` +
+               `[${t(selectedLang, "tos_terms_link")}](${tosUrl})\n` +
+               `[${t(selectedLang, "tos_impressum_link")}](${impressumUrl})\n` +
+               `[${t(selectedLang, "tos_privacy_link")}](${privacyUrl})`,
+      components: [row],
+      ephemeral: true,
+    });
   },
 };
