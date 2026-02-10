@@ -35,6 +35,11 @@ const translations = {
     booster_activated_multiplier: "✅ Booster activated! Your points will be multiplied by **{value}x** {duration}!",
     multiplier_already_active: "You already have an active multiplier booster! Wait until it expires.",
     for_next_minutes: "for the next {minutes} minutes",
+    for_next_builds: "for the next {builds} builds",
+    for_next_minutes_or_builds: "for the next {minutes} minutes or {builds} builds",
+    builds: "builds",
+    builds_remaining: "builds remaining",
+    or: "or",
     permanently: "permanently",
     
     // Judge
@@ -127,6 +132,11 @@ const translations = {
     booster_activated_multiplier: "✅ Booster aktiviert! Deine Punkte werden **{value}x** multipliziert {duration}!",
     multiplier_already_active: "Du hast bereits einen aktiven Multiplikator-Booster! Warte bis er abläuft.",
     for_next_minutes: "für die nächsten {minutes} Minuten",
+    for_next_builds: "für die nächsten {builds} Builds",
+    for_next_minutes_or_builds: "für die nächsten {minutes} Minuten oder {builds} Builds",
+    builds: "Builds",
+    builds_remaining: "Builds verbleibend",
+    or: "oder",
     permanently: "permanent",
     
     // Judge
@@ -219,6 +229,11 @@ const translations = {
     booster_activated_multiplier: "✅ Booster activé! Vos points seront multipliés par **{value}x** {duration}!",
     multiplier_already_active: "Vous avez déjà un booster multiplicateur actif! Attendez qu'il expire.",
     for_next_minutes: "pour les prochaines {minutes} minutes",
+    for_next_builds: "pour les prochains {builds} builds",
+    for_next_minutes_or_builds: "pour les prochaines {minutes} minutes ou {builds} builds",
+    builds: "builds",
+    builds_remaining: "builds restants",
+    or: "ou",
     permanently: "en permanence",
     
     // Judge

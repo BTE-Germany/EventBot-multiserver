@@ -83,15 +83,25 @@ module.exports = {
       );
     } else if (booster.type === "multiplier") {
       // Check if user already has an active multiplier
-      const activeMultipliers = await prisma.booster.findMany({
+      const allActiveMultipliers = await prisma.booster.findMany({
         where: {
           user_id: BigInt(interaction.user.id),
           type: "multiplier",
           activated: true,
-          expires_at: {
-            gte: now,
-          },
         },
+      });
+
+      // Filter for truly active boosters (not expired by time or builds)
+      const activeMultipliers = allActiveMultipliers.filter((b) => {
+        // Check if expired by time
+        if (b.expires_at && new Date(b.expires_at) <= now) {
+          return false;
+        }
+        // Check if expired by build count
+        if (b.max_builds !== null && b.builds_used >= b.max_builds) {
+          return false;
+        }
+        return true;
       });
 
       if (activeMultipliers.length > 0) {
@@ -115,9 +125,17 @@ module.exports = {
         },
       });
 
-      const durationText = booster.duration
-        ? t(lang, "for_next_minutes", { minutes: booster.duration / 1000 / 60 })
-        : t(lang, "permanently");
+      // Build description based on booster type
+      let durationText = "";
+      if (booster.duration && booster.max_builds) {
+        durationText = t(lang, "for_next_minutes_or_builds", { minutes: booster.duration / 1000 / 60, builds: booster.max_builds });
+      } else if (booster.duration) {
+        durationText = t(lang, "for_next_minutes", { minutes: booster.duration / 1000 / 60 });
+      } else if (booster.max_builds) {
+        durationText = t(lang, "for_next_builds", { builds: booster.max_builds });
+      } else {
+        durationText = t(lang, "permanently");
+      }
 
       await interaction.reply({
         content: t(lang, "booster_activated_multiplier", { value: booster.value, duration: durationText }),
@@ -126,7 +144,7 @@ module.exports = {
 
       console.log(
         new Date().toLocaleString(),
-        `User ${interaction.user.id} activated multiplier booster (${booster.value}x for ${booster.duration}ms)`
+        `User ${interaction.user.id} activated multiplier booster (${booster.value}x, duration: ${booster.duration}ms, max_builds: ${booster.max_builds})`
       );
     }
   },

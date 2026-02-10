@@ -6,7 +6,7 @@ module.exports = {
   method: "POST",
   handler: async (request, reply) => {
     try {
-      const { user_id, type, value, duration } = request.body;
+      const { user_id, type, value, duration, max_builds } = request.body;
 
       // Validate input
       if (!user_id || !type || !value) {
@@ -179,6 +179,7 @@ module.exports = {
           type: type,
           value: parseFloat(value),
           duration: duration ? parseInt(duration) : null,
+          max_builds: max_builds ? parseInt(max_builds) : null,
         },
       });
 

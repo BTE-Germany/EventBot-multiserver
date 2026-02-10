@@ -36,14 +36,16 @@ model Build {
 }
 
 model Booster {
-  id          Int       @id @default(autoincrement())
-  user_id     BigInt    @db.BigInt
-  user        User      @relation(fields: [user_id], references: [id])
-  type        String    @db.VarChar(50) // "points" or "multiplier"
-  value       Float     // fixed points or multiplier value (e.g., 2.0 for 2x)
-  duration    Int?      // duration in milliseconds (null for instant point boosters)
-  activated   Boolean   @default(false)
+  id           Int       @id @default(autoincrement())
+  user_id      BigInt    @db.BigInt
+  user         User      @relation(fields: [user_id], references: [id])
+  type         String    @db.VarChar(50) // "points" or "multiplier"
+  value        Float // fixed points or multiplier value (e.g., 2.0 for 2x)
+  duration     Int? // duration in milliseconds (null for non-timed boosters)
+  max_builds   Int? // max number of builds this booster applies to (null for non-build-limited)
+  builds_used  Int       @default(0) // number of builds this booster has been used on
+  activated    Boolean   @default(false)
   activated_at DateTime? @db.Timestamp(0)
-  expires_at  DateTime? @db.Timestamp(0)
-  created_at  DateTime  @default(now()) @db.Timestamp(0)
+  expires_at   DateTime? @db.Timestamp(0)
+  created_at   DateTime  @default(now()) @db.Timestamp(0)
 }

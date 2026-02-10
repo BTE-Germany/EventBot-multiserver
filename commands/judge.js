@@ -258,23 +258,49 @@ module.exports = {
 
           // Check for active multiplier boosters
           const now = new Date();
-          const activeMultiplier = await prisma.booster.findFirst({
+          const allActiveMultipliers = await prisma.booster.findMany({
             where: {
               user_id: build.builder_id,
               type: "multiplier",
               activated: true,
-              OR: [
-                { expires_at: null },
-                { expires_at: { gte: now } },
-              ],
             },
           });
 
+          // Filter for truly active boosters (not expired by time or builds)
+          const activeMultipliers = allActiveMultipliers.filter((b) => {
+            // Check if expired by time
+            if (b.expires_at && new Date(b.expires_at) <= now) {
+              return false;
+            }
+            // Check if expired by build count
+            if (b.max_builds !== null && b.builds_used >= b.max_builds) {
+              return false;
+            }
+            return true;
+          });
+
+          const activeMultiplier = activeMultipliers.length > 0 ? activeMultipliers[0] : null;
+
           if (activeMultiplier) {
             pointsToAward = pointsToAward * activeMultiplier.value;
+            
+            // Increment builds_used for build-limited boosters
+            if (activeMultiplier.max_builds !== null) {
+              await prisma.booster.update({
+                where: {
+                  id: activeMultiplier.id,
+                },
+                data: {
+                  builds_used: {
+                    increment: 1,
+                  },
+                },
+              });
+            }
+            
             console.log(
               new Date().toLocaleString(),
-              `Booster multiplier (${activeMultiplier.value}x) applied for user ${build.builder_id}`
+              `Booster multiplier (${activeMultiplier.value}x) applied for user ${build.builder_id} (builds_used: ${activeMultiplier.builds_used + 1}/${activeMultiplier.max_builds || 'unlimited'})`
             );
           }
 

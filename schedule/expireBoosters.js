@@ -3,8 +3,8 @@ module.exports = {
   run: async (client, prisma) => {
     const now = new Date();
     
-    // Find all expired boosters that are still marked as active
-    const expiredBoosters = await prisma.booster.findMany({
+    // Find all expired time-based boosters that are still marked as active
+    const expiredTimeBoosters = await prisma.booster.findMany({
       where: {
         activated: true,
         expires_at: {
@@ -14,18 +14,42 @@ module.exports = {
       },
     });
 
-    if (expiredBoosters.length > 0) {
+    // Find all expired build-limited boosters (where builds_used >= max_builds)
+    const expiredBuildBoosters = await prisma.booster.findMany({
+      where: {
+        activated: true,
+        max_builds: {
+          not: null,
+        },
+      },
+    });
+    
+    // Filter to only those that have reached their build limit
+    const fullyExpiredBuildBoosters = expiredBuildBoosters.filter(
+      booster => booster.builds_used >= booster.max_builds
+    );
+
+    const totalExpired = expiredTimeBoosters.length + fullyExpiredBuildBoosters.length;
+
+    if (totalExpired > 0) {
       console.log(
         new Date().toLocaleString(),
-        `${expiredBoosters.length} abgelaufene Booster gefunden`
+        `${totalExpired} abgelaufene Booster gefunden (${expiredTimeBoosters.length} Zeit-basiert, ${fullyExpiredBuildBoosters.length} Build-limitiert)`
       );
 
-      // We don't actually need to deactivate them - they're filtered by expires_at
-      // But we can log them for tracking purposes
-      for (const booster of expiredBoosters) {
+      // Log expired time-based boosters
+      for (const booster of expiredTimeBoosters) {
         console.log(
           new Date().toLocaleString(),
-          `Booster ${booster.id} für User ${booster.user_id} ist abgelaufen`
+          `Zeit-Booster ${booster.id} für User ${booster.user_id} ist abgelaufen`
+        );
+      }
+      
+      // Log expired build-limited boosters
+      for (const booster of fullyExpiredBuildBoosters) {
+        console.log(
+          new Date().toLocaleString(),
+          `Build-limitierter Booster ${booster.id} für User ${booster.user_id} ist abgelaufen (${booster.builds_used}/${booster.max_builds} Builds benutzt)`
         );
       }
     }

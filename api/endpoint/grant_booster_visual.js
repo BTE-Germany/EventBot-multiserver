@@ -264,6 +264,12 @@ module.exports = {
                                placeholder="Leave empty for permanent">
                     </div>
 
+                    <div class="form-group">
+                        <label for="max_builds">Max Builds (optional)</label>
+                        <input type="number" id="max_builds" name="max_builds" 
+                               placeholder="Leave empty for unlimited builds">
+                    </div>
+
                     <button type="submit">Grant Booster</button>
                 </form>
             </div>
@@ -345,7 +351,8 @@ module.exports = {
                 user_id: document.getElementById('user_id').value,
                 type: document.getElementById('type').value,
                 value: document.getElementById('value').value,
-                duration: document.getElementById('duration').value || null
+                duration: document.getElementById('duration').value || null,
+                max_builds: document.getElementById('max_builds').value || null
             };
             
             try {
