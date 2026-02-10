@@ -47,10 +47,20 @@ module.exports = {
       return;
     }
 
+    // Validate minecraft name doesn't contain commas (used as delimiter)
+    const minecraftName = interaction.options.getString("minecraft");
+    if (minecraftName.includes(',')) {
+      await interaction.reply({
+        content: t(selectedLang, "minecraft_invalid_chars"),
+        ephemeral: true,
+      });
+      return;
+    }
+
     // Check if minecraft name is already taken
     const minecraftUser = await prisma.user.findFirst({
       where: {
-        minecraft_id: interaction.options.getString("minecraft"),
+        minecraft_id: minecraftName,
       },
     });
 
@@ -73,25 +83,15 @@ module.exports = {
       return;
     }
 
-    // Show TOS acceptance prompt (English only as specified)
-    const minecraftName = interaction.options.getString("minecraft");
+    // Show TOS acceptance prompt
     const tosUrl = process.env.TOS_URL || "https://example.com/terms";
     const impressumUrl = process.env.IMPRESSUM_URL || "https://example.com/impressum";
     const privacyUrl = process.env.PRIVACY_POLICY_URL || "https://example.com/privacy";
 
-    // Encode data in button customId (using base64 to handle special characters)
-    const registrationData = Buffer.from(
-      JSON.stringify({
-        minecraft: minecraftName,
-        lang: selectedLang,
-        userId: interaction.member.user.id,
-        guildId: interaction.guild.id,
-        teamId: team.id
-      })
-    ).toString('base64');
-
+    // Pass minecraft name and language as comma-separated values
+    // userId and guildId come from interaction
     const acceptButton = new ButtonBuilder()
-      .setCustomId(`accept_tos_${registrationData}`)
+      .setCustomId(`accept_tos_${minecraftName},${selectedLang}`)
       .setLabel(t(selectedLang, "tos_accept_button"))
       .setStyle(ButtonStyle.Success);
 

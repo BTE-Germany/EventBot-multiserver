@@ -7,22 +7,11 @@ module.exports = {
   },
   run: async (client, interaction, prisma) => {
     try {
-      // Extract registration data from button customId
-      const base64Data = interaction.customId.replace('accept_tos_', '');
-      const registrationData = JSON.parse(
-        Buffer.from(base64Data, 'base64').toString('utf-8')
-      );
-
-      const { minecraft, lang, userId, guildId, teamId } = registrationData;
-
-      // Verify the user clicking is the same user who initiated registration
-      if (interaction.user.id !== userId) {
-        await interaction.reply({
-          content: t(lang, "tos_not_for_you"),
-          ephemeral: true,
-        });
-        return;
-      }
+      // Extract data from button customId (format: accept_tos_MinecraftName,lang)
+      const data = interaction.customId.replace('accept_tos_', '');
+      const [minecraft, lang] = data.split(',');
+      const userId = interaction.user.id;
+      const guildId = interaction.guild.id;
 
       // Double-check if user is already registered
       const existingUser = await prisma.user.findUnique({
@@ -58,8 +47,8 @@ module.exports = {
         return;
       }
 
-      // Get team information
-      const team = teamsConfig.getTeamById(teamId);
+      // Get team information from guild
+      const team = teamsConfig.getTeamByGuildId(guildId);
 
       if (!team) {
         await interaction.update({
@@ -95,8 +84,16 @@ module.exports = {
       );
     } catch (e) {
       console.error(e);
+      
+      // Try to get language from error context or default to English
+      let errorLang = 'en';
+      try {
+        const data = interaction.customId.replace('accept_tos_', '');
+        errorLang = data.split(',')[1] || 'en';
+      } catch {}
+      
       await interaction.reply({
-        content: t(registrationData?.lang || 'en', "tos_registration_error"),
+        content: t(errorLang, "tos_registration_error"),
         ephemeral: true,
       });
     }

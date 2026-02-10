@@ -4,6 +4,7 @@ const translations = {
     // Registration
     already_registered: "You are already registered for **{team}** {flag}. You cannot change teams.",
     minecraft_taken: "This Minecraft name is already registered.",
+    minecraft_invalid_chars: "Minecraft name cannot contain commas or special characters.",
     server_no_team: "This server is not assigned to a team. Please contact an administrator.",
     registration_success: "You have been successfully registered for **{team}** {flag}! You are now permanently part of this team.",
     registration_error: "There was an error during registration. Please try again.",
@@ -95,6 +96,7 @@ const translations = {
     // Registration
     already_registered: "Du bist bereits für **{team}** {flag} registriert. Du kannst nicht das Team wechseln.",
     minecraft_taken: "Dieser Minecraft-Name ist bereits registriert.",
+    minecraft_invalid_chars: "Der Minecraft-Name darf keine Kommas oder Sonderzeichen enthalten.",
     server_no_team: "Dieser Server ist keinem Team zugeordnet. Bitte kontaktiere einen Administrator.",
     registration_success: "Du wurdest erfolgreich für **{team}** {flag} registriert! Du bist jetzt permanent Teil dieses Teams.",
     registration_error: "Es gab einen Fehler bei der Registrierung. Bitte versuche es erneut.",
@@ -186,6 +188,7 @@ const translations = {
     // Registration
     already_registered: "Vous êtes déjà inscrit pour **{team}** {flag}. Vous ne pouvez pas changer d'équipe.",
     minecraft_taken: "Ce nom Minecraft est déjà enregistré.",
+    minecraft_invalid_chars: "Le nom Minecraft ne peut pas contenir de virgules ou de caractères spéciaux.",
     server_no_team: "Ce serveur n'est pas assigné à une équipe. Veuillez contacter un administrateur.",
     registration_success: "Vous avez été inscrit avec succès pour **{team}** {flag}! Vous faites maintenant partie de cette équipe de façon permanente.",
     registration_error: "Une erreur s'est produite lors de l'inscription. Veuillez réessayer.",
@@ -277,6 +280,7 @@ const translations = {
   sq: { // Albanian
     already_registered: "Jeni tashmë i regjistruar për **{team}** {flag}. Nuk mund të ndryshoni ekipin.",
     minecraft_taken: "Ky emër Minecraft është tashmë i regjistruar.",
+    minecraft_invalid_chars: "Emri Minecraft nuk mund të përmbajë presje ose karaktere speciale.",
     server_no_team: "Ky server nuk është i caktuar për asnjë ekip. Ju lutemi kontaktoni një administrator.",
     registration_success: "U regjistruat me sukses për **{team}** {flag}! Tani jeni pjesë e përhershme e këtij ekipi.",
     registration_error: "Pati një gabim gjatë regjistrimit. Ju lutemi provoni përsëri.",
@@ -305,6 +309,7 @@ const translations = {
   bs: { // Bosnian
     already_registered: "Već ste registrovani za **{team}** {flag}. Ne možete promijeniti tim.",
     minecraft_taken: "Ovo Minecraft ime je već registrovano.",
+    minecraft_invalid_chars: "Minecraft ime ne može sadržavati zareze ili specijalne znakove.",
     server_no_team: "Ovaj server nije dodijeljen nijednom timu. Molimo kontaktirajte administratora.",
     registration_success: "Uspješno ste registrovani za **{team}** {flag}! Sada ste trajno dio ovog tima.",
     registration_error: "Došlo je do greške tokom registracije. Molimo pokušajte ponovo.",
@@ -333,6 +338,7 @@ const translations = {
   bg: { // Bulgarian
     already_registered: "Вече сте регистриран за **{team}** {flag}. Не можете да смените отбора.",
     minecraft_taken: "Това Minecraft име вече е регистрирано.",
+    minecraft_invalid_chars: "Minecraft името не може да съдържа запетаи или специални знаци.",
     server_no_team: "Този сървър не е назначен на отбор. Моля, свържете се с администратор.",
     registration_success: "Успешно се регистрирахте за **{team}** {flag}! Сега сте постоянна част от този отбор.",
     registration_error: "Възникна грешка при регистрацията. Моля, опитайте отново.",
@@ -361,6 +367,7 @@ const translations = {
   hr: { // Croatian
     already_registered: "Već ste registrirani za **{team}** {flag}. Ne možete promijeniti tim.",
     minecraft_taken: "Ovo Minecraft ime je već registrirano.",
+    minecraft_invalid_chars: "Minecraft ime ne može sadržavati zareze ili specijalne znakove.",
     server_no_team: "Ovaj server nije dodijeljen nijednom timu. Molimo kontaktirajte administratora.",
     registration_success: "Uspješno ste registrirani za **{team}** {flag}! Sada ste trajno dio ovog tima.",
     registration_error: "Došlo je do greške tijekom registracije. Molimo pokušajte ponovno.",
@@ -389,6 +396,7 @@ const translations = {
   el: { // Greek
     already_registered: "Είστε ήδη εγγεγραμμένος για **{team}** {flag}. Δεν μπορείτε να αλλάξετε ομάδα.",
     minecraft_taken: "Αυτό το όνομα Minecraft είναι ήδη καταχωρημένο.",
+    minecraft_invalid_chars: "Το όνομα Minecraft δεν μπορεί να περιέχει κόμματα ή ειδικούς χαρακτήρες.",
     server_no_team: "Αυτός ο διακομιστής δεν έχει ανατεθεί σε ομάδα. Επικοινωνήστε με έναν διαχειριστή.",
     registration_success: "Εγγραφήκατε επιτυχώς για **{team}** {flag}! Τώρα είστε μόνιμο μέλος αυτής της ομάδας.",
     registration_error: "Παρουσιάστηκε σφάλμα κατά την εγγραφή. Παρακαλώ δοκιμάστε ξανά.",
@@ -417,6 +425,7 @@ const translations = {
   mk: { // Macedonian
     already_registered: "Веќе сте регистрирани за **{team}** {flag}. Не можете да го промените тимот.",
     minecraft_taken: "Ова Minecraft име е веќе регистрирано.",
+    minecraft_invalid_chars: "Minecraft името не може да содржи запирки или специјални знаци.",
     server_no_team: "Овој сервер не е доделен на тим. Ве молиме контактирајте администратор.",
     registration_success: "Успешно се регистриравте за **{team}** {flag}! Сега сте трајно дел од овој тим.",
     registration_error: "Се појави грешка при регистрацијата. Ве молиме обидете се повторно.",
@@ -445,6 +454,7 @@ const translations = {
   ro: { // Romanian
     already_registered: "Ești deja înregistrat pentru **{team}** {flag}. Nu poți schimba echipa.",
     minecraft_taken: "Acest nume Minecraft este deja înregistrat.",
+    minecraft_invalid_chars: "Numele Minecraft nu poate conține virgule sau caractere speciale.",
     server_no_team: "Acest server nu este atribuit unei echipe. Vă rugăm să contactați un administrator.",
     registration_success: "Te-ai înregistrat cu succes pentru **{team}** {flag}! Acum faci parte permanent din această echipă.",
     registration_error: "A apărut o eroare în timpul înregistrării. Vă rugăm să încercați din nou.",
@@ -473,6 +483,7 @@ const translations = {
   sr: { // Serbian (Cyrillic)
     already_registered: "Већ сте регистровани за **{team}** {flag}. Не можете променити тим.",
     minecraft_taken: "Ово Minecraft име је већ регистровано.",
+    minecraft_invalid_chars: "Minecraft име не може садржати зарезе или посебне знакове.",
     server_no_team: "Овај сервер није додељен ниједном тиму. Молимо контактирајте администратора.",
     registration_success: "Успешно сте регистровани за **{team}** {flag}! Сада сте трајно део овог тима.",
     registration_error: "Дошло је до грешке током регистрације. Молимо покушајте поново.",
@@ -501,6 +512,7 @@ const translations = {
   sl: { // Slovenian
     already_registered: "Že ste registrirani za **{team}** {flag}. Ne morete zamenjati ekipe.",
     minecraft_taken: "To Minecraft ime je že registrirano.",
+    minecraft_invalid_chars: "Minecraft ime ne sme vsebovati vejic ali posebnih znakov.",
     server_no_team: "Ta strežnik ni dodeljen nobeni ekipi. Prosimo, kontaktirajte administratorja.",
     registration_success: "Uspešno ste se registrirali za **{team}** {flag}! Zdaj ste trajno del te ekipe.",
     registration_error: "Med registracijo je prišlo do napake. Prosimo, poskusite znova.",
@@ -529,6 +541,7 @@ const translations = {
   gsw: { // Swiss German
     already_registered: "Du bisch bereits für **{team}** {flag} registriert. Du chasch s'Team nöd wächsle.",
     minecraft_taken: "Dä Minecraft-Name isch bereits registriert.",
+    minecraft_invalid_chars: "De Minecraft-Name darf kei Kommas oder Sonderzeiche ha.",
     server_no_team: "Dä Server isch keinem Team zuegwise. Bitte kontaktier en Administrator.",
     registration_success: "Du bisch erfolgriich für **{team}** {flag} registriert worde! Du bisch jetzt permanent Teil vo dem Team.",
     registration_error: "S'het en Fehler bi der Registrierig gäh. Bitte versuech's nomol.",
@@ -557,6 +570,7 @@ const translations = {
   rm: { // Romansh
     already_registered: "Ti es gia registrà per **{team}** {flag}. Ti na pos betg midar l'equipa.",
     minecraft_taken: "Quest num Minecraft è gia registrà.",
+    minecraft_invalid_chars: "Il num Minecraft na dastga betg cuntegner commas u caracters spezials.",
     server_no_team: "Quest server n'è betg attribuì ad ina equipa. Contactescha per plaschair in administratur.",
     registration_success: "Ti has ti registrà cun success per **{team}** {flag}! Ti es ussa permanent part da questa equipa.",
     registration_error: "I è succedì in errur durant la registraziun. Emprova per plaschair anc ina giada.",
