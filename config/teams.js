@@ -6,14 +6,18 @@ module.exports = {
       name: "Team Germany",
       flag: "🇩🇪",
       guild_ids: ["692825222373703772"],
-    }
-  ],
-  teams: [
+    },
     {
       id: "team_italia",
       name: "Team Italia",
       flag: "🇮🇹",
       guild_ids: ["686910132017430538"],
+    },
+    {
+      id: "team_balkans",
+      name: "Team Balkans",
+      flag: "<:Balkans:1074743271286374480>",
+      guild_ids: ["763134152965881926"],
     }
   ],
 
