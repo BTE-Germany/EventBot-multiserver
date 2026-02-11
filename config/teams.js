@@ -8,6 +8,14 @@ module.exports = {
       guild_ids: ["692825222373703772"],
     }
   ],
+  teams: [
+    {
+      id: "team_italia",
+      name: "Team Italia",
+      flag: "🇮🇹",
+      guild_ids: ["686910132017430538"],
+    }
+  ],
 
   // Get team by guild ID
   getTeamByGuildId: function (guildId) {
