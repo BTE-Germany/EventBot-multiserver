@@ -18,6 +18,12 @@ module.exports = {
       name: "Team Balkans",
       flag: "<:Balkans:1074743271286374480>",
       guild_ids: ["763134152965881926"],
+    },
+    {
+      id: "team_alpsbte",
+      name: "Team AlpsBTE",
+      flag: "<:alps_logo:891776560435191809>",
+      guild_ids: ["696795397376442440"],
     }
   ],
 
