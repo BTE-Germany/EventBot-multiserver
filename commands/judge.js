@@ -49,6 +49,19 @@ module.exports = {
         required: true,
       },
       {
+        name: "difficulty",
+        description: "Difficulty/complexity of the build",
+        type: 4,
+        choices: [
+          { name: "1", value: 1 },
+          { name: "2", value: 2 },
+          { name: "3", value: 3 },
+          { name: "4", value: 4 },
+          { name: "5", value: 5 },
+        ],
+        required: true,
+      },
+      {
         name: "base_points",
         description: "Base points of the build",
         type: 5,
@@ -137,6 +150,7 @@ module.exports = {
               judges: judges,
               A: interaction.options.getInteger("details"),
               B: interaction.options.getInteger("effort"),
+              C: interaction.options.getInteger("difficulty"),
               base_points: base_points,
               foreign_build: foreign_build,
             },
@@ -192,6 +206,8 @@ module.exports = {
               "details"
             )}/${interaction.options.getInteger(
               "effort"
+            )}/${interaction.options.getInteger(
+              "difficulty"
             )}. Base points: ${base_points}. 1/2 judges.`
           );
           return;
@@ -207,12 +223,14 @@ module.exports = {
               judges: judges,
               A: (build.A + interaction.options.getInteger("details")) / 2,
               B: (build.B + interaction.options.getInteger("effort")) / 2,
+              C: (build.C + interaction.options.getInteger("difficulty")) / 2,
             },
           });
           const base_points = build.base_points ? 0 : -5;
           let pointsToAward =
             (build.A + interaction.options.getInteger("details")) / 2 +
             (build.B + interaction.options.getInteger("effort")) / 2 +
+            (build.C + interaction.options.getInteger("difficulty")) / 2 +
             base_points;
 
           // Apply foreign build multiplier if applicable (once per day per user)
@@ -353,6 +371,7 @@ module.exports = {
                   name: t(lang, "rating"),
                   value: `${t(lang, "details")}: ${(build.A + interaction.options.getInteger("details")) / 2
                     }\n${t(lang, "effort_size")}: ${(build.B + interaction.options.getInteger("effort")) / 2
+                    }\n${t(lang, "difficulty")}: ${(build.C + interaction.options.getInteger("difficulty")) / 2
                     }\n${t(lang, "base_points")}: ${(build.base_points) ? t(lang, "yes") : t(lang, "no")
                     }\n${t(lang, "foreign_build")}: ${(build.foreign_build) ? t(lang, "yes") : t(lang, "no")
                     }`,
@@ -409,7 +428,7 @@ module.exports = {
             `Judge ${interaction.member.user.id} rated build ${build.id
             } as ${interaction.options.getInteger(
               "details"
-            )}/${interaction.options.getInteger("effort")}. 2/2 judges.`
+            )}/${interaction.options.getInteger("effort")}/${interaction.options.getInteger("difficulty")}. 2/2 judges.`
           );
           return;
         }

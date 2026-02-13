@@ -72,7 +72,7 @@ module.exports = {
               let embeds = [
                 {
                   title: `#${obj.id}`,
-                  description: "Team:" + (dbUser.team_flag ? ' ' + dbUser.team_flag : '') + " Coordinates: " + obj.location,
+                  description: "Team:" + (dbUser.team_flag ? ' ' + dbUser.team_flag : '') + "\nCoordinates: " + obj.location,
                   url: "https://bte-germany.de",
                   author: {
                     name: `${dbUser.minecraft_id}`,

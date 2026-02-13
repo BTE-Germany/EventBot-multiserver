@@ -58,6 +58,7 @@ const translations = {
     rating: "Rating",
     details: "Details",
     effort_size: "Effort / Size",
+    difficulty: "Difficulty",
     back: "Back",
     
     // Language
@@ -155,6 +156,7 @@ const translations = {
     rating: "Bewertung",
     details: "Details",
     effort_size: "Aufwand / Größe",
+    difficulty: "Schwierigkeit",
     back: "Zurück",
     
     // Language
@@ -252,6 +254,7 @@ const translations = {
     rating: "Évaluation",
     details: "Détails",
     effort_size: "Effort / Taille",
+    difficulty: "Difficulté",
     back: "Retour",
     
     // Language

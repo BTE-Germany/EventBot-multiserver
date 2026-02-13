@@ -26,6 +26,7 @@ model Build {
   location          String   @db.VarChar(255)
   A                 Float    @default(0)
   B                 Float    @default(0)
+  C                 Float    @default(0)
   base_points       Boolean  @default(true)
   foreign_build     Boolean  @default(false)
   builder_id        BigInt   @db.BigInt
