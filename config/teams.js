@@ -24,6 +24,12 @@ module.exports = {
       name: "Team AlpsBTE",
       flag: "<:alps_logo:891776560435191809>",
       guild_ids: ["696795397376442440"],
+    },
+    {
+      id: "team_france",
+      name: "Team France",
+      flag: "🇫🇷",
+      guild_ids: ["694003889506091100"],
     }
   ],
 
