@@ -54,22 +54,39 @@ module.exports = {
             ephemeral: true,
           });
         } else {
-          // Get the submission channel from the build's guild
-          const serverConfig = serversConfig[build.guild_id];
-          const submissionChannel = serverConfig?.submission;
+          // Edit messages in all submission channels
+          for (const [guildId, config] of Object.entries(serversConfig)) {
+            try {
+              const channel = await client.channels.fetch(config.submission);
+              if (guildId === build.guild_id) {
+                // For the original guild, use the stored message ID
+                await channel.messages.fetch(build.message.toString())
+                  .then((msg) => msg.edit({ content: "Build deleted!", embeds: [] }))
+                  .catch(err => console.error(`Error editing submission message in guild ${guildId}:`, err));
+              } else {
+                // For other guilds, search recent messages for the build
+                const messages = await channel.messages.fetch({ limit: 100 });
+                const buildMessage = messages.find(m => 
+                  m.author.id === client.user.id && 
+                  m.embeds.length > 0 && 
+                  m.embeds[0].title === `#${build.id}`
+                );
+                if (buildMessage) {
+                  await buildMessage.edit({ content: "Build deleted!", embeds: [] })
+                    .catch(err => console.error(`Error editing submission message in guild ${guildId}:`, err));
+                }
+              }
+            } catch (error) {
+              console.error(`Error accessing submission channel for guild ${guildId}:`, error);
+            }
+          }
           
           if (build.judges.length < 2) {
-            if (submissionChannel) {
-              client.channels.cache
-                .get(submissionChannel)
-                .messages.fetch(build.message)
-                .then((msg) => msg.delete())
-                .catch(err => console.error("Error deleting submission message:", err));
-            }
             client.channels.cache
               .get(process.env.JUDGE_CHANNEL)
               .messages.fetch(build.judge_msg)
-              .then((msg) => msg.delete());
+              .then((msg) => msg.edit({ content: "Build deleted!", embeds: [] }))
+              .catch(err => console.error("Error editing judge message:", err));
             await prisma.build.delete({
               where: {
                 id: interaction.options.getInteger("id"),
@@ -102,17 +119,11 @@ module.exports = {
                 );
               });
           } else {
-            if (submissionChannel) {
-              client.channels.cache
-                .get(submissionChannel)
-                .messages.fetch(build.message)
-                .then((msg) => msg.delete())
-                .catch(err => console.error("Error deleting submission message:", err));
-            }
             client.channels.cache
               .get(process.env.JUDGE_CHANNEL)
               .messages.fetch(build.judge_msg)
-              .then((msg) => msg.delete());
+              .then((msg) => msg.edit({ content: "Build deleted!", embeds: [] }))
+              .catch(err => console.error("Error editing judge message:", err));
             await prisma.build
               .delete({
                 where: {
