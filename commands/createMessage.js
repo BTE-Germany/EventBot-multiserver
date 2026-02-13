@@ -1,9 +1,22 @@
 module.exports = {
+  staffOnly: true,
   command: {
     name: "createmsg",
     description: "Erzeugt eine Nachricht für den Leaderboard-Kanal",
   },
   run: async (client, interaction, prisma) => {
+    // Check if user has staff role
+    if (
+      !interaction.member.roles.cache.some(
+        (role) => role.id === process.env.PING_ROLE
+      )
+    ) {
+      return interaction.reply({
+        content: "Du hast keine Berechtigung, diesen Befehl auszuführen!",
+        ephemeral: true,
+      });
+    }
+
     interaction.reply({
       content: "Ok.",
       ephemeral: true,

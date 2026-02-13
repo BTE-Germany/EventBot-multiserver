@@ -40,23 +40,67 @@ for (const file of eventFiles) {
 }
 
 client.once("ready", async () => {
+  // Clear all commands if CLEAR_COMMANDS is set to true
+  if (process.env.CLEAR_COMMANDS === "true") {
+    console.log(new Date().toLocaleString(), "Clearing all commands...");
+    
+    // Clear global commands
+    await client.application.commands.set([]);
+    console.log(new Date().toLocaleString(), "Global commands cleared");
+    
+    // Clear guild commands for all guilds
+    for (const [guildId, guild] of client.guilds.cache) {
+      await guild.commands.set([]);
+      console.log(new Date().toLocaleString(), `Guild commands cleared for: ${guild.name}`);
+    }
+    
+    console.log(new Date().toLocaleString(), "All commands cleared. Set CLEAR_COMMANDS=false and restart.");
+    return;
+  }
+  
   //load command from command handler dir
   // client.application.commands.set([]);
   const commandFiles = fs
     .readdirSync("./commands")
     .filter((file) => file.endsWith(".js"));
+  
+  const mainGuildId = process.env.MAIN_GUILD_ID;
+  const mainGuild = mainGuildId ? client.guilds.cache.get(mainGuildId) : null;
+  
   for (const file of commandFiles) {
     let data = require(`./commands/${file}`);
     commands.push(data);
-    client.application.commands
-      .create(data.command)
-      .then(() =>
-        console.log(
-          new Date().toLocaleString(),
-          `Command registriert: /${data.command.name}`
+    
+    const isStaffOnly = data.staffOnly || false;
+    
+    if (isStaffOnly && mainGuild) {
+      // Register staff commands only to main guild
+      mainGuild.commands
+        .create(data.command)
+        .then(() =>
+          console.log(
+            new Date().toLocaleString(),
+            `Command registriert (Main Guild): /${data.command.name}`
+          )
         )
-      )
-      .catch(console.error);
+        .catch(console.error);
+    } else if (!isStaffOnly) {
+      // Register public commands globally
+      client.application.commands
+        .create(data.command)
+        .then(() =>
+          console.log(
+            new Date().toLocaleString(),
+            `Command registriert (Global): /${data.command.name}`
+          )
+        )
+        .catch(console.error);
+    } else if (isStaffOnly && !mainGuild) {
+      console.warn(
+        new Date().toLocaleString(),
+        `Warning: Staff command /${data.command.name} not registered - MAIN_GUILD_ID not set or guild not found`
+      );
+    }
   }
 
   const scheduleFiles = fs

@@ -1,18 +1,31 @@
 require("dotenv").config();
 
 module.exports = {
+  staffOnly: true,
   command: {
     name: "unjudged",
     description: "Ruft alle unjudizierten Builds ab.",
   },
   run: async (client, interaction, prisma) => {
+    // Check if user has staff role
+    if (
+      !interaction.member.roles.cache.some(
+        (role) => role.id === process.env.PING_ROLE
+      )
+    ) {
+      return interaction.reply({
+        content: "Du hast keine Berechtigung, diesen Befehl auszuführen!",
+        ephemeral: true,
+      });
+    }
+
     //get all unjudged builds, that means judges[] cardinality is < 2
     const allBuilds = await prisma.build.findMany();
     const unjudgedBuilds = allBuilds
       .filter((build) => build.judges.length < 2)
       .map((build) => ({
         id: build.id,
-        discord_url: `https://discord.com/channels/${process.env.GUILD_ID}/${process.env.JUDGE_CHANNEL}/${build.judge_msg}`
+        discord_url: `https://discord.com/channels/${process.env.MAIN_GUILD_ID}/${process.env.JUDGE_CHANNEL}/${build.judge_msg}`
       }));
 
     if (unjudgedBuilds.length === 0) {

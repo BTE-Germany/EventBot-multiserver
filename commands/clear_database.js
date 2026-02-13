@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 module.exports = {
+  staffOnly: true,
   command: {
     name: "cleardatabase",
     description: "Löscht PERMANENT den Inhalt der BUILD-Tabelle und setzt alle Punkte auf 0.",
@@ -20,6 +21,18 @@ module.exports = {
     ],
   },
   run: async (client, interaction, prisma) => {
+    // Check if user has staff role
+    if (
+      !interaction.member.roles.cache.some(
+        (role) => role.id === process.env.PING_ROLE
+      )
+    ) {
+      return interaction.reply({
+        content: "Du hast keine Berechtigung, diesen Befehl auszuführen!",
+        ephemeral: true,
+      });
+    }
+
     if (interaction.options.getBoolean("sure") === false) {
       return interaction.reply({
         content: "Du musst sicherstellen, dass du die Datenbank wirklich löschen möchtest.",

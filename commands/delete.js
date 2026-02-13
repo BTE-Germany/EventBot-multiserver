@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 module.exports = {
+  staffOnly: true,
   command: {
     name: "delete",
     description: "Delete a build!",
@@ -20,6 +21,18 @@ module.exports = {
     ],
   },
   run: async (client, interaction, prisma) => {
+    // Check if user has staff role
+    if (
+      !interaction.member.roles.cache.some(
+        (role) => role.id === process.env.PING_ROLE
+      )
+    ) {
+      return interaction.reply({
+        content: "Du hast keine Berechtigung, diesen Befehl auszuführen!",
+        ephemeral: true,
+      });
+    }
+
     // Parse servers config
     let serversConfig = {};
     try {

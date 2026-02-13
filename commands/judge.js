@@ -1,6 +1,7 @@
 const { t, getUserLanguage } = require("../config/translations.js");
 
 module.exports = {
+  staffOnly: true,
   command: {
     name: "judge",
     description: "Rate a build",

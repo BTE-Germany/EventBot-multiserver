@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const { BlobServiceClient } = require("@azure/storage-blob");
 const blobServiceClient = BlobServiceClient.fromConnectionString(
   process.env.AZURE_STORAGE_CONNECTION_STRING
@@ -9,6 +8,7 @@ const containerClient = blobServiceClient.getContainerClient(
 );
 
 module.exports = {
+  staffOnly: true,
   command: {
     name: "clearimages",
     description: "Löscht PERMANENT den Inhalt des Bild-Speichers",
@@ -28,6 +28,18 @@ module.exports = {
     ],
   },
   run: async (client, interaction, prisma) => {
+    // Check if user has staff role
+    if (
+      !interaction.member.roles.cache.some(
+        (role) => role.id === process.env.PING_ROLE
+      )
+    ) {
+      return interaction.reply({
+        content: "Du hast keine Berechtigung, diesen Befehl auszuführen!",
+        ephemeral: true,
+      });
+    }
+
     if (interaction.options.getBoolean("sure") === false) {
       return interaction.reply({
         content: "Du musst sicherstellen, dass du die Datenbank wirklich löschen möchtest.",
