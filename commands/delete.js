@@ -54,28 +54,17 @@ module.exports = {
             ephemeral: true,
           });
         } else {
-          // Edit messages in all submission channels
-          for (const [guildId, config] of Object.entries(serversConfig)) {
+          // Edit messages in all submission channels using tracked message IDs
+          const submissionMessages = build.submission_messages || {};
+          for (const [guildId, messageId] of Object.entries(submissionMessages)) {
             try {
+              const config = serversConfig[guildId];
+              if (!config) continue;
+              
               const channel = await client.channels.fetch(config.submission);
-              if (guildId === build.guild_id) {
-                // For the original guild, use the stored message ID
-                await channel.messages.fetch(build.message.toString())
-                  .then((msg) => msg.edit({ content: "Build deleted!", embeds: [] }))
-                  .catch(err => console.error(`Error editing submission message in guild ${guildId}:`, err));
-              } else {
-                // For other guilds, search recent messages for the build
-                const messages = await channel.messages.fetch({ limit: 100 });
-                const buildMessage = messages.find(m => 
-                  m.author.id === client.user.id && 
-                  m.embeds.length > 0 && 
-                  m.embeds[0].title === `#${build.id}`
-                );
-                if (buildMessage) {
-                  await buildMessage.edit({ content: "Build deleted!", embeds: [] })
-                    .catch(err => console.error(`Error editing submission message in guild ${guildId}:`, err));
-                }
-              }
+              await channel.messages.fetch(messageId.toString())
+                .then((msg) => msg.edit({ content: "Build deleted!", embeds: [] }))
+                .catch(err => console.error(`Error editing submission message in guild ${guildId}:`, err));
             } catch (error) {
               console.error(`Error accessing submission channel for guild ${guildId}:`, error);
             }

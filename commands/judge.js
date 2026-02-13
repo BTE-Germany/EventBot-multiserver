@@ -390,27 +390,28 @@ module.exports = {
           
           // Update message in all submission channels
           try {
-            const serversConfig = JSON.parse(process.env.SERVERS_CONFIG || "{}");
-            for (const [guildId, config] of Object.entries(serversConfig)) {
+            const submissionMessages = build.submission_messages || {};
+            for (const [guildId, messageId] of Object.entries(submissionMessages)) {
               try {
+                const serversConfig = JSON.parse(process.env.SERVERS_CONFIG || "{}");
+                const config = serversConfig[guildId];
+                if (!config) continue;
+                
                 const channel = await client.channels.fetch(config.submission);
-                // For the original guild, fetch and update the stored message
-                if (guildId === build.guild_id) {
-                  await channel.messages.fetch(build.message.toString())
-                    .then((message) => {
-                      message.edit({
-                        content: " ",
-                        embeds: embeds,
-                      });
-                    })
-                    .catch(err => console.error(`Error updating message in guild ${guildId}:`, err));
-                }
+                await channel.messages.fetch(messageId.toString())
+                  .then((message) => {
+                    message.edit({
+                      content: " ",
+                      embeds: embeds,
+                    });
+                  })
+                  .catch(err => console.error(`Error updating message in guild ${guildId}:`, err));
               } catch (error) {
                 console.error(`Error accessing submission channel for guild ${guildId}:`, error);
               }
             }
           } catch (e) {
-            console.error("Error parsing SERVERS_CONFIG:", e);
+            console.error("Error parsing SERVERS_CONFIG or updating submission messages:", e);
           }
 
             embeds[0].description += `\n ${t(lang, "judged_by")}: <@${build.judges[0]}> und <@${interaction.member.user.id}>`;

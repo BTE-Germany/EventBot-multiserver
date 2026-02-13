@@ -111,10 +111,11 @@ module.exports = {
               });
               
               // Send to ALL submission channels
+              const submissionMessages = {};
               for (const [guildId, config] of Object.entries(serversConfig)) {
                 try {
                   const channel = await args.client.channels.fetch(config.submission);
-                  await channel.send({
+                  const message = await channel.send({
                     content: " ",
                     embeds: embeds,
                     components: [
@@ -131,23 +132,36 @@ module.exports = {
                         ]
                       }
                     ]
-                  }).then(async (message) => {
-                    // Only store the message ID from the original guild
-                    if (guildId === args.guild.id) {
-                      await prisma.build.update({
-                        where: {
-                          id: obj.id,
-                        },
-                        data: {
-                          message: BigInt(message.id),
-                        },
-                      });
-                    }
                   });
+                  
+                  // Store message ID for this guild
+                  submissionMessages[guildId] = message.id;
+                  
+                  // Keep backwards compatibility with old message field
+                  if (guildId === args.guild.id) {
+                    await prisma.build.update({
+                      where: {
+                        id: obj.id,
+                      },
+                      data: {
+                        message: BigInt(message.id),
+                      },
+                    });
+                  }
                 } catch (error) {
                   console.error(`Error sending to submission channel ${config.submission}:`, error);
                 }
               }
+              
+              // Update with all submission message IDs
+              await prisma.build.update({
+                where: {
+                  id: obj.id,
+                },
+                data: {
+                  submission_messages: submissionMessages,
+                },
+              });
               
               args.client.channels.cache
                 .get(process.env.JUDGE_CHANNEL)

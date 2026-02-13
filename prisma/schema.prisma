@@ -20,20 +20,21 @@ model User {
 }
 
 model Build {
-  id                Int      @id @default(autoincrement())
-  message           BigInt?  @db.BigInt
-  judge_msg         BigInt?  @db.BigInt
-  location          String   @db.VarChar(255)
-  A                 Float    @default(0)
-  B                 Float    @default(0)
-  C                 Float    @default(0)
-  base_points       Boolean  @default(true)
-  foreign_build     Boolean  @default(false)
-  builder_id        BigInt   @db.BigInt
-  judges            Json
-  images            Json
-  created_timestamp DateTime @default(now()) @db.Timestamp(0)
-  guild_id          String?  @db.VarChar(255)
+  id                 Int      @id @default(autoincrement())
+  message            BigInt?  @db.BigInt // Deprecated: kept for backwards compatibility
+  submission_messages Json    @default("{}")
+  judge_msg          BigInt?  @db.BigInt
+  location           String   @db.VarChar(255)
+  A                  Float    @default(0)
+  B                  Float    @default(0)
+  C                  Float    @default(0)
+  base_points        Boolean  @default(true)
+  foreign_build      Boolean  @default(false)
+  builder_id         BigInt   @db.BigInt
+  judges             Json
+  images             Json
+  created_timestamp  DateTime @default(now()) @db.Timestamp(0)
+  guild_id           String?  @db.VarChar(255)
 }
 
 model Booster {
