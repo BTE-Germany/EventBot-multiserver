@@ -48,7 +48,7 @@ module.exports = {
     }
 
     const blobs = containerClient.listBlobsFlat();
-    const i = 0;
+    let i = 0;
     try {
       for await (const blob of blobs) {
         if (!blob.name.startsWith("wichtig/")) { // Do not delete important files
