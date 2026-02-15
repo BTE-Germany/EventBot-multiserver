@@ -2,7 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 module.exports = {
-  path: "/dashboard",
+  path: "/static/dashboard",
   method: "GET",
   handler: async (request, reply) => {
     try {
