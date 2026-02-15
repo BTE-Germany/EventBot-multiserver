@@ -655,7 +655,7 @@ function generateDashboardHTML(data, days) {
                 labels: data.scoresByCategory.map(d => new Date(d.date).toLocaleDateString()),
                 datasets: [
                     {
-                        label: 'Category A',
+                        label: 'Details (A)',
                         data: data.scoresByCategory.map(d => parseFloat(d.avg_a)),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.1)',
@@ -663,7 +663,7 @@ function generateDashboardHTML(data, days) {
                         tension: 0.4
                     },
                     {
-                        label: 'Category B',
+                        label: 'Size (B)',
                         data: data.scoresByCategory.map(d => parseFloat(d.avg_b)),
                         borderColor: 'rgb(54, 162, 235)',
                         backgroundColor: 'rgba(54, 162, 235, 0.1)',
@@ -671,7 +671,7 @@ function generateDashboardHTML(data, days) {
                         tension: 0.4
                     },
                     {
-                        label: 'Category C',
+                        label: 'Difficulty (C)',
                         data: data.scoresByCategory.map(d => parseFloat(d.avg_c)),
                         borderColor: 'rgb(255, 206, 86)',
                         backgroundColor: 'rgba(255, 206, 86, 0.1)',
@@ -745,7 +745,7 @@ function generateDashboardHTML(data, days) {
 
         // Change time range
         function changeTimeRange(days) {
-            window.location.href = '/dashboard?days=' + days;
+            window.location.href = '/static/dashboard?days=' + days;
         }
 
         // Auto-refresh every 60 seconds
