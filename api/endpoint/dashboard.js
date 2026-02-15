@@ -161,6 +161,17 @@ module.exports = {
           AND u.banned = 0
       `;
 
+      const housesvotherbuilds = await prisma.$queryRaw`
+        SELECT
+          DATE(created_timestamp) as date,
+          SUM(base_points) as house_builds,
+          SUM(CASE WHEN base_points != '1' THEN 1 ELSE 0 END) as other_builds
+        FROM Build
+        WHERE created_timestamp >= DATE_SUB(NOW(), INTERVAL ${parseInt(days)} DAY)
+        GROUP BY DATE(created_timestamp)
+        ORDER BY date
+      `;
+
       // Convert BigInt to string for JSON serialization
       const jsonStringify = (data) => {
         return JSON.parse(
@@ -181,6 +192,7 @@ module.exports = {
         teamLeaderboard: jsonStringify(teamLeaderboard),
         teamDistribution: jsonStringify(teamDistribution),
         summaryStats: jsonStringify(summaryStats[0]),
+        housesvotherbuilds: jsonStringify(housesvotherbuilds),
       };
 
       // Generate HTML
@@ -466,6 +478,14 @@ function generateDashboardHTML(data, days) {
                     <canvas id="teamDistributionChart"></canvas>
                 </div>
             </div>
+
+                <div class="chart-container">
+                <h2>House Builds vs Other Builds</h2>
+                <button class="download-btn" onclick="downloadChart('housesvotherbuildsChart')">📥 Download PNG</button>
+                <div class="chart-wrapper">
+                    <canvas id="housesvotherbuildsChart"></canvas>
+                </div>
+                
         </div>
 
         <div class="table-container">
@@ -729,6 +749,39 @@ function generateDashboardHTML(data, days) {
                         display: true,
                         position: 'right'
                     }
+                }
+            }
+        });
+
+        // Chart 8: House Builds vs Other Builds
+        new Chart(document.getElementById('housesvotherbuildsChart'), {
+            type: 'line',
+            data: {
+                labels: data.housesvotherbuilds.map(d => new Date(d.date).toLocaleDateString()),
+                datasets: [
+                    {
+                        label: 'House Builds',
+                        data: data.housesvotherbuilds.map(d => parseInt(d.house_builds)),
+                        borderColor: 'rgb(255, 159, 64)',
+                        backgroundColor: 'rgba(255, 159, 64, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Other Builds',
+                        data: data.housesvotherbuilds.map(d => parseInt(d.other_builds)),
+                        borderColor: 'rgb(54, 162, 235)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true }
                 }
             }
         });
