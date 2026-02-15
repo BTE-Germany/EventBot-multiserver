@@ -48,8 +48,8 @@ module.exports = {
       const foreignVsLocal = await prisma.$queryRaw`
         SELECT
           DATE(created_timestamp) as date,
-          SUM(CASE WHEN foreign_build = 1 THEN 1 ELSE 0 END) as foreign,
-          SUM(CASE WHEN foreign_build = 0 THEN 1 ELSE 0 END) as local
+          SUM(CASE WHEN foreign_build = 1 THEN 1 ELSE 0 END) as foreign_count,
+          SUM(CASE WHEN foreign_build = 0 THEN 1 ELSE 0 END) as local_count
         FROM Build
         WHERE created_timestamp >= DATE_SUB(NOW(), INTERVAL ${parseInt(days)} DAY)
         GROUP BY DATE(created_timestamp)
@@ -623,7 +623,7 @@ function generateDashboardHTML(data, days) {
                 datasets: [
                     {
                         label: 'Foreign Builds',
-                        data: data.foreignVsLocal.map(d => parseInt(d.foreign)),
+                        data: data.foreignVsLocal.map(d => parseInt(d.foreign_count)),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.1)',
                         fill: true,
@@ -631,7 +631,7 @@ function generateDashboardHTML(data, days) {
                     },
                     {
                         label: 'Local Builds',
-                        data: data.foreignVsLocal.map(d => parseInt(d.local)),
+                        data: data.foreignVsLocal.map(d => parseInt(d.local_count)),
                         borderColor: 'rgb(75, 192, 192)',
                         backgroundColor: 'rgba(75, 192, 192, 0.1)',
                         fill: true,
