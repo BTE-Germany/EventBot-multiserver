@@ -225,6 +225,7 @@ function generateDashboardHTML(data, days) {
     <title>EventBot Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -489,8 +490,11 @@ function generateDashboardHTML(data, days) {
         </div>
 
         <div class="table-container">
-            <h2>🏆 Top 20 Builders</h2>
-            <table>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>🏆 Top 20 Builders</h2>
+                <button class="download-btn" onclick="downloadTable('top20BuildersTable')">📥 Download PNG</button>
+            </div>
+            <table id="top20BuildersTable">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -517,8 +521,11 @@ function generateDashboardHTML(data, days) {
         </div>
 
         <div class="table-container">
-            <h2>🎯 Team Leaderboard</h2>
-            <table>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>🎯 Team Leaderboard</h2>
+                <button class="download-btn" onclick="downloadTable('teamLeaderboardTable')">📥 Download PNG</button>
+            </div>
+            <table id="teamLeaderboardTable">
                 <thead>
                     <tr>
                         <th>Team</th>
@@ -794,6 +801,29 @@ function generateDashboardHTML(data, days) {
             link.download = chartId + '-' + new Date().toISOString().split('T')[0] + '.png';
             link.href = url;
             link.click();
+        }
+
+        // Download table as PNG
+        async function downloadTable(tableId) {
+            const element = document.getElementById(tableId);
+            if (!element) return;
+            
+            try {
+                const canvas = await html2canvas(element, {
+                    backgroundColor: '#ffffff',
+                    scale: 2,
+                    allowTaint: true,
+                    useCORS: true
+                });
+                
+                const link = document.createElement('a');
+                link.download = tableId + '-' + new Date().toISOString().split('T')[0] + '.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                console.error('Error downloading table:', error);
+                alert('Error downloading table as PNG');
+            }
         }
 
         // Change time range
