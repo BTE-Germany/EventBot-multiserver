@@ -6,7 +6,15 @@ module.exports = {
     },
     run: async (client, interaction, prisma) => {
         const lang = await getUserLanguage(prisma, interaction.user.id);
-        let pageNum = parseInt(interaction.customId.split("leader-")[1]);
+        const pageNum = parseInt(interaction.customId.split("leader-")[1], 10);
+
+        if (Number.isNaN(pageNum) || pageNum < 0) {
+            interaction.reply({
+                content: t(lang, "no_more_pages"),
+                ephemeral: true,
+            });
+            return;
+        }
 
         // Get guild ID from the message to filter users
         const guildId = interaction.guild.id;
@@ -26,20 +34,15 @@ module.exports = {
         });
         users = users.sort((a, b) => b.points - a.points);
         users = users.filter((user) => user.points > 0);
-        users = users.slice(pageNum * 10, pageNum * 10 + 10)
+        users = users.slice(pageNum * 10, pageNum * 10 + 10);
 
         if(users.length === 0) {
             interaction.reply({
                 content: t(lang, "no_more_pages"),
                 ephemeral: true
             });
-            return
+            return;
         }
-
-        let points = 0;
-        users.forEach((user) => {
-            points = points + user.points;
-        });
 
         let userlist = "";
         let increment = pageNum * 10 + 1;
@@ -52,7 +55,7 @@ module.exports = {
             "content": null,
             "embeds": [
                 {
-                    "title": t(lang, "leaderboard_page", { page: pageNum }),
+                    "title": `${t(lang, "leaderboard_page", { page: pageNum })} (Local)`,
                     "description": userlist,
                     "color": 13697024,
                     "footer": {

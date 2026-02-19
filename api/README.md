@@ -52,6 +52,57 @@ Returns all users sorted by points (descending), filtered builds, and total poin
 
 ---
 
+## GET `/leaderboard-local`
+
+Returns users for a specific guild sorted by points (descending), guild builds, and guild total points.
+
+**Query Parameters:**
+- `guild_id` (required): Filter results by guild ID
+
+**Response:**
+
+```json
+{
+  "users": [
+    {
+      "id": "123456789012345678",
+      "banned": false,
+      "minecraft_id": "MinecraftPlayer",
+      "points": 0,
+      "team": "TeamName",
+      "team_flag": "🏳️",
+      "guild_id": "123456789012345678",
+      "language": "en"
+    }
+  ],
+  "builds": [
+    {
+      "id": 1,
+      "message": "123456789012345670",
+      "judge_msg": "123456789012345678",
+      "location": "location",
+      "A": 0,
+      "B": 0,
+      "base_points": true,
+      "foreign_build": false,
+      "builder_id": "123456789012345678",
+      "judges": [],
+      "images": [
+        "https://cdn.com/event/123456789012345678/eff455cd-787d-427f-8eb1-91e8a4ea2c26.jpg"
+      ],
+      "created_timestamp": "2026-02-09T12:00:00.000Z",
+      "guild_id": "123456789012345678"
+    }
+  ],
+  "points": 10
+}
+```
+
+**Error Responses:**
+- `400`: Missing required `guild_id`
+
+---
+
 ## GET `/get_user`
 
 Retrieves detailed information about a specific user, including their boosters and builds.

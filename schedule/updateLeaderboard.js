@@ -2,6 +2,22 @@ module.exports = {
   time: 300000,
   run: async (client, prisma) => {
     console.log(new Date().toLocaleString(), "Updating leaderboards...");
+
+    const formatLeaderboard = (users) => {
+      if (users.length === 0) {
+        return "No entries yet.";
+      }
+
+      const medals = [":first_place:", ":second_place:", ":third_place:"];
+
+      return users
+        .slice(0, 10)
+        .map((user, index) => {
+          const prefix = medals[index] || `${index + 1}.`;
+          return `${prefix} ${user.team_flag || ""} \`${user.minecraft_id}\`  |  ${user.points} Points`;
+        })
+        .join("\n");
+    };
     
     // Parse servers config
     let serversConfig = {};
@@ -23,9 +39,10 @@ module.exports = {
         points: user.points,
         minecraft_id: user.minecraft_id,
         team_flag: user.team_flag || "",
+        guild_id: user.guild_id,
       };
     });
-    globalUsers = globalUsers.sort((a, b) => b.points - a.points);
+    globalUsers = globalUsers.sort((a, b) => b.points - a.points).filter((user) => user.points > 0);
 
     // Calculate total points globally
     let totalPoints = 0;
@@ -33,9 +50,12 @@ module.exports = {
       totalPoints = totalPoints + user.points;
     });
 
-    // Update leaderboard for each server (all showing same global data)
+    // Update leaderboard for each server (global + regional data)
     for (const [guildId, config] of Object.entries(serversConfig)) {
       try {
+        const regionalUsers = globalUsers.filter((user) => user.guild_id === guildId);
+        const regionalPoints = regionalUsers.reduce((sum, user) => sum + user.points, 0);
+        const regionalBuilds = builds.filter((build) => build.guild_id === guildId);
 
         await client.channels.cache
           .get(config.leaderboard_channel)
@@ -46,24 +66,20 @@ module.exports = {
               embeds: [
                 {
                   title: "Leaderboard",
-                  description: `
-              :first_place: ${globalUsers[0]?.team_flag || ""} \`${globalUsers[0]?.minecraft_id}\`  |  ${globalUsers[0]?.points} Points \n
-              :second_place: ${globalUsers[1]?.team_flag || ""} \`${globalUsers[1]?.minecraft_id}\`  |  ${globalUsers[1]?.points} Points \n
-              :third_place: ${globalUsers[2]?.team_flag || ""} \`${globalUsers[2]?.minecraft_id}\`  |  ${globalUsers[2]?.points} Points \n
-              4​. ${globalUsers[3]?.team_flag || ""} \`${globalUsers[3]?.minecraft_id}\`  |  ${globalUsers[3]?.points} Points \n
-              5​. ${globalUsers[4]?.team_flag || ""} \`${globalUsers[4]?.minecraft_id}\`  |  ${globalUsers[4]?.points} Points \n
-              6​. ${globalUsers[5]?.team_flag || ""} \`${globalUsers[5]?.minecraft_id}\`  |  ${globalUsers[5]?.points} Points \n
-              7​. ${globalUsers[6]?.team_flag || ""} \`${globalUsers[6]?.minecraft_id}\`  |  ${globalUsers[6]?.points} Points \n
-              8​. ${globalUsers[7]?.team_flag || ""} \`${globalUsers[7]?.minecraft_id}\`  |  ${globalUsers[7]?.points} Points \n
-              9​. ${globalUsers[8]?.team_flag || ""} \`${globalUsers[8]?.minecraft_id}\`  |  ${globalUsers[8]?.points} Points \n
-              10​. ${globalUsers[9]?.team_flag || ""} \`${globalUsers[9]?.minecraft_id}\`  |  ${globalUsers[9]?.points} Points`,
+                  description: `**Global**\n${formatLeaderboard(globalUsers)}\n\n**Regional**\n${formatLeaderboard(regionalUsers)}`,
                   color: 13697024,
                   fields: [
                     {
-                      name: "Statistics",
+                      name: "Global Statistics",
                       value: `Total Builds: \`${builds.length}\` \n
                   Registered Builders: \`${globalUsers.length}\` \n
                   Total Points: \`${totalPoints}\``,
+                    },
+                    {
+                      name: "Regional Statistics",
+                      value: `Total Builds: \`${regionalBuilds.length}\` \n
+                  Registered Builders: \`${regionalUsers.length}\` \n
+                  Total Points: \`${regionalPoints}\``,
                     },
                   ],
                   footer: {
