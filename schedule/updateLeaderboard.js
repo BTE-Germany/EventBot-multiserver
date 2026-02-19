@@ -71,14 +71,14 @@ module.exports = {
                   fields: [
                     {
                       name: "Global Statistics",
-                      value: `Total Builds: \`${builds.length}\` \n
-                  Registered Builders: \`${globalUsers.length}\` \n
+                      value: `Total Builds: \`${builds.length}\`
+                  Registered Builders: \`${globalUsers.length}\`
                   Total Points: \`${totalPoints}\``,
                     },
                     {
                       name: "Regional Statistics",
-                      value: `Total Builds: \`${regionalBuilds.length}\` \n
-                  Registered Builders: \`${regionalUsers.length}\` \n
+                      value: `Total Builds: \`${regionalBuilds.length}\`
+                  Registered Builders: \`${regionalUsers.length}\`
                   Total Points: \`${regionalPoints}\``,
                     },
                   ],
