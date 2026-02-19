@@ -346,6 +346,21 @@ function generateDashboardHTML(data, days) {
             transition: all 0.3s;
             z-index: 10;
         }
+        .tdownload-btn {
+            align-self: flex-end;
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        .tdownload-btn:hover {
+            background: #764ba2;
+        }
         .download-btn:hover {
             background: #764ba2;
         }
@@ -492,8 +507,8 @@ function generateDashboardHTML(data, days) {
         <div class="table-container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h2>🏆 Top 20 Builders</h2>
+                <button class="tdownload-btn" onclick="downloadTable('top20BuildersTable')">📥 Download PNG</button>
             </div>
-            <button class="download-btn" onclick="downloadTable('top20BuildersTable')">📥 Download PNG</button>
             <table id="top20BuildersTable">
                 <thead>
                     <tr>
@@ -523,8 +538,8 @@ function generateDashboardHTML(data, days) {
         <div class="table-container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h2>🎯 Team Leaderboard</h2>
+                <button class="tdownload-btn" onclick="downloadTable('teamLeaderboardTable')">📥 Download PNG</button>
             </div>
-            <button class="download-btn" onclick="downloadTable('teamLeaderboardTable')">📥 Download PNG</button>
             <table id="teamLeaderboardTable">
                 <thead>
                     <tr>
