@@ -74,12 +74,14 @@ module.exports = {
                       value: `Total Builds: \`${builds.length}\`
                   Registered Builders: \`${globalUsers.length}\`
                   Total Points: \`${totalPoints}\``,
+                      inline: true,
                     },
                     {
-                      name: "Regional Statistics",
+                      name: "Local Statistics",
                       value: `Total Builds: \`${regionalBuilds.length}\`
                   Registered Builders: \`${regionalUsers.length}\`
                   Total Points: \`${regionalPoints}\``,
+                      inline: true,
                     },
                   ],
                   footer: {
