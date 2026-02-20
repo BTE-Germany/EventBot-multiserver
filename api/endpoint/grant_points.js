@@ -8,41 +8,49 @@ module.exports = {
     try {
       const { user_id, points } = request.body;
 
-      // Validate input
       if (!user_id || points === undefined || points === null) {
         return reply.status(400).send({
           error: "Missing required fields: user_id, points",
         });
       }
 
-      const pointsValue = parseFloat(points);
-      if (isNaN(pointsValue)) {
+      const pointsValue = Number(points);
+      if (!Number.isFinite(pointsValue)) {
         return reply.status(400).send({
           error: "Invalid points value. Must be a number.",
         });
       }
+      
+      if (pointsValue === 0) {
+        return reply.status(400).send({ error: "Points must not be 0." });
+      }
 
-      // Check if user exists
+      const userId = BigInt(user_id);
+
       const user = await prisma.user.findUnique({
-        where: {
-          id: BigInt(user_id),
-        },
+        where: { id: userId },
+        select: { id: true, points: true },
       });
 
       if (!user) {
-        return reply.status(404).send({
-          error: "User not found",
+        return reply.status(404).send({ error: "User not found" });
+      }
+
+      // Optional: prevent negative totals
+      const newTotal = user.points + pointsValue;
+      if (newTotal < 0) {
+        return reply.status(400).send({
+          error: "Insufficient points to deduct that amount.",
+          current_points: user.points,
+          attempted_change: pointsValue,
         });
       }
 
-      // Update user points
       const updatedUser = await prisma.user.update({
-        where: {
-          id: BigInt(user_id),
-        },
+        where: { id: userId },
         data: {
           points: {
-            increment: pointsValue,
+            increment: pointsValue, // negative value => deduction
           },
         },
       });
@@ -54,18 +62,16 @@ module.exports = {
             typeof v === "bigint" ? v.toString() : v
           )
         ),
-        points_granted: pointsValue,
+        points_change: pointsValue,
       });
 
       console.log(
         new Date().toLocaleString(),
-        `Points granted to user ${user_id}: ${pointsValue} (new total: ${updatedUser.points})`
+        `Points change for user ${user_id}: ${pointsValue} (new total: ${updatedUser.points})`
       );
     } catch (error) {
-      console.error("Error granting points:", error);
-      reply.status(500).send({
-        error: "Internal server error",
-      });
+      console.error("Error changing points:", error);
+      reply.status(500).send({ error: "Internal server error" });
     }
   },
 };
