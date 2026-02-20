@@ -16,7 +16,7 @@ module.exports = {
     {
       id: "team_balkans",
       name: "Team Balkans",
-      flag: "<:Balkans:1074743271286374480>",
+      flag: "<:Balkans:1472230871300833362>",
       guild_ids: ["763134152965881926"],
     },
     {
