@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "npx prisma generate && node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "recover-builds": "node scripts/recover-builds.js"
   },
   "dependencies": {
     "@azure/identity": "^4.2.1",

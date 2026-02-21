@@ -16,3 +16,26 @@ $ docker-compose up -d
 
 The port 6970 will be exposed for management of the built-in database. If you do not want to use the built-in database or don't want this port to be exposed, please edit the `docker-compose.yml` file accordingly. 
 The port 6969 will be exposed for access to the built-in API. If you do not want to use the built-in API or don't want this port to be exposed, please edit the `docker-compose.yml` file accordingly.
+
+# Recovery script for missed builds
+
+If a specific server missed submissions, you can re-post specific build IDs into that server's submission channel and sync them in the database.
+
+Command:
+
+```
+npm run recover-builds -- --guild <GUILD_ID> --ids "100-110,120,123"
+```
+
+Optional flags:
+
+- `--builder <DISCORD_USER_ID>`: required only for IDs that do not yet exist in DB (creates placeholder builds)
+- `--location "Recovered build"`: custom location prefix for created placeholders
+- `--dry-run`: validate parsing and config without posting/saving
+
+Examples:
+
+```
+npm run recover-builds -- --guild 123456789012345678 --ids "500-520,530,540"
+npm run recover-builds -- --guild 123456789012345678 --ids "700,701,702" --builder 999999999999999999
+```
