@@ -3,6 +3,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const { BlobServiceClient } = require("@azure/storage-blob");
 const { t, getUserLanguage } = require("../config/translations.js");
+const sharp = require("sharp");
 const blobServiceClient = BlobServiceClient.fromConnectionString(
   process.env.AZURE_STORAGE_CONNECTION_STRING
 );
@@ -83,12 +84,31 @@ module.exports = {
               for (const image of args.attachments.map((a) => a).slice(0, 3)) {
                 let uuid = crypto.randomUUID();
                 const response = await fetch(image.url);
-                const buffer = await response.arrayBuffer();
-                let filetype = image.name.split('.').pop().split('?')[0];
+                const sourceBuffer = Buffer.from(await response.arrayBuffer());
+
+                let uploadBuffer = sourceBuffer;
+                let filetype = "webp";
+                let contentType = "image/webp";
+
+                try {
+                  uploadBuffer = await sharp(sourceBuffer, { failOn: "none" })
+                    .rotate()
+                    .webp({ lossless: true, effort: 6 })
+                    .toBuffer();
+                } catch (error) {
+                  console.error("Image conversion failed, uploading original file:", error);
+                  filetype = image.name.split('.').pop().split('?')[0] || "bin";
+                  contentType = image.contentType || "application/octet-stream";
+                }
+
                 const blockBlobClient = containerClient.getBlockBlobClient(
                   `${user.id}/${uuid}.${filetype}`
                 );
-                await blockBlobClient.uploadData(buffer, buffer.byteLength);
+                await blockBlobClient.uploadData(uploadBuffer, {
+                  blobHTTPHeaders: {
+                    blobContentType: contentType,
+                  },
+                });
                 embeds.push({
                   url: "https://bte-germany.de",
                   image: {

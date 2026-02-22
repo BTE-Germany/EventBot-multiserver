@@ -39,3 +39,32 @@ Examples:
 npm run recover-builds -- --guild 123456789012345678 --ids "500-520,530,540"
 npm run recover-builds -- --guild 123456789012345678 --ids "700,701,702" --builder 999999999999999999
 ```
+
+# Lossless image migration to WebP
+
+To reduce blob storage usage without visible quality loss, you can migrate already stored build images to lossless WebP.
+
+Run a dry-run first:
+
+```
+npm run migrate-images-webp -- --dry-run
+```
+
+Then run the actual migration:
+
+```
+npm run migrate-images-webp
+```
+
+Optional flags:
+
+- `--ids "100-120,150"`: migrate only selected build IDs
+- `--limit 500`: process only the first N builds (ascending ID)
+- `--keep-original`: do not delete old source blobs after migration
+
+Examples:
+
+```
+npm run migrate-images-webp -- --dry-run --ids "1-200"
+npm run migrate-images-webp -- --ids "1-200"
+```
