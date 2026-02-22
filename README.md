@@ -68,3 +68,25 @@ Examples:
 npm run migrate-images-webp -- --dry-run --ids "1-200"
 npm run migrate-images-webp -- --ids "1-200"
 ```
+
+# Update existing embed image URLs to .webp
+
+After migrating blob files, update already posted Discord embeds (judge + all submission messages) so image URLs end with `.webp`.
+
+Run a dry-run first:
+
+```
+npm run update-embed-urls-webp -- --dry-run
+```
+
+Then apply changes:
+
+```
+npm run update-embed-urls-webp
+```
+
+Optional flags:
+
+- `--ids "100-120,150"`: update only selected build IDs
+- `--limit 500`: process only first N builds (ascending ID)
+
