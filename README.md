@@ -89,4 +89,5 @@ Optional flags:
 
 - `--ids "100-120,150"`: update only selected build IDs
 - `--limit 500`: process only first N builds (ascending ID)
+- `--force`: do not skip messages where URLs are already `.webp`; force a message edit
 

@@ -131,7 +131,7 @@ function patchEmbedUrls(embedJson, cdnHost) {
   return { changed, embed: result };
 }
 
-async function updateMessageEmbeds({ message, cdnHost, dryRun }) {
+async function updateMessageEmbeds({ message, cdnHost, dryRun, force }) {
   const currentEmbeds = message.embeds || [];
   if (currentEmbeds.length === 0) {
     return { changed: false, changedUrls: 0 };
@@ -149,7 +149,7 @@ async function updateMessageEmbeds({ message, cdnHost, dryRun }) {
     nextEmbeds.push(patched.embed);
   }
 
-  if (changedUrls === 0) {
+  if (changedUrls === 0 && !force) {
     return { changed: false, changedUrls: 0 };
   }
 
@@ -168,6 +168,7 @@ async function main() {
   const idsRaw = getArgValue("--ids", "-i");
   const limitRaw = getArgValue("--limit", "-l");
   const dryRun = hasFlag("--dry-run", "-d");
+  const force = hasFlag("--force", "-f");
 
   const targetIds = parseBuildIds(idsRaw);
   const limit = limitRaw ? Number.parseInt(limitRaw, 10) : null;
@@ -218,7 +219,9 @@ async function main() {
   let updatedMessages = 0;
   let failedMessages = 0;
 
-  console.log(`Processing ${builds.length} builds (${dryRun ? "dry-run" : "apply"})...`);
+  console.log(
+    `Processing ${builds.length} builds (${dryRun ? "dry-run" : "apply"}${force ? ", force" : ""})...`
+  );
 
   const judgeChannel = await client.channels.fetch(process.env.JUDGE_CHANNEL);
   if (!judgeChannel || !judgeChannel.isTextBased()) {
@@ -230,7 +233,7 @@ async function main() {
       scannedMessages += 1;
       try {
         const judgeMessage = await judgeChannel.messages.fetch(build.judge_msg.toString());
-        const result = await updateMessageEmbeds({ message: judgeMessage, cdnHost, dryRun });
+        const result = await updateMessageEmbeds({ message: judgeMessage, cdnHost, dryRun, force });
         if (result.changed) {
           updatedMessages += 1;
           console.log(`Build #${build.id}: updated judge embed URLs`);
@@ -279,7 +282,7 @@ async function main() {
         }
 
         const message = await channel.messages.fetch(target.messageId);
-        const result = await updateMessageEmbeds({ message, cdnHost, dryRun });
+        const result = await updateMessageEmbeds({ message, cdnHost, dryRun, force });
         if (result.changed) {
           updatedMessages += 1;
           console.log(`Build #${build.id}: updated submission embed URLs in guild ${target.guildId}`);
