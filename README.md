@@ -91,3 +91,33 @@ Optional flags:
 - `--limit 500`: process only first N builds (ascending ID)
 - `--force`: do not skip messages where URLs are already `.webp`; force a message edit
 
+# Re-sync Discord messages from database
+
+If you made manual DB edits (e.g. build coordinates, flags, ratings, team flag, or points), you can rebuild all related Discord messages from the current database state.
+
+Run a dry-run first:
+
+```
+npm run resync-messages -- --dry-run
+```
+
+Then apply changes:
+
+```
+npm run resync-messages
+```
+
+Optional flags:
+
+- `--ids "100-120,150"`: sync only selected build IDs
+- `--limit 500`: process only first N builds (ascending ID)
+- `--skip-leaderboards`: do not update leaderboard messages
+
+Examples:
+
+```
+npm run resync-messages -- --dry-run --ids "1-200"
+npm run resync-messages -- --ids "1-200"
+npm run resync-messages -- --skip-leaderboards
+```
+
