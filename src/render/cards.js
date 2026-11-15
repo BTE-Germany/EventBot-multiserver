@@ -144,7 +144,7 @@ function profileCard({ name, teamName, teamColor, avatar, rankText, points, poin
       return `
   <rect x="${x}" y="276" width="186" height="88" rx="16" fill="#1b1f2a"/>
   <text x="${x + 18}" y="318" font-size="28" font-weight="800" fill="#fff">${esc(fit(s.value, 10))}</text>
-  <text x="${x + 18}" y="346" font-size="15" fill="#9aa3b5">${esc(fit(s.label, 20))}</text>`;
+  <text x="${x + 18}" y="346" font-size="${s.label.length > 20 ? 13 : 15}" fill="#9aa3b5">${esc(fit(s.label, 26))}</text>`;
     })
     .join("");
 

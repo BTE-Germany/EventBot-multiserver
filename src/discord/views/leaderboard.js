@@ -26,6 +26,22 @@ function phaseLine(event, t, now = new Date()) {
   return `⚪ ${t(`phase.${phase === "none" ? "draft" : phase}`)}`;
 }
 
+// Plain-text phase for images, where Discord timestamps don't render:
+// "Ends in 3 days", localized via Intl.RelativeTimeFormat
+function relativeTime(date, locale, now = new Date()) {
+  const diff = new Date(date).getTime() - now.getTime();
+  const units = [["day", 864e5], ["hour", 36e5], ["minute", 6e4]];
+  const [unit, ms] = units.find(([, size]) => Math.abs(diff) >= size) || units[2];
+  return new Intl.RelativeTimeFormat(locale, { numeric: "auto" }).format(Math.round(diff / ms), unit);
+}
+
+function phaseText(event, t, now = new Date()) {
+  const phase = eventPhase(event, now);
+  if (phase === "upcoming") return t("phase.upcoming", { time: relativeTime(event.startsAt, t.locale, now) });
+  if (phase === "running") return event.endsAt ? t("phase.running", { time: relativeTime(event.endsAt, t.locale, now) }) : t("phase.runningOpen");
+  return t(`phase.${phase === "none" ? "draft" : phase}`);
+}
+
 function leadLine(lb, t) {
   if (lb.draw) return `🤝 ${t("board.draw")}`;
   if (!lb.winner || lb.teams.length < 2) return null;
@@ -320,6 +336,8 @@ module.exports = {
   PAGE_SIZE,
   rankingLines,
   phaseLine,
+  phaseText,
+  relativeTime,
   leaderboardPage,
   battleBoard,
   profileView,

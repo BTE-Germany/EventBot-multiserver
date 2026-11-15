@@ -4,7 +4,7 @@
 const { Routes } = require("discord.js");
 const { translator } = require("../i18n/index.js");
 const { buildPanel } = require("../discord/views/buildPanel.js");
-const { battleBoard, announcementView, wrapupView, phaseLine } = require("../discord/views/leaderboard.js");
+const { battleBoard, announcementView, wrapupView, phaseText } = require("../discord/views/leaderboard.js");
 const { teamLabel } = require("./events.js");
 
 const UNKNOWN_MESSAGE = 10008;
@@ -119,8 +119,7 @@ function createPanelService({ rest, store, events, guildConfigs, settings, stats
           const locale = await localeOf(link.guildId);
           const t = translator(locale);
           if (!images.has(locale)) {
-            const subtitle = phaseLine(bundle.event, t).replace(/<t:\d+:\w>/g, "").replace(/^\S+\s/, "").trim();
-            images.set(locale, await cards.battle({ bundle, lb, t, subtitle: subtitle || bundle.event.name }));
+            images.set(locale, await cards.battle({ bundle, lb, t, subtitle: phaseText(bundle.event, t) }));
           }
           const png = images.get(locale);
           const files = png ? [{ name: "battle.png", data: png, contentType: "image/png" }] : undefined;

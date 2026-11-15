@@ -161,3 +161,16 @@ test("the wrap-up follows the announcement template", () => {
   assert.match(text, /Top builders · Overall/);
   assert.match(text, /🇵🇱 `Bartek`/);
 });
+
+test("card subtitles carry a readable relative time in every locale", () => {
+  const now = new Date("2026-12-08T15:00:00Z");
+  const event = { status: "RUNNING", startsAt: "2026-12-04T15:00:00Z", endsAt: "2026-12-11T15:00:00Z" };
+  assert.equal(views.phaseText(event, translator("en-US"), now), "Ends in 3 days");
+  assert.equal(views.phaseText(event, translator("de"), now), "Endet in 3 Tagen");
+  for (const locale of DISCORD_LOCALES) {
+    const text = views.phaseText(event, translator(locale), now);
+    assert.doesNotMatch(text, /<t:|\{time\}/, locale);
+    assert.match(text, /3/, `${locale}: ${text}`);
+  }
+  assert.equal(views.phaseText({ ...event, status: "ENDED" }, translator("en-US"), now), "Building phase ended");
+});
