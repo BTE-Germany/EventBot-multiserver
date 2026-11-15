@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Hrvatski"
+  },
+  "common": {
+    "error": "Nešto je pošlo po zlu. Pokušaj ponovno kasnije.",
+    "noEvent": "Na ovom serveru trenutno nema eventa.",
+    "notRegistered": "Još nisi registriran. Prvo upotrijebi `/register`.",
+    "banned": "Isključen si iz ovog eventa.",
+    "notJudge": "To mogu napraviti samo suci ovog eventa.",
+    "notAdmin": "To mogu napraviti samo administratori bota.",
+    "buildNotFound": "Build #{id} nije pronađen.",
+    "guildOnly": "Ova se naredba može koristiti samo na serveru.",
+    "noTeam": "Bez tima",
+    "judgeBadge": "Sudac",
+    "pointsValue": "{value} bod.",
+    "buildsValue": "Buildovi: {count}",
+    "areaValue": "{value} m²",
+    "page": "Stranica {page}/{pages}",
+    "next": "Dalje",
+    "previous": "Natrag",
+    "notOwner": "Ovo nije tvoj build."
+  },
+  "phase": {
+    "draft": "U pripremi",
+    "upcoming": "Počinje {time}",
+    "running": "Završava {time}",
+    "runningOpen": "U tijeku",
+    "ended": "Faza gradnje je završila",
+    "archived": "Arhivirano",
+    "submitClosed": "Predaja trenutno nije otvorena.",
+    "registerClosed": "Registracija trenutno nije otvorena.",
+    "judgeClosed": "Ocjenjivanje nije moguće u ovoj fazi eventa."
+  },
+  "categories": {
+    "base": "Osnovni bodovi",
+    "effort": "Trud i složenost",
+    "detail": "Tehnika, boje i detalji",
+    "baseShort": "Osnova",
+    "effortShort": "Trud",
+    "detailShort": "Detalji",
+    "base0": "Bez bodova",
+    "base1": "Infrastruktura",
+    "base2": "Zgrada"
+  },
+  "reference": {
+    "3d": "3D prikaz",
+    "streetview": "Street View",
+    "images": "Fotografije",
+    "other": "Ostalo"
+  },
+  "status": {
+    "PENDING": "Čeka suce",
+    "IN_REVIEW": "Ocjenjuje se",
+    "COMPLETE": "Ocijenjeno",
+    "REJECTED": "Odbijeno"
+  },
+  "slots": {
+    "neutral": "Neutralni suci",
+    "team": "Suci: {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Registriraj se za event svojim Minecraft imenom",
+      "options": {
+        "minecraft": "Tvoje Minecraft ime (lažni podaci mogu dovesti do bana)",
+        "team": "Tvoj tim (potrebno samo na neutralnim serverima)"
+      }
+    },
+    "submit": {
+      "description": "Predaj build zajedno s referencom",
+      "options": {
+        "coordinates": "Koordinate builda (npr. 53.8655, 10.6866)",
+        "reference": "Koju si referencu koristio?",
+        "link": "Link na referencu (npr. Google Maps ili Street View)",
+        "image1": "Snimka zaslona odozgo s ucrtanim obrisima",
+        "image2": "Dodatna snimka zaslona (neobavezno)",
+        "image3": "Dodatna snimka zaslona (neobavezno)",
+        "area": "Izgrađena površina u m² (neobavezno)"
+      }
+    },
+    "profile": {
+      "description": "Prikaži svoju karticu statistike ili tuđu",
+      "options": {
+        "user": "Čiju statistiku prikazati?"
+      }
+    },
+    "builds": {
+      "description": "Popis predanih buildova i njihov status",
+      "options": {
+        "user": "Čije buildove prikazati?"
+      }
+    },
+    "leaderboard": {
+      "description": "Prikaži ljestvicu trenutnog eventa",
+      "options": {
+        "team": "Prikaži samo jedan tim"
+      }
+    },
+    "stats": {
+      "description": "Prikaži pregled borbe timova"
+    },
+    "help": {
+      "description": "Kako event funkcionira i koje naredbe postoje"
+    },
+    "judge": {
+      "description": "Ocijeni build (samo suci)",
+      "options": {
+        "id": "ID builda",
+        "base": "Osnovni bodovi",
+        "effort": "Trud i složenost",
+        "detail": "Tehnika, boje i detalji"
+      }
+    },
+    "reject": {
+      "description": "Odbij build s kratkim objašnjenjem (samo suci)",
+      "options": {
+        "id": "ID builda",
+        "reason": "Što treba popraviti?"
+      }
+    },
+    "correct": {
+      "description": "Ispravi konačnu ocjenu builda (samo suci)",
+      "options": {
+        "id": "ID builda",
+        "reason": "Zašto se ocjena ispravlja?",
+        "base": "Novi osnovni bodovi",
+        "effort": "Novi trud i složenost",
+        "detail": "Nova tehnika, boje i detalji"
+      }
+    },
+    "delete": {
+      "description": "Izbriši build (samo suci)",
+      "options": {
+        "id": "ID builda",
+        "reason": "Zašto se build briše?"
+      }
+    },
+    "unjudged": {
+      "description": "Buildovi koji još čekaju tvoju skupinu sudaca (samo suci)"
+    },
+    "refresh": {
+      "description": "Ponovno iscrtaj panele buildova (samo suci)",
+      "options": {
+        "id": "ID builda (prazno: zadnjih 10 buildova)"
+      }
+    },
+    "dashboard": {
+      "description": "Dobij link za prijavu na admin nadzornu ploču"
+    },
+    "wrapup": {
+      "description": "Prikaži ili objavi sažetak eventa (samo admini)",
+      "options": {
+        "post": "Objavi na svim serverima (inače samo pregled)"
+      }
+    },
+    "legal": {
+      "description": "Pročitaj Pravila privatnosti, Uvjete korištenja i impresum"
+    }
+  },
+  "register": {
+    "invalidName": "Neispravno Minecraft ime. Dopušteno je 3–16 znakova (slova, brojevi, `_`).",
+    "already": "Već si registriran kao `{name}`.",
+    "nameTaken": "Ovo Minecraft ime već je registrirao drugi Discord račun.",
+    "teamRequired": "Ovaj server nema vlastiti tim. Odaberi svoj tim opcijom `team`.",
+    "invalidTeam": "Ovaj tim ne postoji u trenutnom eventu.",
+    "success": "Dobro došao u **{event}**, `{name}`! Gradiš za **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Neispravan link!** Potreban je ispravan link na tvoju referencu (npr. `https://maps.google.com/...`).",
+    "invalidArea": "Površina mora biti pozitivan broj kvadratnih metara.",
+    "imagesOnly": "Molimo prenesi samo slike (PNG, JPG, GIF, WEBP).",
+    "success": "Tvoj build **#{id}** je predan. Suci su obaviješteni!",
+    "uploadWarning": "Neke slike nije bilo moguće trajno spremiti. Molimo zadrži svoju izvornu poruku.",
+    "messageHint": "Priloži barem jednu sliku i dodaj koordinate i link na referencu ili upotrijebi `/submit`.",
+    "messageNoLink": "**Predaja odbijena:** potreban je link na korištenu referencu (3D prikaz, Street View, fotografije). Savjet: upotrijebi `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Graditelj",
+    "team": "Tim",
+    "coordinates": "Koordinate",
+    "reference": "Referenca",
+    "area": "Površina",
+    "status": "Status",
+    "progress": "Napredak ocjenjivanja",
+    "slotWaiting": "čeka",
+    "score": "Ocjena",
+    "total": "Ukupno",
+    "votes": "Glasovi",
+    "notes": "Napomene graditelja",
+    "rejected": "Odbijeno",
+    "rejectedHint": "Popravi build i pritisni **Ponovno predaj**.",
+    "correction": "Ispravak od {user}: {reason}",
+    "judgePing": "{role} Novi build **#{id}** od {team}",
+    "buttonScore": "Ocijeni",
+    "buttonReject": "Odbij",
+    "buttonInfo": "Dodaj info",
+    "buttonResubmit": "Ponovno predaj",
+    "buttonReference": "Referenca",
+    "buttonJump": "Idi na build"
+  },
+  "judge": {
+    "invalidBase": "Osnovni bodovi moraju biti jedno od: {options}.",
+    "invalidScore": "{category} mora biti između 0 i {max} u koracima od {step}.",
+    "ownBuild": "Ne možeš ocjenjivati vlastiti build.",
+    "slotTaken": "Tvoja skupina sudaca ({slot}) već je ocijenila ovaj build.",
+    "rejected": "Ovaj build je odbijen. Moći će se ponovno ocijeniti kada ga graditelj ponovno preda.",
+    "noSlot": "Tvoja skupina sudaca ne sudjeluje u ocjenjivanju ovog eventa.",
+    "saved": "Tvoj glas za build **#{id}** je spremljen. Napredak: {done}/{required} skupina sudaca.",
+    "updated": "Tvoj glas za build **#{id}** je ažuriran.",
+    "completed": "Build **#{id}** je u potpunosti ocijenjen: **{total}** bodova za `{builder}`.",
+    "modalTitle": "Ocijeni build #{id}",
+    "modalBase": "Osnovni bodovi ({options})",
+    "modalEffort": "Trud i složenost (0–{max})",
+    "modalDetail": "Tehnika, boje i detalji (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Odbij build #{id}",
+    "modalReason": "Što treba popraviti?",
+    "done": "Build **#{id}** je odbijen.",
+    "already": "Ovaj build je već odbijen.",
+    "dm": "Tvoj build **#{id}** u **{event}** je odbijen: {reason}\nPopravi ga i pritisni **Ponovno predaj** na svojoj predaji."
+  },
+  "resubmit": {
+    "modalTitle": "Ponovno predaj build #{id}",
+    "coordinates": "Koordinate",
+    "link": "Link na referencu",
+    "notes": "Što si promijenio?",
+    "done": "Build **#{id}** je ponovno predan i opet čeka suce.",
+    "notRejected": "Ponovno se mogu predati samo odbijeni buildovi."
+  },
+  "info": {
+    "modalTitle": "Informacije za suce",
+    "label": "Napomene za suce",
+    "placeholder": "npr. posebni detalji, interijer, izvori ...",
+    "saved": "Spremljeno. Suci sada vide tvoje napomene."
+  },
+  "correct": {
+    "nothing": "Navedi barem jednu vrijednost za ispravak.",
+    "notJudged": "Ovaj build još nije ocijenjen. Upotrijebi `/judge`.",
+    "done": "Build **#{id}** ispravljen: {old} → {new} bodova."
+  },
+  "delete": {
+    "done": "Build **#{id}** je izbrisan. Razlog: {reason}"
+  },
+  "unjudged": {
+    "none": "Tvoja skupina sudaca nema više ništa za ocijeniti. 🎉",
+    "title": "Čeka: {slot} ({count})",
+    "more": "… i još {count}"
+  },
+  "refresh": {
+    "done": "Ponovno iscrtani paneli: {count}"
+  },
+  "profile": {
+    "title": "Statistika: {name}",
+    "rank": "Poredak",
+    "rankValue": "#{rank} od {total}",
+    "unranked": "Još nije rangiran",
+    "points": "Bodovi",
+    "builds": "Ocijenjeni buildovi",
+    "submitted": "Predano",
+    "pending": "Na čekanju",
+    "rejected": "Odbijeno",
+    "area": "Izgrađena površina",
+    "averages": "Prosječne ocjene",
+    "allTime": "Svi eventi",
+    "allTimeValue": "Eventi: {events} · Bodovi: {points} · Buildovi: {builds}",
+    "notRegistered": "{user} nije registriran za ovaj event.",
+    "judgeNote": "Suci mogu graditi, ali ne mogu pobijediti.",
+    "best": "Najbolji build",
+    "buttonBuilds": "Prikaži buildove"
+  },
+  "builds": {
+    "title": "Buildovi: {name}",
+    "empty": "Još nema buildova."
+  },
+  "leaderboard": {
+    "title": "Ljestvica · {event}",
+    "empty": "Još nisu dodijeljeni bodovi.",
+    "footer": "Pridruži se s /register i popni se na vrh!"
+  },
+  "board": {
+    "battle": "Borba timova",
+    "points": "Bodovi",
+    "builds": "Buildovi",
+    "area": "Površina",
+    "participants": "Graditelji",
+    "waiting": "Čeka suce",
+    "leading": "{team} vodi za {diff} bodova",
+    "draw": "Neriješeno!",
+    "updated": "Ažurirano {time}",
+    "topBuilders": "Najbolji graditelji"
+  },
+  "announce": {
+    "startTitle": "Build battle je počeo! 🏗️",
+    "startBody": "**{event}** traje do {end}.\nRegistriraj se s `/register` i predaj svoje buildove s `/submit`. Sretno!",
+    "endTitle": "Build battle je zatvoren",
+    "endBody": "**{event}** je završio. Veliko hvala svima koji su sudjelovali!\nPobjednici će biti objavljeni nakon završnog ocjenjivanja."
+  },
+  "wrapup": {
+    "title": "Sažetak eventa · {event}",
+    "intro": "**{event}** je završio. Ukupno smo izgradili:",
+    "totalArea": "Ukupna površina: **{total} m²**",
+    "teamPart": "{value} – {place}",
+    "totalBuilds": "Ukupno **{total}** buildova",
+    "winner": "S **{points}** bodova pobijedio je **{team}**! 🏆",
+    "draw": "Neriješeno – svaki tim ima **{points}** bodova!",
+    "topOverall": "Najbolji graditelji · Ukupno",
+    "topTeam": "Najbolji graditelji · {team}",
+    "thanks": "Veliko hvala svima koji su sudjelovali!",
+    "preview": "Pregled, vidljiv samo tebi. Upotrijebi `post: True` za objavu.",
+    "posted": "Sažetak objavljen na serverima: {count}."
+  },
+  "help": {
+    "title": "Kako funkcionira {event}",
+    "register": "**1.** Registriraj se s `/register <Minecraft ime>`.",
+    "submit": "**2.** Gradi u području eventa, zatim upotrijebi `/submit` sa snimkom zaslona odozgo (s ucrtanim obrisima), koordinatama, referencom i linkom.",
+    "judging": "**3.** Svaki build ocjenjuju po jedan sudac iz svakog tima i jedan neutralni sudac: osnovni bodovi (0–{base}), trud (0–{effort}) te tehnika i detalji (0–{detail}). Računa se prosjek.",
+    "track": "**4.** Prati svoj napredak s `/profile`, `/builds`, `/leaderboard` i `/stats`.",
+    "rules": "Pravila",
+    "judgesTitle": "Za suce"
+  },
+  "dashboard": {
+    "link": "Tvoj link za prijavu (vrijedi 10 minuta, jednokratan):\n{url}"
+  },
+  "legal": {
+    "title": "Prije nego što se registriraš",
+    "body": "Da bi sudjelovao u **{event}** kao `{name}`, pročitaj sljedeće dokumente.",
+    "confirm": "Klikom na **Prihvati i registriraj se** prihvaćaš Uvjete korištenja i potvrđuješ da si pročitao Pravila privatnosti.",
+    "privacy": "Pravila privatnosti",
+    "terms": "Uvjeti korištenja",
+    "imprint": "Impresum",
+    "accept": "Prihvati i registriraj se",
+    "decline": "Odustani",
+    "declined": "Registracija je otkazana. Možeš ponovno početi bilo kada s `/register`.",
+    "reaccept": "Naši Uvjeti korištenja ili Pravila privatnosti su se promijenili. Ponovno pokreni `/register` da ih potvrdiš.",
+    "updated": "Hvala! Prihvatio si važeće Uvjete korištenja.",
+    "readHint": "Dodirni gumb da pročitaš dokument izravno ovdje na Discordu.",
+    "languageNote": "Ovaj je dokument dostupan na njemačkom i engleskom. Pravno je obvezujuća njemačka verzija.",
+    "openWeb": "Otvori u pregledniku"
+  }
+}

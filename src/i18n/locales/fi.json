@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Suomi"
+  },
+  "common": {
+    "error": "Jokin meni pieleen. Yritä myöhemmin uudelleen.",
+    "noEvent": "Tällä palvelimella ei ole tapahtumaa juuri nyt.",
+    "notRegistered": "Et ole vielä rekisteröitynyt. Käytä ensin `/register`.",
+    "banned": "Sinut on suljettu pois tästä tapahtumasta.",
+    "notJudge": "Vain tämän tapahtuman tuomarit voivat tehdä sen.",
+    "notAdmin": "Vain botin ylläpitäjät voivat tehdä sen.",
+    "buildNotFound": "Buildia #{id} ei löytynyt.",
+    "guildOnly": "Tätä komentoa voi käyttää vain palvelimella.",
+    "noTeam": "Ei joukkuetta",
+    "judgeBadge": "Tuomari",
+    "pointsValue": "{value} p",
+    "buildsValue": "{count} buildia",
+    "areaValue": "{value} m²",
+    "page": "Sivu {page}/{pages}",
+    "next": "Seuraava",
+    "previous": "Takaisin",
+    "notOwner": "Tämä ei ole sinun buildisi."
+  },
+  "phase": {
+    "draft": "Valmistelussa",
+    "upcoming": "Alkaa {time}",
+    "running": "Päättyy {time}",
+    "runningOpen": "Käynnissä",
+    "ended": "Rakennusvaihe päättyi",
+    "archived": "Arkistoitu",
+    "submitClosed": "Lähetykset eivät ole nyt auki.",
+    "registerClosed": "Rekisteröityminen ei ole nyt auki.",
+    "judgeClosed": "Arviointi ei ole mahdollista tässä tapahtuman vaiheessa."
+  },
+  "categories": {
+    "base": "Peruspisteet",
+    "effort": "Vaiva & monimutkaisuus",
+    "detail": "Tekniikka, värit & yksityiskohdat",
+    "baseShort": "Perus",
+    "effortShort": "Vaiva",
+    "detailShort": "Yksityiskohdat",
+    "base0": "Ei pisteitä",
+    "base1": "Infrastruktuuri",
+    "base2": "Rakennus"
+  },
+  "reference": {
+    "3d": "3D-näkymä",
+    "streetview": "Street View",
+    "images": "Valokuvat",
+    "other": "Muu"
+  },
+  "status": {
+    "PENDING": "Odottaa tuomareita",
+    "IN_REVIEW": "Arvioitavana",
+    "COMPLETE": "Arvioitu",
+    "REJECTED": "Hylätty"
+  },
+  "slots": {
+    "neutral": "Neutraalit tuomarit",
+    "team": "Joukkueen {team} tuomarit"
+  },
+  "commands": {
+    "register": {
+      "description": "Rekisteröidy tapahtumaan Minecraft-nimelläsi",
+      "options": {
+        "minecraft": "Minecraft-nimesi (väärät tiedot voivat johtaa porttikieltoon)",
+        "team": "Joukkueesi (tarvitaan vain neutraaleilla palvelimilla)"
+      }
+    },
+    "submit": {
+      "description": "Lähetä build ja sen referenssi",
+      "options": {
+        "coordinates": "Buildin koordinaatit (esim. 53.8655, 10.6866)",
+        "reference": "Mitä referenssiä käytit?",
+        "link": "Linkki referenssiin (esim. Google Maps tai Street View)",
+        "image1": "Kuvakaappaus ylhäältä, ääriviivat piirrettyinä",
+        "image2": "Lisäkuvakaappaus (valinnainen)",
+        "image3": "Lisäkuvakaappaus (valinnainen)",
+        "area": "Rakennettu pinta-ala m² (valinnainen)"
+      }
+    },
+    "profile": {
+      "description": "Näytä oma tai jonkun muun tilastokortti",
+      "options": {
+        "user": "Kenen tilastot näytetään?"
+      }
+    },
+    "builds": {
+      "description": "Listaa lähetetyt buildit ja niiden tila",
+      "options": {
+        "user": "Kenen buildit näytetään?"
+      }
+    },
+    "leaderboard": {
+      "description": "Näytä nykyisen tapahtuman leaderboard",
+      "options": {
+        "team": "Näytä vain yksi joukkue"
+      }
+    },
+    "stats": {
+      "description": "Näytä joukkuekisan yleiskatsaus"
+    },
+    "help": {
+      "description": "Miten tapahtuma toimii ja mitä komentoja on"
+    },
+    "judge": {
+      "description": "Arvioi build (vain tuomarit)",
+      "options": {
+        "id": "Buildin ID",
+        "base": "Peruspisteet",
+        "effort": "Vaiva & monimutkaisuus",
+        "detail": "Tekniikka, värit & yksityiskohdat"
+      }
+    },
+    "reject": {
+      "description": "Hylkää build lyhyellä perustelulla (vain tuomarit)",
+      "options": {
+        "id": "Buildin ID",
+        "reason": "Mitä pitää korjata?"
+      }
+    },
+    "correct": {
+      "description": "Korjaa buildin lopullinen pistemäärä (vain tuomarit)",
+      "options": {
+        "id": "Buildin ID",
+        "reason": "Miksi pisteitä korjataan?",
+        "base": "Uudet peruspisteet",
+        "effort": "Uusi vaiva & monimutkaisuus",
+        "detail": "Uusi tekniikka, värit & yksityiskohdat"
+      }
+    },
+    "delete": {
+      "description": "Poista build (vain tuomarit)",
+      "options": {
+        "id": "Buildin ID",
+        "reason": "Miksi build poistetaan?"
+      }
+    },
+    "unjudged": {
+      "description": "Buildit, jotka odottavat vielä tuomariryhmääsi (vain tuomarit)"
+    },
+    "refresh": {
+      "description": "Piirrä buildipaneelit uudelleen (vain tuomarit)",
+      "options": {
+        "id": "Buildin ID (tyhjä: viimeisimmät 10 buildia)"
+      }
+    },
+    "dashboard": {
+      "description": "Hae kirjautumislinkki ylläpidon dashboardiin"
+    },
+    "wrapup": {
+      "description": "Näytä tai julkaise tapahtuman yhteenveto (vain ylläpitäjät)",
+      "options": {
+        "post": "Julkaise kaikilla palvelimilla (muuten vain esikatselu)"
+      }
+    },
+    "legal": {
+      "description": "Lue tietosuojaseloste, käyttöehdot ja oikeudelliset tiedot"
+    }
+  },
+  "register": {
+    "invalidName": "Virheellinen Minecraft-nimi. Sallittu on 3–16 merkkiä (kirjaimet, numerot, `_`).",
+    "already": "Olet jo rekisteröitynyt nimellä `{name}`.",
+    "nameTaken": "Tämä Minecraft-nimi on jo rekisteröity toisella Discord-tilillä.",
+    "teamRequired": "Tällä palvelimella ei ole omaa joukkuetta. Valitse joukkueesi `team`-valinnalla.",
+    "invalidTeam": "Tätä joukkuetta ei ole nykyisessä tapahtumassa.",
+    "success": "Tervetuloa tapahtumaan **{event}**, `{name}`! Rakennat joukkueelle **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Virheellinen linkki!** Toimiva linkki referenssiisi vaaditaan (esim. `https://maps.google.com/...`).",
+    "invalidArea": "Pinta-alan on oltava positiivinen määrä neliömetrejä.",
+    "imagesOnly": "Lataa vain kuvia (PNG, JPG, GIF, WEBP).",
+    "success": "Buildisi **#{id}** on lähetetty. Tuomarit on ilmoitettu!",
+    "uploadWarning": "Joitakin kuvia ei voitu tallentaa pysyvästi. Säilytä alkuperäinen viestisi.",
+    "messageHint": "Liitä vähintään yksi kuva ja lisää koordinaatit sekä referenssilinkki, tai käytä `/submit`.",
+    "messageNoLink": "**Lähetys hylätty:** linkki käyttämääsi referenssiin (3D-näkymä, Street View, valokuvat) vaaditaan. Vinkki: käytä `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Rakentaja",
+    "team": "Joukkue",
+    "coordinates": "Koordinaatit",
+    "reference": "Referenssi",
+    "area": "Pinta-ala",
+    "status": "Tila",
+    "progress": "Arvioinnin edistyminen",
+    "slotWaiting": "odottaa",
+    "score": "Pisteet",
+    "total": "Yhteensä",
+    "votes": "Äänet",
+    "notes": "Rakentajan muistiinpanot",
+    "rejected": "Hylätty",
+    "rejectedHint": "Korjaa build ja paina **Lähetä uudelleen**.",
+    "correction": "Korjannut {user}: {reason}",
+    "judgePing": "{role} Uusi build **#{id}** joukkueelta {team}",
+    "buttonScore": "Arvioi",
+    "buttonReject": "Hylkää",
+    "buttonInfo": "Lisää tietoja",
+    "buttonResubmit": "Lähetä uudelleen",
+    "buttonReference": "Referenssi",
+    "buttonJump": "Siirry buildiin"
+  },
+  "judge": {
+    "invalidBase": "Peruspisteiden on oltava jokin näistä: {options}.",
+    "invalidScore": "{category} on oltava välillä 0–{max}, {step} pisteen välein.",
+    "ownBuild": "Et voi arvioida omaa buildiasi.",
+    "slotTaken": "Tuomariryhmäsi ({slot}) on jo arvioinut tämän buildin.",
+    "rejected": "Tämä build hylättiin. Sen voi arvioida uudelleen, kun rakentaja lähettää sen uudelleen.",
+    "noSlot": "Tuomariryhmäsi ei osallistu tämän tapahtuman arviointiin.",
+    "saved": "Äänesi buildille **#{id}** tallennettiin. Edistyminen: {done}/{required} tuomariryhmää.",
+    "updated": "Äänesi buildille **#{id}** päivitettiin.",
+    "completed": "Build **#{id}** on arvioitu kokonaan: **{total}** pistettä pelaajalle `{builder}`.",
+    "modalTitle": "Arvioi build #{id}",
+    "modalBase": "Peruspisteet ({options})",
+    "modalEffort": "Vaiva & monimutkaisuus (0–{max})",
+    "modalDetail": "Tekniikka, värit & yksityisk. (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Hylkää build #{id}",
+    "modalReason": "Mitä pitää korjata?",
+    "done": "Build **#{id}** hylättiin.",
+    "already": "Tämä build on jo hylätty.",
+    "dm": "Buildisi **#{id}** tapahtumassa **{event}** hylättiin: {reason}\nKorjaa se ja paina lähetyksesi kohdalla **Lähetä uudelleen**."
+  },
+  "resubmit": {
+    "modalTitle": "Lähetä build #{id} uudelleen",
+    "coordinates": "Koordinaatit",
+    "link": "Referenssilinkki",
+    "notes": "Mitä muutit?",
+    "done": "Build **#{id}** lähetettiin uudelleen ja odottaa taas tuomareita.",
+    "notRejected": "Vain hylätyt buildit voi lähettää uudelleen."
+  },
+  "info": {
+    "modalTitle": "Tietoja tuomareille",
+    "label": "Muistiinpanot tuomareille",
+    "placeholder": "esim. erityiset yksityiskohdat, sisätilat, lähteet ...",
+    "saved": "Tallennettu. Tuomarit näkevät nyt muistiinpanosi."
+  },
+  "correct": {
+    "nothing": "Anna vähintään yksi korjattava arvo.",
+    "notJudged": "Tätä buildia ei ole vielä arvioitu. Käytä `/judge`.",
+    "done": "Build **#{id}** korjattu: {old} → {new} pistettä."
+  },
+  "delete": {
+    "done": "Build **#{id}** poistettiin. Syy: {reason}"
+  },
+  "unjudged": {
+    "none": "Tuomariryhmälläsi ei ole enää arvioitavaa. 🎉",
+    "title": "Odottaa: {slot} ({count})",
+    "more": "… ja {count} muuta"
+  },
+  "refresh": {
+    "done": "Paneeleita piirretty uudelleen: {count}"
+  },
+  "profile": {
+    "title": "Tilastot: {name}",
+    "rank": "Sijoitus",
+    "rankValue": "#{rank} / {total}",
+    "unranked": "Ei vielä sijoitusta",
+    "points": "Pisteet",
+    "builds": "Arvioidut buildit",
+    "submitted": "Lähetetty",
+    "pending": "Odottaa",
+    "rejected": "Hylätty",
+    "area": "Rakennettu pinta-ala",
+    "averages": "Keskiarvopisteet",
+    "allTime": "Kaikki tapahtumat",
+    "allTimeValue": "{events} tapahtumaa · {points} pistettä · {builds} buildia",
+    "notRegistered": "{user} ei ole rekisteröitynyt tähän tapahtumaan.",
+    "judgeNote": "Tuomarit voivat rakentaa, mutta eivät voi voittaa.",
+    "best": "Paras build",
+    "buttonBuilds": "Näytä buildit"
+  },
+  "builds": {
+    "title": "Buildit: {name}",
+    "empty": "Ei vielä buildeja."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Pisteitä ei ole vielä jaettu.",
+    "footer": "Liity mukaan komennolla /register ja kiipeä huipulle!"
+  },
+  "board": {
+    "battle": "Joukkuekisa",
+    "points": "Pisteet",
+    "builds": "Buildit",
+    "area": "Pinta-ala",
+    "participants": "Rakentajat",
+    "waiting": "Odottaa tuomareita",
+    "leading": "{team} johtaa {diff} pisteellä",
+    "draw": "Tasapeli!",
+    "updated": "Päivitetty {time}",
+    "topBuilders": "Parhaat rakentajat"
+  },
+  "announce": {
+    "startTitle": "Build battle on alkanut! 🏗️",
+    "startBody": "**{event}** on käynnissä {end} asti.\nRekisteröidy komennolla `/register` ja lähetä buildisi komennolla `/submit`. Onnea!",
+    "endTitle": "Build battle on päättynyt",
+    "endBody": "**{event}** on ohi. Suuri kiitos kaikille osallistujille!\nVoittajat julkistetaan lopullisen arvioinnin jälkeen."
+  },
+  "wrapup": {
+    "title": "Tapahtuman yhteenveto · {event}",
+    "intro": "**{event}** on päättynyt. Rakensimme yhteensä:",
+    "totalArea": "Kokonaispinta-ala: **{total} m²**",
+    "teamPart": "{value}: {place}",
+    "totalBuilds": "**{total}** buildia yhteensä",
+    "winner": "**{team}** voitti **{points}** pisteellä! 🏆",
+    "draw": "Tasapeli, molemmilla **{points}** pistettä!",
+    "topOverall": "Parhaat rakentajat · Kaikki",
+    "topTeam": "Parhaat rakentajat · {team}",
+    "thanks": "Suuri kiitos kaikille osallistujille!",
+    "preview": "Esikatselu, näkyy vain sinulle. Julkaise se valinnalla `post: True`.",
+    "posted": "Yhteenveto julkaistu {count} palvelimella."
+  },
+  "help": {
+    "title": "Näin {event} toimii",
+    "register": "**1.** Rekisteröidy komennolla `/register <Minecraft-nimi>`.",
+    "submit": "**2.** Rakenna tapahtuma-alueelle ja käytä sitten `/submit` liittäen ylhäältä otettu kuvakaappaus (ääriviivat piirrettyinä), koordinaatit, referenssi ja linkki.",
+    "judging": "**3.** Yksi tuomari jokaisesta joukkueesta sekä neutraali tuomari arvioivat jokaisen buildin: peruspisteet (0–{base}), vaiva (0–{effort}) sekä tekniikka & yksityiskohdat (0–{detail}). Keskiarvo ratkaisee.",
+    "track": "**4.** Seuraa edistymistäsi komennoilla `/profile`, `/builds`, `/leaderboard` ja `/stats`.",
+    "rules": "Säännöt",
+    "judgesTitle": "Tuomareille"
+  },
+  "dashboard": {
+    "link": "Kirjautumislinkkisi (voimassa 10 minuuttia, kertakäyttöinen):\n{url}"
+  },
+  "legal": {
+    "title": "Ennen rekisteröitymistä",
+    "body": "Lue alla olevat asiakirjat, jotta voit osallistua tapahtumaan **{event}** nimellä `{name}`.",
+    "confirm": "Napsauttamalla **Hyväksy ja rekisteröidy** hyväksyt käyttöehdot ja vahvistat lukeneesi tietosuojaselosteen.",
+    "privacy": "Tietosuojaseloste",
+    "terms": "Käyttöehdot",
+    "imprint": "Oikeudelliset tiedot",
+    "accept": "Hyväksy ja rekisteröidy",
+    "decline": "Peruuta",
+    "declined": "Rekisteröityminen peruttiin. Voit aloittaa uudelleen milloin tahansa komennolla `/register`.",
+    "reaccept": "Käyttöehtomme tai tietosuojaselosteemme ovat muuttuneet. Suorita `/register` uudelleen vahvistaaksesi ne.",
+    "updated": "Kiitos! Olet hyväksynyt voimassa olevat käyttöehdot.",
+    "readHint": "Napauta painiketta lukeaksesi asiakirjan suoraan Discordissa.",
+    "languageNote": "Tämä asiakirja on saatavilla saksaksi ja englanniksi. Saksankielinen versio on oikeudellisesti sitova.",
+    "openWeb": "Avaa selaimessa"
+  }
+}

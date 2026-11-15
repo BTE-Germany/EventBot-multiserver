@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Polski"
+  },
+  "common": {
+    "error": "Coś poszło nie tak. Spróbuj ponownie później.",
+    "noEvent": "Na tym serwerze nie trwa teraz żaden event.",
+    "notRegistered": "Nie jesteś jeszcze zarejestrowany. Najpierw użyj `/register`.",
+    "banned": "Zostałeś wykluczony z tego eventu.",
+    "notJudge": "Tylko sędziowie tego eventu mogą to zrobić.",
+    "notAdmin": "Tylko administratorzy bota mogą to zrobić.",
+    "buildNotFound": "Nie znaleziono budowli #{id}.",
+    "guildOnly": "Tej komendy można używać tylko na serwerze.",
+    "noTeam": "Brak drużyny",
+    "judgeBadge": "Sędzia",
+    "pointsValue": "{value} pkt",
+    "buildsValue": "Budowle: {count}",
+    "areaValue": "{value} m²",
+    "page": "Strona {page}/{pages}",
+    "next": "Dalej",
+    "previous": "Wstecz",
+    "notOwner": "To nie jest twoja budowla."
+  },
+  "phase": {
+    "draft": "W przygotowaniu",
+    "upcoming": "Start {time}",
+    "running": "Koniec {time}",
+    "runningOpen": "Trwa",
+    "ended": "Faza budowania zakończona",
+    "archived": "Zarchiwizowany",
+    "submitClosed": "Zgłoszenia są teraz zamknięte.",
+    "registerClosed": "Rejestracja jest teraz zamknięta.",
+    "judgeClosed": "Ocenianie nie jest możliwe w tej fazie eventu."
+  },
+  "categories": {
+    "base": "Punkty bazowe",
+    "effort": "Nakład pracy i złożoność",
+    "detail": "Technika, kolory i detale",
+    "baseShort": "Baza",
+    "effortShort": "Nakład",
+    "detailShort": "Detale",
+    "base0": "Brak punktów",
+    "base1": "Infrastruktura",
+    "base2": "Budynek"
+  },
+  "reference": {
+    "3d": "Widok 3D",
+    "streetview": "Street View",
+    "images": "Zdjęcia",
+    "other": "Inne"
+  },
+  "status": {
+    "PENDING": "Czeka na sędziów",
+    "IN_REVIEW": "W ocenie",
+    "COMPLETE": "Oceniona",
+    "REJECTED": "Odrzucona"
+  },
+  "slots": {
+    "neutral": "Sędziowie neutralni",
+    "team": "Sędziowie: {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Zarejestruj się na event swoim nickiem z Minecrafta",
+      "options": {
+        "minecraft": "Twój nick z Minecrafta (fałszywe dane mogą skończyć się banem)",
+        "team": "Twoja drużyna (potrzebne tylko na serwerach neutralnych)"
+      }
+    },
+    "submit": {
+      "description": "Zgłoś budowlę razem z referencją",
+      "options": {
+        "coordinates": "Współrzędne budowli (np. 53.8655, 10.6866)",
+        "reference": "Z jakiej referencji korzystałeś?",
+        "link": "Link do referencji (np. Google Maps lub Street View)",
+        "image1": "Screenshot z góry z zaznaczonymi obrysami",
+        "image2": "Dodatkowy screenshot (opcjonalnie)",
+        "image3": "Dodatkowy screenshot (opcjonalnie)",
+        "area": "Zbudowana powierzchnia w m² (opcjonalnie)"
+      }
+    },
+    "profile": {
+      "description": "Pokaż swoje statystyki lub statystyki innej osoby",
+      "options": {
+        "user": "Czyje statystyki pokazać?"
+      }
+    },
+    "builds": {
+      "description": "Lista zgłoszonych budowli i ich status",
+      "options": {
+        "user": "Czyje budowle pokazać?"
+      }
+    },
+    "leaderboard": {
+      "description": "Pokaż ranking bieżącego eventu",
+      "options": {
+        "team": "Pokaż tylko jedną drużynę"
+      }
+    },
+    "stats": {
+      "description": "Pokaż przegląd bitwy drużyn"
+    },
+    "help": {
+      "description": "Jak działa event i jakie są komendy"
+    },
+    "judge": {
+      "description": "Oceń budowlę (tylko sędziowie)",
+      "options": {
+        "id": "ID budowli",
+        "base": "Punkty bazowe",
+        "effort": "Nakład pracy i złożoność",
+        "detail": "Technika, kolory i detale"
+      }
+    },
+    "reject": {
+      "description": "Odrzuć budowlę z krótkim uzasadnieniem (tylko sędziowie)",
+      "options": {
+        "id": "ID budowli",
+        "reason": "Co trzeba poprawić?"
+      }
+    },
+    "correct": {
+      "description": "Popraw końcowy wynik budowli (tylko sędziowie)",
+      "options": {
+        "id": "ID budowli",
+        "reason": "Dlaczego wynik jest poprawiany?",
+        "base": "Nowe punkty bazowe",
+        "effort": "Nowy nakład pracy i złożoność",
+        "detail": "Nowa technika, kolory i detale"
+      }
+    },
+    "delete": {
+      "description": "Usuń budowlę (tylko sędziowie)",
+      "options": {
+        "id": "ID budowli",
+        "reason": "Dlaczego budowla jest usuwana?"
+      }
+    },
+    "unjudged": {
+      "description": "Budowle, które wciąż czekają na twoją grupę sędziów (tylko sędziowie)"
+    },
+    "refresh": {
+      "description": "Odśwież panele budowli (tylko sędziowie)",
+      "options": {
+        "id": "ID budowli (puste: ostatnie 10 budowli)"
+      }
+    },
+    "dashboard": {
+      "description": "Otrzymaj link logowania do panelu administratora"
+    },
+    "wrapup": {
+      "description": "Pokaż lub opublikuj podsumowanie eventu (tylko admini)",
+      "options": {
+        "post": "Opublikuj na każdym serwerze (inaczej tylko podgląd)"
+      }
+    },
+    "legal": {
+      "description": "Przeczytaj Politykę prywatności, Regulamin i notę prawną"
+    }
+  },
+  "register": {
+    "invalidName": "Nieprawidłowy nick z Minecrafta. Dozwolone są 3–16 znaków (litery, cyfry, `_`).",
+    "already": "Jesteś już zarejestrowany jako `{name}`.",
+    "nameTaken": "Ten nick z Minecrafta jest już zarejestrowany przez inne konto Discord.",
+    "teamRequired": "Ten serwer nie ma własnej drużyny. Wybierz swoją drużynę opcją `team`.",
+    "invalidTeam": "Ta drużyna nie istnieje w bieżącym evencie.",
+    "success": "Witaj w **{event}**, `{name}`! Budujesz dla drużyny **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Nieprawidłowy link!** Wymagany jest poprawny link do referencji (np. `https://maps.google.com/...`).",
+    "invalidArea": "Powierzchnia musi być dodatnią liczbą metrów kwadratowych.",
+    "imagesOnly": "Przesyłaj tylko obrazy (PNG, JPG, GIF, WEBP).",
+    "success": "Twoja budowla **#{id}** została zgłoszona. Sędziowie zostali powiadomieni!",
+    "uploadWarning": "Niektórych obrazów nie udało się trwale zapisać. Nie usuwaj swojej oryginalnej wiadomości.",
+    "messageHint": "Dołącz co najmniej jeden obraz i dodaj współrzędne oraz link do referencji albo użyj `/submit`.",
+    "messageNoLink": "**Zgłoszenie odrzucone:** wymagany jest link do użytej referencji (widok 3D, Street View, zdjęcia). Wskazówka: użyj `/submit`."
+  },
+  "panel": {
+    "title": "Budowla #{id}",
+    "builder": "Budowniczy",
+    "team": "Drużyna",
+    "coordinates": "Współrzędne",
+    "reference": "Referencja",
+    "area": "Powierzchnia",
+    "status": "Status",
+    "progress": "Postęp oceniania",
+    "slotWaiting": "czeka",
+    "score": "Ocena",
+    "total": "Suma",
+    "votes": "Głosy",
+    "notes": "Uwagi budowniczego",
+    "rejected": "Odrzucona",
+    "rejectedHint": "Popraw budowlę i kliknij **Zgłoś ponownie**.",
+    "correction": "Korekta od {user}: {reason}",
+    "judgePing": "{role} Nowa budowla **#{id}** od {team}",
+    "buttonScore": "Oceń",
+    "buttonReject": "Odrzuć",
+    "buttonInfo": "Dodaj info",
+    "buttonResubmit": "Zgłoś ponownie",
+    "buttonReference": "Referencja",
+    "buttonJump": "Przejdź do budowli"
+  },
+  "judge": {
+    "invalidBase": "Punkty bazowe muszą mieć jedną z wartości: {options}.",
+    "invalidScore": "{category} musi mieścić się w zakresie od 0 do {max} z krokiem {step}.",
+    "ownBuild": "Nie możesz oceniać własnej budowli.",
+    "slotTaken": "Twoja grupa sędziów ({slot}) już oceniła tę budowlę.",
+    "rejected": "Ta budowla została odrzucona. Będzie można ją ocenić ponownie, gdy budowniczy zgłosi ją jeszcze raz.",
+    "noSlot": "Twoja grupa sędziów nie bierze udziału w ocenianiu tego eventu.",
+    "saved": "Twój głos na budowlę **#{id}** został zapisany. Postęp: {done}/{required} grup sędziów.",
+    "updated": "Twój głos na budowlę **#{id}** został zaktualizowany.",
+    "completed": "Budowla **#{id}** jest w pełni oceniona: **{total}** pkt dla `{builder}`.",
+    "modalTitle": "Oceń budowlę #{id}",
+    "modalBase": "Punkty bazowe ({options})",
+    "modalEffort": "Nakład pracy i złożoność (0–{max})",
+    "modalDetail": "Technika, kolory i detale (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Odrzuć budowlę #{id}",
+    "modalReason": "Co trzeba poprawić?",
+    "done": "Budowla **#{id}** została odrzucona.",
+    "already": "Ta budowla została już odrzucona.",
+    "dm": "Twoja budowla **#{id}** w **{event}** została odrzucona: {reason}\nPopraw ją i kliknij **Zgłoś ponownie** przy swoim zgłoszeniu."
+  },
+  "resubmit": {
+    "modalTitle": "Zgłoś ponownie budowlę #{id}",
+    "coordinates": "Współrzędne",
+    "link": "Link do referencji",
+    "notes": "Co zmieniłeś?",
+    "done": "Budowla **#{id}** została zgłoszona ponownie i znów czeka na sędziów.",
+    "notRejected": "Ponownie można zgłosić tylko odrzucone budowle."
+  },
+  "info": {
+    "modalTitle": "Informacje dla sędziów",
+    "label": "Uwagi dla sędziów",
+    "placeholder": "np. szczególne detale, wnętrza, źródła ...",
+    "saved": "Zapisano. Sędziowie widzą teraz twoje uwagi."
+  },
+  "correct": {
+    "nothing": "Podaj co najmniej jedną wartość do poprawienia.",
+    "notJudged": "Ta budowla nie została jeszcze oceniona. Użyj `/judge`.",
+    "done": "Budowla **#{id}** poprawiona: {old} → {new} pkt."
+  },
+  "delete": {
+    "done": "Budowla **#{id}** została usunięta. Powód: {reason}"
+  },
+  "unjudged": {
+    "none": "Twoja grupa sędziów nie ma nic więcej do oceny. 🎉",
+    "title": "Czeka na: {slot} ({count})",
+    "more": "… i jeszcze {count}"
+  },
+  "refresh": {
+    "done": "Odświeżone panele: {count}"
+  },
+  "profile": {
+    "title": "Statystyki gracza {name}",
+    "rank": "Miejsce",
+    "rankValue": "#{rank} z {total}",
+    "unranked": "Jeszcze bez miejsca",
+    "points": "Punkty",
+    "builds": "Ocenione budowle",
+    "submitted": "Zgłoszone",
+    "pending": "Oczekujące",
+    "rejected": "Odrzucone",
+    "area": "Zbudowana powierzchnia",
+    "averages": "Średnie oceny",
+    "allTime": "Wszystkie eventy",
+    "allTimeValue": "Eventy: {events} · Punkty: {points} · Budowle: {builds}",
+    "notRegistered": "{user} nie jest zarejestrowany w tym evencie.",
+    "judgeNote": "Sędziowie mogą budować, ale nie mogą wygrać.",
+    "best": "Najlepsza budowla",
+    "buttonBuilds": "Pokaż budowle"
+  },
+  "builds": {
+    "title": "Budowle gracza {name}",
+    "empty": "Brak budowli."
+  },
+  "leaderboard": {
+    "title": "Ranking · {event}",
+    "empty": "Nie przyznano jeszcze żadnych punktów.",
+    "footer": "Dołącz przez /register i wespnij się na szczyt!"
+  },
+  "board": {
+    "battle": "Bitwa drużyn",
+    "points": "Punkty",
+    "builds": "Budowle",
+    "area": "Powierzchnia",
+    "participants": "Budowniczowie",
+    "waiting": "Czeka na sędziów",
+    "leading": "{team} prowadzi o {diff} pkt",
+    "draw": "Remis!",
+    "updated": "Zaktualizowano {time}",
+    "topBuilders": "Najlepsi budowniczowie"
+  },
+  "announce": {
+    "startTitle": "Build battle wystartował! 🏗️",
+    "startBody": "**{event}** trwa do {end}.\nZarejestruj się przez `/register` i zgłaszaj swoje budowle przez `/submit`. Powodzenia!",
+    "endTitle": "Build battle zakończony",
+    "endBody": "**{event}** dobiegł końca. Wielkie dzięki wszystkim, którzy wzięli udział!\nZwycięzców ogłosimy po końcowym ocenianiu."
+  },
+  "wrapup": {
+    "title": "Podsumowanie eventu · {event}",
+    "intro": "**{event}** dobiegł końca. Łącznie zbudowaliśmy:",
+    "totalArea": "Łączna powierzchnia: **{total} m²**",
+    "teamPart": "{value} – {place}",
+    "totalBuilds": "Łącznie **{total}** budowli",
+    "winner": "Z wynikiem **{points}** pkt wygrywa **{team}**! 🏆",
+    "draw": "Remis – po **{points}** pkt dla każdej drużyny!",
+    "topOverall": "Najlepsi budowniczowie · Ogółem",
+    "topTeam": "Najlepsi budowniczowie · {team}",
+    "thanks": "Wielkie dzięki wszystkim, którzy wzięli udział!",
+    "preview": "Podgląd widoczny tylko dla ciebie. Użyj `post: True`, aby go opublikować.",
+    "posted": "Podsumowanie opublikowane na serwerach: {count}."
+  },
+  "help": {
+    "title": "Jak działa {event}",
+    "register": "**1.** Zarejestruj się przez `/register <nick z Minecrafta>`.",
+    "submit": "**2.** Buduj w obszarze eventu, a potem użyj `/submit` ze screenshotem z góry (z zaznaczonymi obrysami), współrzędnymi, referencją i linkiem.",
+    "judging": "**3.** Każdą budowlę oceniają: jeden sędzia z każdej drużyny i jeden sędzia neutralny – punkty bazowe (0–{base}), nakład pracy (0–{effort}) oraz technika i detale (0–{detail}). Liczy się średnia.",
+    "track": "**4.** Śledź swoje postępy przez `/profile`, `/builds`, `/leaderboard` i `/stats`.",
+    "rules": "Zasady",
+    "judgesTitle": "Dla sędziów"
+  },
+  "dashboard": {
+    "link": "Twój link do logowania (ważny 10 minut, jednorazowy):\n{url}"
+  },
+  "legal": {
+    "title": "Zanim się zarejestrujesz",
+    "body": "Aby wziąć udział w **{event}** jako `{name}`, przeczytaj poniższe dokumenty.",
+    "confirm": "Klikając **Akceptuję i rejestruję się**, akceptujesz Regulamin i potwierdzasz, że zapoznałeś się z Polityką prywatności.",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "imprint": "Nota prawna",
+    "accept": "Akceptuję i rejestruję się",
+    "decline": "Anuluj",
+    "declined": "Rejestracja anulowana. W każdej chwili możesz zacząć od nowa przez `/register`.",
+    "reaccept": "Nasz Regulamin lub Polityka prywatności uległy zmianie. Użyj ponownie `/register`, aby je potwierdzić.",
+    "updated": "Dzięki! Zaakceptowałeś aktualny Regulamin.",
+    "readHint": "Kliknij przycisk, aby przeczytać dokument bezpośrednio na Discordzie.",
+    "languageNote": "Ten dokument jest dostępny po niemiecku i angielsku. Wiążąca prawnie jest wersja niemiecka.",
+    "openWeb": "Otwórz w przeglądarce"
+  }
+}

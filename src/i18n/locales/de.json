@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Deutsch"
+  },
+  "common": {
+    "error": "Da ist etwas schiefgelaufen. Bitte versuche es später erneut.",
+    "noEvent": "Auf diesem Server läuft gerade kein Event.",
+    "notRegistered": "Du bist noch nicht registriert. Nutze zuerst `/register`.",
+    "banned": "Du bist von diesem Event ausgeschlossen.",
+    "notJudge": "Das dürfen nur Judges dieses Events.",
+    "notAdmin": "Das dürfen nur Bot-Administratoren.",
+    "buildNotFound": "Build #{id} wurde nicht gefunden.",
+    "guildOnly": "Dieser Befehl funktioniert nur auf einem Server.",
+    "noTeam": "Kein Team",
+    "judgeBadge": "Judge",
+    "pointsValue": "{value} Pkt.",
+    "buildsValue": "{count} Builds",
+    "areaValue": "{value} m²",
+    "page": "Seite {page}/{pages}",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "notOwner": "Das ist nicht dein Build."
+  },
+  "phase": {
+    "draft": "In Vorbereitung",
+    "upcoming": "Startet {time}",
+    "running": "Endet {time}",
+    "runningOpen": "Läuft",
+    "ended": "Bauphase beendet",
+    "archived": "Archiviert",
+    "submitClosed": "Einreichungen sind gerade nicht möglich.",
+    "registerClosed": "Die Registrierung ist gerade nicht geöffnet.",
+    "judgeClosed": "In dieser Event-Phase kann nicht bewertet werden."
+  },
+  "categories": {
+    "base": "Grundpunkte",
+    "effort": "Aufwand & Komplexität",
+    "detail": "Technik, Farben & Details",
+    "baseShort": "Grund",
+    "effortShort": "Aufwand",
+    "detailShort": "Details",
+    "base0": "Keine Punkte",
+    "base1": "Infrastruktur",
+    "base2": "Gebäude"
+  },
+  "reference": {
+    "3d": "3D-Ansicht",
+    "streetview": "Street View",
+    "images": "Bilder",
+    "other": "Sonstiges"
+  },
+  "status": {
+    "PENDING": "Wartet auf Judges",
+    "IN_REVIEW": "In Bewertung",
+    "COMPLETE": "Bewertet",
+    "REJECTED": "Abgelehnt"
+  },
+  "slots": {
+    "neutral": "Neutrale Judges",
+    "team": "Judges {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Melde dich mit deinem Minecraft-Namen für das Event an",
+      "options": {
+        "minecraft": "Dein Minecraft-Name (falsche Angaben können zu einem Bann führen)",
+        "team": "Dein Team (nur auf neutralen Servern nötig)"
+      }
+    },
+    "submit": {
+      "description": "Reiche einen Build mit Quellenangabe ein",
+      "options": {
+        "coordinates": "Koordinaten des Builds (z. B. 53.8655, 10.6866)",
+        "reference": "Welche Referenz hast du genutzt?",
+        "link": "Link zur Referenz (z. B. Google Maps oder Street View)",
+        "image1": "Screenshot von oben mit eingezeichneten Umrissen",
+        "image2": "Weiterer Screenshot (optional)",
+        "image3": "Weiterer Screenshot (optional)",
+        "area": "Gebaute Fläche in m² (optional)"
+      }
+    },
+    "profile": {
+      "description": "Zeige deine Statistik-Karte oder die von jemand anderem",
+      "options": {
+        "user": "Wessen Statistiken sollen angezeigt werden?"
+      }
+    },
+    "builds": {
+      "description": "Liste eingereichte Builds und ihren Status auf",
+      "options": {
+        "user": "Wessen Builds sollen angezeigt werden?"
+      }
+    },
+    "leaderboard": {
+      "description": "Zeige das Leaderboard des aktuellen Events",
+      "options": {
+        "team": "Nur ein Team anzeigen"
+      }
+    },
+    "stats": {
+      "description": "Zeige die Übersicht des Team-Battles"
+    },
+    "help": {
+      "description": "So funktioniert das Event und diese Befehle gibt es"
+    },
+    "judge": {
+      "description": "Bewerte einen Build (nur Judges)",
+      "options": {
+        "id": "ID des Builds",
+        "base": "Grundpunkte",
+        "effort": "Aufwand & Komplexität",
+        "detail": "Technik, Farben & Details"
+      }
+    },
+    "reject": {
+      "description": "Lehne einen Build mit kurzer Begründung ab (nur Judges)",
+      "options": {
+        "id": "ID des Builds",
+        "reason": "Was muss verbessert werden?"
+      }
+    },
+    "correct": {
+      "description": "Korrigiere die Endbewertung eines Builds (nur Judges)",
+      "options": {
+        "id": "ID des Builds",
+        "reason": "Warum wird die Bewertung korrigiert?",
+        "base": "Neue Grundpunkte",
+        "effort": "Neuer Aufwand & Komplexität",
+        "detail": "Neue Technik, Farben & Details"
+      }
+    },
+    "delete": {
+      "description": "Lösche einen Build (nur Judges)",
+      "options": {
+        "id": "ID des Builds",
+        "reason": "Warum wird der Build gelöscht?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds, die noch auf deine Judge-Gruppe warten (nur Judges)"
+    },
+    "refresh": {
+      "description": "Build-Panels neu zeichnen (nur Judges)",
+      "options": {
+        "id": "ID des Builds (leer: die letzten 10 Builds)"
+      }
+    },
+    "dashboard": {
+      "description": "Erhalte einen Login-Link für das Admin-Dashboard"
+    },
+    "wrapup": {
+      "description": "Event-Abschluss anzeigen oder veröffentlichen (nur Admins)",
+      "options": {
+        "post": "In jedem Server veröffentlichen (sonst nur Vorschau)"
+      }
+    },
+    "legal": {
+      "description": "Datenschutzhinweise, Nutzungsbedingungen und Impressum lesen"
+    }
+  },
+  "register": {
+    "invalidName": "Ungültiger Minecraft-Name. Erlaubt sind 3–16 Zeichen (Buchstaben, Zahlen, `_`).",
+    "already": "Du bist bereits als `{name}` registriert.",
+    "nameTaken": "Dieser Minecraft-Name ist bereits von einem anderen Discord-Account registriert.",
+    "teamRequired": "Dieser Server hat kein eigenes Team. Bitte wähle dein Team mit der Option `team`.",
+    "invalidTeam": "Dieses Team gibt es im aktuellen Event nicht.",
+    "success": "Willkommen bei **{event}**, `{name}`! Du baust für **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Ungültiger Link!** Ein gültiger Link zu deiner Referenz ist Pflicht (z. B. `https://maps.google.com/...`).",
+    "invalidArea": "Die Fläche muss eine positive Zahl in Quadratmetern sein.",
+    "imagesOnly": "Bitte lade nur Bilder hoch (PNG, JPG, GIF, WEBP).",
+    "success": "Dein Build **#{id}** wurde eingereicht. Die Judges wurden benachrichtigt!",
+    "uploadWarning": "Einige Bilder konnten nicht dauerhaft gespeichert werden. Bitte behalte deine Originalnachricht.",
+    "messageHint": "Bitte hänge mindestens ein Bild an und gib Koordinaten sowie einen Referenz-Link an, oder nutze `/submit`.",
+    "messageNoLink": "**Einreichung abgelehnt:** Ein Link zur genutzten Referenz (3D-Ansicht, Street View, Bilder) ist Pflicht. Tipp: Nutze `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Builder",
+    "team": "Team",
+    "coordinates": "Koordinaten",
+    "reference": "Referenz",
+    "area": "Fläche",
+    "status": "Status",
+    "progress": "Bewertungsfortschritt",
+    "slotWaiting": "ausstehend",
+    "score": "Bewertung",
+    "total": "Gesamt",
+    "votes": "Stimmen",
+    "notes": "Hinweise des Builders",
+    "rejected": "Abgelehnt",
+    "rejectedHint": "Bessere den Build aus und drücke **Erneut einreichen**.",
+    "correction": "Korrektur von {user}: {reason}",
+    "judgePing": "{role} Neuer Build **#{id}** von {team}",
+    "buttonScore": "Bewerten",
+    "buttonReject": "Ablehnen",
+    "buttonInfo": "Infos ergänzen",
+    "buttonResubmit": "Erneut einreichen",
+    "buttonReference": "Referenz",
+    "buttonJump": "Zum Build"
+  },
+  "judge": {
+    "invalidBase": "Grundpunkte müssen einer dieser Werte sein: {options}.",
+    "invalidScore": "{category} muss zwischen 0 und {max} in Schritten von {step} liegen.",
+    "ownBuild": "Du kannst deinen eigenen Build nicht bewerten.",
+    "slotTaken": "Deine Judge-Gruppe ({slot}) hat diesen Build bereits bewertet.",
+    "rejected": "Dieser Build wurde abgelehnt. Er kann wieder bewertet werden, sobald er erneut eingereicht wurde.",
+    "noSlot": "Deine Judge-Gruppe ist nicht Teil der Bewertung dieses Events.",
+    "saved": "Deine Stimme für Build **#{id}** wurde gespeichert. Fortschritt: {done}/{required} Judge-Gruppen.",
+    "updated": "Deine Stimme für Build **#{id}** wurde aktualisiert.",
+    "completed": "Build **#{id}** ist vollständig bewertet: **{total}** Punkte für `{builder}`.",
+    "modalTitle": "Build #{id} bewerten",
+    "modalBase": "Grundpunkte ({options})",
+    "modalEffort": "Aufwand & Komplexität (0–{max})",
+    "modalDetail": "Technik, Farben & Details (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Build #{id} ablehnen",
+    "modalReason": "Was muss verbessert werden?",
+    "done": "Build **#{id}** wurde abgelehnt.",
+    "already": "Dieser Build wurde bereits abgelehnt.",
+    "dm": "Dein Build **#{id}** bei **{event}** wurde abgelehnt: {reason}\nBitte bessere ihn aus und drücke bei deiner Einreichung auf **Erneut einreichen**."
+  },
+  "resubmit": {
+    "modalTitle": "Build #{id} erneut einreichen",
+    "coordinates": "Koordinaten",
+    "link": "Referenz-Link",
+    "notes": "Was hast du geändert?",
+    "done": "Build **#{id}** wurde erneut eingereicht und wartet wieder auf die Judges.",
+    "notRejected": "Nur abgelehnte Builds können erneut eingereicht werden."
+  },
+  "info": {
+    "modalTitle": "Informationen für die Judges",
+    "label": "Hinweise für die Judges",
+    "placeholder": "z. B. besondere Details, Innenausbau, Quellen …",
+    "saved": "Gespeichert. Die Judges können deine Hinweise jetzt sehen."
+  },
+  "correct": {
+    "nothing": "Bitte gib mindestens einen Wert zum Korrigieren an.",
+    "notJudged": "Dieser Build wurde noch nicht bewertet. Nutze `/judge`.",
+    "done": "Build **#{id}** korrigiert: {old} → {new} Punkte."
+  },
+  "delete": {
+    "done": "Build **#{id}** wurde gelöscht. Grund: {reason}"
+  },
+  "unjudged": {
+    "none": "Für deine Judge-Gruppe gibt es nichts mehr zu bewerten. 🎉",
+    "title": "Wartet auf {slot} ({count})",
+    "more": "… und {count} weitere"
+  },
+  "refresh": {
+    "done": "Panels neu gezeichnet: {count}"
+  },
+  "profile": {
+    "title": "Statistiken von {name}",
+    "rank": "Platz",
+    "rankValue": "#{rank} von {total}",
+    "unranked": "Noch nicht platziert",
+    "points": "Punkte",
+    "builds": "Bewertete Builds",
+    "submitted": "Eingereicht",
+    "pending": "Ausstehend",
+    "rejected": "Abgelehnt",
+    "area": "Gebaute Fläche",
+    "averages": "Durchschnittliche Bewertung",
+    "allTime": "Alle Events",
+    "allTimeValue": "{events} Events · {points} Punkte · {builds} Builds",
+    "notRegistered": "{user} ist für dieses Event nicht registriert.",
+    "judgeNote": "Judges dürfen bauen, können aber nicht gewinnen.",
+    "best": "Bester Build",
+    "buttonBuilds": "Builds anzeigen"
+  },
+  "builds": {
+    "title": "Builds von {name}",
+    "empty": "Noch keine Builds."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Es wurden noch keine Punkte vergeben.",
+    "footer": "Mach mit über /register und kämpfe dich an die Spitze!"
+  },
+  "board": {
+    "battle": "Team-Battle",
+    "points": "Punkte",
+    "builds": "Builds",
+    "area": "Fläche",
+    "participants": "Builder",
+    "waiting": "Wartet auf Judges",
+    "leading": "{team} führt mit {diff} Punkten",
+    "draw": "Gleichstand!",
+    "updated": "Aktualisiert {time}",
+    "topBuilders": "Top-Builder"
+  },
+  "announce": {
+    "startTitle": "Das Build Battle hat begonnen! 🏗️",
+    "startBody": "**{event}** läuft bis {end}.\nRegistriere dich mit `/register` und reiche deine Builds mit `/submit` ein. Viel Erfolg!",
+    "endTitle": "Das Build Battle ist beendet",
+    "endBody": "**{event}** ist vorbei. Vielen Dank an alle, die mitgemacht haben!\nDie Gewinner werden nach der finalen Bewertung bekanntgegeben."
+  },
+  "wrapup": {
+    "title": "Event-Abschluss · {event}",
+    "intro": "**{event}** ist beendet. Insgesamt haben wir gebaut:",
+    "totalArea": "Gesamtfläche: **{total} m²**",
+    "teamPart": "{value} in {place}",
+    "totalBuilds": "Insgesamt **{total}** Builds",
+    "winner": "Mit **{points}** Punkten hat **{team}** gewonnen! 🏆",
+    "draw": "Unentschieden mit jeweils **{points}** Punkten!",
+    "topOverall": "Top-Builder · Gesamt",
+    "topTeam": "Top-Builder · {team}",
+    "thanks": "Vielen Dank an alle, die mitgemacht haben!",
+    "preview": "Vorschau, nur für dich sichtbar. Nutze `post: True`, um sie zu veröffentlichen.",
+    "posted": "Abschluss in {count} Server(n) veröffentlicht."
+  },
+  "help": {
+    "title": "So funktioniert {event}",
+    "register": "**1.** Registriere dich mit `/register <Minecraft-Name>`.",
+    "submit": "**2.** Baue im Event-Gebiet und reiche dann mit `/submit` einen Screenshot von oben (mit eingezeichneten Umrissen), Koordinaten, Referenz und Link ein.",
+    "judging": "**3.** Ein Judge pro Team und ein neutraler Judge bewerten jeden Build: Grundpunkte (0–{base}), Aufwand (0–{effort}) sowie Technik & Details (0–{detail}). Es zählt der Durchschnitt.",
+    "track": "**4.** Verfolge deinen Fortschritt mit `/profile`, `/builds`, `/leaderboard` und `/stats`.",
+    "rules": "Regeln",
+    "judgesTitle": "Für Judges"
+  },
+  "dashboard": {
+    "link": "Dein Login-Link (10 Minuten gültig, einmalig nutzbar):\n{url}"
+  },
+  "legal": {
+    "title": "Bevor du dich registrierst",
+    "body": "Um als `{name}` an **{event}** teilzunehmen, lies bitte die folgenden Dokumente.",
+    "confirm": "Mit Klick auf **Akzeptieren & registrieren** akzeptierst du die Nutzungsbedingungen und bestätigst, dass du die Datenschutzhinweise gelesen hast.",
+    "privacy": "Datenschutzhinweise",
+    "terms": "Nutzungsbedingungen",
+    "imprint": "Impressum",
+    "accept": "Akzeptieren & registrieren",
+    "decline": "Abbrechen",
+    "declined": "Registrierung abgebrochen. Du kannst jederzeit mit `/register` neu starten.",
+    "reaccept": "Unsere Nutzungsbedingungen oder Datenschutzhinweise haben sich geändert. Bitte führe `/register` erneut aus, um sie zu prüfen und zu akzeptieren.",
+    "updated": "Danke! Du hast die aktuellen Nutzungsbedingungen akzeptiert.",
+    "readHint": "Tippe auf einen Button, um ein Dokument direkt hier in Discord zu lesen.",
+    "languageNote": "Dieses Dokument gibt es auf Deutsch und Englisch. Die deutsche Fassung ist rechtlich verbindlich.",
+    "openWeb": "Im Browser öffnen"
+  }
+}

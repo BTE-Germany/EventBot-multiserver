@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Lietuvių"
+  },
+  "common": {
+    "error": "Kažkas nepavyko. Bandyk dar kartą vėliau.",
+    "noEvent": "Šiame serveryje šiuo metu nėra renginio.",
+    "notRegistered": "Dar nesi užsiregistravęs. Pirmiausia naudok `/register`.",
+    "banned": "Tu pašalintas iš šio renginio.",
+    "notJudge": "Tai gali padaryti tik šio renginio teisėjai.",
+    "notAdmin": "Tai gali padaryti tik boto administratoriai.",
+    "buildNotFound": "Buildas #{id} nerastas.",
+    "guildOnly": "Šią komandą galima naudoti tik serveryje.",
+    "noTeam": "Be komandos",
+    "judgeBadge": "Teisėjas",
+    "pointsValue": "{value} tšk.",
+    "buildsValue": "Buildai: {count}",
+    "areaValue": "{value} m²",
+    "page": "Puslapis {page}/{pages}",
+    "next": "Toliau",
+    "previous": "Atgal",
+    "notOwner": "Tai ne tavo buildas."
+  },
+  "phase": {
+    "draft": "Ruošiamas",
+    "upcoming": "Prasideda {time}",
+    "running": "Baigiasi {time}",
+    "runningOpen": "Vyksta",
+    "ended": "Statybų etapas baigėsi",
+    "archived": "Archyvuotas",
+    "submitClosed": "Pateikimas šiuo metu uždarytas.",
+    "registerClosed": "Registracija šiuo metu uždaryta.",
+    "judgeClosed": "Šiame renginio etape vertinti negalima."
+  },
+  "categories": {
+    "base": "Baziniai taškai",
+    "effort": "Pastangos ir sudėtingumas",
+    "detail": "Technika, spalvos ir detalės",
+    "baseShort": "Bazė",
+    "effortShort": "Pastangos",
+    "detailShort": "Detalės",
+    "base0": "Be taškų",
+    "base1": "Infrastruktūra",
+    "base2": "Pastatas"
+  },
+  "reference": {
+    "3d": "3D vaizdas",
+    "streetview": "Street View",
+    "images": "Nuotraukos",
+    "other": "Kita"
+  },
+  "status": {
+    "PENDING": "Laukia teisėjų",
+    "IN_REVIEW": "Vertinamas",
+    "COMPLETE": "Įvertintas",
+    "REJECTED": "Atmestas"
+  },
+  "slots": {
+    "neutral": "Neutralūs teisėjai",
+    "team": "Teisėjai: {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Užsiregistruok renginiui su savo Minecraft vardu",
+      "options": {
+        "minecraft": "Tavo Minecraft vardas (melaginga informacija gali baigtis banu)",
+        "team": "Tavo komanda (reikia tik neutraliuose serveriuose)"
+      }
+    },
+    "submit": {
+      "description": "Pateik buildą kartu su nuoroda į šaltinį",
+      "options": {
+        "coordinates": "Buildo koordinatės (pvz., 53.8655, 10.6866)",
+        "reference": "Kokį šaltinį naudojai?",
+        "link": "Nuoroda į šaltinį (pvz., Google Maps ar Street View)",
+        "image1": "Ekrano nuotrauka iš viršaus su pažymėtais kontūrais",
+        "image2": "Papildoma ekrano nuotrauka (neprivaloma)",
+        "image3": "Papildoma ekrano nuotrauka (neprivaloma)",
+        "area": "Pastatytas plotas m² (neprivaloma)"
+      }
+    },
+    "profile": {
+      "description": "Parodyk savo ar kito žmogaus statistikos kortelę",
+      "options": {
+        "user": "Kieno statistiką rodyti?"
+      }
+    },
+    "builds": {
+      "description": "Pateiktų buildų sąrašas ir jų būsena",
+      "options": {
+        "user": "Kieno buildus rodyti?"
+      }
+    },
+    "leaderboard": {
+      "description": "Parodyk dabartinio renginio lyderių lentelę",
+      "options": {
+        "team": "Rodyti tik vieną komandą"
+      }
+    },
+    "stats": {
+      "description": "Parodyk komandų kovos apžvalgą"
+    },
+    "help": {
+      "description": "Kaip vyksta renginys ir kokios yra komandos"
+    },
+    "judge": {
+      "description": "Įvertink buildą (tik teisėjams)",
+      "options": {
+        "id": "Buildo ID",
+        "base": "Baziniai taškai",
+        "effort": "Pastangos ir sudėtingumas",
+        "detail": "Technika, spalvos ir detalės"
+      }
+    },
+    "reject": {
+      "description": "Atmesk buildą su trumpu paaiškinimu (tik teisėjams)",
+      "options": {
+        "id": "Buildo ID",
+        "reason": "Ką reikia pataisyti?"
+      }
+    },
+    "correct": {
+      "description": "Pataisyk galutinį buildo įvertinimą (tik teisėjams)",
+      "options": {
+        "id": "Buildo ID",
+        "reason": "Kodėl taisomas įvertinimas?",
+        "base": "Nauji baziniai taškai",
+        "effort": "Naujos pastangos ir sudėtingumas",
+        "detail": "Nauja technika, spalvos ir detalės"
+      }
+    },
+    "delete": {
+      "description": "Ištrink buildą (tik teisėjams)",
+      "options": {
+        "id": "Buildo ID",
+        "reason": "Kodėl buildas trinamas?"
+      }
+    },
+    "unjudged": {
+      "description": "Buildai, kurie dar laukia tavo teisėjų grupės (tik teisėjams)"
+    },
+    "refresh": {
+      "description": "Perpiešk buildų panelius (tik teisėjams)",
+      "options": {
+        "id": "Buildo ID (tuščia: paskutiniai 10 buildų)"
+      }
+    },
+    "dashboard": {
+      "description": "Gauk prisijungimo nuorodą į administravimo skydelį"
+    },
+    "wrapup": {
+      "description": "Parodyk arba paskelbk renginio santrauką (tik adminams)",
+      "options": {
+        "post": "Paskelbti visuose serveriuose (kitaip tik peržiūra)"
+      }
+    },
+    "legal": {
+      "description": "Perskaityk Privatumo politiką, Naudojimosi sąlygas ir rekvizitus"
+    }
+  },
+  "register": {
+    "invalidName": "Netinkamas Minecraft vardas. Leidžiama 3–16 simbolių (raidės, skaičiai, `_`).",
+    "already": "Tu jau užsiregistravęs kaip `{name}`.",
+    "nameTaken": "Šis Minecraft vardas jau užregistruotas kitos Discord paskyros.",
+    "teamRequired": "Šis serveris neturi savo komandos. Pasirink komandą su `team` parinktimi.",
+    "invalidTeam": "Tokios komandos dabartiniame renginyje nėra.",
+    "success": "Sveikas atvykęs į **{event}**, `{name}`! Tu statai komandai **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Netinkama nuoroda!** Reikia tinkamos nuorodos į tavo šaltinį (pvz., `https://maps.google.com/...`).",
+    "invalidArea": "Plotas turi būti teigiamas kvadratinių metrų skaičius.",
+    "imagesOnly": "Įkelk tik paveikslėlius (PNG, JPG, GIF, WEBP).",
+    "success": "Tavo buildas **#{id}** pateiktas. Teisėjams pranešta!",
+    "uploadWarning": "Kai kurių paveikslėlių nepavyko išsaugoti visam laikui. Neištrink savo originalios žinutės.",
+    "messageHint": "Pridėk bent vieną paveikslėlį, koordinates ir nuorodą į šaltinį arba naudok `/submit`.",
+    "messageNoLink": "**Pateikimas atmestas:** būtina nuoroda į naudotą šaltinį (3D vaizdas, Street View, nuotraukos). Patarimas: naudok `/submit`."
+  },
+  "panel": {
+    "title": "Buildas #{id}",
+    "builder": "Statytojas",
+    "team": "Komanda",
+    "coordinates": "Koordinatės",
+    "reference": "Šaltinis",
+    "area": "Plotas",
+    "status": "Būsena",
+    "progress": "Vertinimo eiga",
+    "slotWaiting": "laukia",
+    "score": "Įvertinimas",
+    "total": "Iš viso",
+    "votes": "Balsai",
+    "notes": "Statytojo pastabos",
+    "rejected": "Atmestas",
+    "rejectedHint": "Pataisyk buildą ir spausk **Pateikti iš naujo**.",
+    "correction": "Pataisė {user}: {reason}",
+    "judgePing": "{role} Naujas buildas **#{id}** iš {team}",
+    "buttonScore": "Įvertinti",
+    "buttonReject": "Atmesti",
+    "buttonInfo": "Pridėti info",
+    "buttonResubmit": "Pateikti iš naujo",
+    "buttonReference": "Šaltinis",
+    "buttonJump": "Eiti į buildą"
+  },
+  "judge": {
+    "invalidBase": "Baziniai taškai turi būti vienas iš: {options}.",
+    "invalidScore": "{category} turi būti nuo 0 iki {max}, žingsniu {step}.",
+    "ownBuild": "Negali vertinti savo buildo.",
+    "slotTaken": "Tavo teisėjų grupė ({slot}) jau įvertino šį buildą.",
+    "rejected": "Šis buildas atmestas. Jį bus galima vertinti vėl, kai statytojas pateiks jį iš naujo.",
+    "noSlot": "Tavo teisėjų grupė nedalyvauja šio renginio vertinime.",
+    "saved": "Tavo balsas už buildą **#{id}** išsaugotas. Eiga: {done}/{required} teisėjų grupių.",
+    "updated": "Tavo balsas už buildą **#{id}** atnaujintas.",
+    "completed": "Buildas **#{id}** pilnai įvertintas: **{total}** tšk. žaidėjui `{builder}`.",
+    "modalTitle": "Įvertinti buildą #{id}",
+    "modalBase": "Baziniai taškai ({options})",
+    "modalEffort": "Pastangos ir sudėtingumas (0–{max})",
+    "modalDetail": "Technika, spalvos ir detalės (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Atmesti buildą #{id}",
+    "modalReason": "Ką reikia pataisyti?",
+    "done": "Buildas **#{id}** atmestas.",
+    "already": "Šis buildas jau atmestas.",
+    "dm": "Tavo buildas **#{id}** renginyje **{event}** atmestas: {reason}\nPataisyk jį ir spausk **Pateikti iš naujo** prie savo pateikimo."
+  },
+  "resubmit": {
+    "modalTitle": "Pateikti buildą #{id} iš naujo",
+    "coordinates": "Koordinatės",
+    "link": "Nuoroda į šaltinį",
+    "notes": "Ką pakeitei?",
+    "done": "Buildas **#{id}** pateiktas iš naujo ir vėl laukia teisėjų.",
+    "notRejected": "Iš naujo galima pateikti tik atmestus buildus."
+  },
+  "info": {
+    "modalTitle": "Informacija teisėjams",
+    "label": "Pastabos teisėjams",
+    "placeholder": "pvz., ypatingos detalės, interjeras, šaltiniai ...",
+    "saved": "Išsaugota. Teisėjai dabar mato tavo pastabas."
+  },
+  "correct": {
+    "nothing": "Nurodyk bent vieną reikšmę pataisymui.",
+    "notJudged": "Šis buildas dar neįvertintas. Naudok `/judge`.",
+    "done": "Buildas **#{id}** pataisytas: {old} → {new} tšk."
+  },
+  "delete": {
+    "done": "Buildas **#{id}** ištrintas. Priežastis: {reason}"
+  },
+  "unjudged": {
+    "none": "Tavo teisėjų grupei neliko ką vertinti. 🎉",
+    "title": "Laukia: {slot} ({count})",
+    "more": "… ir dar {count}"
+  },
+  "refresh": {
+    "done": "Perpiešta panelių: {count}"
+  },
+  "profile": {
+    "title": "Statistika: {name}",
+    "rank": "Vieta",
+    "rankValue": "#{rank} iš {total}",
+    "unranked": "Dar be vietos",
+    "points": "Taškai",
+    "builds": "Įvertinti buildai",
+    "submitted": "Pateikta",
+    "pending": "Laukia",
+    "rejected": "Atmesta",
+    "area": "Pastatytas plotas",
+    "averages": "Vidutiniai įvertinimai",
+    "allTime": "Visi renginiai",
+    "allTimeValue": "Renginiai: {events} · Taškai: {points} · Buildai: {builds}",
+    "notRegistered": "{user} nėra užsiregistravęs šiam renginiui.",
+    "judgeNote": "Teisėjai gali statyti, bet negali laimėti.",
+    "best": "Geriausias buildas",
+    "buttonBuilds": "Rodyti buildus"
+  },
+  "builds": {
+    "title": "Buildai: {name}",
+    "empty": "Buildų dar nėra."
+  },
+  "leaderboard": {
+    "title": "Lyderių lentelė · {event}",
+    "empty": "Taškų dar neskirta.",
+    "footer": "Prisijunk su /register ir kopk į viršūnę!"
+  },
+  "board": {
+    "battle": "Komandų kova",
+    "points": "Taškai",
+    "builds": "Buildai",
+    "area": "Plotas",
+    "participants": "Statytojai",
+    "waiting": "Laukia teisėjų",
+    "leading": "{team} pirmauja {diff} tšk. skirtumu",
+    "draw": "Lygiosios!",
+    "updated": "Atnaujinta {time}",
+    "topBuilders": "Geriausi statytojai"
+  },
+  "announce": {
+    "startTitle": "Build battle prasidėjo! 🏗️",
+    "startBody": "**{event}** vyksta iki {end}.\nUžsiregistruok su `/register` ir pateik savo buildus su `/submit`. Sėkmės!",
+    "endTitle": "Build battle baigtas",
+    "endBody": "**{event}** baigėsi. Labai ačiū visiems dalyvavusiems!\nNugalėtojai bus paskelbti po galutinio vertinimo."
+  },
+  "wrapup": {
+    "title": "Renginio santrauka · {event}",
+    "intro": "**{event}** baigėsi. Iš viso pastatėme:",
+    "totalArea": "Bendras plotas: **{total} m²**",
+    "teamPart": "{value} – {place}",
+    "totalBuilds": "Iš viso **{total}** buildų",
+    "winner": "Su **{points}** tšk. laimėjo **{team}**! 🏆",
+    "draw": "Lygiosios – kiekviena komanda surinko po **{points}** tšk.!",
+    "topOverall": "Geriausi statytojai · Bendrai",
+    "topTeam": "Geriausi statytojai · {team}",
+    "thanks": "Labai ačiū visiems dalyvavusiems!",
+    "preview": "Peržiūra, matoma tik tau. Paskelbimui naudok `post: True`.",
+    "posted": "Santrauka paskelbta serveriuose: {count}."
+  },
+  "help": {
+    "title": "Kaip vyksta {event}",
+    "register": "**1.** Užsiregistruok su `/register <Minecraft vardas>`.",
+    "submit": "**2.** Statyk renginio teritorijoje, tada naudok `/submit` su ekrano nuotrauka iš viršaus (su pažymėtais kontūrais), koordinatėmis, šaltiniu ir nuoroda.",
+    "judging": "**3.** Kiekvieną buildą vertina po vieną teisėją iš kiekvienos komandos ir neutralus teisėjas: baziniai taškai (0–{base}), pastangos (0–{effort}) bei technika ir detalės (0–{detail}). Skaičiuojamas vidurkis.",
+    "track": "**4.** Sek savo pažangą su `/profile`, `/builds`, `/leaderboard` ir `/stats`.",
+    "rules": "Taisyklės",
+    "judgesTitle": "Teisėjams"
+  },
+  "dashboard": {
+    "link": "Tavo prisijungimo nuoroda (galioja 10 minučių, vienkartinė):\n{url}"
+  },
+  "legal": {
+    "title": "Prieš registruojantis",
+    "body": "Kad dalyvautum **{event}** kaip `{name}`, perskaityk toliau pateiktus dokumentus.",
+    "confirm": "Spausdamas **Sutinku ir registruojuosi** sutinki su Naudojimosi sąlygomis ir patvirtini, kad perskaitei Privatumo politiką.",
+    "privacy": "Privatumo politika",
+    "terms": "Naudojimosi sąlygos",
+    "imprint": "Rekvizitai",
+    "accept": "Sutinku ir registruojuosi",
+    "decline": "Atšaukti",
+    "declined": "Registracija atšaukta. Bet kada gali pradėti iš naujo su `/register`.",
+    "reaccept": "Pasikeitė mūsų Naudojimosi sąlygos arba Privatumo politika. Dar kartą paleisk `/register`, kad jas patvirtintum.",
+    "updated": "Ačiū! Sutikai su galiojančiomis Naudojimosi sąlygomis.",
+    "readHint": "Spausk mygtuką ir perskaityk dokumentą čia pat, Discorde.",
+    "languageNote": "Šis dokumentas pateikiamas vokiečių ir anglų kalbomis. Teisiškai privaloma yra vokiška versija.",
+    "openWeb": "Atidaryti naršyklėje"
+  }
+}

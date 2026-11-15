@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Español (España)"
+  },
+  "common": {
+    "error": "Algo ha salido mal. Inténtalo de nuevo más tarde.",
+    "noEvent": "Ahora mismo no hay ningún evento en este servidor.",
+    "notRegistered": "Aún no estás registrado. Usa primero `/register`.",
+    "banned": "Has sido excluido de este evento.",
+    "notJudge": "Solo los jueces de este evento pueden hacer eso.",
+    "notAdmin": "Solo los administradores del bot pueden hacer eso.",
+    "buildNotFound": "No se ha encontrado el build #{id}.",
+    "guildOnly": "Este comando solo se puede usar en un servidor.",
+    "noTeam": "Sin equipo",
+    "judgeBadge": "Juez",
+    "pointsValue": "{value} pts",
+    "buildsValue": "{count} builds",
+    "areaValue": "{value} m²",
+    "page": "Página {page}/{pages}",
+    "next": "Siguiente",
+    "previous": "Atrás",
+    "notOwner": "Este build no es tuyo."
+  },
+  "phase": {
+    "draft": "En preparación",
+    "upcoming": "Empieza {time}",
+    "running": "Termina {time}",
+    "runningOpen": "En curso",
+    "ended": "Fase de construcción terminada",
+    "archived": "Archivado",
+    "submitClosed": "Ahora mismo no se aceptan envíos.",
+    "registerClosed": "Ahora mismo el registro no está abierto.",
+    "judgeClosed": "No se puede evaluar en esta fase del evento."
+  },
+  "categories": {
+    "base": "Puntos base",
+    "effort": "Esfuerzo y complejidad",
+    "detail": "Técnica, colores y detalles",
+    "baseShort": "Base",
+    "effortShort": "Esfuerzo",
+    "detailShort": "Detalles",
+    "base0": "Sin puntos",
+    "base1": "Infraestructura",
+    "base2": "Edificio"
+  },
+  "reference": {
+    "3d": "Vista 3D",
+    "streetview": "Street View",
+    "images": "Fotos",
+    "other": "Otra"
+  },
+  "status": {
+    "PENDING": "Esperando a los jueces",
+    "IN_REVIEW": "En revisión",
+    "COMPLETE": "Evaluado",
+    "REJECTED": "Rechazado"
+  },
+  "slots": {
+    "neutral": "Jueces neutrales",
+    "team": "Jueces de {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Regístrate en el evento con tu nombre de Minecraft",
+      "options": {
+        "minecraft": "Tu nombre de Minecraft (datos falsos pueden llevar a un ban)",
+        "team": "Tu equipo (solo necesario en servidores neutrales)"
+      }
+    },
+    "submit": {
+      "description": "Envía un build junto con su referencia",
+      "options": {
+        "coordinates": "Coordenadas del build (p. ej. 53.8655, 10.6866)",
+        "reference": "¿Qué referencia has usado?",
+        "link": "Enlace a la referencia (p. ej. Google Maps o Street View)",
+        "image1": "Captura cenital con los contornos dibujados",
+        "image2": "Captura adicional (opcional)",
+        "image3": "Captura adicional (opcional)",
+        "area": "Superficie construida en m² (opcional)"
+      }
+    },
+    "profile": {
+      "description": "Muestra tus estadísticas o las de otra persona",
+      "options": {
+        "user": "¿De quién quieres ver las estadísticas?"
+      }
+    },
+    "builds": {
+      "description": "Lista los builds enviados y su estado",
+      "options": {
+        "user": "¿De quién quieres ver los builds?"
+      }
+    },
+    "leaderboard": {
+      "description": "Muestra la clasificación del evento actual",
+      "options": {
+        "team": "Mostrar solo un equipo"
+      }
+    },
+    "stats": {
+      "description": "Muestra el resumen de la batalla por equipos"
+    },
+    "help": {
+      "description": "Cómo funciona el evento y qué comandos hay"
+    },
+    "judge": {
+      "description": "Evalúa un build (solo jueces)",
+      "options": {
+        "id": "ID del build",
+        "base": "Puntos base",
+        "effort": "Esfuerzo y complejidad",
+        "detail": "Técnica, colores y detalles"
+      }
+    },
+    "reject": {
+      "description": "Rechaza un build con una breve explicación (solo jueces)",
+      "options": {
+        "id": "ID del build",
+        "reason": "¿Qué hay que corregir?"
+      }
+    },
+    "correct": {
+      "description": "Corrige la puntuación final de un build (solo jueces)",
+      "options": {
+        "id": "ID del build",
+        "reason": "¿Por qué se corrige la puntuación?",
+        "base": "Nuevos puntos base",
+        "effort": "Nuevo esfuerzo y complejidad",
+        "detail": "Nueva técnica, colores y detalles"
+      }
+    },
+    "delete": {
+      "description": "Elimina un build (solo jueces)",
+      "options": {
+        "id": "ID del build",
+        "reason": "¿Por qué se elimina el build?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds que aún esperan a tu grupo de jueces (solo jueces)"
+    },
+    "refresh": {
+      "description": "Vuelve a dibujar los paneles de builds (solo jueces)",
+      "options": {
+        "id": "ID del build (vacío: los 10 últimos builds)"
+      }
+    },
+    "dashboard": {
+      "description": "Obtén un enlace de acceso al panel de administración"
+    },
+    "wrapup": {
+      "description": "Muestra o publica el resumen del evento (solo administradores)",
+      "options": {
+        "post": "Publicarlo en todos los servidores (si no, solo una vista previa)"
+      }
+    },
+    "legal": {
+      "description": "Lee la Política de privacidad, las Condiciones de uso y el aviso legal"
+    }
+  },
+  "register": {
+    "invalidName": "Nombre de Minecraft no válido. Se permiten de 3 a 16 caracteres (letras, números, `_`).",
+    "already": "Ya estás registrado como `{name}`.",
+    "nameTaken": "Este nombre de Minecraft ya lo ha registrado otra cuenta de Discord.",
+    "teamRequired": "Este servidor no tiene equipo propio. Elige tu equipo con la opción `team`.",
+    "invalidTeam": "Este equipo no existe en el evento actual.",
+    "success": "¡Bienvenido a **{event}**, `{name}`! Construyes para **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**¡Enlace no válido!** Se necesita un enlace válido a tu referencia (p. ej. `https://maps.google.com/...`).",
+    "invalidArea": "La superficie debe ser un número positivo de metros cuadrados.",
+    "imagesOnly": "Sube solo imágenes (PNG, JPG, GIF, WEBP).",
+    "success": "Tu build **#{id}** se ha enviado. ¡Ya se ha avisado a los jueces!",
+    "uploadWarning": "Algunas imágenes no se han podido guardar de forma permanente. Conserva tu mensaje original.",
+    "messageHint": "Adjunta al menos una imagen y añade las coordenadas y un enlace de referencia, o usa `/submit`.",
+    "messageNoLink": "**Envío rechazado:** se necesita un enlace a la referencia usada (vista 3D, Street View, fotos). Consejo: usa `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Constructor",
+    "team": "Equipo",
+    "coordinates": "Coordenadas",
+    "reference": "Referencia",
+    "area": "Superficie",
+    "status": "Estado",
+    "progress": "Progreso de evaluación",
+    "slotWaiting": "pendiente",
+    "score": "Puntuación",
+    "total": "Total",
+    "votes": "Votos",
+    "notes": "Notas del constructor",
+    "rejected": "Rechazado",
+    "rejectedHint": "Corrige el build y pulsa **Reenviar**.",
+    "correction": "Corrección de {user}: {reason}",
+    "judgePing": "{role} Nuevo build **#{id}** de {team}",
+    "buttonScore": "Evaluar",
+    "buttonReject": "Rechazar",
+    "buttonInfo": "Añadir info",
+    "buttonResubmit": "Reenviar",
+    "buttonReference": "Referencia",
+    "buttonJump": "Ir al build"
+  },
+  "judge": {
+    "invalidBase": "Los puntos base deben ser uno de: {options}.",
+    "invalidScore": "{category} debe estar entre 0 y {max} en pasos de {step}.",
+    "ownBuild": "No puedes evaluar tu propio build.",
+    "slotTaken": "Tu grupo de jueces ({slot}) ya ha evaluado este build.",
+    "rejected": "Este build fue rechazado. Se podrá evaluar de nuevo cuando el constructor lo reenvíe.",
+    "noSlot": "Tu grupo de jueces no participa en la evaluación de este evento.",
+    "saved": "Tu voto para el build **#{id}** se ha guardado. Progreso: {done}/{required} grupos de jueces.",
+    "updated": "Tu voto para el build **#{id}** se ha actualizado.",
+    "completed": "El build **#{id}** está totalmente evaluado: **{total}** puntos para `{builder}`.",
+    "modalTitle": "Evaluar build #{id}",
+    "modalBase": "Puntos base ({options})",
+    "modalEffort": "Esfuerzo y complejidad (0–{max})",
+    "modalDetail": "Técnica, colores y detalles (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Rechazar build #{id}",
+    "modalReason": "¿Qué hay que corregir?",
+    "done": "El build **#{id}** ha sido rechazado.",
+    "already": "Este build ya ha sido rechazado.",
+    "dm": "Tu build **#{id}** en **{event}** ha sido rechazado: {reason}\nCorrígelo y pulsa **Reenviar** en tu envío."
+  },
+  "resubmit": {
+    "modalTitle": "Reenviar build #{id}",
+    "coordinates": "Coordenadas",
+    "link": "Enlace de referencia",
+    "notes": "¿Qué has cambiado?",
+    "done": "El build **#{id}** se ha reenviado y vuelve a esperar a los jueces.",
+    "notRejected": "Solo se pueden reenviar builds rechazados."
+  },
+  "info": {
+    "modalTitle": "Información para los jueces",
+    "label": "Notas para los jueces",
+    "placeholder": "p. ej. detalles especiales, interior, fuentes...",
+    "saved": "Guardado. Los jueces ya pueden ver tus notas."
+  },
+  "correct": {
+    "nothing": "Indica al menos un valor que corregir.",
+    "notJudged": "Este build aún no se ha evaluado. Usa `/judge`.",
+    "done": "Build **#{id}** corregido: {old} → {new} puntos."
+  },
+  "delete": {
+    "done": "El build **#{id}** se ha eliminado. Motivo: {reason}"
+  },
+  "unjudged": {
+    "none": "No queda nada por evaluar para tu grupo de jueces. 🎉",
+    "title": "Esperando a {slot} ({count})",
+    "more": "… y {count} más"
+  },
+  "refresh": {
+    "done": "Paneles redibujados: {count}"
+  },
+  "profile": {
+    "title": "Estadísticas de {name}",
+    "rank": "Puesto",
+    "rankValue": "#{rank} de {total}",
+    "unranked": "Aún sin clasificar",
+    "points": "Puntos",
+    "builds": "Builds evaluados",
+    "submitted": "Enviados",
+    "pending": "Pendientes",
+    "rejected": "Rechazados",
+    "area": "Superficie construida",
+    "averages": "Puntuaciones medias",
+    "allTime": "Todos los eventos",
+    "allTimeValue": "{events} eventos · {points} puntos · {builds} builds",
+    "notRegistered": "{user} no está registrado en este evento.",
+    "judgeNote": "Los jueces pueden construir, pero no pueden ganar.",
+    "best": "Mejor build",
+    "buttonBuilds": "Ver builds"
+  },
+  "builds": {
+    "title": "Builds de {name}",
+    "empty": "Todavía no hay builds."
+  },
+  "leaderboard": {
+    "title": "Clasificación · {event}",
+    "empty": "Aún no se han otorgado puntos.",
+    "footer": "¡Únete con /register y sube a lo más alto!"
+  },
+  "board": {
+    "battle": "Batalla por equipos",
+    "points": "Puntos",
+    "builds": "Builds",
+    "area": "Superficie",
+    "participants": "Constructores",
+    "waiting": "Esperando a los jueces",
+    "leading": "{team} va ganando por {diff} puntos",
+    "draw": "¡Hay empate!",
+    "updated": "Actualizado {time}",
+    "topBuilders": "Mejores constructores"
+  },
+  "announce": {
+    "startTitle": "¡La batalla de construcción ha empezado! 🏗️",
+    "startBody": "**{event}** dura hasta {end}.\nRegístrate con `/register` y envía tus builds con `/submit`. ¡Mucha suerte!",
+    "endTitle": "La batalla de construcción ha terminado",
+    "endBody": "**{event}** ha terminado. ¡Muchísimas gracias a todos los que habéis participado!\nLos ganadores se anunciarán tras la evaluación final."
+  },
+  "wrapup": {
+    "title": "Resumen del evento · {event}",
+    "intro": "**{event}** ha terminado. En total hemos construido:",
+    "totalArea": "Superficie total: **{total} m²**",
+    "teamPart": "{value} en {place}",
+    "totalBuilds": "**{total}** builds en total",
+    "winner": "¡Con **{points}** puntos, gana **{team}**! 🏆",
+    "draw": "¡Empate con **{points}** puntos cada uno!",
+    "topOverall": "Mejores constructores · General",
+    "topTeam": "Mejores constructores · {team}",
+    "thanks": "¡Muchísimas gracias a todos los que habéis participado!",
+    "preview": "Vista previa, solo visible para ti. Usa `post: True` para publicarla.",
+    "posted": "Resumen publicado en {count} servidor(es)."
+  },
+  "help": {
+    "title": "Cómo funciona {event}",
+    "register": "**1.** Regístrate con `/register <nombre de Minecraft>`.",
+    "submit": "**2.** Construye en la zona del evento y usa `/submit` con una captura cenital (con los contornos dibujados), coordenadas, referencia y enlace.",
+    "judging": "**3.** Un juez de cada equipo y un juez neutral evalúan cada build: puntos base (0–{base}), esfuerzo (0–{effort}) y técnica y detalles (0–{detail}). Cuenta la media.",
+    "track": "**4.** Sigue tu progreso con `/profile`, `/builds`, `/leaderboard` y `/stats`.",
+    "rules": "Reglas",
+    "judgesTitle": "Para jueces"
+  },
+  "dashboard": {
+    "link": "Tu enlace de acceso (válido 10 minutos, un solo uso):\n{url}"
+  },
+  "legal": {
+    "title": "Antes de registrarte",
+    "body": "Para participar en **{event}** como `{name}`, lee los documentos de abajo.",
+    "confirm": "Al pulsar **Aceptar y registrarme** aceptas las Condiciones de uso y confirmas que has leído la Política de privacidad.",
+    "privacy": "Política de privacidad",
+    "terms": "Condiciones de uso",
+    "imprint": "Aviso legal",
+    "accept": "Aceptar y registrarme",
+    "decline": "Cancelar",
+    "declined": "Registro cancelado. Puedes volver a empezar cuando quieras con `/register`.",
+    "reaccept": "Nuestras Condiciones de uso o nuestra Política de privacidad han cambiado. Vuelve a usar `/register` para revisarlas y aceptarlas.",
+    "updated": "¡Gracias! Has aceptado las Condiciones de uso actuales.",
+    "readHint": "Pulsa un botón para leer un documento aquí mismo en Discord.",
+    "languageNote": "Este documento está disponible en alemán e inglés. La versión alemana es la jurídicamente vinculante.",
+    "openWeb": "Abrir en el navegador"
+  }
+}

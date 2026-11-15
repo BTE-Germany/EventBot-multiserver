@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "日本語"
+  },
+  "common": {
+    "error": "問題が発生しました。しばらくしてからもう一度お試しください。",
+    "noEvent": "このサーバーでは現在イベントが開催されていません。",
+    "notRegistered": "まだ登録されていません。まず `/register` を使ってください。",
+    "banned": "あなたはこのイベントから除外されています。",
+    "notJudge": "この操作はイベントの審査員のみ実行できます。",
+    "notAdmin": "この操作はボット管理者のみ実行できます。",
+    "buildNotFound": "建築 #{id} が見つかりません。",
+    "guildOnly": "このコマンドはサーバー内でのみ使用できます。",
+    "noTeam": "チームなし",
+    "judgeBadge": "審査員",
+    "pointsValue": "{value} pt",
+    "buildsValue": "{count} 件の建築",
+    "areaValue": "{value} m²",
+    "page": "{page}/{pages} ページ",
+    "next": "次へ",
+    "previous": "戻る",
+    "notOwner": "これはあなたの建築ではありません。"
+  },
+  "phase": {
+    "draft": "準備中",
+    "upcoming": "{time} 開始",
+    "running": "{time} 終了",
+    "runningOpen": "開催中",
+    "ended": "建築フェーズ終了",
+    "archived": "アーカイブ済み",
+    "submitClosed": "現在は提出を受け付けていません。",
+    "registerClosed": "現在は登録を受け付けていません。",
+    "judgeClosed": "現在のイベントフェーズでは審査できません。"
+  },
+  "categories": {
+    "base": "基本点",
+    "effort": "労力と複雑さ",
+    "detail": "技術・配色・ディテール",
+    "baseShort": "基本",
+    "effortShort": "労力",
+    "detailShort": "ディテール",
+    "base0": "点数なし",
+    "base1": "インフラ",
+    "base2": "建物"
+  },
+  "reference": {
+    "3d": "3D ビュー",
+    "streetview": "ストリートビュー",
+    "images": "写真",
+    "other": "その他"
+  },
+  "status": {
+    "PENDING": "審査待ち",
+    "IN_REVIEW": "審査中",
+    "COMPLETE": "審査済み",
+    "REJECTED": "差し戻し"
+  },
+  "slots": {
+    "neutral": "中立審査員",
+    "team": "{team} の審査員"
+  },
+  "commands": {
+    "register": {
+      "description": "Minecraft の名前でイベントに登録する",
+      "options": {
+        "minecraft": "あなたの Minecraft の名前（虚偽の情報は BAN の対象になります）",
+        "team": "あなたのチーム（中立サーバーでのみ必要）"
+      }
+    },
+    "submit": {
+      "description": "建築を参考資料と一緒に提出する",
+      "options": {
+        "coordinates": "建築の座標（例: 53.8655, 10.6866）",
+        "reference": "どの参考資料を使いましたか？",
+        "link": "参考資料へのリンク（例: Google マップやストリートビュー）",
+        "image1": "輪郭を描き込んだ真上からのスクリーンショット",
+        "image2": "追加のスクリーンショット（任意）",
+        "image3": "追加のスクリーンショット（任意）",
+        "area": "建築面積 m²（任意）"
+      }
+    },
+    "profile": {
+      "description": "自分または他の人のステータスカードを表示する",
+      "options": {
+        "user": "誰のステータスを表示しますか？"
+      }
+    },
+    "builds": {
+      "description": "提出された建築とそのステータスを一覧表示する",
+      "options": {
+        "user": "誰の建築を表示しますか？"
+      }
+    },
+    "leaderboard": {
+      "description": "現在のイベントのランキングを表示する",
+      "options": {
+        "team": "1 チームのみ表示"
+      }
+    },
+    "stats": {
+      "description": "チーム対抗戦の概要を表示する"
+    },
+    "help": {
+      "description": "イベントの仕組みとコマンド一覧"
+    },
+    "judge": {
+      "description": "建築を採点する（審査員のみ）",
+      "options": {
+        "id": "建築の ID",
+        "base": "基本点",
+        "effort": "労力と複雑さ",
+        "detail": "技術・配色・ディテール"
+      }
+    },
+    "reject": {
+      "description": "簡単な説明を付けて建築を差し戻す（審査員のみ）",
+      "options": {
+        "id": "建築の ID",
+        "reason": "何を修正する必要がありますか？"
+      }
+    },
+    "correct": {
+      "description": "建築の最終スコアを修正する（審査員のみ）",
+      "options": {
+        "id": "建築の ID",
+        "reason": "スコアを修正する理由は？",
+        "base": "新しい基本点",
+        "effort": "新しい労力と複雑さ",
+        "detail": "新しい技術・配色・ディテール"
+      }
+    },
+    "delete": {
+      "description": "建築を削除する（審査員のみ）",
+      "options": {
+        "id": "建築の ID",
+        "reason": "建築を削除する理由は？"
+      }
+    },
+    "unjudged": {
+      "description": "あなたの審査グループの審査待ちの建築（審査員のみ）"
+    },
+    "refresh": {
+      "description": "建築パネルを再描画する（審査員のみ）",
+      "options": {
+        "id": "建築の ID（空欄: 最新 10 件）"
+      }
+    },
+    "dashboard": {
+      "description": "管理ダッシュボードのログインリンクを取得する"
+    },
+    "wrapup": {
+      "description": "イベントのまとめを表示または投稿する（管理者のみ）",
+      "options": {
+        "post": "すべてのサーバーに投稿する（オフの場合はプレビューのみ）"
+      }
+    },
+    "legal": {
+      "description": "プライバシーポリシー、利用規約、運営者情報を読む"
+    }
+  },
+  "register": {
+    "invalidName": "無効な Minecraft の名前です。3〜16 文字（英字、数字、`_`）が使えます。",
+    "already": "すでに `{name}` として登録されています。",
+    "nameTaken": "この Minecraft の名前は別の Discord アカウントで登録済みです。",
+    "teamRequired": "このサーバーには専用のチームがありません。`team` オプションでチームを選んでください。",
+    "invalidTeam": "このチームは現在のイベントに存在しません。",
+    "success": "**{event}** へようこそ、`{name}` さん！あなたは **{team}** として建築します。"
+  },
+  "submit": {
+    "invalidLink": "**無効なリンクです！** 参考資料への有効なリンクが必要です（例: `https://maps.google.com/...`）。",
+    "invalidArea": "面積は正の数（平方メートル）で入力してください。",
+    "imagesOnly": "画像（PNG、JPG、GIF、WEBP）のみアップロードしてください。",
+    "success": "建築 **#{id}** を提出しました。審査員に通知されました！",
+    "uploadWarning": "一部の画像を永続的に保存できませんでした。元のメッセージは削除しないでください。",
+    "messageHint": "画像を 1 枚以上添付し、座標と参考リンクを追加するか、`/submit` を使ってください。",
+    "messageNoLink": "**提出が却下されました：** 使用した参考資料（3D ビュー、ストリートビュー、写真）へのリンクが必要です。ヒント: `/submit` を使ってください。"
+  },
+  "panel": {
+    "title": "建築 #{id}",
+    "builder": "建築者",
+    "team": "チーム",
+    "coordinates": "座標",
+    "reference": "参考資料",
+    "area": "面積",
+    "status": "ステータス",
+    "progress": "審査の進捗",
+    "slotWaiting": "待機中",
+    "score": "スコア",
+    "total": "合計",
+    "votes": "採点",
+    "notes": "建築者からのメモ",
+    "rejected": "差し戻し",
+    "rejectedHint": "建築を修正して **再提出** を押してください。",
+    "correction": "{user} による修正: {reason}",
+    "judgePing": "{role} {team} から新しい建築 **#{id}**",
+    "buttonScore": "採点",
+    "buttonReject": "差し戻す",
+    "buttonInfo": "情報を追加",
+    "buttonResubmit": "再提出",
+    "buttonReference": "参考資料",
+    "buttonJump": "建築へ移動"
+  },
+  "judge": {
+    "invalidBase": "基本点は次のいずれかにしてください: {options}。",
+    "invalidScore": "{category} は 0〜{max} の範囲で、{step} 刻みで入力してください。",
+    "ownBuild": "自分の建築は審査できません。",
+    "slotTaken": "あなたの審査グループ（{slot}）はすでにこの建築を採点しています。",
+    "rejected": "この建築は差し戻されています。建築者が再提出すると再び審査できます。",
+    "noSlot": "あなたの審査グループはこのイベントの審査に参加していません。",
+    "saved": "建築 **#{id}** への採点を保存しました。進捗: {done}/{required} 審査グループ。",
+    "updated": "建築 **#{id}** への採点を更新しました。",
+    "completed": "建築 **#{id}** の審査が完了しました: `{builder}` に **{total}** ポイント。",
+    "modalTitle": "建築 #{id} を採点",
+    "modalBase": "基本点（{options}）",
+    "modalEffort": "労力と複雑さ（0〜{max}）",
+    "modalDetail": "技術・配色・ディテール（0〜{max}）"
+  },
+  "reject": {
+    "modalTitle": "建築 #{id} を差し戻す",
+    "modalReason": "何を修正する必要がありますか？",
+    "done": "建築 **#{id}** を差し戻しました。",
+    "already": "この建築はすでに差し戻されています。",
+    "dm": "**{event}** のあなたの建築 **#{id}** が差し戻されました: {reason}\n修正して、提出物の **再提出** を押してください。"
+  },
+  "resubmit": {
+    "modalTitle": "建築 #{id} を再提出",
+    "coordinates": "座標",
+    "link": "参考リンク",
+    "notes": "何を変更しましたか？",
+    "done": "建築 **#{id}** を再提出しました。再び審査待ちです。",
+    "notRejected": "再提出できるのは差し戻された建築のみです。"
+  },
+  "info": {
+    "modalTitle": "審査員への情報",
+    "label": "審査員へのメモ",
+    "placeholder": "例: 特別なディテール、内装、出典 ...",
+    "saved": "保存しました。審査員があなたのメモを見られるようになりました。"
+  },
+  "correct": {
+    "nothing": "修正する値を少なくとも 1 つ指定してください。",
+    "notJudged": "この建築はまだ審査されていません。`/judge` を使ってください。",
+    "done": "建築 **#{id}** を修正しました: {old} → {new} ポイント。"
+  },
+  "delete": {
+    "done": "建築 **#{id}** を削除しました。理由: {reason}"
+  },
+  "unjudged": {
+    "none": "あなたの審査グループが審査すべき建築はもうありません。🎉",
+    "title": "{slot} の審査待ち（{count}）",
+    "more": "… 他 {count} 件"
+  },
+  "refresh": {
+    "done": "パネルを再描画しました: {count}"
+  },
+  "profile": {
+    "title": "{name} のステータス",
+    "rank": "順位",
+    "rankValue": "{total} 人中 {rank} 位",
+    "unranked": "まだ順位なし",
+    "points": "ポイント",
+    "builds": "審査済みの建築",
+    "submitted": "提出済み",
+    "pending": "審査待ち",
+    "rejected": "差し戻し",
+    "area": "建築面積",
+    "averages": "平均スコア",
+    "allTime": "全イベント",
+    "allTimeValue": "{events} イベント · {points} ポイント · {builds} 件の建築",
+    "notRegistered": "{user} はこのイベントに登録していません。",
+    "judgeNote": "審査員も建築できますが、優勝はできません。",
+    "best": "ベスト建築",
+    "buttonBuilds": "建築を表示"
+  },
+  "builds": {
+    "title": "{name} の建築",
+    "empty": "まだ建築がありません。"
+  },
+  "leaderboard": {
+    "title": "ランキング · {event}",
+    "empty": "まだポイントが付与されていません。",
+    "footer": "/register で参加して、トップを目指そう！"
+  },
+  "board": {
+    "battle": "チーム対抗戦",
+    "points": "ポイント",
+    "builds": "建築",
+    "area": "面積",
+    "participants": "建築者",
+    "waiting": "審査待ち",
+    "leading": "{team} が {diff} ポイントリード",
+    "draw": "同点です！",
+    "updated": "{time} に更新",
+    "topBuilders": "トップ建築者"
+  },
+  "announce": {
+    "startTitle": "建築バトルが始まりました！🏗️",
+    "startBody": "**{event}** は {end} まで開催されます。\n`/register` で登録し、`/submit` で建築を提出しましょう。頑張ってください！",
+    "endTitle": "建築バトルは終了しました",
+    "endBody": "**{event}** は終了しました。参加してくださった皆さん、本当にありがとうございました！\n優勝者は最終審査の後に発表されます。"
+  },
+  "wrapup": {
+    "title": "イベントのまとめ · {event}",
+    "intro": "**{event}** が終了しました。私たちが建てたのは合計で：",
+    "totalArea": "総面積: **{total} m²**",
+    "teamPart": "{place}: {value}",
+    "totalBuilds": "合計 **{total}** 件の建築",
+    "winner": "**{points}** ポイントで **{team}** の勝利！🏆",
+    "draw": "それぞれ **{points}** ポイントで引き分け！",
+    "topOverall": "トップ建築者 · 総合",
+    "topTeam": "トップ建築者 · {team}",
+    "thanks": "参加してくださった皆さん、本当にありがとうございました！",
+    "preview": "プレビュー（あなたにのみ表示）。公開するには `post: True` を使ってください。",
+    "posted": "まとめを {count} 個のサーバーに投稿しました。"
+  },
+  "help": {
+    "title": "{event} の遊び方",
+    "register": "**1.** `/register <Minecraft の名前>` で登録します。",
+    "submit": "**2.** イベントエリアで建築し、`/submit` で真上からのスクリーンショット（輪郭入り）、座標、参考資料、リンクを提出します。",
+    "judging": "**3.** 各チームの審査員 1 名と中立審査員 1 名が各建築を採点します: 基本点（0〜{base}）、労力（0〜{effort}）、技術とディテール（0〜{detail}）。平均点が採用されます。",
+    "track": "**4.** `/profile`、`/builds`、`/leaderboard`、`/stats` で進捗を確認しましょう。",
+    "rules": "ルール",
+    "judgesTitle": "審査員向け"
+  },
+  "dashboard": {
+    "link": "あなたのログインリンク（10 分間有効、1 回のみ使用可能）:\n{url}"
+  },
+  "legal": {
+    "title": "登録の前に",
+    "body": "`{name}` として **{event}** に参加するには、以下のドキュメントをお読みください。",
+    "confirm": "**同意して登録** をクリックすると、利用規約に同意し、プライバシーポリシーを読んだことを確認したものとみなされます。",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "imprint": "運営者情報",
+    "accept": "同意して登録",
+    "decline": "キャンセル",
+    "declined": "登録をキャンセルしました。`/register` でいつでもやり直せます。",
+    "reaccept": "利用規約またはプライバシーポリシーが変更されました。確認して同意するには、もう一度 `/register` を実行してください。",
+    "updated": "ありがとうございます！最新の利用規約に同意しました。",
+    "readHint": "ボタンをタップすると、Discord 内で直接ドキュメントを読めます。",
+    "languageNote": "このドキュメントはドイツ語と英語で提供されています。法的拘束力を持つのはドイツ語版です。",
+    "openWeb": "ブラウザで開く"
+  }
+}

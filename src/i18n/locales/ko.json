@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "한국어"
+  },
+  "common": {
+    "error": "문제가 발생했습니다. 잠시 후 다시 시도해 주세요.",
+    "noEvent": "현재 이 서버에서 진행 중인 이벤트가 없습니다.",
+    "notRegistered": "아직 등록하지 않았습니다. 먼저 `/register`를 사용하세요.",
+    "banned": "이 이벤트에서 제외되었습니다.",
+    "notJudge": "이 이벤트의 심사위원만 할 수 있습니다.",
+    "notAdmin": "봇 관리자만 할 수 있습니다.",
+    "buildNotFound": "건축물 #{id}을(를) 찾을 수 없습니다.",
+    "guildOnly": "이 명령어는 서버에서만 사용할 수 있습니다.",
+    "noTeam": "팀 없음",
+    "judgeBadge": "심사위원",
+    "pointsValue": "{value}점",
+    "buildsValue": "건축물 {count}개",
+    "areaValue": "{value} m²",
+    "page": "{page}/{pages} 페이지",
+    "next": "다음",
+    "previous": "이전",
+    "notOwner": "본인의 건축물이 아닙니다."
+  },
+  "phase": {
+    "draft": "준비 중",
+    "upcoming": "{time} 시작",
+    "running": "{time} 종료",
+    "runningOpen": "진행 중",
+    "ended": "건축 단계 종료",
+    "archived": "보관됨",
+    "submitClosed": "지금은 제출을 받지 않습니다.",
+    "registerClosed": "지금은 등록을 받지 않습니다.",
+    "judgeClosed": "현재 이벤트 단계에서는 심사할 수 없습니다."
+  },
+  "categories": {
+    "base": "기본 점수",
+    "effort": "노력 및 복잡도",
+    "detail": "기술, 색감 및 디테일",
+    "baseShort": "기본",
+    "effortShort": "노력",
+    "detailShort": "디테일",
+    "base0": "점수 없음",
+    "base1": "인프라",
+    "base2": "건물"
+  },
+  "reference": {
+    "3d": "3D 보기",
+    "streetview": "스트리트 뷰",
+    "images": "사진",
+    "other": "기타"
+  },
+  "status": {
+    "PENDING": "심사 대기 중",
+    "IN_REVIEW": "심사 중",
+    "COMPLETE": "심사 완료",
+    "REJECTED": "반려됨"
+  },
+  "slots": {
+    "neutral": "중립 심사위원",
+    "team": "{team} 심사위원"
+  },
+  "commands": {
+    "register": {
+      "description": "Minecraft 이름으로 이벤트에 등록합니다",
+      "options": {
+        "minecraft": "Minecraft 이름 (허위 정보는 차단될 수 있습니다)",
+        "team": "소속 팀 (중립 서버에서만 필요)"
+      }
+    },
+    "submit": {
+      "description": "건축물을 참고 자료와 함께 제출합니다",
+      "options": {
+        "coordinates": "건축물 좌표 (예: 53.8655, 10.6866)",
+        "reference": "어떤 참고 자료를 사용했나요?",
+        "link": "참고 자료 링크 (예: Google 지도 또는 스트리트 뷰)",
+        "image1": "윤곽선을 그린 위에서 본 스크린샷",
+        "image2": "추가 스크린샷 (선택)",
+        "image3": "추가 스크린샷 (선택)",
+        "area": "건축 면적 m² (선택)"
+      }
+    },
+    "profile": {
+      "description": "본인 또는 다른 사람의 통계 카드를 표시합니다",
+      "options": {
+        "user": "누구의 통계를 표시할까요?"
+      }
+    },
+    "builds": {
+      "description": "제출된 건축물과 상태를 표시합니다",
+      "options": {
+        "user": "누구의 건축물을 표시할까요?"
+      }
+    },
+    "leaderboard": {
+      "description": "현재 이벤트의 순위표를 표시합니다",
+      "options": {
+        "team": "한 팀만 표시"
+      }
+    },
+    "stats": {
+      "description": "팀 대결 현황을 표시합니다"
+    },
+    "help": {
+      "description": "이벤트 진행 방식과 명령어 안내"
+    },
+    "judge": {
+      "description": "건축물을 채점합니다 (심사위원 전용)",
+      "options": {
+        "id": "건축물 ID",
+        "base": "기본 점수",
+        "effort": "노력 및 복잡도",
+        "detail": "기술, 색감 및 디테일"
+      }
+    },
+    "reject": {
+      "description": "짧은 설명과 함께 건축물을 반려합니다 (심사위원 전용)",
+      "options": {
+        "id": "건축물 ID",
+        "reason": "무엇을 수정해야 하나요?"
+      }
+    },
+    "correct": {
+      "description": "건축물의 최종 점수를 수정합니다 (심사위원 전용)",
+      "options": {
+        "id": "건축물 ID",
+        "reason": "점수를 수정하는 이유는?",
+        "base": "새 기본 점수",
+        "effort": "새 노력 및 복잡도",
+        "detail": "새 기술, 색감 및 디테일"
+      }
+    },
+    "delete": {
+      "description": "건축물을 삭제합니다 (심사위원 전용)",
+      "options": {
+        "id": "건축물 ID",
+        "reason": "건축물을 삭제하는 이유는?"
+      }
+    },
+    "unjudged": {
+      "description": "내 심사 그룹의 심사를 기다리는 건축물 (심사위원 전용)"
+    },
+    "refresh": {
+      "description": "건축물 패널을 다시 그립니다 (심사위원 전용)",
+      "options": {
+        "id": "건축물 ID (비워두면: 최근 10개)"
+      }
+    },
+    "dashboard": {
+      "description": "관리자 대시보드 로그인 링크를 받습니다"
+    },
+    "wrapup": {
+      "description": "이벤트 결산을 표시하거나 게시합니다 (관리자 전용)",
+      "options": {
+        "post": "모든 서버에 게시 (아니면 미리보기만)"
+      }
+    },
+    "legal": {
+      "description": "개인정보 처리방침, 이용약관 및 사업자 정보 읽기"
+    }
+  },
+  "register": {
+    "invalidName": "잘못된 Minecraft 이름입니다. 3–16자 (영문, 숫자, `_`)만 사용할 수 있습니다.",
+    "already": "이미 `{name}`(으)로 등록되어 있습니다.",
+    "nameTaken": "이 Minecraft 이름은 이미 다른 Discord 계정으로 등록되어 있습니다.",
+    "teamRequired": "이 서버에는 자체 팀이 없습니다. `team` 옵션으로 팀을 선택해 주세요.",
+    "invalidTeam": "현재 이벤트에 없는 팀입니다.",
+    "success": "**{event}**에 오신 것을 환영합니다, `{name}`! **{team}** 소속으로 건축합니다."
+  },
+  "submit": {
+    "invalidLink": "**잘못된 링크입니다!** 참고 자료의 유효한 링크가 필요합니다 (예: `https://maps.google.com/...`).",
+    "invalidArea": "면적은 양수(제곱미터)여야 합니다.",
+    "imagesOnly": "이미지(PNG, JPG, GIF, WEBP)만 업로드해 주세요.",
+    "success": "건축물 **#{id}**이(가) 제출되었습니다. 심사위원에게 알렸습니다!",
+    "uploadWarning": "일부 이미지를 영구 저장하지 못했습니다. 원본 메시지를 지우지 마세요.",
+    "messageHint": "이미지를 하나 이상 첨부하고 좌표와 참고 링크를 추가하거나 `/submit`을 사용하세요.",
+    "messageNoLink": "**제출 거부:** 사용한 참고 자료(3D 보기, 스트리트 뷰, 사진)의 링크가 필요합니다. 팁: `/submit`을 사용하세요."
+  },
+  "panel": {
+    "title": "건축물 #{id}",
+    "builder": "건축가",
+    "team": "팀",
+    "coordinates": "좌표",
+    "reference": "참고 자료",
+    "area": "면적",
+    "status": "상태",
+    "progress": "심사 진행률",
+    "slotWaiting": "대기 중",
+    "score": "점수",
+    "total": "총점",
+    "votes": "채점",
+    "notes": "건축가 메모",
+    "rejected": "반려됨",
+    "rejectedHint": "건축물을 수정한 후 **다시 제출**을 누르세요.",
+    "correction": "{user}의 수정: {reason}",
+    "judgePing": "{role} {team}의 새 건축물 **#{id}**",
+    "buttonScore": "채점",
+    "buttonReject": "반려",
+    "buttonInfo": "정보 추가",
+    "buttonResubmit": "다시 제출",
+    "buttonReference": "참고 자료",
+    "buttonJump": "건축물로 이동"
+  },
+  "judge": {
+    "invalidBase": "기본 점수는 다음 중 하나여야 합니다: {options}.",
+    "invalidScore": "{category}은(는) 0에서 {max} 사이, {step} 단위여야 합니다.",
+    "ownBuild": "자신의 건축물은 심사할 수 없습니다.",
+    "slotTaken": "내 심사 그룹({slot})이 이미 이 건축물을 채점했습니다.",
+    "rejected": "이 건축물은 반려되었습니다. 건축가가 다시 제출하면 다시 심사할 수 있습니다.",
+    "noSlot": "내 심사 그룹은 이 이벤트의 심사에 참여하지 않습니다.",
+    "saved": "건축물 **#{id}**에 대한 채점이 저장되었습니다. 진행률: {done}/{required} 심사 그룹.",
+    "updated": "건축물 **#{id}**에 대한 채점이 수정되었습니다.",
+    "completed": "건축물 **#{id}** 심사 완료: `{builder}`에게 **{total}**점.",
+    "modalTitle": "건축물 #{id} 채점",
+    "modalBase": "기본 점수 ({options})",
+    "modalEffort": "노력 및 복잡도 (0–{max})",
+    "modalDetail": "기술, 색감 및 디테일 (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "건축물 #{id} 반려",
+    "modalReason": "무엇을 수정해야 하나요?",
+    "done": "건축물 **#{id}**이(가) 반려되었습니다.",
+    "already": "이 건축물은 이미 반려되었습니다.",
+    "dm": "**{event}**의 건축물 **#{id}**이(가) 반려되었습니다: {reason}\n수정한 후 제출물에서 **다시 제출**을 눌러 주세요."
+  },
+  "resubmit": {
+    "modalTitle": "건축물 #{id} 다시 제출",
+    "coordinates": "좌표",
+    "link": "참고 링크",
+    "notes": "무엇을 변경했나요?",
+    "done": "건축물 **#{id}**이(가) 다시 제출되어 심사를 기다리고 있습니다.",
+    "notRejected": "반려된 건축물만 다시 제출할 수 있습니다."
+  },
+  "info": {
+    "modalTitle": "심사위원을 위한 정보",
+    "label": "심사위원에게 남길 메모",
+    "placeholder": "예: 특별한 디테일, 내부, 출처 ...",
+    "saved": "저장되었습니다. 이제 심사위원이 메모를 볼 수 있습니다."
+  },
+  "correct": {
+    "nothing": "수정할 값을 하나 이상 입력해 주세요.",
+    "notJudged": "이 건축물은 아직 심사되지 않았습니다. `/judge`를 사용하세요.",
+    "done": "건축물 **#{id}** 수정됨: {old} → {new}점."
+  },
+  "delete": {
+    "done": "건축물 **#{id}**이(가) 삭제되었습니다. 사유: {reason}"
+  },
+  "unjudged": {
+    "none": "내 심사 그룹이 심사할 건축물이 더 이상 없습니다. 🎉",
+    "title": "{slot} 대기 중 ({count})",
+    "more": "… 외 {count}개"
+  },
+  "refresh": {
+    "done": "다시 그린 패널: {count}"
+  },
+  "profile": {
+    "title": "{name}의 통계",
+    "rank": "순위",
+    "rankValue": "{total}명 중 {rank}위",
+    "unranked": "아직 순위 없음",
+    "points": "점수",
+    "builds": "심사된 건축물",
+    "submitted": "제출됨",
+    "pending": "대기 중",
+    "rejected": "반려됨",
+    "area": "건축 면적",
+    "averages": "평균 점수",
+    "allTime": "전체 이벤트",
+    "allTimeValue": "이벤트 {events}개 · {points}점 · 건축물 {builds}개",
+    "notRegistered": "{user}님은 이 이벤트에 등록하지 않았습니다.",
+    "judgeNote": "심사위원도 건축할 수 있지만 우승할 수는 없습니다.",
+    "best": "최고의 건축물",
+    "buttonBuilds": "건축물 보기"
+  },
+  "builds": {
+    "title": "{name}의 건축물",
+    "empty": "아직 건축물이 없습니다."
+  },
+  "leaderboard": {
+    "title": "순위표 · {event}",
+    "empty": "아직 점수가 부여되지 않았습니다.",
+    "footer": "/register로 참가하고 정상에 도전하세요!"
+  },
+  "board": {
+    "battle": "팀 대결",
+    "points": "점수",
+    "builds": "건축물",
+    "area": "면적",
+    "participants": "건축가",
+    "waiting": "심사 대기 중",
+    "leading": "{team}이(가) {diff}점 앞서고 있습니다",
+    "draw": "동점입니다!",
+    "updated": "{time} 업데이트",
+    "topBuilders": "최고의 건축가"
+  },
+  "announce": {
+    "startTitle": "건축 대결이 시작되었습니다! 🏗️",
+    "startBody": "**{event}**은(는) {end}까지 진행됩니다.\n`/register`로 등록하고 `/submit`으로 건축물을 제출하세요. 행운을 빕니다!",
+    "endTitle": "건축 대결이 종료되었습니다",
+    "endBody": "**{event}**이(가) 끝났습니다. 참여해 주신 모든 분께 진심으로 감사드립니다!\n우승자는 최종 심사 후 발표됩니다."
+  },
+  "wrapup": {
+    "title": "이벤트 결산 · {event}",
+    "intro": "**{event}**이(가) 끝났습니다. 우리가 함께 지은 결과:",
+    "totalArea": "총 면적: **{total} m²**",
+    "teamPart": "{place}: {value}",
+    "totalBuilds": "총 **{total}**개의 건축물",
+    "winner": "**{points}**점으로 **{team}** 우승! 🏆",
+    "draw": "각각 **{points}**점으로 무승부입니다!",
+    "topOverall": "최고의 건축가 · 전체",
+    "topTeam": "최고의 건축가 · {team}",
+    "thanks": "참여해 주신 모든 분께 진심으로 감사드립니다!",
+    "preview": "미리보기이며 나에게만 보입니다. 게시하려면 `post: True`를 사용하세요.",
+    "posted": "결산이 서버 {count}곳에 게시되었습니다."
+  },
+  "help": {
+    "title": "{event} 진행 방식",
+    "register": "**1.** `/register <Minecraft 이름>`으로 등록하세요.",
+    "submit": "**2.** 이벤트 지역에서 건축한 후 `/submit`으로 위에서 본 스크린샷(윤곽선 표시), 좌표, 참고 자료, 링크를 제출하세요.",
+    "judging": "**3.** 각 팀의 심사위원 1명과 중립 심사위원 1명이 건축물마다 채점합니다: 기본 점수(0–{base}), 노력(0–{effort}), 기술 및 디테일(0–{detail}). 평균 점수가 반영됩니다.",
+    "track": "**4.** `/profile`, `/builds`, `/leaderboard`, `/stats`로 진행 상황을 확인하세요.",
+    "rules": "규칙",
+    "judgesTitle": "심사위원 안내"
+  },
+  "dashboard": {
+    "link": "로그인 링크 (10분간 유효, 1회용):\n{url}"
+  },
+  "legal": {
+    "title": "등록하기 전에",
+    "body": "`{name}`(으)로 **{event}**에 참가하려면 아래 문서를 읽어 주세요.",
+    "confirm": "**동의하고 등록**을 클릭하면 이용약관에 동의하고 개인정보 처리방침을 읽었음을 확인하게 됩니다.",
+    "privacy": "개인정보 처리방침",
+    "terms": "이용약관",
+    "imprint": "사업자 정보",
+    "accept": "동의하고 등록",
+    "decline": "취소",
+    "declined": "등록이 취소되었습니다. 언제든지 `/register`로 다시 시작할 수 있습니다.",
+    "reaccept": "이용약관 또는 개인정보 처리방침이 변경되었습니다. 확인하고 동의하려면 `/register`를 다시 실행해 주세요.",
+    "updated": "감사합니다! 최신 이용약관에 동의하셨습니다.",
+    "readHint": "버튼을 누르면 Discord에서 바로 문서를 읽을 수 있습니다.",
+    "languageNote": "이 문서는 독일어와 영어로 제공됩니다. 법적 구속력은 독일어 버전에 있습니다.",
+    "openWeb": "브라우저에서 열기"
+  }
+}

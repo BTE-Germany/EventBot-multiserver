@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Magyar"
+  },
+  "common": {
+    "error": "Valami hiba történt. Kérlek, próbáld újra később.",
+    "noEvent": "Ezen a szerveren jelenleg nincs esemény.",
+    "notRegistered": "Még nem regisztráltál. Először használd a `/register` parancsot.",
+    "banned": "Ki lettél zárva ebből az eseményből.",
+    "notJudge": "Ezt csak az esemény bírái tehetik meg.",
+    "notAdmin": "Ezt csak a bot adminisztrátorai tehetik meg.",
+    "buildNotFound": "A(z) #{id} build nem található.",
+    "guildOnly": "Ez a parancs csak szerveren használható.",
+    "noTeam": "Nincs csapat",
+    "judgeBadge": "Bíró",
+    "pointsValue": "{value} pont",
+    "buildsValue": "{count} build",
+    "areaValue": "{value} m²",
+    "page": "{page}/{pages}. oldal",
+    "next": "Tovább",
+    "previous": "Vissza",
+    "notOwner": "Ez nem a te buildod."
+  },
+  "phase": {
+    "draft": "Előkészítés alatt",
+    "upcoming": "Kezdés: {time}",
+    "running": "Vége: {time}",
+    "runningOpen": "Folyamatban",
+    "ended": "Az építési szakasz véget ért",
+    "archived": "Archiválva",
+    "submitClosed": "A beküldés jelenleg nincs megnyitva.",
+    "registerClosed": "A regisztráció jelenleg nincs megnyitva.",
+    "judgeClosed": "Az esemény ezen szakaszában nem lehet pontozni."
+  },
+  "categories": {
+    "base": "Alappontok",
+    "effort": "Ráfordítás és összetettség",
+    "detail": "Technika, színek és részletek",
+    "baseShort": "Alap",
+    "effortShort": "Ráfordítás",
+    "detailShort": "Részletek",
+    "base0": "Nincs pont",
+    "base1": "Infrastruktúra",
+    "base2": "Épület"
+  },
+  "reference": {
+    "3d": "3D nézet",
+    "streetview": "Street View",
+    "images": "Fotók",
+    "other": "Egyéb"
+  },
+  "status": {
+    "PENDING": "Bírákra vár",
+    "IN_REVIEW": "Értékelés alatt",
+    "COMPLETE": "Pontozva",
+    "REJECTED": "Elutasítva"
+  },
+  "slots": {
+    "neutral": "Semleges bírák",
+    "team": "{team} bírái"
+  },
+  "commands": {
+    "register": {
+      "description": "Regisztrálj az eseményre a Minecraft-neveddel",
+      "options": {
+        "minecraft": "A Minecraft-neved (hamis adatok kitiltáshoz vezethetnek)",
+        "team": "A csapatod (csak semleges szervereken kell)"
+      }
+    },
+    "submit": {
+      "description": "Küldj be egy buildet a referenciájával együtt",
+      "options": {
+        "coordinates": "A build koordinátái (pl. 53.8655, 10.6866)",
+        "reference": "Milyen referenciát használtál?",
+        "link": "Link a referenciához (pl. Google Maps vagy Street View)",
+        "image1": "Felülnézeti képernyőkép berajzolt körvonalakkal",
+        "image2": "További képernyőkép (opcionális)",
+        "image3": "További képernyőkép (opcionális)",
+        "area": "Beépített terület m²-ben (opcionális)"
+      }
+    },
+    "profile": {
+      "description": "Mutasd a saját vagy valaki más statisztikáit",
+      "options": {
+        "user": "Kinek a statisztikáit mutassam?"
+      }
+    },
+    "builds": {
+      "description": "A beküldött buildek listája és állapota",
+      "options": {
+        "user": "Kinek a buildjeit mutassam?"
+      }
+    },
+    "leaderboard": {
+      "description": "A jelenlegi esemény ranglistája",
+      "options": {
+        "team": "Csak egy csapat mutatása"
+      }
+    },
+    "stats": {
+      "description": "A csapatcsata áttekintése"
+    },
+    "help": {
+      "description": "Hogyan működik az esemény, és milyen parancsok vannak"
+    },
+    "judge": {
+      "description": "Build pontozása (csak bíráknak)",
+      "options": {
+        "id": "A build azonosítója",
+        "base": "Alappontok",
+        "effort": "Ráfordítás és összetettség",
+        "detail": "Technika, színek és részletek"
+      }
+    },
+    "reject": {
+      "description": "Build elutasítása rövid indoklással (csak bíráknak)",
+      "options": {
+        "id": "A build azonosítója",
+        "reason": "Mit kell javítani?"
+      }
+    },
+    "correct": {
+      "description": "Egy build végső pontszámának javítása (csak bíráknak)",
+      "options": {
+        "id": "A build azonosítója",
+        "reason": "Miért javítod a pontszámot?",
+        "base": "Új alappontok",
+        "effort": "Új ráfordítás és összetettség",
+        "detail": "Új technika, színek és részletek"
+      }
+    },
+    "delete": {
+      "description": "Build törlése (csak bíráknak)",
+      "options": {
+        "id": "A build azonosítója",
+        "reason": "Miért törlöd a buildet?"
+      }
+    },
+    "unjudged": {
+      "description": "A bírócsoportodra még váró buildek (csak bíráknak)"
+    },
+    "refresh": {
+      "description": "Build-panelek újrarajzolása (csak bíráknak)",
+      "options": {
+        "id": "A build azonosítója (üresen: a legutóbbi 10 build)"
+      }
+    },
+    "dashboard": {
+      "description": "Bejelentkezési link az admin felülethez"
+    },
+    "wrapup": {
+      "description": "Az esemény összefoglalójának mutatása vagy közzététele (csak adminoknak)",
+      "options": {
+        "post": "Közzététel minden szerveren (különben csak előnézet)"
+      }
+    },
+    "legal": {
+      "description": "Olvasd el az Adatvédelmi tájékoztatót, a Felhasználási feltételeket és az impresszumot"
+    }
+  },
+  "register": {
+    "invalidName": "Érvénytelen Minecraft-név. 3–16 karakter megengedett (betűk, számok, `_`).",
+    "already": "Már regisztráltál `{name}` néven.",
+    "nameTaken": "Ezt a Minecraft-nevet már egy másik Discord-fiók regisztrálta.",
+    "teamRequired": "Ennek a szervernek nincs saját csapata. Válaszd ki a csapatodat a `team` opcióval.",
+    "invalidTeam": "Ez a csapat nem létezik a jelenlegi eseményben.",
+    "success": "Üdv a(z) **{event}** eseményen, `{name}`! A(z) **{team}** csapatnak építesz."
+  },
+  "submit": {
+    "invalidLink": "**Érvénytelen link!** Érvényes link szükséges a referenciádhoz (pl. `https://maps.google.com/...`).",
+    "invalidArea": "A területnek pozitív számnak kell lennie négyzetméterben.",
+    "imagesOnly": "Kérlek, csak képeket tölts fel (PNG, JPG, GIF, WEBP).",
+    "success": "A(z) **#{id}** buildedet beküldted. A bírák értesítést kaptak!",
+    "uploadWarning": "Néhány képet nem sikerült véglegesen elmenteni. Kérlek, ne töröld az eredeti üzenetedet.",
+    "messageHint": "Csatolj legalább egy képet, és add meg a koordinátákat és a referencia linkjét, vagy használd a `/submit` parancsot.",
+    "messageNoLink": "**Beküldés elutasítva:** a használt referencia linkje kötelező (3D nézet, Street View, fotók). Tipp: használd a `/submit` parancsot."
+  },
+  "panel": {
+    "title": "#{id} build",
+    "builder": "Építő",
+    "team": "Csapat",
+    "coordinates": "Koordináták",
+    "reference": "Referencia",
+    "area": "Terület",
+    "status": "Állapot",
+    "progress": "Pontozás állása",
+    "slotWaiting": "várakozik",
+    "score": "Pontszám",
+    "total": "Összesen",
+    "votes": "Szavazatok",
+    "notes": "Az építő megjegyzései",
+    "rejected": "Elutasítva",
+    "rejectedHint": "Javítsd ki a buildet, és nyomd meg az **Újraküldés** gombot.",
+    "correction": "Javította: {user}: {reason}",
+    "judgePing": "{role} Új build: **#{id}** ({team})",
+    "buttonScore": "Pontozás",
+    "buttonReject": "Elutasítás",
+    "buttonInfo": "Infó hozzáadása",
+    "buttonResubmit": "Újraküldés",
+    "buttonReference": "Referencia",
+    "buttonJump": "Ugrás a buildhez"
+  },
+  "judge": {
+    "invalidBase": "Az alappont csak ezek egyike lehet: {options}.",
+    "invalidScore": "{category}: 0 és {max} között kell lennie, {step} lépésközzel.",
+    "ownBuild": "A saját buildedet nem pontozhatod.",
+    "slotTaken": "A bírócsoportod ({slot}) már pontozta ezt a buildet.",
+    "rejected": "Ezt a buildet elutasították. Újra pontozható, ha az építő újraküldi.",
+    "noSlot": "A bírócsoportod nem vesz részt ennek az eseménynek a pontozásában.",
+    "saved": "A(z) **#{id}** buildre leadott szavazatodat mentettük. Állás: {done}/{required} bírócsoport.",
+    "updated": "A(z) **#{id}** buildre leadott szavazatodat frissítettük.",
+    "completed": "A(z) **#{id}** build pontozása kész: **{total}** pont `{builder}` számára.",
+    "modalTitle": "#{id} build pontozása",
+    "modalBase": "Alappontok ({options})",
+    "modalEffort": "Ráfordítás és összetettség (0–{max})",
+    "modalDetail": "Technika, színek és részletek (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "#{id} build elutasítása",
+    "modalReason": "Mit kell javítani?",
+    "done": "A(z) **#{id}** build elutasítva.",
+    "already": "Ezt a buildet már elutasították.",
+    "dm": "A(z) **#{id}** buildedet a(z) **{event}** eseményen elutasították: {reason}\nKérlek, javítsd ki, és nyomd meg az **Újraküldés** gombot a beküldésednél."
+  },
+  "resubmit": {
+    "modalTitle": "#{id} build újraküldése",
+    "coordinates": "Koordináták",
+    "link": "Referencia linkje",
+    "notes": "Mit változtattál?",
+    "done": "A(z) **#{id}** buildet újraküldted, és ismét a bírákra vár.",
+    "notRejected": "Csak elutasított buildek küldhetők újra."
+  },
+  "info": {
+    "modalTitle": "Információ a bíráknak",
+    "label": "Megjegyzések a bíráknak",
+    "placeholder": "pl. különleges részletek, belső tér, források ...",
+    "saved": "Mentve. A bírák most már látják a megjegyzéseidet."
+  },
+  "correct": {
+    "nothing": "Adj meg legalább egy javítandó értéket.",
+    "notJudged": "Ezt a buildet még nem pontozták. Használd a `/judge` parancsot.",
+    "done": "A(z) **#{id}** build javítva: {old} → {new} pont."
+  },
+  "delete": {
+    "done": "A(z) **#{id}** build törölve. Indok: {reason}"
+  },
+  "unjudged": {
+    "none": "A bírócsoportodnak nincs több pontoznivalója. 🎉",
+    "title": "Rájuk vár: {slot} ({count})",
+    "more": "… és még {count}"
+  },
+  "refresh": {
+    "done": "Újrarajzolt panelek: {count}"
+  },
+  "profile": {
+    "title": "{name} statisztikái",
+    "rank": "Helyezés",
+    "rankValue": "#{rank} / {total}",
+    "unranked": "Még nincs helyezése",
+    "points": "Pontok",
+    "builds": "Pontozott buildek",
+    "submitted": "Beküldve",
+    "pending": "Várakozik",
+    "rejected": "Elutasítva",
+    "area": "Beépített terület",
+    "averages": "Átlagos pontszámok",
+    "allTime": "Összes esemény",
+    "allTimeValue": "{events} esemény · {points} pont · {builds} build",
+    "notRegistered": "{user} nem regisztrált erre az eseményre.",
+    "judgeNote": "A bírák építhetnek, de nem nyerhetnek.",
+    "best": "Legjobb build",
+    "buttonBuilds": "Buildek mutatása"
+  },
+  "builds": {
+    "title": "{name} buildjei",
+    "empty": "Még nincsenek buildek."
+  },
+  "leaderboard": {
+    "title": "Ranglista · {event}",
+    "empty": "Még nem osztottak ki pontokat.",
+    "footer": "Csatlakozz a /register paranccsal, és törj a csúcsra!"
+  },
+  "board": {
+    "battle": "Csapatcsata",
+    "points": "Pontok",
+    "builds": "Buildek",
+    "area": "Terület",
+    "participants": "Építők",
+    "waiting": "Bírákra vár",
+    "leading": "{team} vezet {diff} ponttal",
+    "draw": "Döntetlen!",
+    "updated": "Frissítve: {time}",
+    "topBuilders": "Legjobb építők"
+  },
+  "announce": {
+    "startTitle": "Elkezdődött a build battle! 🏗️",
+    "startBody": "**{event}** eddig tart: {end}.\nRegisztrálj a `/register` paranccsal, és küldd be a buildjeidet a `/submit` paranccsal. Sok sikert!",
+    "endTitle": "A build battle lezárult",
+    "endBody": "**{event}** véget ért. Nagyon köszönjük mindenkinek, aki részt vett!\nA győzteseket a végső pontozás után hirdetjük ki."
+  },
+  "wrapup": {
+    "title": "Esemény-összefoglaló · {event}",
+    "intro": "**{event}** véget ért. Összesen ennyit építettünk:",
+    "totalArea": "Teljes terület: **{total} m²**",
+    "teamPart": "{value} – {place}",
+    "totalBuilds": "Összesen **{total}** build",
+    "winner": "**{points}** ponttal **{team}** nyert! 🏆",
+    "draw": "Döntetlen, mindkét oldalon **{points}** ponttal!",
+    "topOverall": "Legjobb építők · Összesítve",
+    "topTeam": "Legjobb építők · {team}",
+    "thanks": "Nagyon köszönjük mindenkinek, aki részt vett!",
+    "preview": "Előnézet, csak te látod. A közzétételhez használd a `post: True` opciót.",
+    "posted": "Összefoglaló közzétéve {count} szerveren."
+  },
+  "help": {
+    "title": "Így működik: {event}",
+    "register": "**1.** Regisztrálj: `/register <Minecraft-név>`.",
+    "submit": "**2.** Építs az esemény területén, majd használd a `/submit` parancsot felülnézeti képernyőképpel (berajzolt körvonalakkal), koordinátákkal, referenciával és linkkel.",
+    "judging": "**3.** Minden buildet minden csapatból egy bíró és egy semleges bíró pontoz: alappontok (0–{base}), ráfordítás (0–{effort}), valamint technika és részletek (0–{detail}). Az átlag számít.",
+    "track": "**4.** Kövesd a haladásodat: `/profile`, `/builds`, `/leaderboard` és `/stats`.",
+    "rules": "Szabályok",
+    "judgesTitle": "Bíráknak"
+  },
+  "dashboard": {
+    "link": "A bejelentkezési linked (10 percig érvényes, egyszer használható):\n{url}"
+  },
+  "legal": {
+    "title": "Mielőtt regisztrálsz",
+    "body": "Ahhoz, hogy `{name}` néven részt vegyél a(z) **{event}** eseményen, kérlek, olvasd el az alábbi dokumentumokat.",
+    "confirm": "Az **Elfogadom és regisztrálok** gombra kattintva elfogadod a Felhasználási feltételeket, és megerősíted, hogy elolvastad az Adatvédelmi tájékoztatót.",
+    "privacy": "Adatvédelmi tájékoztató",
+    "terms": "Felhasználási feltételek",
+    "imprint": "Impresszum",
+    "accept": "Elfogadom és regisztrálok",
+    "decline": "Mégse",
+    "declined": "Regisztráció megszakítva. Bármikor újrakezdheted a `/register` paranccsal.",
+    "reaccept": "Megváltoztak a Felhasználási feltételeink vagy az Adatvédelmi tájékoztatónk. Kérlek, futtasd újra a `/register` parancsot a megerősítéshez.",
+    "updated": "Köszönjük! Elfogadtad a jelenlegi Felhasználási feltételeket.",
+    "readHint": "Koppints egy gombra, hogy itt, a Discordon olvasd el a dokumentumot.",
+    "languageNote": "Ez a dokumentum németül és angolul érhető el. A német változat a jogilag kötelező érvényű.",
+    "openWeb": "Megnyitás böngészőben"
+  }
+}

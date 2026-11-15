@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Nederlands"
+  },
+  "common": {
+    "error": "Er ging iets mis. Probeer het later opnieuw.",
+    "noEvent": "Er is op dit moment geen event op deze server.",
+    "notRegistered": "Je bent nog niet geregistreerd. Gebruik eerst `/register`.",
+    "banned": "Je bent uitgesloten van dit event.",
+    "notJudge": "Alleen judges van dit event kunnen dat doen.",
+    "notAdmin": "Alleen botbeheerders kunnen dat doen.",
+    "buildNotFound": "Build #{id} is niet gevonden.",
+    "guildOnly": "Deze command kan alleen op een server worden gebruikt.",
+    "noTeam": "Geen team",
+    "judgeBadge": "Judge",
+    "pointsValue": "{value} ptn",
+    "buildsValue": "{count} builds",
+    "areaValue": "{value} m²",
+    "page": "Pagina {page}/{pages}",
+    "next": "Volgende",
+    "previous": "Terug",
+    "notOwner": "Dit is niet jouw build."
+  },
+  "phase": {
+    "draft": "In voorbereiding",
+    "upcoming": "Start {time}",
+    "running": "Eindigt {time}",
+    "runningOpen": "Bezig",
+    "ended": "Bouwfase afgelopen",
+    "archived": "Gearchiveerd",
+    "submitClosed": "Inzendingen zijn nu niet geopend.",
+    "registerClosed": "Registratie is nu niet geopend.",
+    "judgeClosed": "Beoordelen is in deze fase van het event niet mogelijk."
+  },
+  "categories": {
+    "base": "Basispunten",
+    "effort": "Moeite & complexiteit",
+    "detail": "Techniek, kleuren & details",
+    "baseShort": "Basis",
+    "effortShort": "Moeite",
+    "detailShort": "Details",
+    "base0": "Geen punten",
+    "base1": "Infrastructuur",
+    "base2": "Gebouw"
+  },
+  "reference": {
+    "3d": "3D-weergave",
+    "streetview": "Street View",
+    "images": "Foto's",
+    "other": "Overig"
+  },
+  "status": {
+    "PENDING": "Wacht op judges",
+    "IN_REVIEW": "Wordt beoordeeld",
+    "COMPLETE": "Beoordeeld",
+    "REJECTED": "Afgewezen"
+  },
+  "slots": {
+    "neutral": "Neutrale judges",
+    "team": "Judges van {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Registreer je voor het event met je Minecraft-naam",
+      "options": {
+        "minecraft": "Je Minecraft-naam (onjuiste gegevens kunnen tot een ban leiden)",
+        "team": "Je team (alleen nodig op neutrale servers)"
+      }
+    },
+    "submit": {
+      "description": "Dien een build in samen met je referentie",
+      "options": {
+        "coordinates": "Coördinaten van de build (bijv. 53.8655, 10.6866)",
+        "reference": "Welke referentie heb je gebruikt?",
+        "link": "Link naar de referentie (bijv. Google Maps of Street View)",
+        "image1": "Screenshot van bovenaf met de omtrek ingetekend",
+        "image2": "Extra screenshot (optioneel)",
+        "image3": "Extra screenshot (optioneel)",
+        "area": "Bebouwde oppervlakte in m² (optioneel)"
+      }
+    },
+    "profile": {
+      "description": "Toon jouw statistieken of die van iemand anders",
+      "options": {
+        "user": "Van wie wil je de statistieken zien?"
+      }
+    },
+    "builds": {
+      "description": "Toon ingediende builds en hun status",
+      "options": {
+        "user": "Van wie wil je de builds zien?"
+      }
+    },
+    "leaderboard": {
+      "description": "Toon het leaderboard van het huidige event",
+      "options": {
+        "team": "Toon maar één team"
+      }
+    },
+    "stats": {
+      "description": "Toon het overzicht van de teamstrijd"
+    },
+    "help": {
+      "description": "Hoe het event werkt en welke commands er zijn"
+    },
+    "judge": {
+      "description": "Beoordeel een build (alleen judges)",
+      "options": {
+        "id": "ID van de build",
+        "base": "Basispunten",
+        "effort": "Moeite & complexiteit",
+        "detail": "Techniek, kleuren & details"
+      }
+    },
+    "reject": {
+      "description": "Wijs een build af met een korte uitleg (alleen judges)",
+      "options": {
+        "id": "ID van de build",
+        "reason": "Wat moet er verbeterd worden?"
+      }
+    },
+    "correct": {
+      "description": "Corrigeer de eindscore van een build (alleen judges)",
+      "options": {
+        "id": "ID van de build",
+        "reason": "Waarom wordt de score gecorrigeerd?",
+        "base": "Nieuwe basispunten",
+        "effort": "Nieuwe moeite & complexiteit",
+        "detail": "Nieuwe techniek, kleuren & details"
+      }
+    },
+    "delete": {
+      "description": "Verwijder een build (alleen judges)",
+      "options": {
+        "id": "ID van de build",
+        "reason": "Waarom wordt de build verwijderd?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds die nog op jouw judgegroep wachten (alleen judges)"
+    },
+    "refresh": {
+      "description": "Buildpanelen opnieuw tekenen (alleen judges)",
+      "options": {
+        "id": "ID van de build (leeg: de laatste 10 builds)"
+      }
+    },
+    "dashboard": {
+      "description": "Ontvang een inloglink voor het admin-dashboard"
+    },
+    "wrapup": {
+      "description": "Toon of plaats de afsluiting van het event (alleen admins)",
+      "options": {
+        "post": "Plaats het op elke server (anders alleen een voorbeeld)"
+      }
+    },
+    "legal": {
+      "description": "Lees de privacyverklaring, gebruiksvoorwaarden en het colofon"
+    }
+  },
+  "register": {
+    "invalidName": "Ongeldige Minecraft-naam. Toegestaan zijn 3–16 tekens (letters, cijfers, `_`).",
+    "already": "Je bent al geregistreerd als `{name}`.",
+    "nameTaken": "Deze Minecraft-naam is al geregistreerd door een ander Discord-account.",
+    "teamRequired": "Deze server heeft geen eigen team. Kies je team met de optie `team`.",
+    "invalidTeam": "Dit team bestaat niet in het huidige event.",
+    "success": "Welkom bij **{event}**, `{name}`! Je bouwt voor **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Ongeldige link!** Een geldige link naar je referentie is verplicht (bijv. `https://maps.google.com/...`).",
+    "invalidArea": "De oppervlakte moet een positief aantal vierkante meters zijn.",
+    "imagesOnly": "Upload alleen afbeeldingen (PNG, JPG, GIF, WEBP).",
+    "success": "Je build **#{id}** is ingediend. De judges zijn op de hoogte gebracht!",
+    "uploadWarning": "Sommige afbeeldingen konden niet permanent worden opgeslagen. Bewaar je originele bericht.",
+    "messageHint": "Voeg minstens één afbeelding toe plus coördinaten en een referentielink, of gebruik `/submit`.",
+    "messageNoLink": "**Inzending afgewezen:** een link naar de gebruikte referentie (3D-weergave, Street View, foto's) is verplicht. Tip: gebruik `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Bouwer",
+    "team": "Team",
+    "coordinates": "Coördinaten",
+    "reference": "Referentie",
+    "area": "Oppervlakte",
+    "status": "Status",
+    "progress": "Voortgang beoordeling",
+    "slotWaiting": "wacht",
+    "score": "Score",
+    "total": "Totaal",
+    "votes": "Stemmen",
+    "notes": "Notities van de bouwer",
+    "rejected": "Afgewezen",
+    "rejectedHint": "Verbeter de build en druk op **Opnieuw indienen**.",
+    "correction": "Correctie door {user}: {reason}",
+    "judgePing": "{role} Nieuwe build **#{id}** van {team}",
+    "buttonScore": "Beoordelen",
+    "buttonReject": "Afwijzen",
+    "buttonInfo": "Info toevoegen",
+    "buttonResubmit": "Opnieuw indienen",
+    "buttonReference": "Referentie",
+    "buttonJump": "Naar build"
+  },
+  "judge": {
+    "invalidBase": "Basispunten moeten een van deze waarden zijn: {options}.",
+    "invalidScore": "{category} moet tussen 0 en {max} liggen, in stappen van {step}.",
+    "ownBuild": "Je kunt je eigen build niet beoordelen.",
+    "slotTaken": "Jouw judgegroep ({slot}) heeft deze build al beoordeeld.",
+    "rejected": "Deze build is afgewezen. Hij kan opnieuw worden beoordeeld zodra de bouwer hem opnieuw indient.",
+    "noSlot": "Jouw judgegroep doet niet mee aan de beoordeling van dit event.",
+    "saved": "Je stem op build **#{id}** is opgeslagen. Voortgang: {done}/{required} judgegroepen.",
+    "updated": "Je stem op build **#{id}** is bijgewerkt.",
+    "completed": "Build **#{id}** is volledig beoordeeld: **{total}** punten voor `{builder}`.",
+    "modalTitle": "Build #{id} beoordelen",
+    "modalBase": "Basispunten ({options})",
+    "modalEffort": "Moeite & complexiteit (0–{max})",
+    "modalDetail": "Techniek, kleuren & details (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Build #{id} afwijzen",
+    "modalReason": "Wat moet er verbeterd worden?",
+    "done": "Build **#{id}** is afgewezen.",
+    "already": "Deze build is al afgewezen.",
+    "dm": "Je build **#{id}** in **{event}** is afgewezen: {reason}\nVerbeter hem en druk op **Opnieuw indienen** bij je inzending."
+  },
+  "resubmit": {
+    "modalTitle": "Build #{id} opnieuw indienen",
+    "coordinates": "Coördinaten",
+    "link": "Referentielink",
+    "notes": "Wat heb je veranderd?",
+    "done": "Build **#{id}** is opnieuw ingediend en wacht weer op de judges.",
+    "notRejected": "Alleen afgewezen builds kunnen opnieuw worden ingediend."
+  },
+  "info": {
+    "modalTitle": "Informatie voor de judges",
+    "label": "Notities voor de judges",
+    "placeholder": "bijv. bijzondere details, interieur, bronnen ...",
+    "saved": "Opgeslagen. De judges kunnen je notities nu zien."
+  },
+  "correct": {
+    "nothing": "Geef minstens één waarde op om te corrigeren.",
+    "notJudged": "Deze build is nog niet beoordeeld. Gebruik `/judge`.",
+    "done": "Build **#{id}** gecorrigeerd: {old} → {new} punten."
+  },
+  "delete": {
+    "done": "Build **#{id}** is verwijderd. Reden: {reason}"
+  },
+  "unjudged": {
+    "none": "Niets meer te beoordelen voor jouw judgegroep. 🎉",
+    "title": "Wacht op {slot} ({count})",
+    "more": "… en nog {count}"
+  },
+  "refresh": {
+    "done": "Panelen opnieuw getekend: {count}"
+  },
+  "profile": {
+    "title": "Statistieken van {name}",
+    "rank": "Rang",
+    "rankValue": "#{rank} van {total}",
+    "unranked": "Nog niet gerangschikt",
+    "points": "Punten",
+    "builds": "Beoordeelde builds",
+    "submitted": "Ingediend",
+    "pending": "Wachtend",
+    "rejected": "Afgewezen",
+    "area": "Bebouwde oppervlakte",
+    "averages": "Gemiddelde scores",
+    "allTime": "Alle events",
+    "allTimeValue": "{events} events · {points} punten · {builds} builds",
+    "notRegistered": "{user} is niet geregistreerd voor dit event.",
+    "judgeNote": "Judges mogen bouwen, maar kunnen niet winnen.",
+    "best": "Beste build",
+    "buttonBuilds": "Builds tonen"
+  },
+  "builds": {
+    "title": "Builds van {name}",
+    "empty": "Nog geen builds."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Er zijn nog geen punten toegekend.",
+    "footer": "Doe mee met /register en klim naar de top!"
+  },
+  "board": {
+    "battle": "Teamstrijd",
+    "points": "Punten",
+    "builds": "Builds",
+    "area": "Oppervlakte",
+    "participants": "Bouwers",
+    "waiting": "Wacht op judges",
+    "leading": "{team} staat {diff} punten voor",
+    "draw": "Gelijkspel!",
+    "updated": "Bijgewerkt {time}",
+    "topBuilders": "Topbouwers"
+  },
+  "announce": {
+    "startTitle": "De build battle is begonnen! 🏗️",
+    "startBody": "**{event}** loopt tot {end}.\nRegistreer je met `/register` en dien je builds in met `/submit`. Veel succes!",
+    "endTitle": "De build battle is gesloten",
+    "endBody": "**{event}** is voorbij. Heel erg bedankt aan iedereen die heeft meegedaan!\nDe winnaars worden bekendgemaakt na de laatste beoordelingen."
+  },
+  "wrapup": {
+    "title": "Afsluiting van het event · {event}",
+    "intro": "**{event}** is afgelopen. In totaal hebben we gebouwd:",
+    "totalArea": "Totale oppervlakte: **{total} m²**",
+    "teamPart": "{value} in {place}",
+    "totalBuilds": "**{total}** builds in totaal",
+    "winner": "Met **{points}** punten heeft **{team}** gewonnen! 🏆",
+    "draw": "Gelijkspel met elk **{points}** punten!",
+    "topOverall": "Topbouwers · Totaal",
+    "topTeam": "Topbouwers · {team}",
+    "thanks": "Heel erg bedankt aan iedereen die heeft meegedaan!",
+    "preview": "Voorbeeld, alleen zichtbaar voor jou. Gebruik `post: True` om het te publiceren.",
+    "posted": "Afsluiting geplaatst op {count} server(s)."
+  },
+  "help": {
+    "title": "Zo werkt {event}",
+    "register": "**1.** Registreer je met `/register <Minecraft-naam>`.",
+    "submit": "**2.** Bouw in het eventgebied en gebruik daarna `/submit` met een screenshot van bovenaf (omtrek ingetekend), coördinaten, referentie en link.",
+    "judging": "**3.** Eén judge van elk team plus een neutrale judge beoordelen elke build: basispunten (0–{base}), moeite (0–{effort}) en techniek & details (0–{detail}). Het gemiddelde telt.",
+    "track": "**4.** Volg je voortgang met `/profile`, `/builds`, `/leaderboard` en `/stats`.",
+    "rules": "Regels",
+    "judgesTitle": "Voor judges"
+  },
+  "dashboard": {
+    "link": "Je inloglink (10 minuten geldig, eenmalig te gebruiken):\n{url}"
+  },
+  "legal": {
+    "title": "Voordat je je registreert",
+    "body": "Lees de onderstaande documenten om als `{name}` mee te doen aan **{event}**.",
+    "confirm": "Door op **Accepteren & registreren** te klikken, accepteer je de gebruiksvoorwaarden en bevestig je dat je de privacyverklaring hebt gelezen.",
+    "privacy": "Privacyverklaring",
+    "terms": "Gebruiksvoorwaarden",
+    "imprint": "Colofon",
+    "accept": "Accepteren & registreren",
+    "decline": "Annuleren",
+    "declined": "Registratie geannuleerd. Je kunt altijd opnieuw beginnen met `/register`.",
+    "reaccept": "Onze gebruiksvoorwaarden of privacyverklaring zijn gewijzigd. Voer `/register` opnieuw uit om ze te bevestigen.",
+    "updated": "Bedankt! Je hebt de huidige gebruiksvoorwaarden geaccepteerd.",
+    "readHint": "Tik op een knop om een document hier in Discord te lezen.",
+    "languageNote": "Dit document is beschikbaar in het Duits en het Engels. De Duitse versie is juridisch bindend.",
+    "openWeb": "Openen in browser"
+  }
+}

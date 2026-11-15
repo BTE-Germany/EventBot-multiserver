@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Čeština"
+  },
+  "common": {
+    "error": "Něco se pokazilo. Zkus to prosím později.",
+    "noEvent": "Na tomto serveru teď neprobíhá žádný event.",
+    "notRegistered": "Ještě nejsi registrovaný. Nejdřív použij `/register`.",
+    "banned": "Byl jsi z tohoto eventu vyloučen.",
+    "notJudge": "To mohou udělat jen porotci tohoto eventu.",
+    "notAdmin": "To mohou udělat jen administrátoři bota.",
+    "buildNotFound": "Build #{id} nebyl nalezen.",
+    "guildOnly": "Tento příkaz lze použít jen na serveru.",
+    "noTeam": "Bez týmu",
+    "judgeBadge": "Porotce",
+    "pointsValue": "{value} b.",
+    "buildsValue": "Buildy: {count}",
+    "areaValue": "{value} m²",
+    "page": "Strana {page}/{pages}",
+    "next": "Další",
+    "previous": "Zpět",
+    "notOwner": "Tohle není tvůj build."
+  },
+  "phase": {
+    "draft": "V přípravě",
+    "upcoming": "Začíná {time}",
+    "running": "Končí {time}",
+    "runningOpen": "Probíhá",
+    "ended": "Fáze stavění skončila",
+    "archived": "Archivováno",
+    "submitClosed": "Odevzdávání teď není otevřené.",
+    "registerClosed": "Registrace teď není otevřená.",
+    "judgeClosed": "V této fázi eventu nelze hodnotit."
+  },
+  "categories": {
+    "base": "Základní body",
+    "effort": "Náročnost a složitost",
+    "detail": "Technika, barvy a detaily",
+    "baseShort": "Základ",
+    "effortShort": "Náročnost",
+    "detailShort": "Detaily",
+    "base0": "Žádné body",
+    "base1": "Infrastruktura",
+    "base2": "Budova"
+  },
+  "reference": {
+    "3d": "3D pohled",
+    "streetview": "Street View",
+    "images": "Fotky",
+    "other": "Jiné"
+  },
+  "status": {
+    "PENDING": "Čeká na porotce",
+    "IN_REVIEW": "Hodnotí se",
+    "COMPLETE": "Ohodnoceno",
+    "REJECTED": "Zamítnuto"
+  },
+  "slots": {
+    "neutral": "Neutrální porotci",
+    "team": "Porotci: {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Zaregistruj se do eventu se svým jménem z Minecraftu",
+      "options": {
+        "minecraft": "Tvé jméno v Minecraftu (nepravdivé údaje mohou vést k banu)",
+        "team": "Tvůj tým (potřeba jen na neutrálních serverech)"
+      }
+    },
+    "submit": {
+      "description": "Odevzdej build spolu s referencí",
+      "options": {
+        "coordinates": "Souřadnice buildu (např. 53.8655, 10.6866)",
+        "reference": "Jakou referenci jsi použil?",
+        "link": "Odkaz na referenci (např. Google Maps nebo Street View)",
+        "image1": "Screenshot shora se zakreslenými obrysy",
+        "image2": "Další screenshot (volitelné)",
+        "image3": "Další screenshot (volitelné)",
+        "area": "Postavená plocha v m² (volitelné)"
+      }
+    },
+    "profile": {
+      "description": "Zobraz svou kartu statistik nebo kartu někoho jiného",
+      "options": {
+        "user": "Čí statistiky zobrazit?"
+      }
+    },
+    "builds": {
+      "description": "Seznam odevzdaných buildů a jejich stav",
+      "options": {
+        "user": "Čí buildy zobrazit?"
+      }
+    },
+    "leaderboard": {
+      "description": "Zobraz žebříček aktuálního eventu",
+      "options": {
+        "team": "Zobrazit jen jeden tým"
+      }
+    },
+    "stats": {
+      "description": "Zobraz přehled souboje týmů"
+    },
+    "help": {
+      "description": "Jak event funguje a jaké jsou příkazy"
+    },
+    "judge": {
+      "description": "Ohodnoť build (jen porotci)",
+      "options": {
+        "id": "ID buildu",
+        "base": "Základní body",
+        "effort": "Náročnost a složitost",
+        "detail": "Technika, barvy a detaily"
+      }
+    },
+    "reject": {
+      "description": "Zamítni build s krátkým vysvětlením (jen porotci)",
+      "options": {
+        "id": "ID buildu",
+        "reason": "Co je potřeba opravit?"
+      }
+    },
+    "correct": {
+      "description": "Oprav konečné hodnocení buildu (jen porotci)",
+      "options": {
+        "id": "ID buildu",
+        "reason": "Proč se hodnocení opravuje?",
+        "base": "Nové základní body",
+        "effort": "Nová náročnost a složitost",
+        "detail": "Nová technika, barvy a detaily"
+      }
+    },
+    "delete": {
+      "description": "Smaž build (jen porotci)",
+      "options": {
+        "id": "ID buildu",
+        "reason": "Proč se build maže?"
+      }
+    },
+    "unjudged": {
+      "description": "Buildy, které ještě čekají na tvou skupinu porotců (jen porotci)"
+    },
+    "refresh": {
+      "description": "Překresli panely buildů (jen porotci)",
+      "options": {
+        "id": "ID buildu (prázdné: posledních 10 buildů)"
+      }
+    },
+    "dashboard": {
+      "description": "Získej přihlašovací odkaz do administrace"
+    },
+    "wrapup": {
+      "description": "Zobraz nebo zveřejni shrnutí eventu (jen admini)",
+      "options": {
+        "post": "Zveřejnit na všech serverech (jinak jen náhled)"
+      }
+    },
+    "legal": {
+      "description": "Přečti si Zásady ochrany osobních údajů, Podmínky užívání a tiráž"
+    }
+  },
+  "register": {
+    "invalidName": "Neplatné jméno v Minecraftu. Povoleno je 3–16 znaků (písmena, číslice, `_`).",
+    "already": "Už jsi registrovaný jako `{name}`.",
+    "nameTaken": "Toto jméno v Minecraftu už registroval jiný Discord účet.",
+    "teamRequired": "Tento server nemá vlastní tým. Vyber si prosím tým pomocí možnosti `team`.",
+    "invalidTeam": "Tento tým v aktuálním eventu neexistuje.",
+    "success": "Vítej v **{event}**, `{name}`! Stavíš za tým **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Neplatný odkaz!** Je potřeba platný odkaz na tvou referenci (např. `https://maps.google.com/...`).",
+    "invalidArea": "Plocha musí být kladné číslo v metrech čtverečních.",
+    "imagesOnly": "Nahrávej prosím jen obrázky (PNG, JPG, GIF, WEBP).",
+    "success": "Tvůj build **#{id}** byl odevzdán. Porotci dostali upozornění!",
+    "uploadWarning": "Některé obrázky se nepodařilo trvale uložit. Ponech si prosím svou původní zprávu.",
+    "messageHint": "Přilož aspoň jeden obrázek a přidej souřadnice a odkaz na referenci, nebo použij `/submit`.",
+    "messageNoLink": "**Odevzdání zamítnuto:** je potřeba odkaz na použitou referenci (3D pohled, Street View, fotky). Tip: použij `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Stavitel",
+    "team": "Tým",
+    "coordinates": "Souřadnice",
+    "reference": "Reference",
+    "area": "Plocha",
+    "status": "Stav",
+    "progress": "Průběh hodnocení",
+    "slotWaiting": "čeká",
+    "score": "Hodnocení",
+    "total": "Celkem",
+    "votes": "Hlasy",
+    "notes": "Poznámky stavitele",
+    "rejected": "Zamítnuto",
+    "rejectedHint": "Oprav build a klikni na **Odevzdat znovu**.",
+    "correction": "Oprava od {user}: {reason}",
+    "judgePing": "{role} Nový build **#{id}** od {team}",
+    "buttonScore": "Ohodnotit",
+    "buttonReject": "Zamítnout",
+    "buttonInfo": "Přidat info",
+    "buttonResubmit": "Odevzdat znovu",
+    "buttonReference": "Reference",
+    "buttonJump": "Přejít na build"
+  },
+  "judge": {
+    "invalidBase": "Základní body musí být jedna z hodnot: {options}.",
+    "invalidScore": "{category} musí být mezi 0 a {max} v krocích po {step}.",
+    "ownBuild": "Svůj vlastní build nemůžeš hodnotit.",
+    "slotTaken": "Tvoje skupina porotců ({slot}) už tento build ohodnotila.",
+    "rejected": "Tento build byl zamítnut. Znovu ho lze hodnotit, až ho stavitel odevzdá znovu.",
+    "noSlot": "Tvoje skupina porotců se hodnocení tohoto eventu neúčastní.",
+    "saved": "Tvůj hlas pro build **#{id}** byl uložen. Průběh: {done}/{required} skupin porotců.",
+    "updated": "Tvůj hlas pro build **#{id}** byl aktualizován.",
+    "completed": "Build **#{id}** je kompletně ohodnocen: **{total}** bodů pro `{builder}`.",
+    "modalTitle": "Ohodnotit build #{id}",
+    "modalBase": "Základní body ({options})",
+    "modalEffort": "Náročnost a složitost (0–{max})",
+    "modalDetail": "Technika, barvy a detaily (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Zamítnout build #{id}",
+    "modalReason": "Co je potřeba opravit?",
+    "done": "Build **#{id}** byl zamítnut.",
+    "already": "Tento build už byl zamítnut.",
+    "dm": "Tvůj build **#{id}** v **{event}** byl zamítnut: {reason}\nOprav ho prosím a klikni u svého odevzdání na **Odevzdat znovu**."
+  },
+  "resubmit": {
+    "modalTitle": "Znovu odevzdat build #{id}",
+    "coordinates": "Souřadnice",
+    "link": "Odkaz na referenci",
+    "notes": "Co jsi změnil?",
+    "done": "Build **#{id}** byl znovu odevzdán a opět čeká na porotce.",
+    "notRejected": "Znovu odevzdat lze jen zamítnuté buildy."
+  },
+  "info": {
+    "modalTitle": "Informace pro porotce",
+    "label": "Poznámky pro porotce",
+    "placeholder": "např. zvláštní detaily, interiér, zdroje ...",
+    "saved": "Uloženo. Porotci teď vidí tvoje poznámky."
+  },
+  "correct": {
+    "nothing": "Zadej prosím aspoň jednu hodnotu k opravě.",
+    "notJudged": "Tento build ještě nebyl ohodnocen. Použij `/judge`.",
+    "done": "Build **#{id}** opraven: {old} → {new} bodů."
+  },
+  "delete": {
+    "done": "Build **#{id}** byl smazán. Důvod: {reason}"
+  },
+  "unjudged": {
+    "none": "Tvoje skupina porotců už nemá co hodnotit. 🎉",
+    "title": "Čeká na: {slot} ({count})",
+    "more": "… a dalších {count}"
+  },
+  "refresh": {
+    "done": "Překreslené panely: {count}"
+  },
+  "profile": {
+    "title": "Statistiky hráče {name}",
+    "rank": "Pořadí",
+    "rankValue": "#{rank} z {total}",
+    "unranked": "Zatím bez pořadí",
+    "points": "Body",
+    "builds": "Ohodnocené buildy",
+    "submitted": "Odevzdáno",
+    "pending": "Čeká",
+    "rejected": "Zamítnuto",
+    "area": "Postavená plocha",
+    "averages": "Průměrná hodnocení",
+    "allTime": "Všechny eventy",
+    "allTimeValue": "Eventy: {events} · Body: {points} · Buildy: {builds}",
+    "notRegistered": "{user} není do tohoto eventu registrovaný.",
+    "judgeNote": "Porotci mohou stavět, ale nemohou vyhrát.",
+    "best": "Nejlepší build",
+    "buttonBuilds": "Zobrazit buildy"
+  },
+  "builds": {
+    "title": "Buildy hráče {name}",
+    "empty": "Zatím žádné buildy."
+  },
+  "leaderboard": {
+    "title": "Žebříček · {event}",
+    "empty": "Zatím nebyly uděleny žádné body.",
+    "footer": "Přidej se přes /register a vyšplhej se na vrchol!"
+  },
+  "board": {
+    "battle": "Souboj týmů",
+    "points": "Body",
+    "builds": "Buildy",
+    "area": "Plocha",
+    "participants": "Stavitelé",
+    "waiting": "Čeká na porotce",
+    "leading": "{team} vede o {diff} bodů",
+    "draw": "Remíza!",
+    "updated": "Aktualizováno {time}",
+    "topBuilders": "Nejlepší stavitelé"
+  },
+  "announce": {
+    "startTitle": "Build battle začal! 🏗️",
+    "startBody": "**{event}** běží do {end}.\nZaregistruj se přes `/register` a odevzdávej své buildy přes `/submit`. Hodně štěstí!",
+    "endTitle": "Build battle je uzavřen",
+    "endBody": "**{event}** skončil. Moc děkujeme všem, kdo se zúčastnili!\nVítěze vyhlásíme po závěrečném hodnocení."
+  },
+  "wrapup": {
+    "title": "Shrnutí eventu · {event}",
+    "intro": "**{event}** skončil. Celkem jsme postavili:",
+    "totalArea": "Celková plocha: **{total} m²**",
+    "teamPart": "{value} – {place}",
+    "totalBuilds": "Celkem **{total}** buildů",
+    "winner": "S **{points}** body vyhrává **{team}**! 🏆",
+    "draw": "Remíza – každý tým má **{points}** bodů!",
+    "topOverall": "Nejlepší stavitelé · Celkově",
+    "topTeam": "Nejlepší stavitelé · {team}",
+    "thanks": "Moc děkujeme všem, kdo se zúčastnili!",
+    "preview": "Náhled viditelný jen pro tebe. Ke zveřejnění použij `post: True`.",
+    "posted": "Shrnutí zveřejněno na serverech: {count}."
+  },
+  "help": {
+    "title": "Jak funguje {event}",
+    "register": "**1.** Zaregistruj se přes `/register <jméno v Minecraftu>`.",
+    "submit": "**2.** Stav v oblasti eventu a pak použij `/submit` se screenshotem shora (se zakreslenými obrysy), souřadnicemi, referencí a odkazem.",
+    "judging": "**3.** Každý build hodnotí jeden porotce z každého týmu a jeden neutrální porotce: základní body (0–{base}), náročnost (0–{effort}) a technika a detaily (0–{detail}). Počítá se průměr.",
+    "track": "**4.** Sleduj svůj postup přes `/profile`, `/builds`, `/leaderboard` a `/stats`.",
+    "rules": "Pravidla",
+    "judgesTitle": "Pro porotce"
+  },
+  "dashboard": {
+    "link": "Tvůj přihlašovací odkaz (platí 10 minut, jednorázový):\n{url}"
+  },
+  "legal": {
+    "title": "Než se zaregistruješ",
+    "body": "Abys mohl/a hrát v **{event}** jako `{name}`, přečti si prosím následující dokumenty.",
+    "confirm": "Kliknutím na **Přijmout a registrovat** přijímáš Podmínky užívání a potvrzuješ, že jsi četl/a Zásady ochrany osobních údajů.",
+    "privacy": "Zásady ochrany osobních údajů",
+    "terms": "Podmínky užívání",
+    "imprint": "Tiráž",
+    "accept": "Přijmout a registrovat",
+    "decline": "Zrušit",
+    "declined": "Registrace zrušena. Kdykoli můžeš začít znovu pomocí `/register`.",
+    "reaccept": "Naše Podmínky užívání nebo Zásady ochrany osobních údajů se změnily. Spusť prosím znovu `/register` a potvrď je.",
+    "updated": "Díky! Přijal/a jsi aktuální Podmínky užívání.",
+    "readHint": "Klepni na tlačítko a přečti si dokument přímo tady na Discordu.",
+    "languageNote": "Tento dokument je k dispozici v němčině a angličtině. Právně závazná je německá verze.",
+    "openWeb": "Otevřít v prohlížeči"
+  }
+}

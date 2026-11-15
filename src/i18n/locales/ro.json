@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Română"
+  },
+  "common": {
+    "error": "Ceva nu a mers bine. Încearcă din nou mai târziu.",
+    "noEvent": "Momentan nu există niciun eveniment pe acest server.",
+    "notRegistered": "Nu ești încă înscris. Folosește mai întâi `/register`.",
+    "banned": "Ai fost exclus din acest eveniment.",
+    "notJudge": "Doar jurații acestui eveniment pot face asta.",
+    "notAdmin": "Doar administratorii botului pot face asta.",
+    "buildNotFound": "Build-ul #{id} nu a fost găsit.",
+    "guildOnly": "Această comandă poate fi folosită doar pe un server.",
+    "noTeam": "Fără echipă",
+    "judgeBadge": "Jurat",
+    "pointsValue": "{value} pct.",
+    "buildsValue": "{count} build-uri",
+    "areaValue": "{value} m²",
+    "page": "Pagina {page}/{pages}",
+    "next": "Înainte",
+    "previous": "Înapoi",
+    "notOwner": "Acesta nu este build-ul tău."
+  },
+  "phase": {
+    "draft": "În pregătire",
+    "upcoming": "Începe {time}",
+    "running": "Se termină {time}",
+    "runningOpen": "În desfășurare",
+    "ended": "Faza de construcție s-a încheiat",
+    "archived": "Arhivat",
+    "submitClosed": "Momentan nu se acceptă trimiteri.",
+    "registerClosed": "Momentan înscrierile nu sunt deschise.",
+    "judgeClosed": "Jurizarea nu este posibilă în această fază a evenimentului."
+  },
+  "categories": {
+    "base": "Puncte de bază",
+    "effort": "Efort și complexitate",
+    "detail": "Tehnică, culori și detalii",
+    "baseShort": "Bază",
+    "effortShort": "Efort",
+    "detailShort": "Detalii",
+    "base0": "Fără puncte",
+    "base1": "Infrastructură",
+    "base2": "Clădire"
+  },
+  "reference": {
+    "3d": "Vedere 3D",
+    "streetview": "Street View",
+    "images": "Fotografii",
+    "other": "Altele"
+  },
+  "status": {
+    "PENDING": "Așteaptă jurații",
+    "IN_REVIEW": "În evaluare",
+    "COMPLETE": "Jurizat",
+    "REJECTED": "Respins"
+  },
+  "slots": {
+    "neutral": "Jurați neutri",
+    "team": "Jurați {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Înscrie-te la eveniment cu numele tău de Minecraft",
+      "options": {
+        "minecraft": "Numele tău de Minecraft (datele false pot duce la ban)",
+        "team": "Echipa ta (necesară doar pe serverele neutre)"
+      }
+    },
+    "submit": {
+      "description": "Trimite un build împreună cu referința lui",
+      "options": {
+        "coordinates": "Coordonatele build-ului (ex. 53.8655, 10.6866)",
+        "reference": "Ce referință ai folosit?",
+        "link": "Link către referință (ex. Google Maps sau Street View)",
+        "image1": "Captură de sus cu contururile desenate",
+        "image2": "Captură suplimentară (opțional)",
+        "image3": "Captură suplimentară (opțional)",
+        "area": "Suprafața construită în m² (opțional)"
+      }
+    },
+    "profile": {
+      "description": "Arată statisticile tale sau ale altcuiva",
+      "options": {
+        "user": "Ale cui statistici să fie afișate?"
+      }
+    },
+    "builds": {
+      "description": "Listează build-urile trimise și starea lor",
+      "options": {
+        "user": "Ale cui build-uri să fie afișate?"
+      }
+    },
+    "leaderboard": {
+      "description": "Arată clasamentul evenimentului curent",
+      "options": {
+        "team": "Arată doar o echipă"
+      }
+    },
+    "stats": {
+      "description": "Arată rezumatul bătăliei dintre echipe"
+    },
+    "help": {
+      "description": "Cum funcționează evenimentul și ce comenzi există"
+    },
+    "judge": {
+      "description": "Jurizează un build (doar jurați)",
+      "options": {
+        "id": "ID-ul build-ului",
+        "base": "Puncte de bază",
+        "effort": "Efort și complexitate",
+        "detail": "Tehnică, culori și detalii"
+      }
+    },
+    "reject": {
+      "description": "Respinge un build cu o scurtă explicație (doar jurați)",
+      "options": {
+        "id": "ID-ul build-ului",
+        "reason": "Ce trebuie corectat?"
+      }
+    },
+    "correct": {
+      "description": "Corectează scorul final al unui build (doar jurați)",
+      "options": {
+        "id": "ID-ul build-ului",
+        "reason": "De ce este corectat scorul?",
+        "base": "Noile puncte de bază",
+        "effort": "Noul efort și complexitate",
+        "detail": "Noua tehnică, culori și detalii"
+      }
+    },
+    "delete": {
+      "description": "Șterge un build (doar jurați)",
+      "options": {
+        "id": "ID-ul build-ului",
+        "reason": "De ce este șters build-ul?"
+      }
+    },
+    "unjudged": {
+      "description": "Build-uri care încă așteaptă grupul tău de jurați (doar jurați)"
+    },
+    "refresh": {
+      "description": "Redesenează panourile build-urilor (doar jurați)",
+      "options": {
+        "id": "ID-ul build-ului (gol: ultimele 10 build-uri)"
+      }
+    },
+    "dashboard": {
+      "description": "Primește un link de autentificare pentru panoul de administrare"
+    },
+    "wrapup": {
+      "description": "Arată sau publică rezumatul evenimentului (doar administratori)",
+      "options": {
+        "post": "Publică-l pe toate serverele (altfel doar o previzualizare)"
+      }
+    },
+    "legal": {
+      "description": "Citește Politica de confidențialitate, Termenii și condițiile și informațiile legale"
+    }
+  },
+  "register": {
+    "invalidName": "Nume de Minecraft invalid. Sunt permise 3–16 caractere (litere, cifre, `_`).",
+    "already": "Ești deja înscris ca `{name}`.",
+    "nameTaken": "Acest nume de Minecraft este deja înregistrat de alt cont de Discord.",
+    "teamRequired": "Acest server nu are o echipă proprie. Alege-ți echipa cu opțiunea `team`.",
+    "invalidTeam": "Această echipă nu există în evenimentul curent.",
+    "success": "Bine ai venit la **{event}**, `{name}`! Construiești pentru **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Link invalid!** Este necesar un link valid către referința ta (ex. `https://maps.google.com/...`).",
+    "invalidArea": "Suprafața trebuie să fie un număr pozitiv de metri pătrați.",
+    "imagesOnly": "Te rugăm să încarci doar imagini (PNG, JPG, GIF, WEBP).",
+    "success": "Build-ul tău **#{id}** a fost trimis. Jurații au fost anunțați!",
+    "uploadWarning": "Unele imagini nu au putut fi salvate permanent. Te rugăm să-ți păstrezi mesajul original.",
+    "messageHint": "Atașează cel puțin o imagine și adaugă coordonatele și un link de referință sau folosește `/submit`.",
+    "messageNoLink": "**Trimitere respinsă:** este necesar un link către referința folosită (vedere 3D, Street View, fotografii). Sfat: folosește `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Constructor",
+    "team": "Echipă",
+    "coordinates": "Coordonate",
+    "reference": "Referință",
+    "area": "Suprafață",
+    "status": "Stare",
+    "progress": "Progresul jurizării",
+    "slotWaiting": "în așteptare",
+    "score": "Scor",
+    "total": "Total",
+    "votes": "Voturi",
+    "notes": "Note de la constructor",
+    "rejected": "Respins",
+    "rejectedHint": "Corectează build-ul și apasă **Retrimite**.",
+    "correction": "Corectare de {user}: {reason}",
+    "judgePing": "{role} Build nou **#{id}** de la {team}",
+    "buttonScore": "Notează",
+    "buttonReject": "Respinge",
+    "buttonInfo": "Adaugă info",
+    "buttonResubmit": "Retrimite",
+    "buttonReference": "Referință",
+    "buttonJump": "Mergi la build"
+  },
+  "judge": {
+    "invalidBase": "Punctele de bază trebuie să fie una dintre: {options}.",
+    "invalidScore": "{category} trebuie să fie între 0 și {max}, în pași de {step}.",
+    "ownBuild": "Nu îți poți juriza propriul build.",
+    "slotTaken": "Grupul tău de jurați ({slot}) a notat deja acest build.",
+    "rejected": "Acest build a fost respins. Poate fi jurizat din nou după ce constructorul îl retrimite.",
+    "noSlot": "Grupul tău de jurați nu participă la jurizarea acestui eveniment.",
+    "saved": "Votul tău pentru build-ul **#{id}** a fost salvat. Progres: {done}/{required} grupuri de jurați.",
+    "updated": "Votul tău pentru build-ul **#{id}** a fost actualizat.",
+    "completed": "Build-ul **#{id}** este jurizat complet: **{total}** puncte pentru `{builder}`.",
+    "modalTitle": "Notează build-ul #{id}",
+    "modalBase": "Puncte de bază ({options})",
+    "modalEffort": "Efort și complexitate (0–{max})",
+    "modalDetail": "Tehnică, culori și detalii (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Respinge build-ul #{id}",
+    "modalReason": "Ce trebuie corectat?",
+    "done": "Build-ul **#{id}** a fost respins.",
+    "already": "Acest build a fost deja respins.",
+    "dm": "Build-ul tău **#{id}** din **{event}** a fost respins: {reason}\nCorectează-l și apasă **Retrimite** la trimiterea ta."
+  },
+  "resubmit": {
+    "modalTitle": "Retrimite build-ul #{id}",
+    "coordinates": "Coordonate",
+    "link": "Link de referință",
+    "notes": "Ce ai schimbat?",
+    "done": "Build-ul **#{id}** a fost retrimis și așteaptă din nou jurații.",
+    "notRejected": "Doar build-urile respinse pot fi retrimise."
+  },
+  "info": {
+    "modalTitle": "Informații pentru jurați",
+    "label": "Note pentru jurați",
+    "placeholder": "ex. detalii speciale, interior, surse...",
+    "saved": "Salvat. Jurații îți pot vedea acum notele."
+  },
+  "correct": {
+    "nothing": "Te rugăm să indici cel puțin o valoare de corectat.",
+    "notJudged": "Acest build nu a fost încă jurizat. Folosește `/judge`.",
+    "done": "Build-ul **#{id}** a fost corectat: {old} → {new} puncte."
+  },
+  "delete": {
+    "done": "Build-ul **#{id}** a fost șters. Motiv: {reason}"
+  },
+  "unjudged": {
+    "none": "Nu mai e nimic de jurizat pentru grupul tău de jurați. 🎉",
+    "title": "Așteaptă {slot} ({count})",
+    "more": "… și încă {count}"
+  },
+  "refresh": {
+    "done": "Panouri redesenate: {count}"
+  },
+  "profile": {
+    "title": "Statisticile lui {name}",
+    "rank": "Loc",
+    "rankValue": "#{rank} din {total}",
+    "unranked": "Încă neclasat",
+    "points": "Puncte",
+    "builds": "Build-uri jurizate",
+    "submitted": "Trimise",
+    "pending": "În așteptare",
+    "rejected": "Respinse",
+    "area": "Suprafață construită",
+    "averages": "Scoruri medii",
+    "allTime": "Toate evenimentele",
+    "allTimeValue": "{events} evenimente · {points} puncte · {builds} build-uri",
+    "notRegistered": "{user} nu este înscris la acest eveniment.",
+    "judgeNote": "Jurații pot construi, dar nu pot câștiga.",
+    "best": "Cel mai bun build",
+    "buttonBuilds": "Vezi build-urile"
+  },
+  "builds": {
+    "title": "Build-urile lui {name}",
+    "empty": "Încă niciun build."
+  },
+  "leaderboard": {
+    "title": "Clasament · {event}",
+    "empty": "Încă nu s-au acordat puncte.",
+    "footer": "Alătură-te cu /register și urcă în vârf!"
+  },
+  "board": {
+    "battle": "Bătălia echipelor",
+    "points": "Puncte",
+    "builds": "Build-uri",
+    "area": "Suprafață",
+    "participants": "Constructori",
+    "waiting": "Așteaptă jurații",
+    "leading": "{team} conduce cu {diff} puncte",
+    "draw": "Egalitate!",
+    "updated": "Actualizat {time}",
+    "topBuilders": "Cei mai buni constructori"
+  },
+  "announce": {
+    "startTitle": "Build battle-ul a început! 🏗️",
+    "startBody": "**{event}** durează până la {end}.\nÎnscrie-te cu `/register` și trimite-ți build-urile cu `/submit`. Baftă!",
+    "endTitle": "Build battle-ul s-a încheiat",
+    "endBody": "**{event}** s-a terminat. Mulțumim mult tuturor celor care au participat!\nCâștigătorii vor fi anunțați după jurizarea finală."
+  },
+  "wrapup": {
+    "title": "Rezumatul evenimentului · {event}",
+    "intro": "**{event}** s-a încheiat. În total am construit:",
+    "totalArea": "Suprafață totală: **{total} m²**",
+    "teamPart": "{value} în {place}",
+    "totalBuilds": "**{total}** build-uri în total",
+    "winner": "Cu **{points}** puncte, **{team}** a câștigat! 🏆",
+    "draw": "Egalitate cu câte **{points}** puncte!",
+    "topOverall": "Cei mai buni constructori · General",
+    "topTeam": "Cei mai buni constructori · {team}",
+    "thanks": "Mulțumim mult tuturor celor care au participat!",
+    "preview": "Previzualizare, vizibilă doar pentru tine. Folosește `post: True` pentru a o publica.",
+    "posted": "Rezumat publicat pe {count} server(e)."
+  },
+  "help": {
+    "title": "Cum funcționează {event}",
+    "register": "**1.** Înscrie-te cu `/register <nume Minecraft>`.",
+    "submit": "**2.** Construiește în zona evenimentului, apoi folosește `/submit` cu o captură de sus (contururile desenate), coordonate, referință și link.",
+    "judging": "**3.** Câte un jurat din fiecare echipă plus un jurat neutru notează fiecare build: puncte de bază (0–{base}), efort (0–{effort}) și tehnică și detalii (0–{detail}). Contează media.",
+    "track": "**4.** Urmărește-ți progresul cu `/profile`, `/builds`, `/leaderboard` și `/stats`.",
+    "rules": "Reguli",
+    "judgesTitle": "Pentru jurați"
+  },
+  "dashboard": {
+    "link": "Linkul tău de autentificare (valabil 10 minute, o singură utilizare):\n{url}"
+  },
+  "legal": {
+    "title": "Înainte să te înscrii",
+    "body": "Ca să participi la **{event}** ca `{name}`, te rugăm să citești documentele de mai jos.",
+    "confirm": "Apăsând **Accept și mă înscriu** accepți Termenii și condițiile și confirmi că ai citit Politica de confidențialitate.",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termenii și condițiile",
+    "imprint": "Informații legale",
+    "accept": "Accept și mă înscriu",
+    "decline": "Anulează",
+    "declined": "Înscriere anulată. Poți începe din nou oricând cu `/register`.",
+    "reaccept": "Termenii și condițiile sau Politica de confidențialitate s-au schimbat. Folosește din nou `/register` pentru a le revizui și accepta.",
+    "updated": "Mulțumim! Ai acceptat Termenii și condițiile actuale.",
+    "readHint": "Apasă un buton ca să citești un document direct aici, în Discord.",
+    "languageNote": "Acest document este disponibil în germană și engleză. Versiunea în germană este cea obligatorie din punct de vedere juridic.",
+    "openWeb": "Deschide în browser"
+  }
+}

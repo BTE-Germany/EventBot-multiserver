@@ -1,0 +1,29 @@
+{
+  "name": "eventbot-multiserver",
+  "version": "1.0.0",
+  "description": "Multi-server Discord build battle bot with web dashboard, localized UI and threaded rendering",
+  "private": true,
+  "license": "MIT",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "start": "prisma migrate deploy && node src/main.js",
+    "dev": "node --watch src/main.js",
+    "test": "node --test --test-concurrency=1 \"test/**/*.test.js\"",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.26.0",
+    "@fastify/cors": "^9.0.1",
+    "@prisma/client": "^5.22.0",
+    "discord.js": "^14.28.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.29.1",
+    "prisma": "^5.22.0",
+    "sharp": "^0.33.5",
+    "zod": "^3.25.76"
+  }
+}

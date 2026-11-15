@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Bahasa Indonesia"
+  },
+  "common": {
+    "error": "Terjadi kesalahan. Silakan coba lagi nanti.",
+    "noEvent": "Saat ini tidak ada event di server ini.",
+    "notRegistered": "Kamu belum terdaftar. Gunakan `/register` terlebih dahulu.",
+    "banned": "Kamu telah dikeluarkan dari event ini.",
+    "notJudge": "Hanya juri event ini yang bisa melakukannya.",
+    "notAdmin": "Hanya administrator bot yang bisa melakukannya.",
+    "buildNotFound": "Build #{id} tidak ditemukan.",
+    "guildOnly": "Perintah ini hanya bisa digunakan di server.",
+    "noTeam": "Tanpa tim",
+    "judgeBadge": "Juri",
+    "pointsValue": "{value} poin",
+    "buildsValue": "{count} build",
+    "areaValue": "{value} m²",
+    "page": "Halaman {page}/{pages}",
+    "next": "Berikutnya",
+    "previous": "Kembali",
+    "notOwner": "Ini bukan build milikmu."
+  },
+  "phase": {
+    "draft": "Dalam persiapan",
+    "upcoming": "Mulai {time}",
+    "running": "Berakhir {time}",
+    "runningOpen": "Berlangsung",
+    "ended": "Fase membangun telah berakhir",
+    "archived": "Diarsipkan",
+    "submitClosed": "Pengiriman sedang tidak dibuka.",
+    "registerClosed": "Pendaftaran sedang tidak dibuka.",
+    "judgeClosed": "Penilaian tidak bisa dilakukan pada fase event ini."
+  },
+  "categories": {
+    "base": "Poin dasar",
+    "effort": "Usaha & kompleksitas",
+    "detail": "Teknik, warna & detail",
+    "baseShort": "Dasar",
+    "effortShort": "Usaha",
+    "detailShort": "Detail",
+    "base0": "Tanpa poin",
+    "base1": "Infrastruktur",
+    "base2": "Bangunan"
+  },
+  "reference": {
+    "3d": "Tampilan 3D",
+    "streetview": "Street View",
+    "images": "Foto",
+    "other": "Lainnya"
+  },
+  "status": {
+    "PENDING": "Menunggu juri",
+    "IN_REVIEW": "Sedang ditinjau",
+    "COMPLETE": "Sudah dinilai",
+    "REJECTED": "Ditolak"
+  },
+  "slots": {
+    "neutral": "Juri netral",
+    "team": "Juri {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Daftar ke event dengan nama Minecraft kamu",
+      "options": {
+        "minecraft": "Nama Minecraft kamu (data palsu bisa berujung ban)",
+        "team": "Tim kamu (hanya diperlukan di server netral)"
+      }
+    },
+    "submit": {
+      "description": "Kirim build beserta referensinya",
+      "options": {
+        "coordinates": "Koordinat build (mis. 53.8655, 10.6866)",
+        "reference": "Referensi apa yang kamu gunakan?",
+        "link": "Tautan ke referensi (mis. Google Maps atau Street View)",
+        "image1": "Screenshot dari atas dengan garis batas digambar",
+        "image2": "Screenshot tambahan (opsional)",
+        "image3": "Screenshot tambahan (opsional)",
+        "area": "Luas yang dibangun dalam m² (opsional)"
+      }
+    },
+    "profile": {
+      "description": "Tampilkan kartu statistik kamu atau orang lain",
+      "options": {
+        "user": "Statistik siapa yang ingin ditampilkan?"
+      }
+    },
+    "builds": {
+      "description": "Daftar build yang dikirim beserta statusnya",
+      "options": {
+        "user": "Build siapa yang ingin ditampilkan?"
+      }
+    },
+    "leaderboard": {
+      "description": "Tampilkan leaderboard event saat ini",
+      "options": {
+        "team": "Tampilkan satu tim saja"
+      }
+    },
+    "stats": {
+      "description": "Tampilkan ringkasan pertarungan tim"
+    },
+    "help": {
+      "description": "Cara kerja event dan perintah yang tersedia"
+    },
+    "judge": {
+      "description": "Nilai sebuah build (khusus juri)",
+      "options": {
+        "id": "ID build",
+        "base": "Poin dasar",
+        "effort": "Usaha & kompleksitas",
+        "detail": "Teknik, warna & detail"
+      }
+    },
+    "reject": {
+      "description": "Tolak build dengan penjelasan singkat (khusus juri)",
+      "options": {
+        "id": "ID build",
+        "reason": "Apa yang harus diperbaiki?"
+      }
+    },
+    "correct": {
+      "description": "Koreksi skor akhir sebuah build (khusus juri)",
+      "options": {
+        "id": "ID build",
+        "reason": "Kenapa skornya dikoreksi?",
+        "base": "Poin dasar baru",
+        "effort": "Usaha & kompleksitas baru",
+        "detail": "Teknik, warna & detail baru"
+      }
+    },
+    "delete": {
+      "description": "Hapus sebuah build (khusus juri)",
+      "options": {
+        "id": "ID build",
+        "reason": "Kenapa build ini dihapus?"
+      }
+    },
+    "unjudged": {
+      "description": "Build yang masih menunggu grup juri kamu (khusus juri)"
+    },
+    "refresh": {
+      "description": "Gambar ulang panel build (khusus juri)",
+      "options": {
+        "id": "ID build (kosong: 10 build terbaru)"
+      }
+    },
+    "dashboard": {
+      "description": "Dapatkan tautan login untuk dashboard admin"
+    },
+    "wrapup": {
+      "description": "Tampilkan atau posting rangkuman event (khusus admin)",
+      "options": {
+        "post": "Posting di semua server (jika tidak, hanya pratinjau)"
+      }
+    },
+    "legal": {
+      "description": "Baca Kebijakan Privasi, Ketentuan Layanan, dan informasi penerbit"
+    }
+  },
+  "register": {
+    "invalidName": "Nama Minecraft tidak valid. Diperbolehkan 3–16 karakter (huruf, angka, `_`).",
+    "already": "Kamu sudah terdaftar sebagai `{name}`.",
+    "nameTaken": "Nama Minecraft ini sudah didaftarkan oleh akun Discord lain.",
+    "teamRequired": "Server ini tidak punya tim sendiri. Silakan pilih tim kamu dengan opsi `team`.",
+    "invalidTeam": "Tim ini tidak ada di event saat ini.",
+    "success": "Selamat datang di **{event}**, `{name}`! Kamu membangun untuk **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Tautan tidak valid!** Diperlukan tautan yang valid ke referensi kamu (mis. `https://maps.google.com/...`).",
+    "invalidArea": "Luas harus berupa angka positif dalam meter persegi.",
+    "imagesOnly": "Harap unggah gambar saja (PNG, JPG, GIF, WEBP).",
+    "success": "Build kamu **#{id}** sudah dikirim. Para juri sudah diberi tahu!",
+    "uploadWarning": "Beberapa gambar tidak bisa disimpan secara permanen. Harap jangan hapus pesan aslimu.",
+    "messageHint": "Lampirkan minimal satu gambar dan tambahkan koordinat serta tautan referensi, atau gunakan `/submit`.",
+    "messageNoLink": "**Pengiriman ditolak:** diperlukan tautan ke referensi yang kamu gunakan (tampilan 3D, Street View, foto). Tips: gunakan `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Builder",
+    "team": "Tim",
+    "coordinates": "Koordinat",
+    "reference": "Referensi",
+    "area": "Luas",
+    "status": "Status",
+    "progress": "Progres penilaian",
+    "slotWaiting": "menunggu",
+    "score": "Skor",
+    "total": "Total",
+    "votes": "Suara",
+    "notes": "Catatan dari builder",
+    "rejected": "Ditolak",
+    "rejectedHint": "Perbaiki build lalu tekan **Kirim ulang**.",
+    "correction": "Koreksi oleh {user}: {reason}",
+    "judgePing": "{role} Build baru **#{id}** dari {team}",
+    "buttonScore": "Nilai",
+    "buttonReject": "Tolak",
+    "buttonInfo": "Tambah info",
+    "buttonResubmit": "Kirim ulang",
+    "buttonReference": "Referensi",
+    "buttonJump": "Ke build"
+  },
+  "judge": {
+    "invalidBase": "Poin dasar harus salah satu dari: {options}.",
+    "invalidScore": "{category} harus antara 0 dan {max} dengan kelipatan {step}.",
+    "ownBuild": "Kamu tidak bisa menilai build milikmu sendiri.",
+    "slotTaken": "Grup juri kamu ({slot}) sudah menilai build ini.",
+    "rejected": "Build ini ditolak. Build bisa dinilai lagi setelah builder mengirimnya ulang.",
+    "noSlot": "Grup juri kamu tidak termasuk dalam penilaian event ini.",
+    "saved": "Suaramu untuk build **#{id}** sudah disimpan. Progres: {done}/{required} grup juri.",
+    "updated": "Suaramu untuk build **#{id}** sudah diperbarui.",
+    "completed": "Build **#{id}** sudah dinilai sepenuhnya: **{total}** poin untuk `{builder}`.",
+    "modalTitle": "Nilai build #{id}",
+    "modalBase": "Poin dasar ({options})",
+    "modalEffort": "Usaha & kompleksitas (0–{max})",
+    "modalDetail": "Teknik, warna & detail (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Tolak build #{id}",
+    "modalReason": "Apa yang harus diperbaiki?",
+    "done": "Build **#{id}** sudah ditolak.",
+    "already": "Build ini sudah ditolak sebelumnya.",
+    "dm": "Build kamu **#{id}** di **{event}** ditolak: {reason}\nSilakan perbaiki lalu tekan **Kirim ulang** pada kirimanmu."
+  },
+  "resubmit": {
+    "modalTitle": "Kirim ulang build #{id}",
+    "coordinates": "Koordinat",
+    "link": "Tautan referensi",
+    "notes": "Apa yang kamu ubah?",
+    "done": "Build **#{id}** sudah dikirim ulang dan kembali menunggu juri.",
+    "notRejected": "Hanya build yang ditolak yang bisa dikirim ulang."
+  },
+  "info": {
+    "modalTitle": "Informasi untuk juri",
+    "label": "Catatan untuk juri",
+    "placeholder": "mis. detail khusus, interior, sumber ...",
+    "saved": "Tersimpan. Juri sekarang bisa melihat catatanmu."
+  },
+  "correct": {
+    "nothing": "Berikan minimal satu nilai untuk dikoreksi.",
+    "notJudged": "Build ini belum dinilai. Gunakan `/judge`.",
+    "done": "Build **#{id}** dikoreksi: {old} → {new} poin."
+  },
+  "delete": {
+    "done": "Build **#{id}** sudah dihapus. Alasan: {reason}"
+  },
+  "unjudged": {
+    "none": "Tidak ada lagi yang perlu dinilai untuk grup juri kamu. 🎉",
+    "title": "Menunggu {slot} ({count})",
+    "more": "… dan {count} lainnya"
+  },
+  "refresh": {
+    "done": "Panel digambar ulang: {count}"
+  },
+  "profile": {
+    "title": "Statistik {name}",
+    "rank": "Peringkat",
+    "rankValue": "#{rank} dari {total}",
+    "unranked": "Belum ada peringkat",
+    "points": "Poin",
+    "builds": "Build yang dinilai",
+    "submitted": "Dikirim",
+    "pending": "Menunggu",
+    "rejected": "Ditolak",
+    "area": "Luas yang dibangun",
+    "averages": "Skor rata-rata",
+    "allTime": "Semua event",
+    "allTimeValue": "{events} event · {points} poin · {builds} build",
+    "notRegistered": "{user} tidak terdaftar di event ini.",
+    "judgeNote": "Juri boleh membangun, tetapi tidak bisa menang.",
+    "best": "Build terbaik",
+    "buttonBuilds": "Tampilkan build"
+  },
+  "builds": {
+    "title": "Build milik {name}",
+    "empty": "Belum ada build."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Belum ada poin yang diberikan.",
+    "footer": "Gabung dengan /register dan raih puncak!"
+  },
+  "board": {
+    "battle": "Pertarungan tim",
+    "points": "Poin",
+    "builds": "Build",
+    "area": "Luas",
+    "participants": "Builder",
+    "waiting": "Menunggu juri",
+    "leading": "{team} unggul {diff} poin",
+    "draw": "Seri!",
+    "updated": "Diperbarui {time}",
+    "topBuilders": "Builder teratas"
+  },
+  "announce": {
+    "startTitle": "Build battle sudah dimulai! 🏗️",
+    "startBody": "**{event}** berlangsung sampai {end}.\nDaftar dengan `/register` dan kirim build kamu dengan `/submit`. Semoga sukses!",
+    "endTitle": "Build battle sudah ditutup",
+    "endBody": "**{event}** telah selesai. Terima kasih banyak untuk semua yang sudah ikut!\nPemenang akan diumumkan setelah penilaian akhir."
+  },
+  "wrapup": {
+    "title": "Rangkuman event · {event}",
+    "intro": "**{event}** telah berakhir. Total yang kita bangun:",
+    "totalArea": "Total luas: **{total} m²**",
+    "teamPart": "{value} di {place}",
+    "totalBuilds": "Total **{total}** build",
+    "winner": "Dengan **{points}** poin, **{team}** menang! 🏆",
+    "draw": "Hasilnya seri dengan masing-masing **{points}** poin!",
+    "topOverall": "Builder teratas · Keseluruhan",
+    "topTeam": "Builder teratas · {team}",
+    "thanks": "Terima kasih banyak untuk semua yang sudah ikut!",
+    "preview": "Pratinjau, hanya terlihat olehmu. Gunakan `post: True` untuk memublikasikan.",
+    "posted": "Rangkuman diposting di {count} server."
+  },
+  "help": {
+    "title": "Cara kerja {event}",
+    "register": "**1.** Daftar dengan `/register <nama Minecraft>`.",
+    "submit": "**2.** Bangun di area event, lalu gunakan `/submit` dengan screenshot dari atas (garis batas digambar), koordinat, referensi, dan tautan.",
+    "judging": "**3.** Satu juri dari setiap tim ditambah satu juri netral menilai setiap build: poin dasar (0–{base}), usaha (0–{effort}), serta teknik & detail (0–{detail}). Yang dihitung adalah rata-ratanya.",
+    "track": "**4.** Pantau progresmu dengan `/profile`, `/builds`, `/leaderboard`, dan `/stats`.",
+    "rules": "Aturan",
+    "judgesTitle": "Untuk juri"
+  },
+  "dashboard": {
+    "link": "Tautan login kamu (berlaku 10 menit, sekali pakai):\n{url}"
+  },
+  "legal": {
+    "title": "Sebelum kamu mendaftar",
+    "body": "Untuk ikut serta dalam **{event}** sebagai `{name}`, silakan baca dokumen di bawah ini.",
+    "confirm": "Dengan mengklik **Terima & daftar**, kamu menyetujui Ketentuan Layanan dan mengonfirmasi bahwa kamu telah membaca Kebijakan Privasi.",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan",
+    "imprint": "Informasi Penerbit",
+    "accept": "Terima & daftar",
+    "decline": "Batal",
+    "declined": "Pendaftaran dibatalkan. Kamu bisa mulai lagi kapan saja dengan `/register`.",
+    "reaccept": "Ketentuan Layanan atau Kebijakan Privasi kami telah berubah. Silakan jalankan `/register` lagi untuk meninjau dan menyetujuinya.",
+    "updated": "Terima kasih! Kamu telah menyetujui Ketentuan Layanan terbaru.",
+    "readHint": "Ketuk tombol untuk membaca dokumen langsung di Discord.",
+    "languageNote": "Dokumen ini tersedia dalam bahasa Jerman dan Inggris. Versi bahasa Jerman yang mengikat secara hukum.",
+    "openWeb": "Buka di browser"
+  }
+}

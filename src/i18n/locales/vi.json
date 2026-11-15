@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Tiếng Việt"
+  },
+  "common": {
+    "error": "Đã xảy ra lỗi. Vui lòng thử lại sau.",
+    "noEvent": "Hiện không có sự kiện nào trên server này.",
+    "notRegistered": "Bạn chưa đăng ký. Hãy dùng `/register` trước.",
+    "banned": "Bạn đã bị loại khỏi sự kiện này.",
+    "notJudge": "Chỉ giám khảo của sự kiện này mới có thể làm điều đó.",
+    "notAdmin": "Chỉ quản trị viên bot mới có thể làm điều đó.",
+    "buildNotFound": "Không tìm thấy build #{id}.",
+    "guildOnly": "Lệnh này chỉ dùng được trong server.",
+    "noTeam": "Không có đội",
+    "judgeBadge": "Giám khảo",
+    "pointsValue": "{value} điểm",
+    "buildsValue": "{count} build",
+    "areaValue": "{value} m²",
+    "page": "Trang {page}/{pages}",
+    "next": "Tiếp",
+    "previous": "Quay lại",
+    "notOwner": "Đây không phải build của bạn."
+  },
+  "phase": {
+    "draft": "Đang chuẩn bị",
+    "upcoming": "Bắt đầu {time}",
+    "running": "Kết thúc {time}",
+    "runningOpen": "Đang diễn ra",
+    "ended": "Giai đoạn xây dựng đã kết thúc",
+    "archived": "Đã lưu trữ",
+    "submitClosed": "Hiện chưa mở nộp bài.",
+    "registerClosed": "Hiện chưa mở đăng ký.",
+    "judgeClosed": "Không thể chấm điểm trong giai đoạn này của sự kiện."
+  },
+  "categories": {
+    "base": "Điểm cơ bản",
+    "effort": "Công sức & độ phức tạp",
+    "detail": "Kỹ thuật, màu sắc & chi tiết",
+    "baseShort": "Cơ bản",
+    "effortShort": "Công sức",
+    "detailShort": "Chi tiết",
+    "base0": "Không có điểm",
+    "base1": "Hạ tầng",
+    "base2": "Công trình"
+  },
+  "reference": {
+    "3d": "Chế độ 3D",
+    "streetview": "Street View",
+    "images": "Ảnh",
+    "other": "Khác"
+  },
+  "status": {
+    "PENDING": "Đang chờ giám khảo",
+    "IN_REVIEW": "Đang xem xét",
+    "COMPLETE": "Đã chấm",
+    "REJECTED": "Bị từ chối"
+  },
+  "slots": {
+    "neutral": "Giám khảo trung lập",
+    "team": "Giám khảo {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Đăng ký tham gia sự kiện bằng tên Minecraft của bạn",
+      "options": {
+        "minecraft": "Tên Minecraft của bạn (thông tin sai có thể bị ban)",
+        "team": "Đội của bạn (chỉ cần trên server trung lập)"
+      }
+    },
+    "submit": {
+      "description": "Nộp một build kèm tài liệu tham khảo",
+      "options": {
+        "coordinates": "Tọa độ của build (vd. 53.8655, 10.6866)",
+        "reference": "Bạn đã dùng tài liệu tham khảo nào?",
+        "link": "Link tới tài liệu tham khảo (vd. Google Maps hoặc Street View)",
+        "image1": "Ảnh chụp từ trên xuống có vẽ đường viền",
+        "image2": "Ảnh chụp bổ sung (tùy chọn)",
+        "image3": "Ảnh chụp bổ sung (tùy chọn)",
+        "area": "Diện tích đã xây tính bằng m² (tùy chọn)"
+      }
+    },
+    "profile": {
+      "description": "Xem thẻ thống kê của bạn hoặc người khác",
+      "options": {
+        "user": "Xem thống kê của ai?"
+      }
+    },
+    "builds": {
+      "description": "Liệt kê các build đã nộp và trạng thái",
+      "options": {
+        "user": "Xem build của ai?"
+      }
+    },
+    "leaderboard": {
+      "description": "Xem bảng xếp hạng của sự kiện hiện tại",
+      "options": {
+        "team": "Chỉ hiện một đội"
+      }
+    },
+    "stats": {
+      "description": "Xem tổng quan cuộc đấu giữa các đội"
+    },
+    "help": {
+      "description": "Cách sự kiện diễn ra và các lệnh hiện có"
+    },
+    "judge": {
+      "description": "Chấm điểm một build (chỉ giám khảo)",
+      "options": {
+        "id": "ID của build",
+        "base": "Điểm cơ bản",
+        "effort": "Công sức & độ phức tạp",
+        "detail": "Kỹ thuật, màu sắc & chi tiết"
+      }
+    },
+    "reject": {
+      "description": "Từ chối một build kèm giải thích ngắn (chỉ giám khảo)",
+      "options": {
+        "id": "ID của build",
+        "reason": "Cần sửa gì?"
+      }
+    },
+    "correct": {
+      "description": "Sửa điểm cuối cùng của một build (chỉ giám khảo)",
+      "options": {
+        "id": "ID của build",
+        "reason": "Vì sao sửa điểm?",
+        "base": "Điểm cơ bản mới",
+        "effort": "Công sức & độ phức tạp mới",
+        "detail": "Kỹ thuật, màu sắc & chi tiết mới"
+      }
+    },
+    "delete": {
+      "description": "Xóa một build (chỉ giám khảo)",
+      "options": {
+        "id": "ID của build",
+        "reason": "Vì sao xóa build này?"
+      }
+    },
+    "unjudged": {
+      "description": "Các build vẫn đang chờ nhóm giám khảo của bạn (chỉ giám khảo)"
+    },
+    "refresh": {
+      "description": "Vẽ lại bảng build (chỉ giám khảo)",
+      "options": {
+        "id": "ID của build (để trống: 10 build mới nhất)"
+      }
+    },
+    "dashboard": {
+      "description": "Lấy link đăng nhập vào trang quản trị"
+    },
+    "wrapup": {
+      "description": "Xem hoặc đăng tổng kết sự kiện (chỉ quản trị viên)",
+      "options": {
+        "post": "Đăng lên mọi server (nếu không thì chỉ xem trước)"
+      }
+    },
+    "legal": {
+      "description": "Đọc Chính sách quyền riêng tư, Điều khoản dịch vụ và thông tin pháp lý"
+    }
+  },
+  "register": {
+    "invalidName": "Tên Minecraft không hợp lệ. Cho phép 3–16 ký tự (chữ cái, số, `_`).",
+    "already": "Bạn đã đăng ký với tên `{name}`.",
+    "nameTaken": "Tên Minecraft này đã được một tài khoản Discord khác đăng ký.",
+    "teamRequired": "Server này không có đội riêng. Hãy chọn đội của bạn bằng tùy chọn `team`.",
+    "invalidTeam": "Đội này không có trong sự kiện hiện tại.",
+    "success": "Chào mừng đến với **{event}**, `{name}`! Bạn đang xây cho **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Link không hợp lệ!** Cần một link hợp lệ tới tài liệu tham khảo của bạn (vd. `https://maps.google.com/...`).",
+    "invalidArea": "Diện tích phải là một số mét vuông dương.",
+    "imagesOnly": "Vui lòng chỉ tải lên hình ảnh (PNG, JPG, GIF, WEBP).",
+    "success": "Build **#{id}** của bạn đã được nộp. Giám khảo đã được thông báo!",
+    "uploadWarning": "Một số ảnh không thể lưu vĩnh viễn. Vui lòng giữ lại tin nhắn gốc của bạn.",
+    "messageHint": "Hãy đính kèm ít nhất một ảnh và thêm tọa độ cùng link tham khảo, hoặc dùng `/submit`.",
+    "messageNoLink": "**Bài nộp bị từ chối:** cần có link tới tài liệu tham khảo bạn đã dùng (3D, Street View, ảnh). Mẹo: dùng `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Người xây",
+    "team": "Đội",
+    "coordinates": "Tọa độ",
+    "reference": "Tham khảo",
+    "area": "Diện tích",
+    "status": "Trạng thái",
+    "progress": "Tiến độ chấm điểm",
+    "slotWaiting": "đang chờ",
+    "score": "Điểm",
+    "total": "Tổng",
+    "votes": "Phiếu",
+    "notes": "Ghi chú của người xây",
+    "rejected": "Bị từ chối",
+    "rejectedHint": "Hãy sửa build và nhấn **Nộp lại**.",
+    "correction": "{user} đã sửa: {reason}",
+    "judgePing": "{role} Build mới **#{id}** từ {team}",
+    "buttonScore": "Chấm điểm",
+    "buttonReject": "Từ chối",
+    "buttonInfo": "Thêm thông tin",
+    "buttonResubmit": "Nộp lại",
+    "buttonReference": "Tham khảo",
+    "buttonJump": "Đến build"
+  },
+  "judge": {
+    "invalidBase": "Điểm cơ bản phải là một trong: {options}.",
+    "invalidScore": "{category} phải từ 0 đến {max}, bước {step}.",
+    "ownBuild": "Bạn không thể chấm build của chính mình.",
+    "slotTaken": "Nhóm giám khảo của bạn ({slot}) đã chấm build này rồi.",
+    "rejected": "Build này đã bị từ chối. Có thể chấm lại sau khi người xây nộp lại.",
+    "noSlot": "Nhóm giám khảo của bạn không tham gia chấm điểm sự kiện này.",
+    "saved": "Phiếu của bạn cho build **#{id}** đã được lưu. Tiến độ: {done}/{required} nhóm giám khảo.",
+    "updated": "Phiếu của bạn cho build **#{id}** đã được cập nhật.",
+    "completed": "Build **#{id}** đã chấm xong: **{total}** điểm cho `{builder}`.",
+    "modalTitle": "Chấm điểm build #{id}",
+    "modalBase": "Điểm cơ bản ({options})",
+    "modalEffort": "Công sức & độ phức tạp (0–{max})",
+    "modalDetail": "Kỹ thuật, màu sắc & chi tiết (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Từ chối build #{id}",
+    "modalReason": "Cần sửa gì?",
+    "done": "Build **#{id}** đã bị từ chối.",
+    "already": "Build này đã bị từ chối trước đó.",
+    "dm": "Build **#{id}** của bạn trong **{event}** đã bị từ chối: {reason}\nHãy sửa lại và nhấn **Nộp lại** trên bài nộp của bạn."
+  },
+  "resubmit": {
+    "modalTitle": "Nộp lại build #{id}",
+    "coordinates": "Tọa độ",
+    "link": "Link tham khảo",
+    "notes": "Bạn đã thay đổi gì?",
+    "done": "Build **#{id}** đã được nộp lại và đang chờ giám khảo.",
+    "notRejected": "Chỉ có thể nộp lại các build bị từ chối."
+  },
+  "info": {
+    "modalTitle": "Thông tin cho giám khảo",
+    "label": "Ghi chú cho giám khảo",
+    "placeholder": "vd. chi tiết đặc biệt, nội thất, nguồn ...",
+    "saved": "Đã lưu. Giám khảo giờ có thể xem ghi chú của bạn."
+  },
+  "correct": {
+    "nothing": "Hãy nhập ít nhất một giá trị cần sửa.",
+    "notJudged": "Build này chưa được chấm. Hãy dùng `/judge`.",
+    "done": "Đã sửa build **#{id}**: {old} → {new} điểm."
+  },
+  "delete": {
+    "done": "Build **#{id}** đã bị xóa. Lý do: {reason}"
+  },
+  "unjudged": {
+    "none": "Nhóm giám khảo của bạn không còn gì để chấm. 🎉",
+    "title": "Đang chờ {slot} ({count})",
+    "more": "… và {count} build khác"
+  },
+  "refresh": {
+    "done": "Đã vẽ lại bảng: {count}"
+  },
+  "profile": {
+    "title": "Thống kê của {name}",
+    "rank": "Hạng",
+    "rankValue": "#{rank} / {total}",
+    "unranked": "Chưa có hạng",
+    "points": "Điểm",
+    "builds": "Build đã chấm",
+    "submitted": "Đã nộp",
+    "pending": "Đang chờ",
+    "rejected": "Bị từ chối",
+    "area": "Diện tích đã xây",
+    "averages": "Điểm trung bình",
+    "allTime": "Tất cả sự kiện",
+    "allTimeValue": "{events} sự kiện · {points} điểm · {builds} build",
+    "notRegistered": "{user} chưa đăng ký sự kiện này.",
+    "judgeNote": "Giám khảo có thể xây, nhưng không thể thắng.",
+    "best": "Build tốt nhất",
+    "buttonBuilds": "Xem build"
+  },
+  "builds": {
+    "title": "Build của {name}",
+    "empty": "Chưa có build nào."
+  },
+  "leaderboard": {
+    "title": "Bảng xếp hạng · {event}",
+    "empty": "Chưa có điểm nào được trao.",
+    "footer": "Tham gia bằng /register và leo lên đỉnh!"
+  },
+  "board": {
+    "battle": "Đấu đội",
+    "points": "Điểm",
+    "builds": "Build",
+    "area": "Diện tích",
+    "participants": "Người xây",
+    "waiting": "Đang chờ giám khảo",
+    "leading": "{team} dẫn trước {diff} điểm",
+    "draw": "Hòa!",
+    "updated": "Cập nhật {time}",
+    "topBuilders": "Người xây hàng đầu"
+  },
+  "announce": {
+    "startTitle": "Build battle đã bắt đầu! 🏗️",
+    "startBody": "**{event}** diễn ra đến {end}.\nĐăng ký bằng `/register` và nộp build bằng `/submit`. Chúc may mắn!",
+    "endTitle": "Build battle đã kết thúc",
+    "endBody": "**{event}** đã kết thúc. Cảm ơn rất nhiều tới tất cả mọi người đã tham gia!\nNgười thắng sẽ được công bố sau vòng chấm điểm cuối cùng."
+  },
+  "wrapup": {
+    "title": "Tổng kết sự kiện · {event}",
+    "intro": "**{event}** đã kết thúc. Tổng cộng chúng ta đã xây:",
+    "totalArea": "Tổng diện tích: **{total} m²**",
+    "teamPart": "{value} tại {place}",
+    "totalBuilds": "Tổng cộng **{total}** build",
+    "winner": "Với **{points}** điểm, **{team}** đã chiến thắng! 🏆",
+    "draw": "Hòa, mỗi đội **{points}** điểm!",
+    "topOverall": "Người xây hàng đầu · Tổng",
+    "topTeam": "Người xây hàng đầu · {team}",
+    "thanks": "Cảm ơn rất nhiều tới tất cả mọi người đã tham gia!",
+    "preview": "Bản xem trước, chỉ bạn nhìn thấy. Dùng `post: True` để đăng.",
+    "posted": "Đã đăng tổng kết lên {count} server."
+  },
+  "help": {
+    "title": "Cách {event} diễn ra",
+    "register": "**1.** Đăng ký bằng `/register <tên Minecraft>`.",
+    "submit": "**2.** Xây trong khu vực sự kiện, sau đó dùng `/submit` kèm ảnh chụp từ trên xuống (có vẽ đường viền), tọa độ, tài liệu tham khảo và link.",
+    "judging": "**3.** Mỗi đội cử một giám khảo cùng một giám khảo trung lập chấm từng build: điểm cơ bản (0–{base}), công sức (0–{effort}) và kỹ thuật & chi tiết (0–{detail}). Điểm trung bình được tính.",
+    "track": "**4.** Theo dõi tiến độ với `/profile`, `/builds`, `/leaderboard` và `/stats`.",
+    "rules": "Luật",
+    "judgesTitle": "Dành cho giám khảo"
+  },
+  "dashboard": {
+    "link": "Link đăng nhập của bạn (hiệu lực 10 phút, dùng một lần):\n{url}"
+  },
+  "legal": {
+    "title": "Trước khi đăng ký",
+    "body": "Để tham gia **{event}** với tên `{name}`, vui lòng đọc các tài liệu bên dưới.",
+    "confirm": "Khi nhấn **Chấp nhận & đăng ký**, bạn chấp nhận Điều khoản dịch vụ và xác nhận rằng bạn đã đọc Chính sách quyền riêng tư.",
+    "privacy": "Chính sách quyền riêng tư",
+    "terms": "Điều khoản dịch vụ",
+    "imprint": "Thông tin pháp lý",
+    "accept": "Chấp nhận & đăng ký",
+    "decline": "Hủy",
+    "declined": "Đã hủy đăng ký. Bạn có thể bắt đầu lại bất cứ lúc nào bằng `/register`.",
+    "reaccept": "Điều khoản dịch vụ hoặc Chính sách quyền riêng tư của chúng tôi đã thay đổi. Vui lòng chạy lại `/register` để xem lại và chấp nhận.",
+    "updated": "Cảm ơn bạn! Bạn đã chấp nhận Điều khoản dịch vụ hiện hành.",
+    "readHint": "Nhấn vào một nút để đọc tài liệu ngay trong Discord.",
+    "languageNote": "Tài liệu này có bằng tiếng Đức và tiếng Anh. Bản tiếng Đức có giá trị pháp lý.",
+    "openWeb": "Mở trong trình duyệt"
+  }
+}

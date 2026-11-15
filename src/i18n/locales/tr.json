@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Türkçe"
+  },
+  "common": {
+    "error": "Bir şeyler ters gitti. Lütfen daha sonra tekrar dene.",
+    "noEvent": "Şu anda bu sunucuda etkinlik yok.",
+    "notRegistered": "Henüz kayıtlı değilsin. Önce `/register` komutunu kullan.",
+    "banned": "Bu etkinlikten çıkarıldın.",
+    "notJudge": "Bunu yalnızca bu etkinliğin jürileri yapabilir.",
+    "notAdmin": "Bunu yalnızca bot yöneticileri yapabilir.",
+    "buildNotFound": "#{id} numaralı build bulunamadı.",
+    "guildOnly": "Bu komut yalnızca bir sunucuda kullanılabilir.",
+    "noTeam": "Takım yok",
+    "judgeBadge": "Jüri",
+    "pointsValue": "{value} puan",
+    "buildsValue": "{count} build",
+    "areaValue": "{value} m²",
+    "page": "Sayfa {page}/{pages}",
+    "next": "İleri",
+    "previous": "Geri",
+    "notOwner": "Bu senin build'in değil."
+  },
+  "phase": {
+    "draft": "Hazırlanıyor",
+    "upcoming": "Başlangıç {time}",
+    "running": "Bitiş {time}",
+    "runningOpen": "Devam ediyor",
+    "ended": "İnşa aşaması sona erdi",
+    "archived": "Arşivlendi",
+    "submitClosed": "Gönderimler şu anda açık değil.",
+    "registerClosed": "Kayıtlar şu anda açık değil.",
+    "judgeClosed": "Etkinliğin bu aşamasında değerlendirme yapılamaz."
+  },
+  "categories": {
+    "base": "Temel puan",
+    "effort": "Emek & karmaşıklık",
+    "detail": "Teknik, renkler & detaylar",
+    "baseShort": "Temel",
+    "effortShort": "Emek",
+    "detailShort": "Detaylar",
+    "base0": "Puan yok",
+    "base1": "Altyapı",
+    "base2": "Bina"
+  },
+  "reference": {
+    "3d": "3D görünüm",
+    "streetview": "Street View",
+    "images": "Fotoğraflar",
+    "other": "Diğer"
+  },
+  "status": {
+    "PENDING": "Jüri bekleniyor",
+    "IN_REVIEW": "İnceleniyor",
+    "COMPLETE": "Değerlendirildi",
+    "REJECTED": "Reddedildi"
+  },
+  "slots": {
+    "neutral": "Tarafsız jüriler",
+    "team": "{team} jürileri"
+  },
+  "commands": {
+    "register": {
+      "description": "Minecraft adınla etkinliğe kaydol",
+      "options": {
+        "minecraft": "Minecraft adın (yanlış bilgi ban ile sonuçlanabilir)",
+        "team": "Takımın (yalnızca tarafsız sunucularda gerekli)"
+      }
+    },
+    "submit": {
+      "description": "Bir build'i referansıyla birlikte gönder",
+      "options": {
+        "coordinates": "Build'in koordinatları (ör. 53.8655, 10.6866)",
+        "reference": "Hangi referansı kullandın?",
+        "link": "Referansın bağlantısı (ör. Google Maps veya Street View)",
+        "image1": "Sınırları çizilmiş, yukarıdan çekilmiş ekran görüntüsü",
+        "image2": "Ek ekran görüntüsü (isteğe bağlı)",
+        "image3": "Ek ekran görüntüsü (isteğe bağlı)",
+        "area": "İnşa edilen alan, m² cinsinden (isteğe bağlı)"
+      }
+    },
+    "profile": {
+      "description": "Kendi istatistik kartını veya başkasınınkini göster",
+      "options": {
+        "user": "Kimin istatistikleri gösterilsin?"
+      }
+    },
+    "builds": {
+      "description": "Gönderilen build'leri ve durumlarını listele",
+      "options": {
+        "user": "Kimin build'leri gösterilsin?"
+      }
+    },
+    "leaderboard": {
+      "description": "Mevcut etkinliğin liderlik tablosunu göster",
+      "options": {
+        "team": "Yalnızca bir takımı göster"
+      }
+    },
+    "stats": {
+      "description": "Takım savaşı özetini göster"
+    },
+    "help": {
+      "description": "Etkinlik nasıl işliyor ve hangi komutlar var"
+    },
+    "judge": {
+      "description": "Bir build'i puanla (yalnızca jüriler)",
+      "options": {
+        "id": "Build'in ID'si",
+        "base": "Temel puan",
+        "effort": "Emek & karmaşıklık",
+        "detail": "Teknik, renkler & detaylar"
+      }
+    },
+    "reject": {
+      "description": "Bir build'i kısa bir açıklamayla reddet (yalnızca jüriler)",
+      "options": {
+        "id": "Build'in ID'si",
+        "reason": "Neyin düzeltilmesi gerekiyor?"
+      }
+    },
+    "correct": {
+      "description": "Bir build'in nihai puanını düzelt (yalnızca jüriler)",
+      "options": {
+        "id": "Build'in ID'si",
+        "reason": "Puan neden düzeltiliyor?",
+        "base": "Yeni temel puan",
+        "effort": "Yeni emek & karmaşıklık",
+        "detail": "Yeni teknik, renkler & detaylar"
+      }
+    },
+    "delete": {
+      "description": "Bir build'i sil (yalnızca jüriler)",
+      "options": {
+        "id": "Build'in ID'si",
+        "reason": "Build neden siliniyor?"
+      }
+    },
+    "unjudged": {
+      "description": "Jüri grubunu hâlâ bekleyen build'ler (yalnızca jüriler)"
+    },
+    "refresh": {
+      "description": "Build panellerini yeniden çiz (yalnızca jüriler)",
+      "options": {
+        "id": "Build'in ID'si (boş: son 10 build)"
+      }
+    },
+    "dashboard": {
+      "description": "Yönetim paneli için giriş bağlantısı al"
+    },
+    "wrapup": {
+      "description": "Etkinlik özetini göster veya paylaş (yalnızca yöneticiler)",
+      "options": {
+        "post": "Her sunucuda paylaş (aksi halde yalnızca önizleme)"
+      }
+    },
+    "legal": {
+      "description": "Gizlilik Politikası'nı, Kullanım Koşulları'nı ve künyeyi oku"
+    }
+  },
+  "register": {
+    "invalidName": "Geçersiz Minecraft adı. 3–16 karakter kullanılabilir (harf, rakam, `_`).",
+    "already": "Zaten `{name}` olarak kayıtlısın.",
+    "nameTaken": "Bu Minecraft adı başka bir Discord hesabı tarafından zaten kaydedilmiş.",
+    "teamRequired": "Bu sunucunun kendi takımı yok. Lütfen `team` seçeneğiyle takımını seç.",
+    "invalidTeam": "Bu takım mevcut etkinlikte yok.",
+    "success": "**{event}** etkinliğine hoş geldin, `{name}`! **{team}** için inşa ediyorsun."
+  },
+  "submit": {
+    "invalidLink": "**Geçersiz bağlantı!** Referansına geçerli bir bağlantı gerekli (ör. `https://maps.google.com/...`).",
+    "invalidArea": "Alan pozitif bir metrekare değeri olmalı.",
+    "imagesOnly": "Lütfen yalnızca görsel yükle (PNG, JPG, GIF, WEBP).",
+    "success": "**#{id}** numaralı build'in gönderildi. Jüriler bilgilendirildi!",
+    "uploadWarning": "Bazı görseller kalıcı olarak kaydedilemedi. Lütfen orijinal mesajını silme.",
+    "messageHint": "Lütfen en az bir görsel ekle ve koordinatlarla referans bağlantısını yaz ya da `/submit` kullan.",
+    "messageNoLink": "**Gönderim reddedildi:** kullandığın referansın bağlantısı gerekli (3D görünüm, Street View, fotoğraflar). İpucu: `/submit` kullan."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "İnşaatçı",
+    "team": "Takım",
+    "coordinates": "Koordinatlar",
+    "reference": "Referans",
+    "area": "Alan",
+    "status": "Durum",
+    "progress": "Değerlendirme durumu",
+    "slotWaiting": "bekleniyor",
+    "score": "Puan",
+    "total": "Toplam",
+    "votes": "Oylar",
+    "notes": "İnşaatçının notları",
+    "rejected": "Reddedildi",
+    "rejectedHint": "Build'i düzelt ve **Yeniden gönder**'e bas.",
+    "correction": "{user} tarafından düzeltme: {reason}",
+    "judgePing": "{role} {team} takımından yeni build **#{id}**",
+    "buttonScore": "Puanla",
+    "buttonReject": "Reddet",
+    "buttonInfo": "Bilgi ekle",
+    "buttonResubmit": "Yeniden gönder",
+    "buttonReference": "Referans",
+    "buttonJump": "Build'e git"
+  },
+  "judge": {
+    "invalidBase": "Temel puan şunlardan biri olmalı: {options}.",
+    "invalidScore": "{category}, 0 ile {max} arasında ve {step} adımlarla olmalı.",
+    "ownBuild": "Kendi build'ini değerlendiremezsin.",
+    "slotTaken": "Jüri grubun ({slot}) bu build'i zaten puanladı.",
+    "rejected": "Bu build reddedildi. İnşaatçı yeniden gönderdiğinde tekrar değerlendirilebilir.",
+    "noSlot": "Jüri grubun bu etkinliğin değerlendirmesinde yer almıyor.",
+    "saved": "**#{id}** numaralı build için oyun kaydedildi. İlerleme: {done}/{required} jüri grubu.",
+    "updated": "**#{id}** numaralı build için oyun güncellendi.",
+    "completed": "**#{id}** numaralı build tamamen değerlendirildi: `{builder}` için **{total}** puan.",
+    "modalTitle": "Build #{id} puanla",
+    "modalBase": "Temel puan ({options})",
+    "modalEffort": "Emek & karmaşıklık (0–{max})",
+    "modalDetail": "Teknik, renkler & detaylar (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Build #{id} reddet",
+    "modalReason": "Neyin düzeltilmesi gerekiyor?",
+    "done": "**#{id}** numaralı build reddedildi.",
+    "already": "Bu build zaten reddedildi.",
+    "dm": "**{event}** etkinliğindeki **#{id}** numaralı build'in reddedildi: {reason}\nLütfen düzelt ve gönderindeki **Yeniden gönder** düğmesine bas."
+  },
+  "resubmit": {
+    "modalTitle": "Build #{id} yeniden gönder",
+    "coordinates": "Koordinatlar",
+    "link": "Referans bağlantısı",
+    "notes": "Neleri değiştirdin?",
+    "done": "**#{id}** numaralı build yeniden gönderildi ve tekrar jürileri bekliyor.",
+    "notRejected": "Yalnızca reddedilen build'ler yeniden gönderilebilir."
+  },
+  "info": {
+    "modalTitle": "Jüriler için bilgi",
+    "label": "Jüriler için notlar",
+    "placeholder": "ör. özel detaylar, iç mekan, kaynaklar ...",
+    "saved": "Kaydedildi. Jüriler artık notlarını görebilir."
+  },
+  "correct": {
+    "nothing": "Lütfen düzeltilecek en az bir değer gir.",
+    "notJudged": "Bu build henüz değerlendirilmedi. `/judge` kullan.",
+    "done": "**#{id}** numaralı build düzeltildi: {old} → {new} puan."
+  },
+  "delete": {
+    "done": "**#{id}** numaralı build silindi. Sebep: {reason}"
+  },
+  "unjudged": {
+    "none": "Jüri grubun için değerlendirilecek bir şey kalmadı. 🎉",
+    "title": "{slot} bekleniyor ({count})",
+    "more": "… ve {count} tane daha"
+  },
+  "refresh": {
+    "done": "Yeniden çizilen panel: {count}"
+  },
+  "profile": {
+    "title": "{name} istatistikleri",
+    "rank": "Sıra",
+    "rankValue": "{total} kişi içinde #{rank}",
+    "unranked": "Henüz sıralamada değil",
+    "points": "Puan",
+    "builds": "Değerlendirilen build'ler",
+    "submitted": "Gönderilen",
+    "pending": "Bekleyen",
+    "rejected": "Reddedilen",
+    "area": "İnşa edilen alan",
+    "averages": "Ortalama puanlar",
+    "allTime": "Tüm etkinlikler",
+    "allTimeValue": "{events} etkinlik · {points} puan · {builds} build",
+    "notRegistered": "{user} bu etkinliğe kayıtlı değil.",
+    "judgeNote": "Jüriler inşa edebilir ama kazanamaz.",
+    "best": "En iyi build",
+    "buttonBuilds": "Build'leri göster"
+  },
+  "builds": {
+    "title": "{name} build'leri",
+    "empty": "Henüz build yok."
+  },
+  "leaderboard": {
+    "title": "Liderlik tablosu · {event}",
+    "empty": "Henüz puan verilmedi.",
+    "footer": "/register ile katıl ve zirveye tırman!"
+  },
+  "board": {
+    "battle": "Takım savaşı",
+    "points": "Puan",
+    "builds": "Build'ler",
+    "area": "Alan",
+    "participants": "İnşaatçılar",
+    "waiting": "Jüri bekleniyor",
+    "leading": "{team}, {diff} puan önde",
+    "draw": "Berabere!",
+    "updated": "Güncellendi: {time}",
+    "topBuilders": "En iyi inşaatçılar"
+  },
+  "announce": {
+    "startTitle": "Build battle başladı! 🏗️",
+    "startBody": "**{event}** {end} tarihine kadar sürüyor.\n`/register` ile kaydol ve build'lerini `/submit` ile gönder. Bol şans!",
+    "endTitle": "Build battle sona erdi",
+    "endBody": "**{event}** bitti. Katılan herkese çok teşekkürler!\nKazananlar final değerlendirmesinden sonra açıklanacak."
+  },
+  "wrapup": {
+    "title": "Etkinlik özeti · {event}",
+    "intro": "**{event}** sona erdi. Toplamda inşa ettiklerimiz:",
+    "totalArea": "Toplam alan: **{total} m²**",
+    "teamPart": "{place} içinde {value}",
+    "totalBuilds": "Toplam **{total}** build",
+    "winner": "**{points}** puanla kazanan **{team}**! 🏆",
+    "draw": "Her iki takım da **{points}** puanla berabere!",
+    "topOverall": "En iyi inşaatçılar · Genel",
+    "topTeam": "En iyi inşaatçılar · {team}",
+    "thanks": "Katılan herkese çok teşekkürler!",
+    "preview": "Önizleme, yalnızca sen görebilirsin. Yayınlamak için `post: True` kullan.",
+    "posted": "Özet {count} sunucuda paylaşıldı."
+  },
+  "help": {
+    "title": "{event} nasıl işliyor",
+    "register": "**1.** `/register <Minecraft adı>` ile kaydol.",
+    "submit": "**2.** Etkinlik alanında inşa et, ardından yukarıdan çekilmiş bir ekran görüntüsü (sınırlar çizili), koordinatlar, referans ve bağlantıyla `/submit` kullan.",
+    "judging": "**3.** Her takımdan bir jüri ve bir tarafsız jüri her build'i puanlar: temel puan (0–{base}), emek (0–{effort}) ve teknik & detaylar (0–{detail}). Ortalama geçerlidir.",
+    "track": "**4.** İlerlemeni `/profile`, `/builds`, `/leaderboard` ve `/stats` ile takip et.",
+    "rules": "Kurallar",
+    "judgesTitle": "Jüriler için"
+  },
+  "dashboard": {
+    "link": "Giriş bağlantın (10 dakika geçerli, tek kullanımlık):\n{url}"
+  },
+  "legal": {
+    "title": "Kaydolmadan önce",
+    "body": "**{event}** etkinliğine `{name}` olarak katılmak için lütfen aşağıdaki belgeleri oku.",
+    "confirm": "**Kabul et ve kaydol** düğmesine tıklayarak Kullanım Koşulları'nı kabul etmiş ve Gizlilik Politikası'nı okuduğunu onaylamış olursun.",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "imprint": "Künye",
+    "accept": "Kabul et ve kaydol",
+    "decline": "İptal",
+    "declined": "Kayıt iptal edildi. İstediğin zaman `/register` ile yeniden başlayabilirsin.",
+    "reaccept": "Kullanım Koşullarımız veya Gizlilik Politikamız değişti. İncelemek ve kabul etmek için lütfen `/register` komutunu tekrar çalıştır.",
+    "updated": "Teşekkürler! Güncel Kullanım Koşulları'nı kabul ettin.",
+    "readHint": "Bir belgeyi doğrudan Discord'da okumak için bir düğmeye dokun.",
+    "languageNote": "Bu belge Almanca ve İngilizce olarak mevcuttur. Hukuken bağlayıcı olan Almanca sürümdür.",
+    "openWeb": "Tarayıcıda aç"
+  }
+}

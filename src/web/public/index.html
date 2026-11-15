@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>EventBot Dashboard</title>
+  <link rel="stylesheet" href="/admin/styles.css">
+</head>
+<body>
+  <div id="app" class="layout" hidden>
+    <header class="topbar">
+      <span class="brand"><span class="brand-mark" aria-hidden="true">EB</span> EventBot</span>
+      <button type="button" id="menu-toggle" class="btn btn-ghost" aria-expanded="false" aria-controls="sidebar">Menu</button>
+    </header>
+    <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+      <div class="brand sidebar-brand"><span class="brand-mark" aria-hidden="true">EB</span> EventBot</div>
+      <ul class="nav">
+        <li><a href="#/overview" data-nav="overview">Overview</a></li>
+        <li><a href="#/settings" data-nav="settings">Settings</a></li>
+        <li><a href="#/servers" data-nav="servers">Servers</a></li>
+        <li><a href="#/events" data-nav="events">Events</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="muted small" id="whoami"></div>
+        <button type="button" id="logout" class="btn btn-ghost btn-sm">Log out</button>
+      </div>
+    </nav>
+    <main id="main" class="main" tabindex="-1"></main>
+  </div>
+
+  <section id="logged-out" class="logged-out" hidden>
+    <div class="card logged-out-card">
+      <div class="brand-mark big" aria-hidden="true">EB</div>
+      <h1>Not logged in</h1>
+      <p id="logged-out-msg">Run <code>/dashboard</code> in Discord to get a login link.</p>
+    </div>
+  </section>
+
+  <div id="boot" class="boot"><div class="spinner" aria-label="Loading"></div></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script src="/admin/app.js" defer></script>
+</body>
+</html>

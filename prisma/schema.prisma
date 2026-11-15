@@ -1,0 +1,210 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Global key/value settings edited in the dashboard (storage, webhook, admins, ...)
+model Setting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}
+
+// Per Discord server configuration (channels, roles, language)
+model GuildConfig {
+  id                    BigInt   @id
+  name                  String?
+  locale                String?
+  submissionChannelId   BigInt?
+  judgeChannelId        BigInt?
+  leaderboardChannelId  BigInt?
+  leaderboardMessageId  BigInt?
+  announcementChannelId BigInt?
+  judgeRoleId           BigInt?
+  messageSubmissions    Boolean  @default(true)
+  updatedAt             DateTime @updatedAt @db.Timestamptz(3)
+}
+
+enum EventStatus {
+  DRAFT
+  RUNNING
+  ENDED
+  ARCHIVED
+}
+
+model Event {
+  id               Int           @id @default(autoincrement())
+  name             String
+  description      String?
+  imageUrl         String?
+  status           EventStatus   @default(DRAFT)
+  startsAt         DateTime?     @db.Timestamptz(3)
+  endsAt           DateTime?     @db.Timestamptz(3)
+  // ScoringConfig, see src/domain/scoring.js
+  scoring          Json
+  startAnnouncedAt DateTime?     @db.Timestamptz(3)
+  endAnnouncedAt   DateTime?     @db.Timestamptz(3)
+  createdAt        DateTime      @default(now()) @db.Timestamptz(3)
+  teams            Team[]
+  guilds           EventGuild[]
+  judges           Judge[]
+  participants     Participant[]
+  builds           Build[]
+}
+
+model Team {
+  id           Int           @id @default(autoincrement())
+  eventId      Int
+  event        Event         @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  name         String
+  emoji        String?
+  color        String        @default("#5865F2")
+  location     String?
+  createdAt    DateTime      @default(now()) @db.Timestamptz(3)
+  guilds       EventGuild[]
+  judges       Judge[]
+  participants Participant[]
+  builds       Build[]
+
+  @@unique([eventId, name])
+}
+
+// A server taking part in an event. teamId = null: neutral server (e.g. for neutral judges)
+model EventGuild {
+  eventId Int
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  guildId BigInt
+  teamId  Int?
+  team    Team?  @relation(fields: [teamId], references: [id], onDelete: SetNull)
+
+  @@id([eventId, guildId])
+  @@index([guildId])
+}
+
+// teamId = null: member of the neutral judge group
+model Judge {
+  id          Int      @id @default(autoincrement())
+  eventId     Int
+  event       Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userId      BigInt
+  teamId      Int?
+  team        Team?    @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  displayName String?
+  createdAt   DateTime @default(now()) @db.Timestamptz(3)
+
+  @@unique([eventId, userId])
+}
+
+model Participant {
+  id              Int       @id @default(autoincrement())
+  eventId         Int
+  event           Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userId          BigInt
+  minecraftName   String
+  // lower-cased name, so names are unique regardless of case
+  minecraftKey    String
+  teamId          Int?
+  team            Team?     @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  banned          Boolean   @default(false)
+  points          Float     @default(0)
+  // Which version of the Terms of Service was accepted, and when
+  termsVersion    String?
+  termsAcceptedAt DateTime? @db.Timestamptz(3)
+  registeredAt    DateTime  @default(now()) @db.Timestamptz(3)
+  builds          Build[]
+
+  @@unique([eventId, userId])
+  @@unique([eventId, minecraftKey])
+}
+
+enum BuildStatus {
+  PENDING
+  IN_REVIEW
+  COMPLETE
+  REJECTED
+}
+
+model Build {
+  id            Int            @id @default(autoincrement())
+  eventId       Int
+  event         Event          @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  participantId Int
+  participant   Participant    @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  teamId        Int?
+  team          Team?          @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  builderId     BigInt
+  guildId       BigInt?
+  location      String
+  referenceType String
+  referenceLink String
+  area          Float?
+  images        String[]       @default([])
+  extraInfo     String?
+  status        BuildStatus    @default(PENDING)
+  rejectReason  String?
+  rejectedBy    BigInt?
+  // { basePoints?, effort?, detail?, reason, by, byName, at } set by /correct
+  override      Json?
+  basePoints    Float          @default(0)
+  effort        Float          @default(0)
+  detail        Float          @default(0)
+  total         Float          @default(0)
+  createdAt     DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime       @updatedAt @db.Timestamptz(3)
+  completedAt   DateTime?      @db.Timestamptz(3)
+  votes         Vote[]
+  messages      BuildMessage[]
+
+  @@index([eventId, status])
+  @@index([participantId])
+}
+
+// One vote per judge and one per slot ("team:<id>" or "neutral") on each build
+model Vote {
+  id         Int      @id @default(autoincrement())
+  buildId    Int
+  build      Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  judgeId    BigInt
+  judgeName  String?
+  slot       String
+  basePoints Float
+  effort     Float
+  detail     Float
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  @@unique([buildId, judgeId])
+  @@unique([buildId, slot])
+}
+
+// Discord messages showing a build panel (public in the builder's server, judge view everywhere)
+model BuildMessage {
+  id        Int    @id @default(autoincrement())
+  buildId   Int
+  build     Build  @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  guildId   BigInt
+  channelId BigInt
+  messageId BigInt
+  kind      String
+
+  @@unique([buildId, channelId])
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  eventId   Int?
+  type      String
+  buildId   Int?
+  userId    BigInt?
+  actor     String?
+  points    Float?
+  details   String?
+
+  @@index([eventId, createdAt])
+}

@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "English (US)"
+  },
+  "common": {
+    "error": "Something went wrong. Please try again later.",
+    "noEvent": "There is no event on this server right now.",
+    "notRegistered": "You are not registered yet. Use `/register` first.",
+    "banned": "You have been excluded from this event.",
+    "notJudge": "Only judges of this event can do that.",
+    "notAdmin": "Only bot administrators can do that.",
+    "buildNotFound": "Build #{id} was not found.",
+    "guildOnly": "This command can only be used on a server.",
+    "noTeam": "No team",
+    "judgeBadge": "Judge",
+    "pointsValue": "{value} pts",
+    "buildsValue": "{count} builds",
+    "areaValue": "{value} m²",
+    "page": "Page {page}/{pages}",
+    "next": "Next",
+    "previous": "Back",
+    "notOwner": "This is not your build."
+  },
+  "phase": {
+    "draft": "In preparation",
+    "upcoming": "Starts {time}",
+    "running": "Ends {time}",
+    "runningOpen": "Running",
+    "ended": "Building phase ended",
+    "archived": "Archived",
+    "submitClosed": "Submissions are not open right now.",
+    "registerClosed": "Registration is not open right now.",
+    "judgeClosed": "Judging is not possible in this event phase."
+  },
+  "categories": {
+    "base": "Base points",
+    "effort": "Effort & complexity",
+    "detail": "Technique, colors & details",
+    "baseShort": "Base",
+    "effortShort": "Effort",
+    "detailShort": "Details",
+    "base0": "No points",
+    "base1": "Infrastructure",
+    "base2": "Building"
+  },
+  "reference": {
+    "3d": "3D view",
+    "streetview": "Street View",
+    "images": "Photos",
+    "other": "Other"
+  },
+  "status": {
+    "PENDING": "Waiting for judges",
+    "IN_REVIEW": "In review",
+    "COMPLETE": "Judged",
+    "REJECTED": "Rejected"
+  },
+  "slots": {
+    "neutral": "Neutral judges",
+    "team": "{team} judges"
+  },
+  "commands": {
+    "register": {
+      "description": "Register for the event with your Minecraft name",
+      "options": {
+        "minecraft": "Your Minecraft name (false information can lead to a ban)",
+        "team": "Your team (only needed on neutral servers)"
+      }
+    },
+    "submit": {
+      "description": "Submit a build together with its reference",
+      "options": {
+        "coordinates": "Coordinates of the build (e.g. 53.8655, 10.6866)",
+        "reference": "Which reference did you use?",
+        "link": "Link to the reference (e.g. Google Maps or Street View)",
+        "image1": "Top-down screenshot with the outlines drawn in",
+        "image2": "Additional screenshot (optional)",
+        "image3": "Additional screenshot (optional)",
+        "area": "Built area in m² (optional)"
+      }
+    },
+    "profile": {
+      "description": "Show your stats card or someone else's",
+      "options": {
+        "user": "Whose stats should be shown?"
+      }
+    },
+    "builds": {
+      "description": "List submitted builds and their status",
+      "options": {
+        "user": "Whose builds should be shown?"
+      }
+    },
+    "leaderboard": {
+      "description": "Show the leaderboard of the current event",
+      "options": {
+        "team": "Only show one team"
+      }
+    },
+    "stats": {
+      "description": "Show the team battle overview"
+    },
+    "help": {
+      "description": "How the event works and which commands exist"
+    },
+    "judge": {
+      "description": "Score a build (judges only)",
+      "options": {
+        "id": "ID of the build",
+        "base": "Base points",
+        "effort": "Effort & complexity",
+        "detail": "Technique, colors & details"
+      }
+    },
+    "reject": {
+      "description": "Reject a build with a short explanation (judges only)",
+      "options": {
+        "id": "ID of the build",
+        "reason": "What has to be fixed?"
+      }
+    },
+    "correct": {
+      "description": "Correct the final score of a build (judges only)",
+      "options": {
+        "id": "ID of the build",
+        "reason": "Why is the score corrected?",
+        "base": "New base points",
+        "effort": "New effort & complexity",
+        "detail": "New technique, colors & details"
+      }
+    },
+    "delete": {
+      "description": "Delete a build (judges only)",
+      "options": {
+        "id": "ID of the build",
+        "reason": "Why is the build deleted?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds still waiting for your judge group (judges only)"
+    },
+    "refresh": {
+      "description": "Redraw build panels (judges only)",
+      "options": {
+        "id": "ID of the build (empty: the latest 10 builds)"
+      }
+    },
+    "dashboard": {
+      "description": "Get a login link for the admin dashboard"
+    },
+    "wrapup": {
+      "description": "Show or post the event wrap-up (admins only)",
+      "options": {
+        "post": "Post it in every server (otherwise only a preview)"
+      }
+    },
+    "legal": {
+      "description": "Read the Privacy Policy, Terms of Service and imprint"
+    }
+  },
+  "register": {
+    "invalidName": "Invalid Minecraft name. Allowed are 3–16 characters (letters, numbers, `_`).",
+    "already": "You are already registered as `{name}`.",
+    "nameTaken": "This Minecraft name is already registered by another Discord account.",
+    "teamRequired": "This server has no team of its own. Please choose your team with the `team` option.",
+    "invalidTeam": "This team does not exist in the current event.",
+    "success": "Welcome to **{event}**, `{name}`! You are building for **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Invalid link!** A valid link to your reference is required (e.g. `https://maps.google.com/...`).",
+    "invalidArea": "The area must be a positive number of square meters.",
+    "imagesOnly": "Please only upload images (PNG, JPG, GIF, WEBP).",
+    "success": "Your build **#{id}** has been submitted. The judges have been notified!",
+    "uploadWarning": "Some images could not be stored permanently. Please keep your original message.",
+    "messageHint": "Please attach at least one image and add coordinates plus a reference link, or use `/submit`.",
+    "messageNoLink": "**Submission rejected:** a link to the reference you used (3D view, Street View, photos) is required. Tip: use `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Builder",
+    "team": "Team",
+    "coordinates": "Coordinates",
+    "reference": "Reference",
+    "area": "Area",
+    "status": "Status",
+    "progress": "Judging progress",
+    "slotWaiting": "waiting",
+    "score": "Score",
+    "total": "Total",
+    "votes": "Votes",
+    "notes": "Notes from the builder",
+    "rejected": "Rejected",
+    "rejectedHint": "Fix the build and press **Resubmit**.",
+    "correction": "Correction by {user}: {reason}",
+    "judgePing": "{role} New build **#{id}** from {team}",
+    "buttonScore": "Score",
+    "buttonReject": "Reject",
+    "buttonInfo": "Add info",
+    "buttonResubmit": "Resubmit",
+    "buttonReference": "Reference",
+    "buttonJump": "Go to build"
+  },
+  "judge": {
+    "invalidBase": "Base points must be one of: {options}.",
+    "invalidScore": "{category} must be between 0 and {max} in steps of {step}.",
+    "ownBuild": "You cannot judge your own build.",
+    "slotTaken": "Your judge group ({slot}) has already scored this build.",
+    "rejected": "This build was rejected. It can be judged again once the builder resubmits it.",
+    "noSlot": "Your judge group is not part of this event's judging.",
+    "saved": "Your vote on build **#{id}** was saved. Progress: {done}/{required} judge groups.",
+    "updated": "Your vote on build **#{id}** was updated.",
+    "completed": "Build **#{id}** is fully judged: **{total}** points for `{builder}`.",
+    "modalTitle": "Score build #{id}",
+    "modalBase": "Base points ({options})",
+    "modalEffort": "Effort & complexity (0–{max})",
+    "modalDetail": "Technique, colors & details (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Reject build #{id}",
+    "modalReason": "What has to be fixed?",
+    "done": "Build **#{id}** was rejected.",
+    "already": "This build has already been rejected.",
+    "dm": "Your build **#{id}** in **{event}** was rejected: {reason}\nPlease fix it and press **Resubmit** on your submission."
+  },
+  "resubmit": {
+    "modalTitle": "Resubmit build #{id}",
+    "coordinates": "Coordinates",
+    "link": "Reference link",
+    "notes": "What did you change?",
+    "done": "Build **#{id}** was resubmitted and is waiting for the judges again.",
+    "notRejected": "Only rejected builds can be resubmitted."
+  },
+  "info": {
+    "modalTitle": "Information for the judges",
+    "label": "Notes for the judges",
+    "placeholder": "e.g. special details, interior, sources ...",
+    "saved": "Saved. The judges can see your notes now."
+  },
+  "correct": {
+    "nothing": "Please give at least one value to correct.",
+    "notJudged": "This build has not been judged yet. Use `/judge`.",
+    "done": "Build **#{id}** corrected: {old} → {new} points."
+  },
+  "delete": {
+    "done": "Build **#{id}** was deleted. Reason: {reason}"
+  },
+  "unjudged": {
+    "none": "Nothing left to judge for your judge group. 🎉",
+    "title": "Waiting for {slot} ({count})",
+    "more": "… and {count} more"
+  },
+  "refresh": {
+    "done": "Panels redrawn: {count}"
+  },
+  "profile": {
+    "title": "Stats of {name}",
+    "rank": "Rank",
+    "rankValue": "#{rank} of {total}",
+    "unranked": "Not ranked yet",
+    "points": "Points",
+    "builds": "Judged builds",
+    "submitted": "Submitted",
+    "pending": "Waiting",
+    "rejected": "Rejected",
+    "area": "Built area",
+    "averages": "Average scores",
+    "allTime": "All events",
+    "allTimeValue": "{events} events · {points} points · {builds} builds",
+    "notRegistered": "{user} is not registered for this event.",
+    "judgeNote": "Judges can build, but cannot win.",
+    "best": "Best build",
+    "buttonBuilds": "Show builds"
+  },
+  "builds": {
+    "title": "Builds of {name}",
+    "empty": "No builds yet."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "No points have been awarded yet.",
+    "footer": "Join with /register and climb to the top!"
+  },
+  "board": {
+    "battle": "Team battle",
+    "points": "Points",
+    "builds": "Builds",
+    "area": "Area",
+    "participants": "Builders",
+    "waiting": "Waiting for judges",
+    "leading": "{team} leads by {diff} points",
+    "draw": "It's a tie!",
+    "updated": "Updated {time}",
+    "topBuilders": "Top builders"
+  },
+  "announce": {
+    "startTitle": "The build battle has started! 🏗️",
+    "startBody": "**{event}** runs until {end}.\nRegister with `/register` and submit your builds with `/submit`. Good luck!",
+    "endTitle": "The build battle is closed",
+    "endBody": "**{event}** is over. Thank you very much to everyone who participated!\nThe winners will be announced after the final judging."
+  },
+  "wrapup": {
+    "title": "Event wrap-up · {event}",
+    "intro": "**{event}** has ended. In total we built:",
+    "totalArea": "Total area: **{total} m²**",
+    "teamPart": "{value} in {place}",
+    "totalBuilds": "**{total}** builds in total",
+    "winner": "With **{points}** points, **{team}** won! 🏆",
+    "draw": "It's a draw with **{points}** points each!",
+    "topOverall": "Top builders · Overall",
+    "topTeam": "Top builders · {team}",
+    "thanks": "Thank you very much to everyone who participated!",
+    "preview": "Preview, only visible to you. Use `post: True` to publish it.",
+    "posted": "Wrap-up posted in {count} server(s)."
+  },
+  "help": {
+    "title": "How {event} works",
+    "register": "**1.** Register with `/register <Minecraft name>`.",
+    "submit": "**2.** Build in the event area, then use `/submit` with a top-down screenshot (outlines drawn in), coordinates, reference and link.",
+    "judging": "**3.** One judge from every team plus a neutral judge score each build: base points (0–{base}), effort (0–{effort}) and technique & details (0–{detail}). The average counts.",
+    "track": "**4.** Follow your progress with `/profile`, `/builds`, `/leaderboard` and `/stats`.",
+    "rules": "Rules",
+    "judgesTitle": "For judges"
+  },
+  "dashboard": {
+    "link": "Your login link (valid for 10 minutes, single use):\n{url}"
+  },
+  "legal": {
+    "title": "Before you register",
+    "body": "To take part in **{event}** as `{name}`, please read the documents below.",
+    "confirm": "By clicking **Accept & register** you accept the Terms of Service and confirm that you have read the Privacy Policy.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "imprint": "Imprint",
+    "accept": "Accept & register",
+    "decline": "Cancel",
+    "declined": "Registration cancelled. You can start again any time with `/register`.",
+    "reaccept": "Our Terms of Service or Privacy Policy have changed. Please run `/register` again to review and accept them.",
+    "updated": "Thank you! You accepted the current Terms of Service.",
+    "readHint": "Tap a button to read a document right here in Discord.",
+    "languageNote": "This document is available in German and English. The German version is legally binding.",
+    "openWeb": "Open in browser"
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Svenska"
+  },
+  "common": {
+    "error": "Något gick fel. Försök igen senare.",
+    "noEvent": "Det finns inget event på den här servern just nu.",
+    "notRegistered": "Du är inte registrerad än. Använd `/register` först.",
+    "banned": "Du har uteslutits från det här eventet.",
+    "notJudge": "Bara judges i det här eventet kan göra det.",
+    "notAdmin": "Bara botadministratörer kan göra det.",
+    "buildNotFound": "Build #{id} hittades inte.",
+    "guildOnly": "Det här kommandot kan bara användas på en server.",
+    "noTeam": "Inget lag",
+    "judgeBadge": "Judge",
+    "pointsValue": "{value} p",
+    "buildsValue": "{count} builds",
+    "areaValue": "{value} m²",
+    "page": "Sida {page}/{pages}",
+    "next": "Nästa",
+    "previous": "Tillbaka",
+    "notOwner": "Det här är inte ditt build."
+  },
+  "phase": {
+    "draft": "Under förberedelse",
+    "upcoming": "Startar {time}",
+    "running": "Slutar {time}",
+    "runningOpen": "Pågår",
+    "ended": "Byggfasen är slut",
+    "archived": "Arkiverat",
+    "submitClosed": "Inlämningen är inte öppen just nu.",
+    "registerClosed": "Registreringen är inte öppen just nu.",
+    "judgeClosed": "Bedömning är inte möjlig i den här fasen av eventet."
+  },
+  "categories": {
+    "base": "Grundpoäng",
+    "effort": "Insats & komplexitet",
+    "detail": "Teknik, färger & detaljer",
+    "baseShort": "Grund",
+    "effortShort": "Insats",
+    "detailShort": "Detaljer",
+    "base0": "Inga poäng",
+    "base1": "Infrastruktur",
+    "base2": "Byggnad"
+  },
+  "reference": {
+    "3d": "3D-vy",
+    "streetview": "Street View",
+    "images": "Foton",
+    "other": "Annat"
+  },
+  "status": {
+    "PENDING": "Väntar på judges",
+    "IN_REVIEW": "Bedöms",
+    "COMPLETE": "Bedömd",
+    "REJECTED": "Avvisad"
+  },
+  "slots": {
+    "neutral": "Neutrala judges",
+    "team": "Judges från {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Registrera dig för eventet med ditt Minecraft-namn",
+      "options": {
+        "minecraft": "Ditt Minecraft-namn (felaktiga uppgifter kan leda till avstängning)",
+        "team": "Ditt lag (behövs bara på neutrala servrar)"
+      }
+    },
+    "submit": {
+      "description": "Lämna in ett build tillsammans med din referens",
+      "options": {
+        "coordinates": "Buildets koordinater (t.ex. 53.8655, 10.6866)",
+        "reference": "Vilken referens använde du?",
+        "link": "Länk till referensen (t.ex. Google Maps eller Street View)",
+        "image1": "Skärmbild ovanifrån med konturerna inritade",
+        "image2": "Extra skärmbild (valfritt)",
+        "image3": "Extra skärmbild (valfritt)",
+        "area": "Bebyggd yta i m² (valfritt)"
+      }
+    },
+    "profile": {
+      "description": "Visa ditt eller någon annans statistikkort",
+      "options": {
+        "user": "Vems statistik ska visas?"
+      }
+    },
+    "builds": {
+      "description": "Lista inlämnade builds och deras status",
+      "options": {
+        "user": "Vems builds ska visas?"
+      }
+    },
+    "leaderboard": {
+      "description": "Visa leaderboarden för det aktuella eventet",
+      "options": {
+        "team": "Visa bara ett lag"
+      }
+    },
+    "stats": {
+      "description": "Visa översikten över lagkampen"
+    },
+    "help": {
+      "description": "Hur eventet fungerar och vilka kommandon som finns"
+    },
+    "judge": {
+      "description": "Bedöm ett build (bara judges)",
+      "options": {
+        "id": "Buildets ID",
+        "base": "Grundpoäng",
+        "effort": "Insats & komplexitet",
+        "detail": "Teknik, färger & detaljer"
+      }
+    },
+    "reject": {
+      "description": "Avvisa ett build med en kort förklaring (bara judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Vad behöver åtgärdas?"
+      }
+    },
+    "correct": {
+      "description": "Korrigera slutpoängen för ett build (bara judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Varför korrigeras poängen?",
+        "base": "Nya grundpoäng",
+        "effort": "Ny insats & komplexitet",
+        "detail": "Ny teknik, färger & detaljer"
+      }
+    },
+    "delete": {
+      "description": "Ta bort ett build (bara judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Varför tas buildet bort?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds som fortfarande väntar på din judgegrupp (bara judges)"
+    },
+    "refresh": {
+      "description": "Rita om buildpaneler (bara judges)",
+      "options": {
+        "id": "Buildets ID (tomt: de senaste 10 buildsen)"
+      }
+    },
+    "dashboard": {
+      "description": "Få en inloggningslänk till admin-dashboarden"
+    },
+    "wrapup": {
+      "description": "Visa eller publicera eventets sammanfattning (bara admins)",
+      "options": {
+        "post": "Publicera på alla servrar (annars bara en förhandsvisning)"
+      }
+    },
+    "legal": {
+      "description": "Läs integritetspolicyn, användarvillkoren och juridisk information"
+    }
+  },
+  "register": {
+    "invalidName": "Ogiltigt Minecraft-namn. Tillåtet är 3–16 tecken (bokstäver, siffror, `_`).",
+    "already": "Du är redan registrerad som `{name}`.",
+    "nameTaken": "Det här Minecraft-namnet är redan registrerat av ett annat Discord-konto.",
+    "teamRequired": "Den här servern har inget eget lag. Välj ditt lag med alternativet `team`.",
+    "invalidTeam": "Det här laget finns inte i det aktuella eventet.",
+    "success": "Välkommen till **{event}**, `{name}`! Du bygger för **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Ogiltig länk!** En giltig länk till din referens krävs (t.ex. `https://maps.google.com/...`).",
+    "invalidArea": "Ytan måste vara ett positivt antal kvadratmeter.",
+    "imagesOnly": "Ladda bara upp bilder (PNG, JPG, GIF, WEBP).",
+    "success": "Ditt build **#{id}** har lämnats in. Domarna har meddelats!",
+    "uploadWarning": "Vissa bilder kunde inte sparas permanent. Behåll ditt ursprungliga meddelande.",
+    "messageHint": "Bifoga minst en bild och lägg till koordinater och en referenslänk, eller använd `/submit`.",
+    "messageNoLink": "**Inlämning avvisad:** en länk till referensen du använde (3D-vy, Street View, foton) krävs. Tips: använd `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Byggare",
+    "team": "Lag",
+    "coordinates": "Koordinater",
+    "reference": "Referens",
+    "area": "Yta",
+    "status": "Status",
+    "progress": "Bedömningsstatus",
+    "slotWaiting": "väntar",
+    "score": "Poäng",
+    "total": "Totalt",
+    "votes": "Röster",
+    "notes": "Anteckningar från byggaren",
+    "rejected": "Avvisad",
+    "rejectedHint": "Åtgärda buildet och tryck på **Lämna in igen**.",
+    "correction": "Korrigerad av {user}: {reason}",
+    "judgePing": "{role} Nytt build **#{id}** från {team}",
+    "buttonScore": "Bedöm",
+    "buttonReject": "Avvisa",
+    "buttonInfo": "Lägg till info",
+    "buttonResubmit": "Lämna in igen",
+    "buttonReference": "Referens",
+    "buttonJump": "Gå till build"
+  },
+  "judge": {
+    "invalidBase": "Grundpoängen måste vara en av: {options}.",
+    "invalidScore": "{category} måste vara mellan 0 och {max} i steg om {step}.",
+    "ownBuild": "Du kan inte bedöma ditt eget build.",
+    "slotTaken": "Din judgegrupp ({slot}) har redan bedömt det här buildet.",
+    "rejected": "Det här buildet avvisades. Det kan bedömas igen när byggaren lämnar in det på nytt.",
+    "noSlot": "Din judgegrupp ingår inte i bedömningen av det här eventet.",
+    "saved": "Din röst på build **#{id}** har sparats. Status: {done}/{required} judgegrupper.",
+    "updated": "Din röst på build **#{id}** har uppdaterats.",
+    "completed": "Build **#{id}** är färdigbedömt: **{total}** poäng till `{builder}`.",
+    "modalTitle": "Bedöm build #{id}",
+    "modalBase": "Grundpoäng ({options})",
+    "modalEffort": "Insats & komplexitet (0–{max})",
+    "modalDetail": "Teknik, färger & detaljer (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Avvisa build #{id}",
+    "modalReason": "Vad behöver åtgärdas?",
+    "done": "Build **#{id}** avvisades.",
+    "already": "Det här buildet har redan avvisats.",
+    "dm": "Ditt build **#{id}** i **{event}** avvisades: {reason}\nÅtgärda det och tryck på **Lämna in igen** vid din inlämning."
+  },
+  "resubmit": {
+    "modalTitle": "Lämna in build #{id} igen",
+    "coordinates": "Koordinater",
+    "link": "Referenslänk",
+    "notes": "Vad har du ändrat?",
+    "done": "Build **#{id}** har lämnats in igen och väntar på domarna igen.",
+    "notRejected": "Bara avvisade builds kan lämnas in igen."
+  },
+  "info": {
+    "modalTitle": "Information till domarna",
+    "label": "Anteckningar till domarna",
+    "placeholder": "t.ex. speciella detaljer, interiör, källor ...",
+    "saved": "Sparat. Domarna kan nu se dina anteckningar."
+  },
+  "correct": {
+    "nothing": "Ange minst ett värde att korrigera.",
+    "notJudged": "Det här buildet har inte bedömts än. Använd `/judge`.",
+    "done": "Build **#{id}** korrigerat: {old} → {new} poäng."
+  },
+  "delete": {
+    "done": "Build **#{id}** har tagits bort. Anledning: {reason}"
+  },
+  "unjudged": {
+    "none": "Inget kvar att bedöma för din judgegrupp. 🎉",
+    "title": "Väntar på {slot} ({count})",
+    "more": "… och {count} till"
+  },
+  "refresh": {
+    "done": "Paneler omritade: {count}"
+  },
+  "profile": {
+    "title": "Statistik för {name}",
+    "rank": "Placering",
+    "rankValue": "#{rank} av {total}",
+    "unranked": "Inte rankad än",
+    "points": "Poäng",
+    "builds": "Bedömda builds",
+    "submitted": "Inlämnade",
+    "pending": "Väntar",
+    "rejected": "Avvisade",
+    "area": "Bebyggd yta",
+    "averages": "Genomsnittliga poäng",
+    "allTime": "Alla event",
+    "allTimeValue": "{events} event · {points} poäng · {builds} builds",
+    "notRegistered": "{user} är inte registrerad för det här eventet.",
+    "judgeNote": "Judges får bygga, men kan inte vinna.",
+    "best": "Bästa build",
+    "buttonBuilds": "Visa builds"
+  },
+  "builds": {
+    "title": "Builds av {name}",
+    "empty": "Inga builds än."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Inga poäng har delats ut än.",
+    "footer": "Gå med via /register och klättra till toppen!"
+  },
+  "board": {
+    "battle": "Lagkamp",
+    "points": "Poäng",
+    "builds": "Builds",
+    "area": "Yta",
+    "participants": "Byggare",
+    "waiting": "Väntar på judges",
+    "leading": "{team} leder med {diff} poäng",
+    "draw": "Det står lika!",
+    "updated": "Uppdaterad {time}",
+    "topBuilders": "Toppbyggare"
+  },
+  "announce": {
+    "startTitle": "Build battlen har börjat! 🏗️",
+    "startBody": "**{event}** pågår till {end}.\nRegistrera dig med `/register` och lämna in dina builds med `/submit`. Lycka till!",
+    "endTitle": "Build battlen är stängd",
+    "endBody": "**{event}** är över. Stort tack till alla som deltog!\nVinnarna tillkännages efter den slutliga bedömningen."
+  },
+  "wrapup": {
+    "title": "Sammanfattning · {event}",
+    "intro": "**{event}** är över. Totalt byggde vi:",
+    "totalArea": "Total yta: **{total} m²**",
+    "teamPart": "{value} i {place}",
+    "totalBuilds": "**{total}** builds totalt",
+    "winner": "Med **{points}** poäng har **{team}** vunnit! 🏆",
+    "draw": "Oavgjort med **{points}** poäng var!",
+    "topOverall": "Toppbyggare · Totalt",
+    "topTeam": "Toppbyggare · {team}",
+    "thanks": "Stort tack till alla som deltog!",
+    "preview": "Förhandsvisning, bara synlig för dig. Använd `post: True` för att publicera den.",
+    "posted": "Sammanfattning publicerad på {count} server(ar)."
+  },
+  "help": {
+    "title": "Så fungerar {event}",
+    "register": "**1.** Registrera dig med `/register <Minecraft-namn>`.",
+    "submit": "**2.** Bygg i eventområdet och använd sedan `/submit` med en skärmbild ovanifrån (konturer inritade), koordinater, referens och länk.",
+    "judging": "**3.** En judge från varje lag plus en neutral judge bedömer varje build: grundpoäng (0–{base}), insats (0–{effort}) och teknik & detaljer (0–{detail}). Genomsnittet räknas.",
+    "track": "**4.** Följ dina framsteg med `/profile`, `/builds`, `/leaderboard` och `/stats`.",
+    "rules": "Regler",
+    "judgesTitle": "För judges"
+  },
+  "dashboard": {
+    "link": "Din inloggningslänk (giltig i 10 minuter, kan bara användas en gång):\n{url}"
+  },
+  "legal": {
+    "title": "Innan du registrerar dig",
+    "body": "För att delta i **{event}** som `{name}` behöver du läsa dokumenten nedan.",
+    "confirm": "Genom att klicka på **Godkänn och registrera** godkänner du användarvillkoren och bekräftar att du har läst integritetspolicyn.",
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor",
+    "imprint": "Juridisk information",
+    "accept": "Godkänn och registrera",
+    "decline": "Avbryt",
+    "declined": "Registreringen avbröts. Du kan börja om när som helst med `/register`.",
+    "reaccept": "Våra användarvillkor eller vår integritetspolicy har ändrats. Kör `/register` igen för att bekräfta dem.",
+    "updated": "Tack! Du har godkänt de aktuella användarvillkoren.",
+    "readHint": "Tryck på en knapp för att läsa ett dokument direkt här i Discord.",
+    "languageNote": "Det här dokumentet finns på tyska och engelska. Den tyska versionen är juridiskt bindande.",
+    "openWeb": "Öppna i webbläsare"
+  }
+}

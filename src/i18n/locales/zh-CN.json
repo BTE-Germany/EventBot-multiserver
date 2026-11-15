@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "简体中文"
+  },
+  "common": {
+    "error": "出了点问题，请稍后再试。",
+    "noEvent": "此服务器当前没有进行中的活动。",
+    "notRegistered": "你还没有报名，请先使用 `/register`。",
+    "banned": "你已被排除在本次活动之外。",
+    "notJudge": "只有本次活动的评委才能执行此操作。",
+    "notAdmin": "只有机器人管理员才能执行此操作。",
+    "buildNotFound": "未找到建筑 #{id}。",
+    "guildOnly": "此命令只能在服务器中使用。",
+    "noTeam": "无队伍",
+    "judgeBadge": "评委",
+    "pointsValue": "{value} 分",
+    "buildsValue": "{count} 个建筑",
+    "areaValue": "{value} m²",
+    "page": "第 {page}/{pages} 页",
+    "next": "下一页",
+    "previous": "上一页",
+    "notOwner": "这不是你的建筑。"
+  },
+  "phase": {
+    "draft": "准备中",
+    "upcoming": "{time} 开始",
+    "running": "{time} 结束",
+    "runningOpen": "进行中",
+    "ended": "建造阶段已结束",
+    "archived": "已归档",
+    "submitClosed": "目前不开放提交。",
+    "registerClosed": "目前不开放报名。",
+    "judgeClosed": "当前活动阶段无法评分。"
+  },
+  "categories": {
+    "base": "基础分",
+    "effort": "工作量与复杂度",
+    "detail": "技巧、配色与细节",
+    "baseShort": "基础",
+    "effortShort": "工作量",
+    "detailShort": "细节",
+    "base0": "无分数",
+    "base1": "基础设施",
+    "base2": "建筑物"
+  },
+  "reference": {
+    "3d": "3D 视图",
+    "streetview": "街景",
+    "images": "照片",
+    "other": "其他"
+  },
+  "status": {
+    "PENDING": "等待评委",
+    "IN_REVIEW": "评审中",
+    "COMPLETE": "已评分",
+    "REJECTED": "已退回"
+  },
+  "slots": {
+    "neutral": "中立评委",
+    "team": "{team} 评委"
+  },
+  "commands": {
+    "register": {
+      "description": "使用你的 Minecraft 名称报名参加活动",
+      "options": {
+        "minecraft": "你的 Minecraft 名称（填写虚假信息可能导致封禁）",
+        "team": "你的队伍（仅在中立服务器上需要）"
+      }
+    },
+    "submit": {
+      "description": "提交建筑及其参考资料",
+      "options": {
+        "coordinates": "建筑坐标（例如 53.8655, 10.6866）",
+        "reference": "你使用了哪种参考资料？",
+        "link": "参考资料链接（例如 Google 地图或街景）",
+        "image1": "画出轮廓的俯视截图",
+        "image2": "附加截图（可选）",
+        "image3": "附加截图（可选）",
+        "area": "建造面积，单位 m²（可选）"
+      }
+    },
+    "profile": {
+      "description": "显示你或他人的数据卡",
+      "options": {
+        "user": "要显示谁的数据？"
+      }
+    },
+    "builds": {
+      "description": "列出已提交的建筑及其状态",
+      "options": {
+        "user": "要显示谁的建筑？"
+      }
+    },
+    "leaderboard": {
+      "description": "显示当前活动的排行榜",
+      "options": {
+        "team": "只显示一个队伍"
+      }
+    },
+    "stats": {
+      "description": "显示队伍对战概览"
+    },
+    "help": {
+      "description": "活动规则和可用命令"
+    },
+    "judge": {
+      "description": "为建筑评分（仅限评委）",
+      "options": {
+        "id": "建筑 ID",
+        "base": "基础分",
+        "effort": "工作量与复杂度",
+        "detail": "技巧、配色与细节"
+      }
+    },
+    "reject": {
+      "description": "退回建筑并附上简短说明（仅限评委）",
+      "options": {
+        "id": "建筑 ID",
+        "reason": "需要修改什么？"
+      }
+    },
+    "correct": {
+      "description": "修正建筑的最终得分（仅限评委）",
+      "options": {
+        "id": "建筑 ID",
+        "reason": "为什么要修正分数？",
+        "base": "新的基础分",
+        "effort": "新的工作量与复杂度",
+        "detail": "新的技巧、配色与细节"
+      }
+    },
+    "delete": {
+      "description": "删除建筑（仅限评委）",
+      "options": {
+        "id": "建筑 ID",
+        "reason": "为什么删除此建筑？"
+      }
+    },
+    "unjudged": {
+      "description": "仍在等待你所在评委组评分的建筑（仅限评委）"
+    },
+    "refresh": {
+      "description": "重新绘制建筑面板（仅限评委）",
+      "options": {
+        "id": "建筑 ID（留空：最近 10 个建筑）"
+      }
+    },
+    "dashboard": {
+      "description": "获取管理后台的登录链接"
+    },
+    "wrapup": {
+      "description": "显示或发布活动总结（仅限管理员）",
+      "options": {
+        "post": "在所有服务器中发布（否则仅预览）"
+      }
+    },
+    "legal": {
+      "description": "阅读隐私政策、服务条款和法律声明"
+    }
+  },
+  "register": {
+    "invalidName": "无效的 Minecraft 名称。允许 3–16 个字符（字母、数字、`_`）。",
+    "already": "你已经以 `{name}` 的身份报名了。",
+    "nameTaken": "该 Minecraft 名称已被另一个 Discord 账号注册。",
+    "teamRequired": "此服务器没有自己的队伍，请使用 `team` 选项选择你的队伍。",
+    "invalidTeam": "当前活动中不存在该队伍。",
+    "success": "欢迎参加 **{event}**，`{name}`！你将为 **{team}** 建造。"
+  },
+  "submit": {
+    "invalidLink": "**链接无效！** 需要提供有效的参考资料链接（例如 `https://maps.google.com/...`）。",
+    "invalidArea": "面积必须是正数（平方米）。",
+    "imagesOnly": "请只上传图片（PNG、JPG、GIF、WEBP）。",
+    "success": "你的建筑 **#{id}** 已提交，已通知评委！",
+    "uploadWarning": "部分图片无法永久保存，请保留你的原始消息。",
+    "messageHint": "请至少附上一张图片，并添加坐标和参考链接，或使用 `/submit`。",
+    "messageNoLink": "**提交被拒绝：** 需要提供你所用参考资料（3D 视图、街景、照片）的链接。提示：使用 `/submit`。"
+  },
+  "panel": {
+    "title": "建筑 #{id}",
+    "builder": "建造者",
+    "team": "队伍",
+    "coordinates": "坐标",
+    "reference": "参考资料",
+    "area": "面积",
+    "status": "状态",
+    "progress": "评分进度",
+    "slotWaiting": "等待中",
+    "score": "评分",
+    "total": "总分",
+    "votes": "投票",
+    "notes": "建造者备注",
+    "rejected": "已退回",
+    "rejectedHint": "修改建筑后点击 **重新提交**。",
+    "correction": "{user} 的修正：{reason}",
+    "judgePing": "{role} 来自 {team} 的新建筑 **#{id}**",
+    "buttonScore": "评分",
+    "buttonReject": "退回",
+    "buttonInfo": "添加信息",
+    "buttonResubmit": "重新提交",
+    "buttonReference": "参考资料",
+    "buttonJump": "前往建筑"
+  },
+  "judge": {
+    "invalidBase": "基础分必须是以下之一：{options}。",
+    "invalidScore": "{category} 必须在 0 到 {max} 之间，步长为 {step}。",
+    "ownBuild": "你不能为自己的建筑评分。",
+    "slotTaken": "你的评委组（{slot}）已经为此建筑评过分了。",
+    "rejected": "此建筑已被退回，建造者重新提交后才能再次评分。",
+    "noSlot": "你的评委组不参与本次活动的评分。",
+    "saved": "你对建筑 **#{id}** 的评分已保存。进度：{done}/{required} 个评委组。",
+    "updated": "你对建筑 **#{id}** 的评分已更新。",
+    "completed": "建筑 **#{id}** 已完成评分：`{builder}` 获得 **{total}** 分。",
+    "modalTitle": "为建筑 #{id} 评分",
+    "modalBase": "基础分（{options}）",
+    "modalEffort": "工作量与复杂度（0–{max}）",
+    "modalDetail": "技巧、配色与细节（0–{max}）"
+  },
+  "reject": {
+    "modalTitle": "退回建筑 #{id}",
+    "modalReason": "需要修改什么？",
+    "done": "建筑 **#{id}** 已被退回。",
+    "already": "此建筑已经被退回了。",
+    "dm": "你在 **{event}** 中的建筑 **#{id}** 被退回：{reason}\n请修改后在你的提交上点击 **重新提交**。"
+  },
+  "resubmit": {
+    "modalTitle": "重新提交建筑 #{id}",
+    "coordinates": "坐标",
+    "link": "参考链接",
+    "notes": "你修改了什么？",
+    "done": "建筑 **#{id}** 已重新提交，正在再次等待评委。",
+    "notRejected": "只有被退回的建筑才能重新提交。"
+  },
+  "info": {
+    "modalTitle": "给评委的信息",
+    "label": "给评委的备注",
+    "placeholder": "例如：特殊细节、室内、参考来源……",
+    "saved": "已保存，评委现在可以看到你的备注了。"
+  },
+  "correct": {
+    "nothing": "请至少提供一个要修正的数值。",
+    "notJudged": "此建筑尚未评分，请使用 `/judge`。",
+    "done": "建筑 **#{id}** 已修正：{old} → {new} 分。"
+  },
+  "delete": {
+    "done": "建筑 **#{id}** 已删除。原因：{reason}"
+  },
+  "unjudged": {
+    "none": "你的评委组已没有待评分的建筑。🎉",
+    "title": "等待 {slot}（{count}）",
+    "more": "……还有 {count} 个"
+  },
+  "refresh": {
+    "done": "已重绘面板：{count}"
+  },
+  "profile": {
+    "title": "{name} 的数据",
+    "rank": "排名",
+    "rankValue": "第 {rank} 名，共 {total} 人",
+    "unranked": "暂无排名",
+    "points": "分数",
+    "builds": "已评分建筑",
+    "submitted": "已提交",
+    "pending": "等待中",
+    "rejected": "已退回",
+    "area": "建造面积",
+    "averages": "平均得分",
+    "allTime": "所有活动",
+    "allTimeValue": "{events} 场活动 · {points} 分 · {builds} 个建筑",
+    "notRegistered": "{user} 未报名本次活动。",
+    "judgeNote": "评委可以建造，但不能获胜。",
+    "best": "最佳建筑",
+    "buttonBuilds": "显示建筑"
+  },
+  "builds": {
+    "title": "{name} 的建筑",
+    "empty": "还没有建筑。"
+  },
+  "leaderboard": {
+    "title": "排行榜 · {event}",
+    "empty": "还没有人获得分数。",
+    "footer": "使用 /register 加入，冲上榜首吧！"
+  },
+  "board": {
+    "battle": "队伍对战",
+    "points": "分数",
+    "builds": "建筑",
+    "area": "面积",
+    "participants": "建造者",
+    "waiting": "等待评委",
+    "leading": "{team} 领先 {diff} 分",
+    "draw": "平局！",
+    "updated": "更新于 {time}",
+    "topBuilders": "顶尖建造者"
+  },
+  "announce": {
+    "startTitle": "建筑大战开始了！🏗️",
+    "startBody": "**{event}** 将持续到 {end}。\n使用 `/register` 报名，使用 `/submit` 提交你的建筑。祝你好运！",
+    "endTitle": "建筑大战已结束",
+    "endBody": "**{event}** 已结束，非常感谢所有参与者！\n获胜者将在最终评分后公布。"
+  },
+  "wrapup": {
+    "title": "活动总结 · {event}",
+    "intro": "**{event}** 已结束。我们总共建造了：",
+    "totalArea": "总面积：**{total} m²**",
+    "teamPart": "{place}：{value}",
+    "totalBuilds": "共 **{total}** 个建筑",
+    "winner": "**{team}** 以 **{points}** 分获胜！🏆",
+    "draw": "平局，双方各得 **{points}** 分！",
+    "topOverall": "顶尖建造者 · 总榜",
+    "topTeam": "顶尖建造者 · {team}",
+    "thanks": "非常感谢所有参与者！",
+    "preview": "预览，仅你可见。使用 `post: True` 发布。",
+    "posted": "总结已发布到 {count} 个服务器。"
+  },
+  "help": {
+    "title": "{event} 玩法说明",
+    "register": "**1.** 使用 `/register <Minecraft 名称>` 报名。",
+    "submit": "**2.** 在活动区域内建造，然后使用 `/submit` 提交俯视截图（画出轮廓）、坐标、参考资料和链接。",
+    "judging": "**3.** 每个队伍各一名评委加一名中立评委为每个建筑评分：基础分（0–{base}）、工作量（0–{effort}）以及技巧与细节（0–{detail}）。以平均分计算。",
+    "track": "**4.** 使用 `/profile`、`/builds`、`/leaderboard` 和 `/stats` 查看你的进度。",
+    "rules": "规则",
+    "judgesTitle": "评委须知"
+  },
+  "dashboard": {
+    "link": "你的登录链接（10 分钟内有效，仅限使用一次）：\n{url}"
+  },
+  "legal": {
+    "title": "报名前须知",
+    "body": "要以 `{name}` 的身份参加 **{event}**，请阅读以下文件。",
+    "confirm": "点击 **接受并报名** 即表示你接受服务条款，并确认已阅读隐私政策。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "imprint": "法律声明",
+    "accept": "接受并报名",
+    "decline": "取消",
+    "declined": "报名已取消。你可以随时使用 `/register` 重新开始。",
+    "reaccept": "我们的服务条款或隐私政策已更新。请再次运行 `/register` 以查看并接受。",
+    "updated": "谢谢！你已接受最新的服务条款。",
+    "readHint": "点击按钮即可直接在 Discord 中阅读文件。",
+    "languageNote": "本文件提供德语和英语版本，以德语版本为准，具有法律约束力。",
+    "openWeb": "在浏览器中打开"
+  }
+}

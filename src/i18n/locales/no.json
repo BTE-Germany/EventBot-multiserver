@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "language": "Norsk (bokmål)"
+  },
+  "common": {
+    "error": "Noe gikk galt. Prøv igjen senere.",
+    "noEvent": "Det er ikke noe event på denne serveren akkurat nå.",
+    "notRegistered": "Du er ikke registrert ennå. Bruk `/register` først.",
+    "banned": "Du er utestengt fra dette eventet.",
+    "notJudge": "Bare judges i dette eventet kan gjøre det.",
+    "notAdmin": "Bare botadministratorer kan gjøre det.",
+    "buildNotFound": "Fant ikke build #{id}.",
+    "guildOnly": "Denne kommandoen kan bare brukes på en server.",
+    "noTeam": "Ingen lag",
+    "judgeBadge": "Judge",
+    "pointsValue": "{value} poeng",
+    "buildsValue": "{count} builds",
+    "areaValue": "{value} m²",
+    "page": "Side {page}/{pages}",
+    "next": "Neste",
+    "previous": "Tilbake",
+    "notOwner": "Dette er ikke ditt build."
+  },
+  "phase": {
+    "draft": "Under forberedelse",
+    "upcoming": "Starter {time}",
+    "running": "Slutter {time}",
+    "runningOpen": "Pågår",
+    "ended": "Byggefasen er over",
+    "archived": "Arkivert",
+    "submitClosed": "Innsending er ikke åpen akkurat nå.",
+    "registerClosed": "Registrering er ikke åpen akkurat nå.",
+    "judgeClosed": "Bedømming er ikke mulig i denne fasen av eventet."
+  },
+  "categories": {
+    "base": "Grunnpoeng",
+    "effort": "Innsats & kompleksitet",
+    "detail": "Teknikk, farger & detaljer",
+    "baseShort": "Grunn",
+    "effortShort": "Innsats",
+    "detailShort": "Detaljer",
+    "base0": "Ingen poeng",
+    "base1": "Infrastruktur",
+    "base2": "Bygning"
+  },
+  "reference": {
+    "3d": "3D-visning",
+    "streetview": "Street View",
+    "images": "Bilder",
+    "other": "Annet"
+  },
+  "status": {
+    "PENDING": "Venter på judges",
+    "IN_REVIEW": "Under bedømming",
+    "COMPLETE": "Bedømt",
+    "REJECTED": "Avvist"
+  },
+  "slots": {
+    "neutral": "Nøytrale judges",
+    "team": "Judges fra {team}"
+  },
+  "commands": {
+    "register": {
+      "description": "Registrer deg for eventet med Minecraft-navnet ditt",
+      "options": {
+        "minecraft": "Minecraft-navnet ditt (feil opplysninger kan føre til utestengelse)",
+        "team": "Laget ditt (bare nødvendig på nøytrale servere)"
+      }
+    },
+    "submit": {
+      "description": "Send inn et build sammen med referansen din",
+      "options": {
+        "coordinates": "Koordinatene til buildet (f.eks. 53.8655, 10.6866)",
+        "reference": "Hvilken referanse brukte du?",
+        "link": "Lenke til referansen (f.eks. Google Maps eller Street View)",
+        "image1": "Skjermbilde ovenfra med omrisset tegnet inn",
+        "image2": "Ekstra skjermbilde (valgfritt)",
+        "image3": "Ekstra skjermbilde (valgfritt)",
+        "area": "Bebygd areal i m² (valgfritt)"
+      }
+    },
+    "profile": {
+      "description": "Vis statistikkortet ditt eller noen andres",
+      "options": {
+        "user": "Hvem sin statistikk skal vises?"
+      }
+    },
+    "builds": {
+      "description": "Vis innsendte builds og statusen deres",
+      "options": {
+        "user": "Hvem sine builds skal vises?"
+      }
+    },
+    "leaderboard": {
+      "description": "Vis leaderboardet for det nåværende eventet",
+      "options": {
+        "team": "Vis bare ett lag"
+      }
+    },
+    "stats": {
+      "description": "Vis oversikten over lagkampen"
+    },
+    "help": {
+      "description": "Hvordan eventet fungerer og hvilke kommandoer som finnes"
+    },
+    "judge": {
+      "description": "Bedøm et build (bare judges)",
+      "options": {
+        "id": "Buildets ID",
+        "base": "Grunnpoeng",
+        "effort": "Innsats & kompleksitet",
+        "detail": "Teknikk, farger & detaljer"
+      }
+    },
+    "reject": {
+      "description": "Avvis et build med en kort forklaring (bare judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Hva må rettes?"
+      }
+    },
+    "correct": {
+      "description": "Korriger sluttpoengsummen for et build (bare judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Hvorfor korrigeres poengsummen?",
+        "base": "Nye grunnpoeng",
+        "effort": "Ny innsats & kompleksitet",
+        "detail": "Ny teknikk, farger & detaljer"
+      }
+    },
+    "delete": {
+      "description": "Slett et build (bare judges)",
+      "options": {
+        "id": "Buildets ID",
+        "reason": "Hvorfor slettes buildet?"
+      }
+    },
+    "unjudged": {
+      "description": "Builds som fortsatt venter på judgegruppen din (bare judges)"
+    },
+    "refresh": {
+      "description": "Tegn buildpaneler på nytt (bare judges)",
+      "options": {
+        "id": "Buildets ID (tomt: de siste 10 buildene)"
+      }
+    },
+    "dashboard": {
+      "description": "Få en innloggingslenke til admin-dashbordet"
+    },
+    "wrapup": {
+      "description": "Vis eller publiser oppsummeringen av eventet (bare admins)",
+      "options": {
+        "post": "Publiser på alle servere (ellers bare en forhåndsvisning)"
+      }
+    },
+    "legal": {
+      "description": "Les personvernerklæringen, brukervilkårene og juridisk informasjon"
+    }
+  },
+  "register": {
+    "invalidName": "Ugyldig Minecraft-navn. Tillatt er 3–16 tegn (bokstaver, tall, `_`).",
+    "already": "Du er allerede registrert som `{name}`.",
+    "nameTaken": "Dette Minecraft-navnet er allerede registrert av en annen Discord-konto.",
+    "teamRequired": "Denne serveren har ikke sitt eget lag. Velg laget ditt med alternativet `team`.",
+    "invalidTeam": "Dette laget finnes ikke i det nåværende eventet.",
+    "success": "Velkommen til **{event}**, `{name}`! Du bygger for **{team}**."
+  },
+  "submit": {
+    "invalidLink": "**Ugyldig lenke!** En gyldig lenke til referansen din er påkrevd (f.eks. `https://maps.google.com/...`).",
+    "invalidArea": "Arealet må være et positivt antall kvadratmeter.",
+    "imagesOnly": "Last bare opp bilder (PNG, JPG, GIF, WEBP).",
+    "success": "Buildet ditt **#{id}** er sendt inn. Dommerne har fått beskjed!",
+    "uploadWarning": "Noen bilder kunne ikke lagres permanent. Ta vare på den opprinnelige meldingen din.",
+    "messageHint": "Legg ved minst ett bilde og legg til koordinater og en referanselenke, eller bruk `/submit`.",
+    "messageNoLink": "**Innsending avvist:** en lenke til referansen du brukte (3D-visning, Street View, bilder) er påkrevd. Tips: bruk `/submit`."
+  },
+  "panel": {
+    "title": "Build #{id}",
+    "builder": "Bygger",
+    "team": "Lag",
+    "coordinates": "Koordinater",
+    "reference": "Referanse",
+    "area": "Areal",
+    "status": "Status",
+    "progress": "Bedømmingsstatus",
+    "slotWaiting": "venter",
+    "score": "Poengsum",
+    "total": "Totalt",
+    "votes": "Stemmer",
+    "notes": "Notater fra byggeren",
+    "rejected": "Avvist",
+    "rejectedHint": "Rett opp buildet og trykk **Send inn på nytt**.",
+    "correction": "Korrigert av {user}: {reason}",
+    "judgePing": "{role} Nytt build **#{id}** fra {team}",
+    "buttonScore": "Bedøm",
+    "buttonReject": "Avvis",
+    "buttonInfo": "Legg til info",
+    "buttonResubmit": "Send inn på nytt",
+    "buttonReference": "Referanse",
+    "buttonJump": "Gå til build"
+  },
+  "judge": {
+    "invalidBase": "Grunnpoeng må være en av: {options}.",
+    "invalidScore": "{category} må være mellom 0 og {max} i steg på {step}.",
+    "ownBuild": "Du kan ikke bedømme ditt eget build.",
+    "slotTaken": "Judgegruppen din ({slot}) har allerede bedømt dette buildet.",
+    "rejected": "Dette buildet ble avvist. Det kan bedømmes igjen når byggeren sender det inn på nytt.",
+    "noSlot": "Judgegruppen din er ikke med i bedømmingen av dette eventet.",
+    "saved": "Stemmen din på build **#{id}** er lagret. Status: {done}/{required} judgegrupper.",
+    "updated": "Stemmen din på build **#{id}** er oppdatert.",
+    "completed": "Build **#{id}** er ferdig bedømt: **{total}** poeng til `{builder}`.",
+    "modalTitle": "Bedøm build #{id}",
+    "modalBase": "Grunnpoeng ({options})",
+    "modalEffort": "Innsats & kompleksitet (0–{max})",
+    "modalDetail": "Teknikk, farger & detaljer (0–{max})"
+  },
+  "reject": {
+    "modalTitle": "Avvis build #{id}",
+    "modalReason": "Hva må rettes?",
+    "done": "Build **#{id}** ble avvist.",
+    "already": "Dette buildet er allerede avvist.",
+    "dm": "Buildet ditt **#{id}** i **{event}** ble avvist: {reason}\nRett det opp og trykk **Send inn på nytt** på innsendingen din."
+  },
+  "resubmit": {
+    "modalTitle": "Send inn build #{id} på nytt",
+    "coordinates": "Koordinater",
+    "link": "Referanselenke",
+    "notes": "Hva har du endret?",
+    "done": "Build **#{id}** er sendt inn på nytt og venter på dommerne igjen.",
+    "notRejected": "Bare avviste builds kan sendes inn på nytt."
+  },
+  "info": {
+    "modalTitle": "Informasjon til dommerne",
+    "label": "Notater til dommerne",
+    "placeholder": "f.eks. spesielle detaljer, interiør, kilder ...",
+    "saved": "Lagret. Dommerne kan nå se notatene dine."
+  },
+  "correct": {
+    "nothing": "Oppgi minst én verdi som skal korrigeres.",
+    "notJudged": "Dette buildet er ikke bedømt ennå. Bruk `/judge`.",
+    "done": "Build **#{id}** korrigert: {old} → {new} poeng."
+  },
+  "delete": {
+    "done": "Build **#{id}** ble slettet. Årsak: {reason}"
+  },
+  "unjudged": {
+    "none": "Ingenting igjen å bedømme for judgegruppen din. 🎉",
+    "title": "Venter på {slot} ({count})",
+    "more": "… og {count} til"
+  },
+  "refresh": {
+    "done": "Paneler tegnet på nytt: {count}"
+  },
+  "profile": {
+    "title": "Statistikk for {name}",
+    "rank": "Plassering",
+    "rankValue": "#{rank} av {total}",
+    "unranked": "Ikke rangert ennå",
+    "points": "Poeng",
+    "builds": "Bedømte builds",
+    "submitted": "Sendt inn",
+    "pending": "Venter",
+    "rejected": "Avvist",
+    "area": "Bebygd areal",
+    "averages": "Gjennomsnittlige poeng",
+    "allTime": "Alle eventer",
+    "allTimeValue": "{events} eventer · {points} poeng · {builds} builds",
+    "notRegistered": "{user} er ikke registrert for dette eventet.",
+    "judgeNote": "Judges kan bygge, men kan ikke vinne.",
+    "best": "Beste build",
+    "buttonBuilds": "Vis builds"
+  },
+  "builds": {
+    "title": "Builds av {name}",
+    "empty": "Ingen builds ennå."
+  },
+  "leaderboard": {
+    "title": "Leaderboard · {event}",
+    "empty": "Ingen poeng er delt ut ennå.",
+    "footer": "Bli med via /register og klatre til toppen!"
+  },
+  "board": {
+    "battle": "Lagkamp",
+    "points": "Poeng",
+    "builds": "Builds",
+    "area": "Areal",
+    "participants": "Byggere",
+    "waiting": "Venter på judges",
+    "leading": "{team} leder med {diff} poeng",
+    "draw": "Det står likt!",
+    "updated": "Oppdatert {time}",
+    "topBuilders": "Toppbyggere"
+  },
+  "announce": {
+    "startTitle": "Build battlen har startet! 🏗️",
+    "startBody": "**{event}** varer til {end}.\nRegistrer deg med `/register` og send inn buildene dine med `/submit`. Lykke til!",
+    "endTitle": "Build battlen er stengt",
+    "endBody": "**{event}** er over. Tusen takk til alle som deltok!\nVinnerne kunngjøres etter den endelige bedømmingen."
+  },
+  "wrapup": {
+    "title": "Oppsummering · {event}",
+    "intro": "**{event}** er over. Til sammen bygde vi:",
+    "totalArea": "Totalt areal: **{total} m²**",
+    "teamPart": "{value} i {place}",
+    "totalBuilds": "**{total}** builds totalt",
+    "winner": "Med **{points}** poeng har **{team}** vunnet! 🏆",
+    "draw": "Uavgjort med **{points}** poeng hver!",
+    "topOverall": "Toppbyggere · Totalt",
+    "topTeam": "Toppbyggere · {team}",
+    "thanks": "Tusen takk til alle som deltok!",
+    "preview": "Forhåndsvisning, bare synlig for deg. Bruk `post: True` for å publisere den.",
+    "posted": "Oppsummering publisert på {count} server(e)."
+  },
+  "help": {
+    "title": "Slik fungerer {event}",
+    "register": "**1.** Registrer deg med `/register <Minecraft-navn>`.",
+    "submit": "**2.** Bygg i eventområdet, og bruk deretter `/submit` med et skjermbilde ovenfra (omriss tegnet inn), koordinater, referanse og lenke.",
+    "judging": "**3.** Én judge fra hvert lag pluss en nøytral judge bedømmer hvert build: grunnpoeng (0–{base}), innsats (0–{effort}) og teknikk & detaljer (0–{detail}). Gjennomsnittet teller.",
+    "track": "**4.** Følg fremgangen din med `/profile`, `/builds`, `/leaderboard` og `/stats`.",
+    "rules": "Regler",
+    "judgesTitle": "For judges"
+  },
+  "dashboard": {
+    "link": "Innloggingslenken din (gyldig i 10 minutter, kan brukes én gang):\n{url}"
+  },
+  "legal": {
+    "title": "Før du registrerer deg",
+    "body": "For å delta i **{event}** som `{name}` må du lese dokumentene nedenfor.",
+    "confirm": "Ved å klikke på **Godta og registrer** godtar du brukervilkårene og bekrefter at du har lest personvernerklæringen.",
+    "privacy": "Personvernerklæring",
+    "terms": "Brukervilkår",
+    "imprint": "Juridisk informasjon",
+    "accept": "Godta og registrer",
+    "decline": "Avbryt",
+    "declined": "Registreringen er avbrutt. Du kan når som helst starte på nytt med `/register`.",
+    "reaccept": "Brukervilkårene eller personvernerklæringen vår er endret. Kjør `/register` på nytt for å bekrefte dem.",
+    "updated": "Takk! Du har godtatt de gjeldende brukervilkårene.",
+    "readHint": "Trykk på en knapp for å lese et dokument rett her i Discord.",
+    "languageNote": "Dette dokumentet er tilgjengelig på tysk og engelsk. Den tyske versjonen er juridisk bindende.",
+    "openWeb": "Åpne i nettleser"
+  }
+}
