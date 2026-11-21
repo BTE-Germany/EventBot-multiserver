@@ -19,3 +19,23 @@ jobs:
         env:
           DATABASE_URL: postgresql://x:x@localhost:5432/x
       - run: npm test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t eventbot-multiserver .
+      # Renders a card inside the image; fails on Fontconfig errors or missing fonts
+      - name: Render a card in the container
+        run: |
+          docker run --rm eventbot-multiserver sh -c '
+            fc-list | grep -qi "Noto Sans" || { echo "Noto fonts missing"; exit 1; }
+            node -e "
+              const sharp = require(\"sharp\");
+              const { battleCard } = require(\"./src/render/cards.js\");
+              const svg = battleCard({ title: \"Build Battle 建築\", subtitle: \"Endet in 3 Tagen\", teams: [{ name: \"Germany\", color: \"#FFCC00\", points: 10, builds: 1, area: 1, members: 1 }], labels: { points: \"P\", builds: \"B\", participants: \"M\" } });
+              sharp(Buffer.from(svg)).png().toBuffer().then((b) => console.log(\"card ok\", b.length));
+            "
+          ' 2>&1 | tee render.log
+          ! grep -qi "fontconfig error" render.log
+          grep -q "card ok" render.log
