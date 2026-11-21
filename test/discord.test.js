@@ -174,3 +174,32 @@ test("card subtitles carry a readable relative time in every locale", () => {
   }
   assert.equal(views.phaseText({ ...event, status: "ENDED" }, translator("en-US"), now), "Building phase ended");
 });
+
+test("panels show YouTube/imgur buttons and the video thumbnail without screenshots", () => {
+  const t = translator("de");
+  const withVideo = { ...build, images: [], media: ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://imgur.com/a/AbC123x"] };
+  const panel = buildPanel({ bundle, build: withVideo, participant: { minecraftName: "B" }, t, view: "public" });
+  assert.equal(panel.embeds[0].image.url, "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg");
+  const links = panel.components[1].components;
+  assert.deepEqual(links.map((b) => b.label), ["YouTube 1", "imgur 2"]);
+  assert.ok(links.every((b) => b.style === 5 && b.url));
+  checkMessage(panel, "panel with media");
+  // Screenshots win over the thumbnail
+  const both = buildPanel({ bundle, build: { ...withVideo, images: ["https://a/1.webp"] }, participant: null, t, view: "judge" });
+  assert.equal(both.embeds[0].image.url, "https://a/1.webp");
+});
+
+test("German uses the neuter 'das Build'", () => {
+  const t = translator("de");
+  assert.equal(t("panel.rejectedHint"), "Bessere das Build aus und drücke **Erneut einreichen**.");
+  const all = JSON.stringify(require("../src/i18n/locales/de.json"));
+  assert.doesNotMatch(all, /\b(den|einen|deinen|der|Dieser|Bester|Neuer|jeden) Build\b/);
+});
+
+test("/register has no team option: the server decides the team", () => {
+  const register = loadCommands().find((c) => c.name === "register").json();
+  assert.deepEqual(register.options.map((o) => o.name), ["minecraft"]);
+  const submit = loadCommands().find((c) => c.name === "submit").json();
+  assert.ok(submit.options.find((o) => o.name === "media"));
+  assert.equal(submit.options.find((o) => o.name === "image1").required, false);
+});

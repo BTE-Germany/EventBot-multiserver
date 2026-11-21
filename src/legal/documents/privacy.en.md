@@ -32,6 +32,7 @@ Events are run together with the participating communities (e.g. BTE Germany and
 **Submissions**
 - coordinates, type and link of the reference, and optionally the built area
 - your screenshots
+- optional links to videos or images on YouTube or imgur; imgur images are stored like uploaded screenshots
 - notes you leave for the judges
 - status, scores, rejection reasons and corrections
 
@@ -65,6 +66,7 @@ We make no automated decisions within the meaning of Art. 22 GDPR. Builds are sc
 - **Members of the participating Discord servers** see your submissions, scores and rankings in the respective channels. Judge views (individual scores, notes, corrections) are only visible to people with access to the judge channel.
 - **Microsoft (Azure Blob Storage)** stores your screenshots if image storage is enabled. Otherwise they stay with Discord.
 - **{hostingProvider}** runs the server for the bot and its database, as our processor under Art. 28 GDPR.
+- **YouTube (Google) and imgur**: if you add links from these services, the panels show previews and link to them. Their privacy policies apply when you open them.
 - **Recipients of an optional statistics webhook** receive the public leaderboard data (section 5).
 
 Discord and Microsoft may process data in the USA. Both are certified under the EU-US Data Privacy Framework; transfers rely on the European Commission's adequacy decision (Art. 45 GDPR).

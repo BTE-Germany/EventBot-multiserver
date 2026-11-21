@@ -685,7 +685,7 @@
               </select></label>
           </div>
           <label class="check"><input type="checkbox" name="judgesCanWin"${sc.judgesCanWin ? " checked" : ""}> Judges can win (appear in the ranking)</label>
-          <label class="check"><input type="checkbox" name="judgeBuildsCountForTeam"${sc.judgeBuildsCountForTeam !== false ? " checked" : ""}> Builds by judges count for their team</label>
+          <p class="muted small">Builds by judges always count for their team; judges can never score their own builds.</p>
           <p class="muted small">After changing scoring rules, use "Recalculate scores" in the Actions tab.</p>
         </section>
         <div class="form-actions"><button type="submit" class="btn btn-primary">Save event</button></div>
@@ -712,7 +712,6 @@
           step: Number(f.step.value),
           baseVoteMode: f.baseVoteMode.value,
           judgesCanWin: f.judgesCanWin.checked,
-          judgeBuildsCountForTeam: f.judgeBuildsCountForTeam.checked,
         },
       };
       const btn = e.submitter;

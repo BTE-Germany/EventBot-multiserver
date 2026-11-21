@@ -3,6 +3,7 @@
 const { slotProgress, maxTotal } = require("../../domain/scoring.js");
 const { slotLabel, teamLabel } = require("../../services/events.js");
 const { STATUS_STYLE, bar, hexToInt, timestamp, truncate, statusLabel, baseLabel, safeUrl } = require("./format.js");
+const { classifyMedia } = require("../../domain/validation.js");
 
 const GALLERY_URL = "https://buildtheearth.net";
 const MAX_GALLERY = 4;
@@ -82,7 +83,10 @@ function buildPanel({ bundle, build, participant, t, view = "public" }) {
     });
   }
 
-  const images = (build.images || []).slice(0, MAX_GALLERY);
+  const media = (build.media || []).map(classifyMedia).filter(Boolean);
+  // Without screenshots, the first video's thumbnail is the picture
+  const thumbnail = media.find((m) => m.kind === "youtube")?.thumbnail;
+  const images = (build.images?.length ? build.images : thumbnail ? [thumbnail] : []).slice(0, MAX_GALLERY);
   const main = {
     title: `${judgeView ? "⚖️ " : "🏗️ "}${t("panel.title", { id: build.id })} · ${statusLabel(build.status, t)}`,
     url: GALLERY_URL,
@@ -109,7 +113,18 @@ function buildPanel({ bundle, build, participant, t, view = "public" }) {
   }
   if (link) buttons.push({ type: 2, style: 5, label: t("panel.buttonReference"), emoji: { name: "🔗" }, url: link });
 
-  return { embeds, components: [{ type: 1, components: buttons }], allowed_mentions: { parse: [] } };
+  // YouTube videos and imgur albums as link buttons (brand names, not translated)
+  const mediaButtons = media.slice(0, 5).map((m, i) => ({
+    type: 2,
+    style: 5,
+    label: `${m.kind === "youtube" ? "YouTube" : "imgur"}${media.length > 1 ? ` ${i + 1}` : ""}`,
+    emoji: { name: m.kind === "youtube" ? "▶️" : "🖼️" },
+    url: m.url,
+  }));
+  const components = [{ type: 1, components: buttons }];
+  if (mediaButtons.length) components.push({ type: 1, components: mediaButtons });
+
+  return { embeds, components, allowed_mentions: { parse: [] } };
 }
 
 module.exports = { buildPanel, scoreLines, progressLines };

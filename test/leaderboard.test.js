@@ -39,7 +39,7 @@ test("judges can win when the event allows it", () => {
   assert.equal(open.ranking[0].minecraftName, "JudgeJoe");
 });
 
-test("team totals count only completed builds; judges' builds count for the team by default", () => {
+test("team totals count only completed builds, including the judges' builds", () => {
   const germany = lb.teams.find((t) => t.name === "Germany");
   const poland = lb.teams.find((t) => t.name === "Poland");
   assert.equal(germany.points, 55);
@@ -48,10 +48,6 @@ test("team totals count only completed builds; judges' builds count for the team
   assert.equal(poland.points, 25);
   assert.equal(lb.winner.name, "Germany");
   assert.equal(lb.draw, false);
-  const without = buildLeaderboard({ participants, builds, teams, judgeUserIds: ["99"], scoring: { ...DEFAULT_SCORING, judgeBuildsCountForTeam: false } });
-  assert.equal(without.teams.find((t) => t.name === "Germany").points, 25);
-  assert.equal(without.draw, true);
-  assert.equal(without.winner, null);
 });
 
 test("totals and personal stats", () => {

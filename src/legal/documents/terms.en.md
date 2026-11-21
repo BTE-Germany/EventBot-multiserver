@@ -14,13 +14,13 @@ Individual events may have additional rules, for example about the build area, t
 
 Anyone who may use Discord under Discord's terms may take part. If you are a minor, you need your parents' or guardians' permission.
 
-You register with `/register` and your own Minecraft name. Each person may register only once per event. False information, in particular someone else's Minecraft name, can lead to exclusion.
+You register with `/register` and your own Minecraft name on your team's Discord server. The server you register on decides your team. Each person may register only once per event. False information, in particular someone else's Minecraft name, can lead to exclusion.
 
 ## 3. Submissions
 
 You may only submit builds that you built yourself within the event area. Do not change other people's builds without their permission.
 
-Every submission needs truthful coordinates, the reference you used with a link, and a screenshot. Screenshots and notes must not contain illegal, insulting or offensive content, and must not infringe anyone else's rights.
+Every submission needs truthful coordinates, the reference you used with a link, and a screenshot or a YouTube or imgur link. Screenshots and notes must not contain illegal, insulting or offensive content, and must not infringe anyone else's rights.
 
 A house only counts as complete once its lot (front yard, sidewalk, back yard, etc.) has been built. If this is missing or the quality is insufficient, judges may reject the submission with a short explanation. You can resubmit it once it is fixed.
 

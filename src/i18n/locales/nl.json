@@ -63,8 +63,7 @@
     "register": {
       "description": "Registreer je voor het event met je Minecraft-naam",
       "options": {
-        "minecraft": "Je Minecraft-naam (onjuiste gegevens kunnen tot een ban leiden)",
-        "team": "Je team (alleen nodig op neutrale servers)"
+        "minecraft": "Je Minecraft-naam (onjuiste gegevens kunnen tot een ban leiden)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Screenshot van bovenaf met de omtrek ingetekend",
         "image2": "Extra screenshot (optioneel)",
         "image3": "Extra screenshot (optioneel)",
-        "area": "Bebouwde oppervlakte in m² (optioneel)"
+        "area": "Bebouwde oppervlakte in m² (optioneel)",
+        "media": "YouTube- of imgur-links (optioneel, gescheiden door spaties)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Ongeldige Minecraft-naam. Toegestaan zijn 3–16 tekens (letters, cijfers, `_`).",
     "already": "Je bent al geregistreerd als `{name}`.",
     "nameTaken": "Deze Minecraft-naam is al geregistreerd door een ander Discord-account.",
-    "teamRequired": "Deze server heeft geen eigen team. Kies je team met de optie `team`.",
-    "invalidTeam": "Dit team bestaat niet in het huidige event.",
-    "success": "Welkom bij **{event}**, `{name}`! Je bouwt voor **{team}**."
+    "success": "Welkom bij **{event}**, `{name}`! Je bouwt voor **{team}**.",
+    "teamServerOnly": "Deze server hoort bij geen enkel team. Registreer je op de Discord-server van je team."
   },
   "submit": {
     "invalidLink": "**Ongeldige link!** Een geldige link naar je referentie is verplicht (bijv. `https://maps.google.com/...`).",
     "invalidArea": "De oppervlakte moet een positief aantal vierkante meters zijn.",
     "imagesOnly": "Upload alleen afbeeldingen (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Voeg een screenshot of een YouTube- of imgur-link toe.",
+    "invalidMedia": "Alleen YouTube- en imgur-links zijn toegestaan als media.",
     "success": "Je build **#{id}** is ingediend. De judges zijn op de hoogte gebracht!",
     "uploadWarning": "Sommige afbeeldingen konden niet permanent worden opgeslagen. Bewaar je originele bericht.",
-    "messageHint": "Voeg minstens één afbeelding toe plus coördinaten en een referentielink, of gebruik `/submit`.",
+    "messageHint": "Voeg een screenshot of YouTube-/imgur-link toe, plus coördinaten en een referentielink, of gebruik `/submit`.",
     "messageNoLink": "**Inzending afgewezen:** een link naar de gebruikte referentie (3D-weergave, Street View, foto's) is verplicht. Tip: gebruik `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Onze gebruiksvoorwaarden of privacyverklaring zijn gewijzigd. Voer `/register` opnieuw uit om ze te bevestigen.",
     "updated": "Bedankt! Je hebt de huidige gebruiksvoorwaarden geaccepteerd.",
     "readHint": "Tik op een knop om een document hier in Discord te lezen.",
-    "languageNote": "Dit document is beschikbaar in het Duits en het Engels. De Duitse versie is juridisch bindend.",
-    "openWeb": "Openen in browser"
+    "languageNote": "Dit document is beschikbaar in het Duits en het Engels. De Duitse versie is juridisch bindend."
   }
 }

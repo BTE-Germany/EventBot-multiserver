@@ -63,8 +63,7 @@
     "register": {
       "description": "Minecraft 이름으로 이벤트에 등록합니다",
       "options": {
-        "minecraft": "Minecraft 이름 (허위 정보는 차단될 수 있습니다)",
-        "team": "소속 팀 (중립 서버에서만 필요)"
+        "minecraft": "Minecraft 이름 (허위 정보는 차단될 수 있습니다)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "윤곽선을 그린 위에서 본 스크린샷",
         "image2": "추가 스크린샷 (선택)",
         "image3": "추가 스크린샷 (선택)",
-        "area": "건축 면적 m² (선택)"
+        "area": "건축 면적 m² (선택)",
+        "media": "YouTube 또는 imgur 링크 (선택, 공백으로 구분)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "잘못된 Minecraft 이름입니다. 3–16자 (영문, 숫자, `_`)만 사용할 수 있습니다.",
     "already": "이미 `{name}`(으)로 등록되어 있습니다.",
     "nameTaken": "이 Minecraft 이름은 이미 다른 Discord 계정으로 등록되어 있습니다.",
-    "teamRequired": "이 서버에는 자체 팀이 없습니다. `team` 옵션으로 팀을 선택해 주세요.",
-    "invalidTeam": "현재 이벤트에 없는 팀입니다.",
-    "success": "**{event}**에 오신 것을 환영합니다, `{name}`! **{team}** 소속으로 건축합니다."
+    "success": "**{event}**에 오신 것을 환영합니다, `{name}`! **{team}** 소속으로 건축합니다.",
+    "teamServerOnly": "이 서버는 어느 팀에도 속하지 않습니다. 소속 팀의 Discord 서버에서 등록해 주세요."
   },
   "submit": {
     "invalidLink": "**잘못된 링크입니다!** 참고 자료의 유효한 링크가 필요합니다 (예: `https://maps.google.com/...`).",
     "invalidArea": "면적은 양수(제곱미터)여야 합니다.",
     "imagesOnly": "이미지(PNG, JPG, GIF, WEBP)만 업로드해 주세요.",
+    "mediaRequired": "스크린샷을 첨부하거나 YouTube 또는 imgur 링크를 추가해 주세요.",
+    "invalidMedia": "미디어로는 YouTube와 imgur 링크만 허용됩니다.",
     "success": "건축물 **#{id}**이(가) 제출되었습니다. 심사위원에게 알렸습니다!",
     "uploadWarning": "일부 이미지를 영구 저장하지 못했습니다. 원본 메시지를 지우지 마세요.",
-    "messageHint": "이미지를 하나 이상 첨부하고 좌표와 참고 링크를 추가하거나 `/submit`을 사용하세요.",
+    "messageHint": "스크린샷 또는 YouTube/imgur 링크와 함께 좌표와 참고 링크를 추가하거나 `/submit`을 사용하세요.",
     "messageNoLink": "**제출 거부:** 사용한 참고 자료(3D 보기, 스트리트 뷰, 사진)의 링크가 필요합니다. 팁: `/submit`을 사용하세요."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "이용약관 또는 개인정보 처리방침이 변경되었습니다. 확인하고 동의하려면 `/register`를 다시 실행해 주세요.",
     "updated": "감사합니다! 최신 이용약관에 동의하셨습니다.",
     "readHint": "버튼을 누르면 Discord에서 바로 문서를 읽을 수 있습니다.",
-    "languageNote": "이 문서는 독일어와 영어로 제공됩니다. 법적 구속력은 독일어 버전에 있습니다.",
-    "openWeb": "브라우저에서 열기"
+    "languageNote": "이 문서는 독일어와 영어로 제공됩니다. 법적 구속력은 독일어 버전에 있습니다."
   }
 }

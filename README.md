@@ -29,7 +29,7 @@ The bot needs the **Message Content** intent if plain-message submissions are en
 2. **Servers:** for every server, pick the language and the channels: submissions, judges, leaderboard and announcements. Optionally pick a judge role to ping.
 3. **Events → New event:** set the name, rules, image, start and end, and scoring. The defaults are base 0–2, effort 0–6 and details 0–10 in 0.5 steps; judges cannot win.
 4. **Teams:** for example 🇩🇪 Germany (Lübeck) and 🇵🇱 Poland (Opole).
-5. **Servers tab:** link each team server to its team. A server without a team is neutral, and people registering there choose their team.
+5. **Servers tab:** link each team server to its team. **The server someone registers on decides their team**, so registering on the Polish server makes you a member of Team Poland. Servers without a team are neutral: judges can work there, but nobody can register there.
 6. **Judges:** add Discord IDs per team plus the neutral group. The dashboard shows missing slots, and the event cannot be set to `RUNNING` until every slot is covered. It also warns about slots with only one judge, because that judge cannot score their own builds.
 7. **Set the status to RUNNING.** The bot then posts the start announcement once the start time is reached. It closes the event at the end time, and the wrap-up is posted with `/wrapup post:True` or from the dashboard.
 
@@ -39,7 +39,9 @@ The bot needs the **Message Content** intent if plain-message submissions are en
 |---|---|---|
 | `/register` · `/submit` · `/profile` · `/builds` · `/leaderboard` · `/stats` · `/help` · `/legal` | `/judge` · `/reject` · `/unjudged` · `/correct` · `/delete` · `/refresh` | `/dashboard` · `/wrapup` |
 
-Judges can also use the **Score** and **Reject** buttons on every judge panel. Builders get **Add info** and, after a rejection, **Resubmit**.
+Submissions take screenshots and/or **YouTube and imgur links** (`/submit media:` or in a plain message). Direct imgur images are stored like screenshots; videos and albums appear as buttons on the panel, with the video thumbnail as picture if there is no screenshot.
+
+Judges' builds count toward their team's total, but judges can never score (or correct) their own builds. Judges can also use the **Score** and **Reject** buttons on every judge panel. Builders get **Add info** and, after a rejection, **Resubmit**.
 
 ## Architecture
 

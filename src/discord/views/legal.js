@@ -9,9 +9,6 @@ function documentVars(settings, env, t) {
   return vars;
 }
 
-const webUrl = (settings, env, doc, lang) =>
-  (doc === "privacy" && settings.legal.privacyUrl) || (doc === "terms" && settings.legal.termsUrl) || `${env.PUBLIC_URL}/legal/${doc}?lang=${lang}`;
-
 function documentButtons(t) {
   return {
     type: 1,
@@ -23,8 +20,8 @@ function documentButtons(t) {
   };
 }
 
-function consentDialog({ bundle, t, name, team, teamId, termsVersion, mode }) {
-  const accept = `legal:accept:${termsVersion}:${teamId || 0}:${mode === "reaccept" ? "-" : name}`;
+function consentDialog({ bundle, t, name, team, termsVersion, mode }) {
+  const accept = `legal:accept:${termsVersion}:${mode === "reaccept" ? "-" : name}`;
   return {
     embeds: [
       {
@@ -66,7 +63,6 @@ function documentPage({ doc, page = 0, t, settings, env }) {
       { type: 2, style: 2, emoji: { name: "➡️" }, label: t("common.next"), custom_id: `legal:page:${doc}:${current + 1}`, disabled: current >= pages.length - 1 }
     );
   }
-  nav.components.push({ type: 2, style: 5, label: t("legal.openWeb"), url: webUrl(settings, env, doc, document.lang) });
   return {
     embeds: [
       {
@@ -76,7 +72,7 @@ function documentPage({ doc, page = 0, t, settings, env }) {
         footer: { text: [t("common.page", { page: current + 1, pages: pages.length }), ...notes].join(" · ").slice(0, 2048) },
       },
     ],
-    components: [nav],
+    components: nav.components.length ? [nav] : [],
   };
 }
 
@@ -85,7 +81,7 @@ function imprintView({ t, settings }) {
   const lines = [`**${l.operatorName}**`, ...l.operatorAddress.split(/,\s*/), "", l.operatorEmail ? `✉️ ${l.operatorEmail}` : null].filter((x) => x !== null);
   return {
     embeds: [{ title: `ℹ️ ${t("legal.imprint")}`, description: lines.join("\n"), color: 0x5865f2 }],
-    components: l.imprintUrl ? [{ type: 1, components: [{ type: 2, style: 5, label: t("legal.openWeb"), url: l.imprintUrl }] }] : [],
+    components: [],
   };
 }
 

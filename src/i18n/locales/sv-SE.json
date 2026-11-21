@@ -63,8 +63,7 @@
     "register": {
       "description": "Registrera dig för eventet med ditt Minecraft-namn",
       "options": {
-        "minecraft": "Ditt Minecraft-namn (felaktiga uppgifter kan leda till avstängning)",
-        "team": "Ditt lag (behövs bara på neutrala servrar)"
+        "minecraft": "Ditt Minecraft-namn (felaktiga uppgifter kan leda till avstängning)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Skärmbild ovanifrån med konturerna inritade",
         "image2": "Extra skärmbild (valfritt)",
         "image3": "Extra skärmbild (valfritt)",
-        "area": "Bebyggd yta i m² (valfritt)"
+        "area": "Bebyggd yta i m² (valfritt)",
+        "media": "YouTube- eller imgur-länkar (valfritt, separerade med mellanslag)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Ogiltigt Minecraft-namn. Tillåtet är 3–16 tecken (bokstäver, siffror, `_`).",
     "already": "Du är redan registrerad som `{name}`.",
     "nameTaken": "Det här Minecraft-namnet är redan registrerat av ett annat Discord-konto.",
-    "teamRequired": "Den här servern har inget eget lag. Välj ditt lag med alternativet `team`.",
-    "invalidTeam": "Det här laget finns inte i det aktuella eventet.",
-    "success": "Välkommen till **{event}**, `{name}`! Du bygger för **{team}**."
+    "success": "Välkommen till **{event}**, `{name}`! Du bygger för **{team}**.",
+    "teamServerOnly": "Den här servern tillhör inget lag. Registrera dig på ditt lags Discord-server."
   },
   "submit": {
     "invalidLink": "**Ogiltig länk!** En giltig länk till din referens krävs (t.ex. `https://maps.google.com/...`).",
     "invalidArea": "Ytan måste vara ett positivt antal kvadratmeter.",
     "imagesOnly": "Ladda bara upp bilder (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Bifoga en skärmbild eller lägg till en YouTube- eller imgur-länk.",
+    "invalidMedia": "Endast YouTube- och imgur-länkar är tillåtna som media.",
     "success": "Ditt build **#{id}** har lämnats in. Domarna har meddelats!",
     "uploadWarning": "Vissa bilder kunde inte sparas permanent. Behåll ditt ursprungliga meddelande.",
-    "messageHint": "Bifoga minst en bild och lägg till koordinater och en referenslänk, eller använd `/submit`.",
+    "messageHint": "Bifoga en skärmbild eller lägg till en YouTube-/imgur-länk, plus koordinater och en referenslänk, eller använd `/submit`.",
     "messageNoLink": "**Inlämning avvisad:** en länk till referensen du använde (3D-vy, Street View, foton) krävs. Tips: använd `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Våra användarvillkor eller vår integritetspolicy har ändrats. Kör `/register` igen för att bekräfta dem.",
     "updated": "Tack! Du har godkänt de aktuella användarvillkoren.",
     "readHint": "Tryck på en knapp för att läsa ett dokument direkt här i Discord.",
-    "languageNote": "Det här dokumentet finns på tyska och engelska. Den tyska versionen är juridiskt bindande.",
-    "openWeb": "Öppna i webbläsare"
+    "languageNote": "Det här dokumentet finns på tyska och engelska. Den tyska versionen är juridiskt bindande."
   }
 }

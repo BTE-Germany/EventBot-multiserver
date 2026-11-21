@@ -63,8 +63,7 @@
     "register": {
       "description": "Regisztrálj az eseményre a Minecraft-neveddel",
       "options": {
-        "minecraft": "A Minecraft-neved (hamis adatok kitiltáshoz vezethetnek)",
-        "team": "A csapatod (csak semleges szervereken kell)"
+        "minecraft": "A Minecraft-neved (hamis adatok kitiltáshoz vezethetnek)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Felülnézeti képernyőkép berajzolt körvonalakkal",
         "image2": "További képernyőkép (opcionális)",
         "image3": "További képernyőkép (opcionális)",
-        "area": "Beépített terület m²-ben (opcionális)"
+        "area": "Beépített terület m²-ben (opcionális)",
+        "media": "YouTube- vagy imgur-linkek (opcionális, szóközzel elválasztva)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Érvénytelen Minecraft-név. 3–16 karakter megengedett (betűk, számok, `_`).",
     "already": "Már regisztráltál `{name}` néven.",
     "nameTaken": "Ezt a Minecraft-nevet már egy másik Discord-fiók regisztrálta.",
-    "teamRequired": "Ennek a szervernek nincs saját csapata. Válaszd ki a csapatodat a `team` opcióval.",
-    "invalidTeam": "Ez a csapat nem létezik a jelenlegi eseményben.",
-    "success": "Üdv a(z) **{event}** eseményen, `{name}`! A(z) **{team}** csapatnak építesz."
+    "success": "Üdv a(z) **{event}** eseményen, `{name}`! A(z) **{team}** csapatnak építesz.",
+    "teamServerOnly": "Ez a szerver nem tartozik egyik csapathoz sem. Kérlek, a csapatod Discord-szerverén regisztrálj."
   },
   "submit": {
     "invalidLink": "**Érvénytelen link!** Érvényes link szükséges a referenciádhoz (pl. `https://maps.google.com/...`).",
     "invalidArea": "A területnek pozitív számnak kell lennie négyzetméterben.",
     "imagesOnly": "Kérlek, csak képeket tölts fel (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Csatolj egy képernyőképet, vagy adj meg egy YouTube- vagy imgur-linket.",
+    "invalidMedia": "Médiaként csak YouTube- és imgur-linkek engedélyezettek.",
     "success": "A(z) **#{id}** buildedet beküldted. A bírák értesítést kaptak!",
     "uploadWarning": "Néhány képet nem sikerült véglegesen elmenteni. Kérlek, ne töröld az eredeti üzenetedet.",
-    "messageHint": "Csatolj legalább egy képet, és add meg a koordinátákat és a referencia linkjét, vagy használd a `/submit` parancsot.",
+    "messageHint": "Csatolj egy képernyőképet vagy egy YouTube/imgur linket, add meg a koordinátákat és a referencia linkjét, vagy használd a `/submit` parancsot.",
     "messageNoLink": "**Beküldés elutasítva:** a használt referencia linkje kötelező (3D nézet, Street View, fotók). Tipp: használd a `/submit` parancsot."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Megváltoztak a Felhasználási feltételeink vagy az Adatvédelmi tájékoztatónk. Kérlek, futtasd újra a `/register` parancsot a megerősítéshez.",
     "updated": "Köszönjük! Elfogadtad a jelenlegi Felhasználási feltételeket.",
     "readHint": "Koppints egy gombra, hogy itt, a Discordon olvasd el a dokumentumot.",
-    "languageNote": "Ez a dokumentum németül és angolul érhető el. A német változat a jogilag kötelező érvényű.",
-    "openWeb": "Megnyitás böngészőben"
+    "languageNote": "Ez a dokumentum németül és angolul érhető el. A német változat a jogilag kötelező érvényű."
   }
 }

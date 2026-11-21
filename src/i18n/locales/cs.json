@@ -63,8 +63,7 @@
     "register": {
       "description": "Zaregistruj se do eventu se svým jménem z Minecraftu",
       "options": {
-        "minecraft": "Tvé jméno v Minecraftu (nepravdivé údaje mohou vést k banu)",
-        "team": "Tvůj tým (potřeba jen na neutrálních serverech)"
+        "minecraft": "Tvé jméno v Minecraftu (nepravdivé údaje mohou vést k banu)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Screenshot shora se zakreslenými obrysy",
         "image2": "Další screenshot (volitelné)",
         "image3": "Další screenshot (volitelné)",
-        "area": "Postavená plocha v m² (volitelné)"
+        "area": "Postavená plocha v m² (volitelné)",
+        "media": "Odkazy na YouTube nebo imgur (volitelné, oddělené mezerami)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Neplatné jméno v Minecraftu. Povoleno je 3–16 znaků (písmena, číslice, `_`).",
     "already": "Už jsi registrovaný jako `{name}`.",
     "nameTaken": "Toto jméno v Minecraftu už registroval jiný Discord účet.",
-    "teamRequired": "Tento server nemá vlastní tým. Vyber si prosím tým pomocí možnosti `team`.",
-    "invalidTeam": "Tento tým v aktuálním eventu neexistuje.",
-    "success": "Vítej v **{event}**, `{name}`! Stavíš za tým **{team}**."
+    "success": "Vítej v **{event}**, `{name}`! Stavíš za tým **{team}**.",
+    "teamServerOnly": "Tento server nepatří žádnému týmu. Zaregistruj se na Discord serveru svého týmu."
   },
   "submit": {
     "invalidLink": "**Neplatný odkaz!** Je potřeba platný odkaz na tvou referenci (např. `https://maps.google.com/...`).",
     "invalidArea": "Plocha musí být kladné číslo v metrech čtverečních.",
     "imagesOnly": "Nahrávej prosím jen obrázky (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Přilož screenshot nebo přidej odkaz na YouTube či imgur.",
+    "invalidMedia": "Jako média jsou povoleny jen odkazy na YouTube a imgur.",
     "success": "Tvůj build **#{id}** byl odevzdán. Porotci dostali upozornění!",
     "uploadWarning": "Některé obrázky se nepodařilo trvale uložit. Ponech si prosím svou původní zprávu.",
-    "messageHint": "Přilož aspoň jeden obrázek a přidej souřadnice a odkaz na referenci, nebo použij `/submit`.",
+    "messageHint": "Přilož screenshot nebo přidej odkaz na YouTube/imgur, k tomu souřadnice a odkaz na referenci, nebo použij `/submit`.",
     "messageNoLink": "**Odevzdání zamítnuto:** je potřeba odkaz na použitou referenci (3D pohled, Street View, fotky). Tip: použij `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Naše Podmínky užívání nebo Zásady ochrany osobních údajů se změnily. Spusť prosím znovu `/register` a potvrď je.",
     "updated": "Díky! Přijal/a jsi aktuální Podmínky užívání.",
     "readHint": "Klepni na tlačítko a přečti si dokument přímo tady na Discordu.",
-    "languageNote": "Tento dokument je k dispozici v němčině a angličtině. Právně závazná je německá verze.",
-    "openWeb": "Otevřít v prohlížeči"
+    "languageNote": "Tento dokument je k dispozici v němčině a angličtině. Právně závazná je německá verze."
   }
 }

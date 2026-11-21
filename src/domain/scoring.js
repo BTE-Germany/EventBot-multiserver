@@ -15,10 +15,9 @@ const scoringSchema = z
     step: z.number().positive().max(10).default(0.5),
     // majority: most common vote wins, ties fall back to the rounded average
     baseVoteMode: z.enum(["majority", "average"]).default("majority"),
-    // Rules: judges may build, but cannot win
+    // Rules: judges may build, but cannot win. Their points always count
+    // for their team; they can never score their own builds.
     judgesCanWin: z.boolean().default(false),
-    // Whether points of builds made by judges count for their team
-    judgeBuildsCountForTeam: z.boolean().default(true),
   })
   .default({});
 

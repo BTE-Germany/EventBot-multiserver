@@ -63,8 +63,7 @@
     "register": {
       "description": "Đăng ký tham gia sự kiện bằng tên Minecraft của bạn",
       "options": {
-        "minecraft": "Tên Minecraft của bạn (thông tin sai có thể bị ban)",
-        "team": "Đội của bạn (chỉ cần trên server trung lập)"
+        "minecraft": "Tên Minecraft của bạn (thông tin sai có thể bị ban)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Ảnh chụp từ trên xuống có vẽ đường viền",
         "image2": "Ảnh chụp bổ sung (tùy chọn)",
         "image3": "Ảnh chụp bổ sung (tùy chọn)",
-        "area": "Diện tích đã xây tính bằng m² (tùy chọn)"
+        "area": "Diện tích đã xây tính bằng m² (tùy chọn)",
+        "media": "Link YouTube hoặc imgur (tùy chọn, cách nhau bằng dấu cách)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Tên Minecraft không hợp lệ. Cho phép 3–16 ký tự (chữ cái, số, `_`).",
     "already": "Bạn đã đăng ký với tên `{name}`.",
     "nameTaken": "Tên Minecraft này đã được một tài khoản Discord khác đăng ký.",
-    "teamRequired": "Server này không có đội riêng. Hãy chọn đội của bạn bằng tùy chọn `team`.",
-    "invalidTeam": "Đội này không có trong sự kiện hiện tại.",
-    "success": "Chào mừng đến với **{event}**, `{name}`! Bạn đang xây cho **{team}**."
+    "success": "Chào mừng đến với **{event}**, `{name}`! Bạn đang xây cho **{team}**.",
+    "teamServerOnly": "Server này không thuộc đội nào. Hãy đăng ký trên server Discord của đội bạn."
   },
   "submit": {
     "invalidLink": "**Link không hợp lệ!** Cần một link hợp lệ tới tài liệu tham khảo của bạn (vd. `https://maps.google.com/...`).",
     "invalidArea": "Diện tích phải là một số mét vuông dương.",
     "imagesOnly": "Vui lòng chỉ tải lên hình ảnh (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Hãy đính kèm ảnh chụp màn hình hoặc thêm link YouTube hay imgur.",
+    "invalidMedia": "Chỉ cho phép link YouTube và imgur làm media.",
     "success": "Build **#{id}** của bạn đã được nộp. Giám khảo đã được thông báo!",
     "uploadWarning": "Một số ảnh không thể lưu vĩnh viễn. Vui lòng giữ lại tin nhắn gốc của bạn.",
-    "messageHint": "Hãy đính kèm ít nhất một ảnh và thêm tọa độ cùng link tham khảo, hoặc dùng `/submit`.",
+    "messageHint": "Hãy đính kèm ảnh chụp màn hình hoặc thêm link YouTube/imgur, kèm tọa độ và link tham khảo, hoặc dùng `/submit`.",
     "messageNoLink": "**Bài nộp bị từ chối:** cần có link tới tài liệu tham khảo bạn đã dùng (3D, Street View, ảnh). Mẹo: dùng `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Điều khoản dịch vụ hoặc Chính sách quyền riêng tư của chúng tôi đã thay đổi. Vui lòng chạy lại `/register` để xem lại và chấp nhận.",
     "updated": "Cảm ơn bạn! Bạn đã chấp nhận Điều khoản dịch vụ hiện hành.",
     "readHint": "Nhấn vào một nút để đọc tài liệu ngay trong Discord.",
-    "languageNote": "Tài liệu này có bằng tiếng Đức và tiếng Anh. Bản tiếng Đức có giá trị pháp lý.",
-    "openWeb": "Mở trong trình duyệt"
+    "languageNote": "Tài liệu này có bằng tiếng Đức và tiếng Anh. Bản tiếng Đức có giá trị pháp lý."
   }
 }

@@ -14,13 +14,13 @@ Für einzelne Events können zusätzliche Regeln gelten, etwa zu Bauort, Zeitrau
 
 Teilnehmen darf, wer Discord nach dessen Bedingungen nutzen darf. Bist du minderjährig, brauchst du für die Teilnahme die Zustimmung deiner Eltern bzw. Erziehungsberechtigten.
 
-Du registrierst dich mit `/register` und deinem eigenen Minecraft-Namen. Pro Person und Event ist nur eine Registrierung erlaubt. Falsche Angaben, insbesondere ein fremder Minecraft-Name, können zum Ausschluss führen.
+Du registrierst dich mit `/register` und deinem eigenen Minecraft-Namen auf dem Discord-Server deines Teams. Der Server, auf dem du dich registrierst, bestimmt dein Team. Pro Person und Event ist nur eine Registrierung erlaubt. Falsche Angaben, insbesondere ein fremder Minecraft-Name, können zum Ausschluss führen.
 
 ## 3. Einreichungen
 
 Du darfst nur Bauwerke einreichen, die du selbst innerhalb des Event-Gebiets gebaut hast. Fremde Bauwerke darfst du ohne Erlaubnis nicht verändern.
 
-Jede Einreichung braucht wahrheitsgemäße Koordinaten, die genutzte Referenz mit Link und einen Screenshot. Screenshots und Hinweise dürfen keine rechtswidrigen, beleidigenden oder anstößigen Inhalte enthalten und keine Rechte Dritter verletzen.
+Jede Einreichung braucht wahrheitsgemäße Koordinaten, die genutzte Referenz mit Link und einen Screenshot oder einen YouTube- bzw. imgur-Link. Screenshots und Hinweise dürfen keine rechtswidrigen, beleidigenden oder anstößigen Inhalte enthalten und keine Rechte Dritter verletzen.
 
 Ein Gebäude gilt erst als fertig, wenn auch das zugehörige Grundstück (z. B. Vorgarten, Gehweg, Hinterhof) gebaut ist. Fehlt das oder ist die Qualität unzureichend, können Judges die Einreichung mit kurzer Begründung ablehnen. Nach einer Ausbesserung kannst du sie erneut einreichen.
 

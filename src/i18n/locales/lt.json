@@ -63,8 +63,7 @@
     "register": {
       "description": "Užsiregistruok renginiui su savo Minecraft vardu",
       "options": {
-        "minecraft": "Tavo Minecraft vardas (melaginga informacija gali baigtis banu)",
-        "team": "Tavo komanda (reikia tik neutraliuose serveriuose)"
+        "minecraft": "Tavo Minecraft vardas (melaginga informacija gali baigtis banu)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Ekrano nuotrauka iš viršaus su pažymėtais kontūrais",
         "image2": "Papildoma ekrano nuotrauka (neprivaloma)",
         "image3": "Papildoma ekrano nuotrauka (neprivaloma)",
-        "area": "Pastatytas plotas m² (neprivaloma)"
+        "area": "Pastatytas plotas m² (neprivaloma)",
+        "media": "YouTube arba imgur nuorodos (neprivaloma, atskirtos tarpais)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Netinkamas Minecraft vardas. Leidžiama 3–16 simbolių (raidės, skaičiai, `_`).",
     "already": "Tu jau užsiregistravęs kaip `{name}`.",
     "nameTaken": "Šis Minecraft vardas jau užregistruotas kitos Discord paskyros.",
-    "teamRequired": "Šis serveris neturi savo komandos. Pasirink komandą su `team` parinktimi.",
-    "invalidTeam": "Tokios komandos dabartiniame renginyje nėra.",
-    "success": "Sveikas atvykęs į **{event}**, `{name}`! Tu statai komandai **{team}**."
+    "success": "Sveikas atvykęs į **{event}**, `{name}`! Tu statai komandai **{team}**.",
+    "teamServerOnly": "Šis serveris nepriklauso jokiai komandai. Užsiregistruok savo komandos Discord serveryje."
   },
   "submit": {
     "invalidLink": "**Netinkama nuoroda!** Reikia tinkamos nuorodos į tavo šaltinį (pvz., `https://maps.google.com/...`).",
     "invalidArea": "Plotas turi būti teigiamas kvadratinių metrų skaičius.",
     "imagesOnly": "Įkelk tik paveikslėlius (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Pridėk ekrano nuotrauką arba YouTube ar imgur nuorodą.",
+    "invalidMedia": "Kaip medija leidžiamos tik YouTube ir imgur nuorodos.",
     "success": "Tavo buildas **#{id}** pateiktas. Teisėjams pranešta!",
     "uploadWarning": "Kai kurių paveikslėlių nepavyko išsaugoti visam laikui. Neištrink savo originalios žinutės.",
-    "messageHint": "Pridėk bent vieną paveikslėlį, koordinates ir nuorodą į šaltinį arba naudok `/submit`.",
+    "messageHint": "Pridėk ekrano nuotrauką arba YouTube/imgur nuorodą, taip pat koordinates ir nuorodą į šaltinį, arba naudok `/submit`.",
     "messageNoLink": "**Pateikimas atmestas:** būtina nuoroda į naudotą šaltinį (3D vaizdas, Street View, nuotraukos). Patarimas: naudok `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Pasikeitė mūsų Naudojimosi sąlygos arba Privatumo politika. Dar kartą paleisk `/register`, kad jas patvirtintum.",
     "updated": "Ačiū! Sutikai su galiojančiomis Naudojimosi sąlygomis.",
     "readHint": "Spausk mygtuką ir perskaityk dokumentą čia pat, Discorde.",
-    "languageNote": "Šis dokumentas pateikiamas vokiečių ir anglų kalbomis. Teisiškai privaloma yra vokiška versija.",
-    "openWeb": "Atidaryti naršyklėje"
+    "languageNote": "Šis dokumentas pateikiamas vokiečių ir anglų kalbomis. Teisiškai privaloma yra vokiška versija."
   }
 }

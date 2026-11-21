@@ -27,13 +27,12 @@ module.exports = [
     prefix: "legal:accept",
     async button(ctx) {
       const bundle = await ctx.requireEvent();
-      const [version, teamId, name] = ctx.args;
+      const [version, name] = ctx.args;
       const { participant, team, updated } = await ctx.services.actions.register({
         bundle,
         guildId: ctx.guildId,
         user: ctx.user,
         minecraftName: name === "-" ? null : name,
-        teamId: Number(teamId) || null,
         acceptedTermsVersion: version,
       });
       const text = updated

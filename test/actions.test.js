@@ -32,19 +32,63 @@ async function submitted(ctx, userId = IDS.builderDE, guildId = IDS.guildDE) {
 
 const values = (basePoints, effort, detail) => ({ basePoints, effort, detail });
 
-test("registration: team comes from the server, neutral servers must choose", async () => {
+test("registration: the server you register on is your team", async () => {
   const ctx = await seedBattle();
   const { de, pl } = await registered(ctx);
   assert.equal(de.team.name, "Germany");
   assert.equal(pl.team.name, "Poland");
+  assert.equal(pl.participant.teamId, ctx.teams.poland.id);
 
   await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE), minecraftName: "Other" }), "register.already");
   await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE2), minecraftName: "opolanin" }), "register.nameTaken");
   await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE2), minecraftName: "no" }), "register.invalidName");
-  await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildNeutral, user: user(IDS.builderDE2), minecraftName: "Neutral1" }), "register.teamRequired");
-  await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildNeutral, user: user(IDS.builderDE2), minecraftName: "Neutral1", teamId: 999 }), "register.invalidTeam");
-  const chosen = await ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildNeutral, user: user(IDS.builderDE2), minecraftName: "Neutral1", teamId: ctx.teams.poland.id });
-  assert.equal(chosen.team.name, "Poland");
+  // Neutral servers have no team, so nobody can register there, and a team can't be picked
+  await rejectsWith(ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildNeutral, user: user(IDS.builderDE2), minecraftName: "Neutral1", teamId: ctx.teams.poland.id }), "register.teamServerOnly");
+  // Registering on the Polish server makes you Polish, whatever else is passed
+  const polish = await ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildPL, user: user(IDS.builderDE2), minecraftName: "Neutral1", teamId: ctx.teams.germany.id });
+  assert.equal(polish.team.name, "Poland");
+  // Builds belong to the registration team even when submitted on another server
+  const { build } = await submitted(ctx, IDS.builderDE2, IDS.guildDE);
+  assert.equal(build.teamId, ctx.teams.poland.id);
+});
+
+test("YouTube and imgur links are accepted as media", async () => {
+  const ctx = await seedBattle();
+  await registered(ctx);
+  const base = { bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE), location: "x", referenceType: "3d", referenceLink: "https://earth.google.com/x" };
+
+  // Links only, no upload: the imgur image is stored, the video and album become buttons
+  const { build } = await ctx.actions.submit({
+    ...base,
+    mediaLinks: ["https://youtu.be/dQw4w9WgXcQ", "https://i.imgur.com/AbC123x.png", "https://imgur.com/a/AbC123x", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+  });
+  assert.deepEqual(build.images, ["https://i.imgur.com/AbC123x.png"]);
+  assert.deepEqual(build.media, ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://imgur.com/a/AbC123x"]);
+
+  await rejectsWith(ctx.actions.submit({ ...base, mediaLinks: ["https://example.org/video"] }), "submit.invalidMedia");
+  await rejectsWith(ctx.actions.submit({ ...base, attachments: [], mediaLinks: [] }), "submit.mediaRequired");
+  const combined = await ctx.actions.submit({ ...base, attachments: [attachment(1)], mediaLinks: ["https://youtube.com/shorts/dQw4w9WgXcQ"] });
+  assert.equal(combined.build.images.length, 1);
+  assert.equal(combined.build.media.length, 1);
+});
+
+test("judges count for their team but cannot score or correct their own builds", async () => {
+  const ctx = await seedBattle();
+  await registered(ctx);
+  // The German judge also builds for Germany
+  await ctx.actions.register({ acceptedTermsVersion: TERMS, bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.judgeDE), minecraftName: "JudgeBuilder" });
+  const { build } = await submitted(ctx, IDS.judgeDE);
+  await rejectsWith(ctx.actions.vote({ bundle: ctx.bundle, buildId: build.id, user: user(IDS.judgeDE), values: values(2, 6, 10) }), "judge.ownBuild");
+  for (const judge of [IDS.judgeDE2, IDS.judgePL, IDS.judgeNeutral]) {
+    await ctx.actions.vote({ bundle: ctx.bundle, buildId: build.id, user: user(judge), values: values(2, 4, 6) });
+  }
+  await rejectsWith(ctx.actions.correct({ bundle: ctx.bundle, buildId: build.id, user: user(IDS.judgeDE), reason: "more", values: { detail: 10 } }), "judge.ownBuild");
+  await rejectsWith(ctx.actions.reject({ bundle: ctx.bundle, buildId: build.id, user: user(IDS.judgeDE), reason: "x" }), "judge.ownBuild");
+
+  const lb = await ctx.stats.leaderboard(ctx.bundle);
+  const germany = lb.teams.find((t) => t.name === "Germany");
+  assert.equal(germany.points, 12, "the judge's points count for Germany");
+  assert.equal(lb.ranking.some((p) => p.userId === IDS.judgeDE), false, "but the judge cannot win");
 });
 
 test("submission validates input and publishes the panels", async () => {
@@ -61,7 +105,7 @@ test("submission validates input and publishes the panels", async () => {
   const base = { bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE), location: "x", referenceType: "3d", attachments: [attachment()] };
   await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "not a link" }), "submit.invalidLink");
   await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", area: -5 }), "submit.invalidArea");
-  await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", attachments: [] }), "submit.messageHint");
+  await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", attachments: [] }), "submit.mediaRequired");
 
   const participant = await ctx.store.findParticipant(ctx.event.id, IDS.builderDE);
   await ctx.store.updateParticipant(participant.id, { banned: true });

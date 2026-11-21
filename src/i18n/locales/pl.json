@@ -63,8 +63,7 @@
     "register": {
       "description": "Zarejestruj się na event swoim nickiem z Minecrafta",
       "options": {
-        "minecraft": "Twój nick z Minecrafta (fałszywe dane mogą skończyć się banem)",
-        "team": "Twoja drużyna (potrzebne tylko na serwerach neutralnych)"
+        "minecraft": "Twój nick z Minecrafta (fałszywe dane mogą skończyć się banem)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Screenshot z góry z zaznaczonymi obrysami",
         "image2": "Dodatkowy screenshot (opcjonalnie)",
         "image3": "Dodatkowy screenshot (opcjonalnie)",
-        "area": "Zbudowana powierzchnia w m² (opcjonalnie)"
+        "area": "Zbudowana powierzchnia w m² (opcjonalnie)",
+        "media": "Linki do YouTube lub imgur (opcjonalnie, oddzielone spacjami)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Nieprawidłowy nick z Minecrafta. Dozwolone są 3–16 znaków (litery, cyfry, `_`).",
     "already": "Jesteś już zarejestrowany jako `{name}`.",
     "nameTaken": "Ten nick z Minecrafta jest już zarejestrowany przez inne konto Discord.",
-    "teamRequired": "Ten serwer nie ma własnej drużyny. Wybierz swoją drużynę opcją `team`.",
-    "invalidTeam": "Ta drużyna nie istnieje w bieżącym evencie.",
-    "success": "Witaj w **{event}**, `{name}`! Budujesz dla drużyny **{team}**."
+    "success": "Witaj w **{event}**, `{name}`! Budujesz dla drużyny **{team}**.",
+    "teamServerOnly": "Ten serwer nie należy do żadnej drużyny. Zarejestruj się na serwerze Discord swojej drużyny."
   },
   "submit": {
     "invalidLink": "**Nieprawidłowy link!** Wymagany jest poprawny link do referencji (np. `https://maps.google.com/...`).",
     "invalidArea": "Powierzchnia musi być dodatnią liczbą metrów kwadratowych.",
     "imagesOnly": "Przesyłaj tylko obrazy (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Dołącz screenshot albo dodaj link do YouTube lub imgur.",
+    "invalidMedia": "Jako media dozwolone są tylko linki do YouTube i imgur.",
     "success": "Twoja budowla **#{id}** została zgłoszona. Sędziowie zostali powiadomieni!",
     "uploadWarning": "Niektórych obrazów nie udało się trwale zapisać. Nie usuwaj swojej oryginalnej wiadomości.",
-    "messageHint": "Dołącz co najmniej jeden obraz i dodaj współrzędne oraz link do referencji albo użyj `/submit`.",
+    "messageHint": "Dołącz screenshot lub dodaj link do YouTube/imgur, a do tego współrzędne i link do referencji, albo użyj `/submit`.",
     "messageNoLink": "**Zgłoszenie odrzucone:** wymagany jest link do użytej referencji (widok 3D, Street View, zdjęcia). Wskazówka: użyj `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Nasz Regulamin lub Polityka prywatności uległy zmianie. Użyj ponownie `/register`, aby je potwierdzić.",
     "updated": "Dzięki! Zaakceptowałeś aktualny Regulamin.",
     "readHint": "Kliknij przycisk, aby przeczytać dokument bezpośrednio na Discordzie.",
-    "languageNote": "Ten dokument jest dostępny po niemiecku i angielsku. Wiążąca prawnie jest wersja niemiecka.",
-    "openWeb": "Otwórz w przeglądarce"
+    "languageNote": "Ten dokument jest dostępny po niemiecku i angielsku. Wiążąca prawnie jest wersja niemiecka."
   }
 }

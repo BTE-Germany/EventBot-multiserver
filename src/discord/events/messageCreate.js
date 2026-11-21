@@ -25,7 +25,8 @@ module.exports = {
 
     const images = [...message.attachments.values()].filter(isImageAttachment);
     const parsed = parseMessageSubmission(message.content);
-    if (images.length === 0 || !parsed.location) return hint(message, t("submit.messageHint"));
+    // A screenshot or a YouTube/imgur link, plus coordinates
+    if ((images.length === 0 && parsed.media.length === 0) || !parsed.location) return hint(message, t("submit.messageHint"));
     if (!parsed.link) return hint(message, `❌ ${t("submit.messageNoLink")}`, 9000);
 
     try {
@@ -38,6 +39,7 @@ module.exports = {
         referenceLink: parsed.link,
         area: parsed.area,
         attachments: images.map((a) => ({ url: a.url, name: a.name, contentType: a.contentType })),
+        mediaLinks: parsed.media.map((m) => m.url),
       });
       // If images were not stored, the panel still points at this message's attachments
       if (allStored) await message.delete().catch(() => {});

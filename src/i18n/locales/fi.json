@@ -63,8 +63,7 @@
     "register": {
       "description": "Rekisteröidy tapahtumaan Minecraft-nimelläsi",
       "options": {
-        "minecraft": "Minecraft-nimesi (väärät tiedot voivat johtaa porttikieltoon)",
-        "team": "Joukkueesi (tarvitaan vain neutraaleilla palvelimilla)"
+        "minecraft": "Minecraft-nimesi (väärät tiedot voivat johtaa porttikieltoon)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Kuvakaappaus ylhäältä, ääriviivat piirrettyinä",
         "image2": "Lisäkuvakaappaus (valinnainen)",
         "image3": "Lisäkuvakaappaus (valinnainen)",
-        "area": "Rakennettu pinta-ala m² (valinnainen)"
+        "area": "Rakennettu pinta-ala m² (valinnainen)",
+        "media": "YouTube- tai imgur-linkit (valinnainen, välilyönnein erotettuina)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Virheellinen Minecraft-nimi. Sallittu on 3–16 merkkiä (kirjaimet, numerot, `_`).",
     "already": "Olet jo rekisteröitynyt nimellä `{name}`.",
     "nameTaken": "Tämä Minecraft-nimi on jo rekisteröity toisella Discord-tilillä.",
-    "teamRequired": "Tällä palvelimella ei ole omaa joukkuetta. Valitse joukkueesi `team`-valinnalla.",
-    "invalidTeam": "Tätä joukkuetta ei ole nykyisessä tapahtumassa.",
-    "success": "Tervetuloa tapahtumaan **{event}**, `{name}`! Rakennat joukkueelle **{team}**."
+    "success": "Tervetuloa tapahtumaan **{event}**, `{name}`! Rakennat joukkueelle **{team}**.",
+    "teamServerOnly": "Tämä palvelin ei kuulu millekään joukkueelle. Rekisteröidy joukkueesi Discord-palvelimella."
   },
   "submit": {
     "invalidLink": "**Virheellinen linkki!** Toimiva linkki referenssiisi vaaditaan (esim. `https://maps.google.com/...`).",
     "invalidArea": "Pinta-alan on oltava positiivinen määrä neliömetrejä.",
     "imagesOnly": "Lataa vain kuvia (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Liitä kuvakaappaus tai lisää YouTube- tai imgur-linkki.",
+    "invalidMedia": "Mediaksi kelpaavat vain YouTube- ja imgur-linkit.",
     "success": "Buildisi **#{id}** on lähetetty. Tuomarit on ilmoitettu!",
     "uploadWarning": "Joitakin kuvia ei voitu tallentaa pysyvästi. Säilytä alkuperäinen viestisi.",
-    "messageHint": "Liitä vähintään yksi kuva ja lisää koordinaatit sekä referenssilinkki, tai käytä `/submit`.",
+    "messageHint": "Liitä kuvakaappaus tai lisää YouTube-/imgur-linkki sekä koordinaatit ja referenssilinkki, tai käytä `/submit`.",
     "messageNoLink": "**Lähetys hylätty:** linkki käyttämääsi referenssiin (3D-näkymä, Street View, valokuvat) vaaditaan. Vinkki: käytä `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Käyttöehtomme tai tietosuojaselosteemme ovat muuttuneet. Suorita `/register` uudelleen vahvistaaksesi ne.",
     "updated": "Kiitos! Olet hyväksynyt voimassa olevat käyttöehdot.",
     "readHint": "Napauta painiketta lukeaksesi asiakirjan suoraan Discordissa.",
-    "languageNote": "Tämä asiakirja on saatavilla saksaksi ja englanniksi. Saksankielinen versio on oikeudellisesti sitova.",
-    "openWeb": "Avaa selaimessa"
+    "languageNote": "Tämä asiakirja on saatavilla saksaksi ja englanniksi. Saksankielinen versio on oikeudellisesti sitova."
   }
 }

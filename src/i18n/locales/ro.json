@@ -63,8 +63,7 @@
     "register": {
       "description": "Înscrie-te la eveniment cu numele tău de Minecraft",
       "options": {
-        "minecraft": "Numele tău de Minecraft (datele false pot duce la ban)",
-        "team": "Echipa ta (necesară doar pe serverele neutre)"
+        "minecraft": "Numele tău de Minecraft (datele false pot duce la ban)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Captură de sus cu contururile desenate",
         "image2": "Captură suplimentară (opțional)",
         "image3": "Captură suplimentară (opțional)",
-        "area": "Suprafața construită în m² (opțional)"
+        "area": "Suprafața construită în m² (opțional)",
+        "media": "Linkuri YouTube sau imgur (opțional, separate prin spații)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Nume de Minecraft invalid. Sunt permise 3–16 caractere (litere, cifre, `_`).",
     "already": "Ești deja înscris ca `{name}`.",
     "nameTaken": "Acest nume de Minecraft este deja înregistrat de alt cont de Discord.",
-    "teamRequired": "Acest server nu are o echipă proprie. Alege-ți echipa cu opțiunea `team`.",
-    "invalidTeam": "Această echipă nu există în evenimentul curent.",
-    "success": "Bine ai venit la **{event}**, `{name}`! Construiești pentru **{team}**."
+    "success": "Bine ai venit la **{event}**, `{name}`! Construiești pentru **{team}**.",
+    "teamServerOnly": "Acest server nu aparține niciunei echipe. Înscrie-te pe serverul de Discord al echipei tale."
   },
   "submit": {
     "invalidLink": "**Link invalid!** Este necesar un link valid către referința ta (ex. `https://maps.google.com/...`).",
     "invalidArea": "Suprafața trebuie să fie un număr pozitiv de metri pătrați.",
     "imagesOnly": "Te rugăm să încarci doar imagini (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Atașează o captură sau adaugă un link YouTube sau imgur.",
+    "invalidMedia": "Ca media sunt permise doar linkuri YouTube și imgur.",
     "success": "Build-ul tău **#{id}** a fost trimis. Jurații au fost anunțați!",
     "uploadWarning": "Unele imagini nu au putut fi salvate permanent. Te rugăm să-ți păstrezi mesajul original.",
-    "messageHint": "Atașează cel puțin o imagine și adaugă coordonatele și un link de referință sau folosește `/submit`.",
+    "messageHint": "Atașează o captură sau adaugă un link YouTube/imgur, plus coordonatele și un link de referință, sau folosește `/submit`.",
     "messageNoLink": "**Trimitere respinsă:** este necesar un link către referința folosită (vedere 3D, Street View, fotografii). Sfat: folosește `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Termenii și condițiile sau Politica de confidențialitate s-au schimbat. Folosește din nou `/register` pentru a le revizui și accepta.",
     "updated": "Mulțumim! Ai acceptat Termenii și condițiile actuale.",
     "readHint": "Apasă un buton ca să citești un document direct aici, în Discord.",
-    "languageNote": "Acest document este disponibil în germană și engleză. Versiunea în germană este cea obligatorie din punct de vedere juridic.",
-    "openWeb": "Deschide în browser"
+    "languageNote": "Acest document este disponibil în germană și engleză. Versiunea în germană este cea obligatorie din punct de vedere juridic."
   }
 }

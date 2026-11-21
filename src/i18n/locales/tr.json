@@ -63,8 +63,7 @@
     "register": {
       "description": "Minecraft adınla etkinliğe kaydol",
       "options": {
-        "minecraft": "Minecraft adın (yanlış bilgi ban ile sonuçlanabilir)",
-        "team": "Takımın (yalnızca tarafsız sunucularda gerekli)"
+        "minecraft": "Minecraft adın (yanlış bilgi ban ile sonuçlanabilir)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Sınırları çizilmiş, yukarıdan çekilmiş ekran görüntüsü",
         "image2": "Ek ekran görüntüsü (isteğe bağlı)",
         "image3": "Ek ekran görüntüsü (isteğe bağlı)",
-        "area": "İnşa edilen alan, m² cinsinden (isteğe bağlı)"
+        "area": "İnşa edilen alan, m² cinsinden (isteğe bağlı)",
+        "media": "YouTube veya imgur bağlantıları (isteğe bağlı, boşlukla ayrılmış)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Geçersiz Minecraft adı. 3–16 karakter kullanılabilir (harf, rakam, `_`).",
     "already": "Zaten `{name}` olarak kayıtlısın.",
     "nameTaken": "Bu Minecraft adı başka bir Discord hesabı tarafından zaten kaydedilmiş.",
-    "teamRequired": "Bu sunucunun kendi takımı yok. Lütfen `team` seçeneğiyle takımını seç.",
-    "invalidTeam": "Bu takım mevcut etkinlikte yok.",
-    "success": "**{event}** etkinliğine hoş geldin, `{name}`! **{team}** için inşa ediyorsun."
+    "success": "**{event}** etkinliğine hoş geldin, `{name}`! **{team}** için inşa ediyorsun.",
+    "teamServerOnly": "Bu sunucu herhangi bir takıma ait değil. Lütfen takımının Discord sunucusunda kaydol."
   },
   "submit": {
     "invalidLink": "**Geçersiz bağlantı!** Referansına geçerli bir bağlantı gerekli (ör. `https://maps.google.com/...`).",
     "invalidArea": "Alan pozitif bir metrekare değeri olmalı.",
     "imagesOnly": "Lütfen yalnızca görsel yükle (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Lütfen bir ekran görüntüsü ya da YouTube veya imgur bağlantısı ekle.",
+    "invalidMedia": "Medya olarak yalnızca YouTube ve imgur bağlantılarına izin veriliyor.",
     "success": "**#{id}** numaralı build'in gönderildi. Jüriler bilgilendirildi!",
     "uploadWarning": "Bazı görseller kalıcı olarak kaydedilemedi. Lütfen orijinal mesajını silme.",
-    "messageHint": "Lütfen en az bir görsel ekle ve koordinatlarla referans bağlantısını yaz ya da `/submit` kullan.",
+    "messageHint": "Lütfen bir ekran görüntüsü ya da YouTube/imgur bağlantısı ekle, koordinatlarla referans bağlantısını yaz ya da `/submit` kullan.",
     "messageNoLink": "**Gönderim reddedildi:** kullandığın referansın bağlantısı gerekli (3D görünüm, Street View, fotoğraflar). İpucu: `/submit` kullan."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Kullanım Koşullarımız veya Gizlilik Politikamız değişti. İncelemek ve kabul etmek için lütfen `/register` komutunu tekrar çalıştır.",
     "updated": "Teşekkürler! Güncel Kullanım Koşulları'nı kabul ettin.",
     "readHint": "Bir belgeyi doğrudan Discord'da okumak için bir düğmeye dokun.",
-    "languageNote": "Bu belge Almanca ve İngilizce olarak mevcuttur. Hukuken bağlayıcı olan Almanca sürümdür.",
-    "openWeb": "Tarayıcıda aç"
+    "languageNote": "Bu belge Almanca ve İngilizce olarak mevcuttur. Hukuken bağlayıcı olan Almanca sürümdür."
   }
 }

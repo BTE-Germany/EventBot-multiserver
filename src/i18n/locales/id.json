@@ -63,8 +63,7 @@
     "register": {
       "description": "Daftar ke event dengan nama Minecraft kamu",
       "options": {
-        "minecraft": "Nama Minecraft kamu (data palsu bisa berujung ban)",
-        "team": "Tim kamu (hanya diperlukan di server netral)"
+        "minecraft": "Nama Minecraft kamu (data palsu bisa berujung ban)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Screenshot dari atas dengan garis batas digambar",
         "image2": "Screenshot tambahan (opsional)",
         "image3": "Screenshot tambahan (opsional)",
-        "area": "Luas yang dibangun dalam m² (opsional)"
+        "area": "Luas yang dibangun dalam m² (opsional)",
+        "media": "Tautan YouTube atau imgur (opsional, pisahkan dengan spasi)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Nama Minecraft tidak valid. Diperbolehkan 3–16 karakter (huruf, angka, `_`).",
     "already": "Kamu sudah terdaftar sebagai `{name}`.",
     "nameTaken": "Nama Minecraft ini sudah didaftarkan oleh akun Discord lain.",
-    "teamRequired": "Server ini tidak punya tim sendiri. Silakan pilih tim kamu dengan opsi `team`.",
-    "invalidTeam": "Tim ini tidak ada di event saat ini.",
-    "success": "Selamat datang di **{event}**, `{name}`! Kamu membangun untuk **{team}**."
+    "success": "Selamat datang di **{event}**, `{name}`! Kamu membangun untuk **{team}**.",
+    "teamServerOnly": "Server ini bukan milik tim mana pun. Silakan daftar di server Discord tim kamu."
   },
   "submit": {
     "invalidLink": "**Tautan tidak valid!** Diperlukan tautan yang valid ke referensi kamu (mis. `https://maps.google.com/...`).",
     "invalidArea": "Luas harus berupa angka positif dalam meter persegi.",
     "imagesOnly": "Harap unggah gambar saja (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Lampirkan screenshot atau tambahkan tautan YouTube atau imgur.",
+    "invalidMedia": "Hanya tautan YouTube dan imgur yang diizinkan sebagai media.",
     "success": "Build kamu **#{id}** sudah dikirim. Para juri sudah diberi tahu!",
     "uploadWarning": "Beberapa gambar tidak bisa disimpan secara permanen. Harap jangan hapus pesan aslimu.",
-    "messageHint": "Lampirkan minimal satu gambar dan tambahkan koordinat serta tautan referensi, atau gunakan `/submit`.",
+    "messageHint": "Lampirkan screenshot atau tambahkan tautan YouTube/imgur, beserta koordinat dan tautan referensi, atau gunakan `/submit`.",
     "messageNoLink": "**Pengiriman ditolak:** diperlukan tautan ke referensi yang kamu gunakan (tampilan 3D, Street View, foto). Tips: gunakan `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Ketentuan Layanan atau Kebijakan Privasi kami telah berubah. Silakan jalankan `/register` lagi untuk meninjau dan menyetujuinya.",
     "updated": "Terima kasih! Kamu telah menyetujui Ketentuan Layanan terbaru.",
     "readHint": "Ketuk tombol untuk membaca dokumen langsung di Discord.",
-    "languageNote": "Dokumen ini tersedia dalam bahasa Jerman dan Inggris. Versi bahasa Jerman yang mengikat secara hukum.",
-    "openWeb": "Buka di browser"
+    "languageNote": "Dokumen ini tersedia dalam bahasa Jerman dan Inggris. Versi bahasa Jerman yang mengikat secara hukum."
   }
 }

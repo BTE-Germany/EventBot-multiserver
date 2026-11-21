@@ -63,8 +63,7 @@
     "register": {
       "description": "使用你的 Minecraft 名称报名参加活动",
       "options": {
-        "minecraft": "你的 Minecraft 名称（填写虚假信息可能导致封禁）",
-        "team": "你的队伍（仅在中立服务器上需要）"
+        "minecraft": "你的 Minecraft 名称（填写虚假信息可能导致封禁）"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "画出轮廓的俯视截图",
         "image2": "附加截图（可选）",
         "image3": "附加截图（可选）",
-        "area": "建造面积，单位 m²（可选）"
+        "area": "建造面积，单位 m²（可选）",
+        "media": "YouTube 或 imgur 链接（可选，用空格分隔）"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "无效的 Minecraft 名称。允许 3–16 个字符（字母、数字、`_`）。",
     "already": "你已经以 `{name}` 的身份报名了。",
     "nameTaken": "该 Minecraft 名称已被另一个 Discord 账号注册。",
-    "teamRequired": "此服务器没有自己的队伍，请使用 `team` 选项选择你的队伍。",
-    "invalidTeam": "当前活动中不存在该队伍。",
-    "success": "欢迎参加 **{event}**，`{name}`！你将为 **{team}** 建造。"
+    "success": "欢迎参加 **{event}**，`{name}`！你将为 **{team}** 建造。",
+    "teamServerOnly": "此服务器不属于任何队伍。请在你所在队伍的 Discord 服务器上报名。"
   },
   "submit": {
     "invalidLink": "**链接无效！** 需要提供有效的参考资料链接（例如 `https://maps.google.com/...`）。",
     "invalidArea": "面积必须是正数（平方米）。",
     "imagesOnly": "请只上传图片（PNG、JPG、GIF、WEBP）。",
+    "mediaRequired": "请附上一张截图，或添加 YouTube 或 imgur 链接。",
+    "invalidMedia": "媒体仅允许使用 YouTube 和 imgur 链接。",
     "success": "你的建筑 **#{id}** 已提交，已通知评委！",
     "uploadWarning": "部分图片无法永久保存，请保留你的原始消息。",
-    "messageHint": "请至少附上一张图片，并添加坐标和参考链接，或使用 `/submit`。",
+    "messageHint": "请附上截图或添加 YouTube/imgur 链接，并添加坐标和参考链接，或使用 `/submit`。",
     "messageNoLink": "**提交被拒绝：** 需要提供你所用参考资料（3D 视图、街景、照片）的链接。提示：使用 `/submit`。"
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "我们的服务条款或隐私政策已更新。请再次运行 `/register` 以查看并接受。",
     "updated": "谢谢！你已接受最新的服务条款。",
     "readHint": "点击按钮即可直接在 Discord 中阅读文件。",
-    "languageNote": "本文件提供德语和英语版本，以德语版本为准，具有法律约束力。",
-    "openWeb": "在浏览器中打开"
+    "languageNote": "本文件提供德语和英语版本，以德语版本为准，具有法律约束力。"
   }
 }

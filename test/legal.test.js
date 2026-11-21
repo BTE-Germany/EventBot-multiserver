@@ -63,9 +63,9 @@ test("document reader and consent dialog in every locale", () => {
         const view = documentPage({ doc, page, t, settings, env });
         assert.ok(view.embeds[0].description.length <= 4096);
         assert.ok(view.embeds[0].footer.text.length <= 2048);
-        for (const b of view.components[0].components) {
-          if (b.custom_id) assert.ok(known.some((k) => b.custom_id.startsWith(`${k}:`)), b.custom_id);
-          if (b.url) assert.match(b.url, /^https:\/\/bot\.example\.org\/legal\//);
+        for (const b of (view.components[0]?.components || [])) {
+          assert.ok(!b.url, "no browser links in Discord");
+          assert.ok(known.some((k) => b.custom_id.startsWith(`${k}:`)), b.custom_id);
         }
       }
       void pages;
@@ -81,6 +81,7 @@ test("document reader and consent dialog in every locale", () => {
   }
   const imprint = imprintView({ t: translator("de"), settings });
   assert.match(imprint.embeds[0].description, /91074 Herzogenaurach/);
+  assert.deepEqual(imprint.components, []);
 });
 
 test("web version escapes and links", () => {

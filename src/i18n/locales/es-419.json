@@ -63,8 +63,7 @@
     "register": {
       "description": "Regístrate en el evento con tu nombre de Minecraft",
       "options": {
-        "minecraft": "Tu nombre de Minecraft (datos falsos pueden causar un ban)",
-        "team": "Tu equipo (solo necesario en servidores neutrales)"
+        "minecraft": "Tu nombre de Minecraft (datos falsos pueden causar un ban)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Captura desde arriba con los contornos dibujados",
         "image2": "Captura adicional (opcional)",
         "image3": "Captura adicional (opcional)",
-        "area": "Área construida en m² (opcional)"
+        "area": "Área construida en m² (opcional)",
+        "media": "Enlaces de YouTube o imgur (opcional, separados por espacios)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Nombre de Minecraft no válido. Se permiten de 3 a 16 caracteres (letras, números, `_`).",
     "already": "Ya estás registrado como `{name}`.",
     "nameTaken": "Otra cuenta de Discord ya registró este nombre de Minecraft.",
-    "teamRequired": "Este servidor no tiene equipo propio. Elige tu equipo con la opción `team`.",
-    "invalidTeam": "Este equipo no existe en el evento actual.",
-    "success": "¡Bienvenido a **{event}**, `{name}`! Construyes para **{team}**."
+    "success": "¡Bienvenido a **{event}**, `{name}`! Construyes para **{team}**.",
+    "teamServerOnly": "Este servidor no pertenece a ningún equipo. Regístrate en el servidor de Discord de tu equipo."
   },
   "submit": {
     "invalidLink": "**¡Enlace no válido!** Se necesita un enlace válido a tu referencia (p. ej. `https://maps.google.com/...`).",
     "invalidArea": "El área debe ser un número positivo de metros cuadrados.",
     "imagesOnly": "Sube solo imágenes (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Adjunta una captura o agrega un enlace de YouTube o imgur.",
+    "invalidMedia": "Solo se permiten enlaces de YouTube e imgur como contenido multimedia.",
     "success": "Tu build **#{id}** fue enviado. ¡Ya se avisó a los jueces!",
     "uploadWarning": "Algunas imágenes no se pudieron guardar de forma permanente. Conserva tu mensaje original.",
-    "messageHint": "Adjunta al menos una imagen y agrega las coordenadas y un enlace de referencia, o usa `/submit`.",
+    "messageHint": "Adjunta una captura o agrega un enlace de YouTube/imgur, además de las coordenadas y un enlace de referencia, o usa `/submit`.",
     "messageNoLink": "**Envío rechazado:** se necesita un enlace a la referencia que usaste (vista 3D, Street View, fotos). Consejo: usa `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Nuestros Términos de servicio o nuestra Política de privacidad cambiaron. Vuelve a usar `/register` para revisarlos y aceptarlos.",
     "updated": "¡Gracias! Aceptaste los Términos de servicio actuales.",
     "readHint": "Toca un botón para leer un documento aquí mismo en Discord.",
-    "languageNote": "Este documento está disponible en alemán e inglés. La versión en alemán es la legalmente vinculante.",
-    "openWeb": "Abrir en el navegador"
+    "languageNote": "Este documento está disponible en alemán e inglés. La versión en alemán es la legalmente vinculante."
   }
 }

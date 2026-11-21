@@ -63,8 +63,7 @@
     "register": {
       "description": "Registriraj se za event svojim Minecraft imenom",
       "options": {
-        "minecraft": "Tvoje Minecraft ime (lažni podaci mogu dovesti do bana)",
-        "team": "Tvoj tim (potrebno samo na neutralnim serverima)"
+        "minecraft": "Tvoje Minecraft ime (lažni podaci mogu dovesti do bana)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Snimka zaslona odozgo s ucrtanim obrisima",
         "image2": "Dodatna snimka zaslona (neobavezno)",
         "image3": "Dodatna snimka zaslona (neobavezno)",
-        "area": "Izgrađena površina u m² (neobavezno)"
+        "area": "Izgrađena površina u m² (neobavezno)",
+        "media": "YouTube ili imgur linkovi (neobavezno, odvojeni razmacima)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Neispravno Minecraft ime. Dopušteno je 3–16 znakova (slova, brojevi, `_`).",
     "already": "Već si registriran kao `{name}`.",
     "nameTaken": "Ovo Minecraft ime već je registrirao drugi Discord račun.",
-    "teamRequired": "Ovaj server nema vlastiti tim. Odaberi svoj tim opcijom `team`.",
-    "invalidTeam": "Ovaj tim ne postoji u trenutnom eventu.",
-    "success": "Dobro došao u **{event}**, `{name}`! Gradiš za **{team}**."
+    "success": "Dobro došao u **{event}**, `{name}`! Gradiš za **{team}**.",
+    "teamServerOnly": "Ovaj server ne pripada nijednom timu. Registriraj se na Discord serveru svog tima."
   },
   "submit": {
     "invalidLink": "**Neispravan link!** Potreban je ispravan link na tvoju referencu (npr. `https://maps.google.com/...`).",
     "invalidArea": "Površina mora biti pozitivan broj kvadratnih metara.",
     "imagesOnly": "Molimo prenesi samo slike (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Priloži snimku zaslona ili dodaj YouTube ili imgur link.",
+    "invalidMedia": "Kao mediji dopušteni su samo YouTube i imgur linkovi.",
     "success": "Tvoj build **#{id}** je predan. Suci su obaviješteni!",
     "uploadWarning": "Neke slike nije bilo moguće trajno spremiti. Molimo zadrži svoju izvornu poruku.",
-    "messageHint": "Priloži barem jednu sliku i dodaj koordinate i link na referencu ili upotrijebi `/submit`.",
+    "messageHint": "Priloži snimku zaslona ili dodaj YouTube/imgur link, uz koordinate i link na referencu, ili upotrijebi `/submit`.",
     "messageNoLink": "**Predaja odbijena:** potreban je link na korištenu referencu (3D prikaz, Street View, fotografije). Savjet: upotrijebi `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Naši Uvjeti korištenja ili Pravila privatnosti su se promijenili. Ponovno pokreni `/register` da ih potvrdiš.",
     "updated": "Hvala! Prihvatio si važeće Uvjete korištenja.",
     "readHint": "Dodirni gumb da pročitaš dokument izravno ovdje na Discordu.",
-    "languageNote": "Ovaj je dokument dostupan na njemačkom i engleskom. Pravno je obvezujuća njemačka verzija.",
-    "openWeb": "Otvori u pregledniku"
+    "languageNote": "Ovaj je dokument dostupan na njemačkom i engleskom. Pravno je obvezujuća njemačka verzija."
   }
 }

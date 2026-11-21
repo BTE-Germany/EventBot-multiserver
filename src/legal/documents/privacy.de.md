@@ -31,6 +31,7 @@ Die Events werden gemeinsam mit den beteiligten Communities durchgeführt (z. B.
 **Einreichungen**
 - Koordinaten, Art und Link der Referenz, optional die gebaute Fläche
 - deine Screenshots
+- optional Links zu Videos oder Bildern auf YouTube oder imgur; Bilder von imgur speichern wir wie hochgeladene Screenshots
 - Hinweise, die du für die Judges hinterlegst
 - Status, Bewertungen, Ablehnungsgründe und Korrekturen
 
@@ -64,6 +65,7 @@ Wir treffen keine automatisierten Entscheidungen im Sinne von Art. 22 DSGVO. Bew
 - **Mitglieder der beteiligten Discord-Server** – sehen deine Einreichungen, Bewertungen und Ranglisten in den jeweiligen Kanälen. Judge-Ansichten (Einzelbewertungen, Hinweise, Korrekturen) sehen nur Personen mit Zugriff auf den Judge-Kanal.
 - **Microsoft (Azure Blob Storage)** – speichert deine Screenshots, sofern der Bildspeicher aktiviert ist. Andernfalls verbleiben sie bei Discord.
 - **{hostingProvider}** – betreibt den Server, auf dem Bot und Datenbank laufen (Auftragsverarbeitung nach Art. 28 DSGVO).
+- **YouTube (Google) und imgur** – gibst du Links von dort an, zeigen die Panels Vorschaubilder und verlinken dorthin. Beim Aufrufen gelten die Datenschutzbestimmungen dieser Dienste.
 - **Empfänger eines optional eingerichteten Statistik-Webhooks** – erhalten die öffentlichen Ranglistendaten (Abschnitt 5).
 
 Discord und Microsoft können Daten in den USA verarbeiten. Beide sind unter dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO).

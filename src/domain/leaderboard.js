@@ -25,7 +25,6 @@ function competitionRank(items, score) {
 function buildLeaderboard({ participants, builds, teams, judgeUserIds = [], scoring }) {
   const judges = new Set([...judgeUserIds].map(String));
   const judgesCanWin = scoring?.judgesCanWin ?? false;
-  const judgeBuildsCount = scoring?.judgeBuildsCountForTeam ?? true;
 
   const byParticipant = new Map();
   for (const b of builds) {
@@ -65,7 +64,6 @@ function buildLeaderboard({ participants, builds, teams, judgeUserIds = [], scor
 
   const teamStats = teams.map((team) => {
     const members = players.filter((p) => p.teamId === team.id);
-    const counted = members.filter((p) => judgeBuildsCount || !p.isJudge);
     const teamRanked = competitionRank(
       members.filter((p) => p.points > 0 && p.eligible).sort(sorter),
       (p) => p.points
@@ -77,9 +75,10 @@ function buildLeaderboard({ participants, builds, teams, judgeUserIds = [], scor
       color: team.color || "#5865F2",
       location: team.location || null,
       members: members.length,
-      points: round2(counted.reduce((s, p) => s + p.points, 0)),
-      builds: counted.reduce((s, p) => s + p.builds, 0),
-      area: round2(counted.reduce((s, p) => s + p.area, 0)),
+      // Judges' builds count for their team like everyone else's
+      points: round2(members.reduce((s, p) => s + p.points, 0)),
+      builds: members.reduce((s, p) => s + p.builds, 0),
+      area: round2(members.reduce((s, p) => s + p.area, 0)),
       ranking: teamRanked,
     };
   });

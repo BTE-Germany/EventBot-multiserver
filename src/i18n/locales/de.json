@@ -63,12 +63,11 @@
     "register": {
       "description": "Melde dich mit deinem Minecraft-Namen für das Event an",
       "options": {
-        "minecraft": "Dein Minecraft-Name (falsche Angaben können zu einem Bann führen)",
-        "team": "Dein Team (nur auf neutralen Servern nötig)"
+        "minecraft": "Dein Minecraft-Name (falsche Angaben können zu einem Bann führen)"
       }
     },
     "submit": {
-      "description": "Reiche einen Build mit Quellenangabe ein",
+      "description": "Reiche ein Build mit Quellenangabe ein",
       "options": {
         "coordinates": "Koordinaten des Builds (z. B. 53.8655, 10.6866)",
         "reference": "Welche Referenz hast du genutzt?",
@@ -76,7 +75,8 @@
         "image1": "Screenshot von oben mit eingezeichneten Umrissen",
         "image2": "Weiterer Screenshot (optional)",
         "image3": "Weiterer Screenshot (optional)",
-        "area": "Gebaute Fläche in m² (optional)"
+        "area": "Gebaute Fläche in m² (optional)",
+        "media": "YouTube- oder imgur-Links (optional, durch Leerzeichen getrennt)"
       }
     },
     "profile": {
@@ -104,7 +104,7 @@
       "description": "So funktioniert das Event und diese Befehle gibt es"
     },
     "judge": {
-      "description": "Bewerte einen Build (nur Judges)",
+      "description": "Bewerte ein Build (nur Judges)",
       "options": {
         "id": "ID des Builds",
         "base": "Grundpunkte",
@@ -113,7 +113,7 @@
       }
     },
     "reject": {
-      "description": "Lehne einen Build mit kurzer Begründung ab (nur Judges)",
+      "description": "Lehne ein Build mit kurzer Begründung ab (nur Judges)",
       "options": {
         "id": "ID des Builds",
         "reason": "Was muss verbessert werden?"
@@ -130,10 +130,10 @@
       }
     },
     "delete": {
-      "description": "Lösche einen Build (nur Judges)",
+      "description": "Lösche ein Build (nur Judges)",
       "options": {
         "id": "ID des Builds",
-        "reason": "Warum wird der Build gelöscht?"
+        "reason": "Warum wird das Build gelöscht?"
       }
     },
     "unjudged": {
@@ -162,17 +162,18 @@
     "invalidName": "Ungültiger Minecraft-Name. Erlaubt sind 3–16 Zeichen (Buchstaben, Zahlen, `_`).",
     "already": "Du bist bereits als `{name}` registriert.",
     "nameTaken": "Dieser Minecraft-Name ist bereits von einem anderen Discord-Account registriert.",
-    "teamRequired": "Dieser Server hat kein eigenes Team. Bitte wähle dein Team mit der Option `team`.",
-    "invalidTeam": "Dieses Team gibt es im aktuellen Event nicht.",
-    "success": "Willkommen bei **{event}**, `{name}`! Du baust für **{team}**."
+    "success": "Willkommen bei **{event}**, `{name}`! Du baust für **{team}**.",
+    "teamServerOnly": "Dieser Server gehört zu keinem Team. Bitte registriere dich auf dem Discord-Server deines Teams."
   },
   "submit": {
     "invalidLink": "**Ungültiger Link!** Ein gültiger Link zu deiner Referenz ist Pflicht (z. B. `https://maps.google.com/...`).",
     "invalidArea": "Die Fläche muss eine positive Zahl in Quadratmetern sein.",
     "imagesOnly": "Bitte lade nur Bilder hoch (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Bitte hänge einen Screenshot an oder füge einen YouTube- oder imgur-Link hinzu.",
+    "invalidMedia": "Als Medien sind nur YouTube- und imgur-Links erlaubt.",
     "success": "Dein Build **#{id}** wurde eingereicht. Die Judges wurden benachrichtigt!",
     "uploadWarning": "Einige Bilder konnten nicht dauerhaft gespeichert werden. Bitte behalte deine Originalnachricht.",
-    "messageHint": "Bitte hänge mindestens ein Bild an und gib Koordinaten sowie einen Referenz-Link an, oder nutze `/submit`.",
+    "messageHint": "Bitte hänge einen Screenshot an oder füge einen YouTube-/imgur-Link hinzu, dazu Koordinaten und einen Referenz-Link, oder nutze `/submit`.",
     "messageNoLink": "**Einreichung abgelehnt:** Ein Link zur genutzten Referenz (3D-Ansicht, Street View, Bilder) ist Pflicht. Tipp: Nutze `/submit`."
   },
   "panel": {
@@ -190,9 +191,9 @@
     "votes": "Stimmen",
     "notes": "Hinweise des Builders",
     "rejected": "Abgelehnt",
-    "rejectedHint": "Bessere den Build aus und drücke **Erneut einreichen**.",
+    "rejectedHint": "Bessere das Build aus und drücke **Erneut einreichen**.",
     "correction": "Korrektur von {user}: {reason}",
-    "judgePing": "{role} Neuer Build **#{id}** von {team}",
+    "judgePing": "{role} Neues Build **#{id}** von {team}",
     "buttonScore": "Bewerten",
     "buttonReject": "Ablehnen",
     "buttonInfo": "Infos ergänzen",
@@ -203,9 +204,9 @@
   "judge": {
     "invalidBase": "Grundpunkte müssen einer dieser Werte sein: {options}.",
     "invalidScore": "{category} muss zwischen 0 und {max} in Schritten von {step} liegen.",
-    "ownBuild": "Du kannst deinen eigenen Build nicht bewerten.",
+    "ownBuild": "Du kannst dein eigenes Build nicht bewerten.",
     "slotTaken": "Deine Judge-Gruppe ({slot}) hat diesen Build bereits bewertet.",
-    "rejected": "Dieser Build wurde abgelehnt. Er kann wieder bewertet werden, sobald er erneut eingereicht wurde.",
+    "rejected": "Dieses Build wurde abgelehnt. Es kann wieder bewertet werden, sobald es erneut eingereicht wurde.",
     "noSlot": "Deine Judge-Gruppe ist nicht Teil der Bewertung dieses Events.",
     "saved": "Deine Stimme für Build **#{id}** wurde gespeichert. Fortschritt: {done}/{required} Judge-Gruppen.",
     "updated": "Deine Stimme für Build **#{id}** wurde aktualisiert.",
@@ -219,8 +220,8 @@
     "modalTitle": "Build #{id} ablehnen",
     "modalReason": "Was muss verbessert werden?",
     "done": "Build **#{id}** wurde abgelehnt.",
-    "already": "Dieser Build wurde bereits abgelehnt.",
-    "dm": "Dein Build **#{id}** bei **{event}** wurde abgelehnt: {reason}\nBitte bessere ihn aus und drücke bei deiner Einreichung auf **Erneut einreichen**."
+    "already": "Dieses Build wurde bereits abgelehnt.",
+    "dm": "Dein Build **#{id}** bei **{event}** wurde abgelehnt: {reason}\nBitte bessere es aus und drücke bei deiner Einreichung auf **Erneut einreichen**."
   },
   "resubmit": {
     "modalTitle": "Build #{id} erneut einreichen",
@@ -238,7 +239,7 @@
   },
   "correct": {
     "nothing": "Bitte gib mindestens einen Wert zum Korrigieren an.",
-    "notJudged": "Dieser Build wurde noch nicht bewertet. Nutze `/judge`.",
+    "notJudged": "Dieses Build wurde noch nicht bewertet. Nutze `/judge`.",
     "done": "Build **#{id}** korrigiert: {old} → {new} Punkte."
   },
   "delete": {
@@ -268,7 +269,7 @@
     "allTimeValue": "{events} Events · {points} Punkte · {builds} Builds",
     "notRegistered": "{user} ist für dieses Event nicht registriert.",
     "judgeNote": "Judges dürfen bauen, können aber nicht gewinnen.",
-    "best": "Bester Build",
+    "best": "Bestes Build",
     "buttonBuilds": "Builds anzeigen"
   },
   "builds": {
@@ -316,7 +317,7 @@
     "title": "So funktioniert {event}",
     "register": "**1.** Registriere dich mit `/register <Minecraft-Name>`.",
     "submit": "**2.** Baue im Event-Gebiet und reiche dann mit `/submit` einen Screenshot von oben (mit eingezeichneten Umrissen), Koordinaten, Referenz und Link ein.",
-    "judging": "**3.** Ein Judge pro Team und ein neutraler Judge bewerten jeden Build: Grundpunkte (0–{base}), Aufwand (0–{effort}) sowie Technik & Details (0–{detail}). Es zählt der Durchschnitt.",
+    "judging": "**3.** Ein Judge pro Team und ein neutraler Judge bewerten jedes Build: Grundpunkte (0–{base}), Aufwand (0–{effort}) sowie Technik & Details (0–{detail}). Es zählt der Durchschnitt.",
     "track": "**4.** Verfolge deinen Fortschritt mit `/profile`, `/builds`, `/leaderboard` und `/stats`.",
     "rules": "Regeln",
     "judgesTitle": "Für Judges"
@@ -337,7 +338,6 @@
     "reaccept": "Unsere Nutzungsbedingungen oder Datenschutzhinweise haben sich geändert. Bitte führe `/register` erneut aus, um sie zu prüfen und zu akzeptieren.",
     "updated": "Danke! Du hast die aktuellen Nutzungsbedingungen akzeptiert.",
     "readHint": "Tippe auf einen Button, um ein Dokument direkt hier in Discord zu lesen.",
-    "languageNote": "Dieses Dokument gibt es auf Deutsch und Englisch. Die deutsche Fassung ist rechtlich verbindlich.",
-    "openWeb": "Im Browser öffnen"
+    "languageNote": "Dieses Dokument gibt es auf Deutsch und Englisch. Die deutsche Fassung ist rechtlich verbindlich."
   }
 }

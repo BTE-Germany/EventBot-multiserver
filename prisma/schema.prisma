@@ -144,6 +144,8 @@ model Build {
   referenceLink String
   area          Float?
   images        String[]       @default([])
+  // YouTube videos and imgur pages linked to the build (shown as buttons)
+  media         String[]       @default([])
   extraInfo     String?
   status        BuildStatus    @default(PENDING)
   rejectReason  String?

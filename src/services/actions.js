@@ -13,7 +13,9 @@ const {
   round2,
 } = require("../domain/scoring.js");
 const { canRegister, canSubmit, canJudge } = require("../domain/eventWindow.js");
-const { isMinecraftName, isUrl, parseArea, REFERENCE_TYPES } = require("../domain/validation.js");
+const { isMinecraftName, isUrl, parseArea, splitMedia, REFERENCE_TYPES } = require("../domain/validation.js");
+
+const MAX_MEDIA_LINKS = 5;
 
 const ACTIVITY = {
   REGISTERED: "REGISTERED",
@@ -69,7 +71,7 @@ function createActionService({ store, panels, images, stats, access, settings, l
 
     // Validates a registration without saving it; /register shows the
     // Terms of Service dialog in between. Returns what the dialog needs.
-    async checkRegistration({ bundle, guildId, user, minecraftName, teamId = null }) {
+    async checkRegistration({ bundle, guildId, user, minecraftName }) {
       const termsVersion = await currentTermsVersion();
       const existing = await store.findParticipant(bundle.event.id, user.id);
       if (existing) {
@@ -81,19 +83,17 @@ function createActionService({ store, panels, images, stats, access, settings, l
       const name = String(minecraftName || "").trim();
       if (!isMinecraftName(name)) throw new UserError("register.invalidName");
 
-      // On a team's own server the team is fixed; neutral servers let people choose
-      const link = bundle.guildLink(guildId);
-      const resolvedTeamId = link?.teamId ?? teamId;
-      if (!resolvedTeamId) throw new UserError("register.teamRequired");
-      const team = bundle.team(resolvedTeamId);
-      if (!team) throw new UserError("register.invalidTeam");
+      // The server you register on decides your team: registering on the
+      // Polish team's server makes you a member of Team Poland
+      const team = bundle.team(bundle.guildLink(guildId)?.teamId);
+      if (!team) throw new UserError("register.teamServerOnly");
       if (await store.findParticipantByMinecraft(bundle.event.id, name)) throw new UserError("register.nameTaken");
       return { mode: "new", name, team, termsVersion };
     },
 
     // Called when the user pressed "Accept & register"
-    async register({ bundle, guildId, user, minecraftName, teamId = null, acceptedTermsVersion }) {
-      const check = await this.checkRegistration({ bundle, guildId, user, minecraftName, teamId });
+    async register({ bundle, guildId, user, minecraftName, acceptedTermsVersion }) {
+      const check = await this.checkRegistration({ bundle, guildId, user, minecraftName });
       // The terms may have changed while the dialog was open
       if (acceptedTermsVersion !== check.termsVersion) throw new UserError("legal.reaccept");
       if (check.mode === "reaccept") {
@@ -128,7 +128,8 @@ function createActionService({ store, panels, images, stats, access, settings, l
       return { participant, team: check.team, updated: false };
     },
 
-    async submit({ bundle, guildId, user, location, referenceType, referenceLink, area = null, attachments }) {
+    // attachments: uploaded screenshots; mediaLinks: YouTube / imgur links
+    async submit({ bundle, guildId, user, location, referenceType, referenceLink, area = null, attachments = [], mediaLinks = [] }) {
       if (!canSubmit(bundle.event, now())) throw new UserError("phase.submitClosed");
       const participant = await store.findParticipant(bundle.event.id, user.id);
       if (!participant) throw new UserError("common.notRegistered");
@@ -138,9 +139,13 @@ function createActionService({ store, panels, images, stats, access, settings, l
       if (!isUrl(link)) throw new UserError("submit.invalidLink");
       const parsedArea = parseArea(area);
       if (Number.isNaN(parsedArea)) throw new UserError("submit.invalidArea");
-      if (!attachments?.length) throw new UserError("submit.messageHint");
+      const media = splitMedia(mediaLinks);
+      if (!media) throw new UserError("submit.invalidMedia");
+      // Direct imgur images are stored like uploaded screenshots
+      const toStore = [...attachments, ...media.imageLinks.map((m) => ({ url: m.url, name: m.name }))];
+      if (toStore.length === 0 && media.mediaLinks.length === 0) throw new UserError("submit.mediaRequired");
 
-      const stored = await images.storeAll(`${bundle.event.id}/${user.id}`, attachments);
+      const stored = await images.storeAll(`${bundle.event.id}/${user.id}`, toStore);
       const build = await store.createBuild({
         eventId: bundle.event.id,
         participantId: participant.id,
@@ -152,6 +157,7 @@ function createActionService({ store, panels, images, stats, access, settings, l
         referenceLink: link,
         area: parsedArea,
         images: stored.urls,
+        media: media.mediaLinks.slice(0, MAX_MEDIA_LINKS),
       });
       await store.logActivity({
         eventId: bundle.event.id,
@@ -262,6 +268,8 @@ function createActionService({ store, panels, images, stats, access, settings, l
       const changes = Object.fromEntries(Object.entries(values).filter(([, v]) => v !== null && v !== undefined));
       if (Object.keys(changes).length === 0) throw new UserError("correct.nothing");
       const build = await loadBuild(bundle, buildId);
+      // Judges must not score their own builds, corrections included
+      if (String(build.builderId) === String(user.id)) throw new UserError("judge.ownBuild");
       if (build.votes.length === 0) throw new UserError("correct.notJudged");
       const merged = { basePoints: build.basePoints, effort: build.effort, detail: build.detail, ...changes };
       const invalid = validateVote(merged, bundle.scoring);

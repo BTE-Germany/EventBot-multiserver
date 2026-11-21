@@ -63,8 +63,7 @@
     "register": {
       "description": "Registrer deg for eventet med Minecraft-navnet ditt",
       "options": {
-        "minecraft": "Minecraft-navnet ditt (feil opplysninger kan føre til utestengelse)",
-        "team": "Laget ditt (bare nødvendig på nøytrale servere)"
+        "minecraft": "Minecraft-navnet ditt (feil opplysninger kan føre til utestengelse)"
       }
     },
     "submit": {
@@ -76,7 +75,8 @@
         "image1": "Skjermbilde ovenfra med omrisset tegnet inn",
         "image2": "Ekstra skjermbilde (valgfritt)",
         "image3": "Ekstra skjermbilde (valgfritt)",
-        "area": "Bebygd areal i m² (valgfritt)"
+        "area": "Bebygd areal i m² (valgfritt)",
+        "media": "YouTube- eller imgur-lenker (valgfritt, adskilt med mellomrom)"
       }
     },
     "profile": {
@@ -162,17 +162,18 @@
     "invalidName": "Ugyldig Minecraft-navn. Tillatt er 3–16 tegn (bokstaver, tall, `_`).",
     "already": "Du er allerede registrert som `{name}`.",
     "nameTaken": "Dette Minecraft-navnet er allerede registrert av en annen Discord-konto.",
-    "teamRequired": "Denne serveren har ikke sitt eget lag. Velg laget ditt med alternativet `team`.",
-    "invalidTeam": "Dette laget finnes ikke i det nåværende eventet.",
-    "success": "Velkommen til **{event}**, `{name}`! Du bygger for **{team}**."
+    "success": "Velkommen til **{event}**, `{name}`! Du bygger for **{team}**.",
+    "teamServerOnly": "Denne serveren tilhører ikke noe lag. Registrer deg på lagets Discord-server."
   },
   "submit": {
     "invalidLink": "**Ugyldig lenke!** En gyldig lenke til referansen din er påkrevd (f.eks. `https://maps.google.com/...`).",
     "invalidArea": "Arealet må være et positivt antall kvadratmeter.",
     "imagesOnly": "Last bare opp bilder (PNG, JPG, GIF, WEBP).",
+    "mediaRequired": "Legg ved et skjermbilde, eller legg til en YouTube- eller imgur-lenke.",
+    "invalidMedia": "Bare YouTube- og imgur-lenker er tillatt som media.",
     "success": "Buildet ditt **#{id}** er sendt inn. Dommerne har fått beskjed!",
     "uploadWarning": "Noen bilder kunne ikke lagres permanent. Ta vare på den opprinnelige meldingen din.",
-    "messageHint": "Legg ved minst ett bilde og legg til koordinater og en referanselenke, eller bruk `/submit`.",
+    "messageHint": "Legg ved et skjermbilde eller en YouTube-/imgur-lenke, og legg til koordinater og en referanselenke, eller bruk `/submit`.",
     "messageNoLink": "**Innsending avvist:** en lenke til referansen du brukte (3D-visning, Street View, bilder) er påkrevd. Tips: bruk `/submit`."
   },
   "panel": {
@@ -337,7 +338,6 @@
     "reaccept": "Brukervilkårene eller personvernerklæringen vår er endret. Kjør `/register` på nytt for å bekrefte dem.",
     "updated": "Takk! Du har godtatt de gjeldende brukervilkårene.",
     "readHint": "Trykk på en knapp for å lese et dokument rett her i Discord.",
-    "languageNote": "Dette dokumentet er tilgjengelig på tysk og engelsk. Den tyske versjonen er juridisk bindende.",
-    "openWeb": "Åpne i nettleser"
+    "languageNote": "Dette dokumentet er tilgjengelig på tysk og engelsk. Den tyske versjonen er juridisk bindende."
   }
 }
