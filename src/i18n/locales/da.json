@@ -169,11 +169,11 @@
     "invalidLink": "**Ugyldigt link!** Et gyldigt link til din reference er påkrævet (f.eks. `https://maps.google.com/...`).",
     "invalidArea": "Arealet skal være et positivt antal kvadratmeter.",
     "imagesOnly": "Upload kun billeder (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Vedhæft et screenshot, eller tilføj et YouTube- eller imgur-link.",
+    "imageRequired": "Vedhæft mindst ét screenshot ovenfra med indtegnede omrids. YouTube-/imgur-links er kun et supplement.",
     "invalidMedia": "Kun YouTube- og imgur-links er tilladt som medier.",
     "success": "Dit build **#{id}** er indsendt. Dommerne har fået besked!",
     "uploadWarning": "Nogle billeder kunne ikke gemmes permanent. Behold venligst din oprindelige besked.",
-    "messageHint": "Vedhæft et screenshot eller tilføj et YouTube-/imgur-link samt koordinater og et referencelink, eller brug `/submit`.",
+    "messageHint": "Vedhæft et screenshot ovenfra med indtegnede omrids samt koordinater og et referencelink, eller brug `/submit`.",
     "messageNoLink": "**Indsendelse afvist:** et link til den reference, du brugte (3D-visning, Street View, fotos), er påkrævet. Tip: brug `/submit`."
   },
   "panel": {

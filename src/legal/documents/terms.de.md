@@ -2,11 +2,11 @@
 
 Stand: {version}
 
-## 1. Geltungsbereich und Anbieter
+## 1. Geltungsbereich und Anbieter*in
 
 Diese Bedingungen gelten für die Nutzung des Discord-Bots **{botName}** und die Teilnahme an Events, die mit ihm durchgeführt werden (z. B. Build Battles).
 
-Anbieter ist {operatorName}, {operatorAddress} ({operatorEmail}). Der Bot ist ein privates, nicht kommerzielles Angebot. Die Teilnahme ist kostenlos.
+Anbieter*in ist {operatorName}, {operatorAddress} ({operatorEmail}). Der Bot ist ein privates, nicht kommerzielles Angebot. Die Teilnahme ist kostenlos.
 
 Für einzelne Events können zusätzliche Regeln gelten, etwa zu Bauort, Zeitraum und Bewertung. Diese werden im Event angekündigt und sind mit `/help` abrufbar. Bei Widersprüchen gehen die Event-Regeln diesen Bedingungen vor, soweit es um den Ablauf des Events geht.
 
@@ -20,13 +20,13 @@ Du registrierst dich mit `/register` und deinem eigenen Minecraft-Namen auf dem 
 
 Du darfst nur Bauwerke einreichen, die du selbst innerhalb des Event-Gebiets gebaut hast. Fremde Bauwerke darfst du ohne Erlaubnis nicht verändern.
 
-Jede Einreichung braucht wahrheitsgemäße Koordinaten, die genutzte Referenz mit Link und einen Screenshot oder einen YouTube- bzw. imgur-Link. Screenshots und Hinweise dürfen keine rechtswidrigen, beleidigenden oder anstößigen Inhalte enthalten und keine Rechte Dritter verletzen.
+Jede Einreichung braucht wahrheitsgemäße Koordinaten, die genutzte Referenz mit Link und mindestens einen Screenshot von oben mit eingezeichneten Umrissen. YouTube- und imgur-Links kannst du zusätzlich angeben. Screenshots und Hinweise dürfen keine rechtswidrigen, beleidigenden oder anstößigen Inhalte enthalten und keine Rechte Dritter verletzen.
 
 Ein Gebäude gilt erst als fertig, wenn auch das zugehörige Grundstück (z. B. Vorgarten, Gehweg, Hinterhof) gebaut ist. Fehlt das oder ist die Qualität unzureichend, können Judges die Einreichung mit kurzer Begründung ablehnen. Nach einer Ausbesserung kannst du sie erneut einreichen.
 
 ## 4. Rechte an deinen Inhalten
 
-Deine Bauwerke, Screenshots und Texte bleiben deine. Du räumst dem Anbieter und den beteiligten Event-Communities lediglich ein einfaches, unentgeltliches Nutzungsrecht ein. Es umfasst, die Inhalte zum Zweck des Events zu speichern und in den Discord-Servern des Events, in Ranglisten, Ankündigungen, im Event-Abschluss und über die öffentliche Ranglisten-Schnittstelle anzuzeigen.
+Deine Bauwerke, Screenshots und Texte bleiben deine. Du räumst der*dem Anbieter*in und den beteiligten Event-Communities lediglich ein einfaches, unentgeltliches Nutzungsrecht ein. Es umfasst, die Inhalte zum Zweck des Events zu speichern und in den Discord-Servern des Events, in Ranglisten, Ankündigungen, im Event-Abschluss und über die öffentliche Ranglisten-Schnittstelle anzuzeigen.
 
 Das Nutzungsrecht endet mit der Löschung der Event-Daten (siehe Datenschutzhinweise). Bereits veröffentlichte Ankündigungen bleiben davon unberührt.
 
@@ -34,7 +34,7 @@ Du bestätigst, dass du die Rechte an deinen Screenshots und Texten hast.
 
 ## 5. Bewertung
 
-Jede Einreichung wird von Judges nach den veröffentlichten Kriterien bewertet: je ein Judge pro Team und ein neutraler Judge. Maßgeblich ist der Durchschnitt; über die Grundpunkte wird abgestimmt.
+Jede Einreichung wird von Judges nach den veröffentlichten Kriterien bewertet: je ein*e Judge pro Team und ein*e neutrale*r Judge. Maßgeblich ist der Durchschnitt; über die Grundpunkte wird abgestimmt.
 
 Judges dürfen selbst bauen, ihre eigenen Bauwerke aber nicht bewerten. Sie sind, sofern das Event nichts anderes festlegt, nicht gewinnberechtigt.
 
@@ -72,7 +72,7 @@ Du kannst die Teilnahme jederzeit beenden und die Löschung deiner Daten per E-M
 
 ## 11. Schlussbestimmungen
 
-Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Bist du Verbraucher mit gewöhnlichem Aufenthalt in einem anderen Staat, bleibt dir der Schutz der zwingenden Vorschriften dieses Staates erhalten.
+Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Bist du Verbraucher*in mit gewöhnlichem Aufenthalt in einem anderen Staat, bleibt dir der Schutz der zwingenden Vorschriften dieses Staates erhalten.
 
 Sollte eine Bestimmung unwirksam sein, bleibt der Rest wirksam; es gelten dann die gesetzlichen Vorschriften. Wir nehmen nicht an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teil.
 

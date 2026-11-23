@@ -4,7 +4,7 @@ Stand: {version}
 
 Diese Hinweise erklären, welche personenbezogenen Daten der Discord-Bot **{botName}** verarbeitet, wenn du an einem Event teilnimmst (z. B. einem Build Battle), dich als Judge beteiligst oder das Dashboard nutzt, und welche Rechte du hast.
 
-## 1. Verantwortlicher
+## 1. Verantwortliche Person
 
 Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
 
@@ -42,7 +42,7 @@ Die Events werden gemeinsam mit den beteiligten Communities durchgeführt (z. B.
 **Aktivitätsprotokoll**
 - Registrierungen, Einreichungen, Bewertungen, Korrekturen und Löschungen mit Zeitpunkt, beteiligter Person und Punkteänderung
 
-**Dashboard (nur Administratoren)**
+**Dashboard (nur Administrator*innen)**
 - ein Sitzungs-Cookie, das für die Anmeldung technisch notwendig ist (Gültigkeit 12 Stunden)
 
 **Server-Logs**
@@ -59,20 +59,20 @@ Die Events werden gemeinsam mit den beteiligten Communities durchgeführt (z. B.
 
 Wir treffen keine automatisierten Entscheidungen im Sinne von Art. 22 DSGVO. Bewertungen werden von Menschen (den Judges) vorgenommen; der Bot berechnet daraus nur die Durchschnitte.
 
-## 4. Empfänger
+## 4. Empfänger*innen
 
 - **Discord Inc.** (USA) – über Discord läuft die gesamte Kommunikation mit dem Bot. Es gelten die Datenschutzbestimmungen von Discord.
 - **Mitglieder der beteiligten Discord-Server** – sehen deine Einreichungen, Bewertungen und Ranglisten in den jeweiligen Kanälen. Judge-Ansichten (Einzelbewertungen, Hinweise, Korrekturen) sehen nur Personen mit Zugriff auf den Judge-Kanal.
 - **Microsoft (Azure Blob Storage)** – speichert deine Screenshots, sofern der Bildspeicher aktiviert ist. Andernfalls verbleiben sie bei Discord.
 - **{hostingProvider}** – betreibt den Server, auf dem Bot und Datenbank laufen (Auftragsverarbeitung nach Art. 28 DSGVO).
 - **YouTube (Google) und imgur** – gibst du Links von dort an, zeigen die Panels Vorschaubilder und verlinken dorthin. Beim Aufrufen gelten die Datenschutzbestimmungen dieser Dienste.
-- **Empfänger eines optional eingerichteten Statistik-Webhooks** – erhalten die öffentlichen Ranglistendaten (Abschnitt 5).
+- **Empfänger*innen eines optional eingerichteten Statistik-Webhooks** – erhalten die öffentlichen Ranglistendaten (Abschnitt 5).
 
 Discord und Microsoft können Daten in den USA verarbeiten. Beide sind unter dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO).
 
 ## 5. Öffentlich einsehbare Daten
 
-Folgende Daten sind für alle Mitglieder der beteiligten Discord-Server und über die öffentliche Web-Schnittstelle ({publicUrl}/leaderboard) für jedermann abrufbar:
+Folgende Daten sind für alle Mitglieder der beteiligten Discord-Server und über die öffentliche Web-Schnittstelle ({publicUrl}/leaderboard) für alle abrufbar:
 
 - Discord-ID und Minecraft-Name von Teilnehmenden mit Punkten sowie deren Punktestand
 - zu jeder Einreichung: Koordinaten, Referenz-Link und -Art, Screenshots, Bewertung je Kategorie, Discord-IDs der bewertenden Judges und Zeitpunkt der Einreichung

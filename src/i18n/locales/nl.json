@@ -169,11 +169,11 @@
     "invalidLink": "**Ongeldige link!** Een geldige link naar je referentie is verplicht (bijv. `https://maps.google.com/...`).",
     "invalidArea": "De oppervlakte moet een positief aantal vierkante meters zijn.",
     "imagesOnly": "Upload alleen afbeeldingen (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Voeg een screenshot of een YouTube- of imgur-link toe.",
+    "imageRequired": "Voeg minstens één screenshot van bovenaf toe met de omtrekken ingetekend. YouTube-/imgur-links zijn alleen een aanvulling.",
     "invalidMedia": "Alleen YouTube- en imgur-links zijn toegestaan als media.",
     "success": "Je build **#{id}** is ingediend. De judges zijn op de hoogte gebracht!",
     "uploadWarning": "Sommige afbeeldingen konden niet permanent worden opgeslagen. Bewaar je originele bericht.",
-    "messageHint": "Voeg een screenshot of YouTube-/imgur-link toe, plus coördinaten en een referentielink, of gebruik `/submit`.",
+    "messageHint": "Voeg een screenshot van bovenaf met ingetekende omtrekken toe, plus coördinaten en een referentielink, of gebruik `/submit`.",
     "messageNoLink": "**Inzending afgewezen:** een link naar de gebruikte referentie (3D-weergave, Street View, foto's) is verplicht. Tip: gebruik `/submit`."
   },
   "panel": {

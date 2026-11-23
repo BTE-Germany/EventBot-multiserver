@@ -169,11 +169,11 @@
     "invalidLink": "**Geçersiz bağlantı!** Referansına geçerli bir bağlantı gerekli (ör. `https://maps.google.com/...`).",
     "invalidArea": "Alan pozitif bir metrekare değeri olmalı.",
     "imagesOnly": "Lütfen yalnızca görsel yükle (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Lütfen bir ekran görüntüsü ya da YouTube veya imgur bağlantısı ekle.",
+    "imageRequired": "Lütfen ana hatları çizilmiş en az bir kuşbakışı ekran görüntüsü ekle. YouTube/imgur bağlantıları yalnızca ektir.",
     "invalidMedia": "Medya olarak yalnızca YouTube ve imgur bağlantılarına izin veriliyor.",
     "success": "**#{id}** numaralı build'in gönderildi. Jüriler bilgilendirildi!",
     "uploadWarning": "Bazı görseller kalıcı olarak kaydedilemedi. Lütfen orijinal mesajını silme.",
-    "messageHint": "Lütfen bir ekran görüntüsü ya da YouTube/imgur bağlantısı ekle, koordinatlarla referans bağlantısını yaz ya da `/submit` kullan.",
+    "messageHint": "Lütfen ana hatları çizilmiş bir kuşbakışı ekran görüntüsü ekle, koordinatlarla referans bağlantısını yaz ya da `/submit` kullan.",
     "messageNoLink": "**Gönderim reddedildi:** kullandığın referansın bağlantısı gerekli (3D görünüm, Street View, fotoğraflar). İpucu: `/submit` kullan."
   },
   "panel": {

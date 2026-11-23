@@ -169,11 +169,11 @@
     "invalidLink": "**Link invalid!** Este necesar un link valid către referința ta (ex. `https://maps.google.com/...`).",
     "invalidArea": "Suprafața trebuie să fie un număr pozitiv de metri pătrați.",
     "imagesOnly": "Te rugăm să încarci doar imagini (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Atașează o captură sau adaugă un link YouTube sau imgur.",
+    "imageRequired": "Atașează cel puțin o captură de sus cu contururile desenate. Linkurile YouTube/imgur sunt doar un supliment.",
     "invalidMedia": "Ca media sunt permise doar linkuri YouTube și imgur.",
     "success": "Build-ul tău **#{id}** a fost trimis. Jurații au fost anunțați!",
     "uploadWarning": "Unele imagini nu au putut fi salvate permanent. Te rugăm să-ți păstrezi mesajul original.",
-    "messageHint": "Atașează o captură sau adaugă un link YouTube/imgur, plus coordonatele și un link de referință, sau folosește `/submit`.",
+    "messageHint": "Atașează o captură de sus cu contururile desenate, plus coordonatele și un link de referință, sau folosește `/submit`.",
     "messageNoLink": "**Trimitere respinsă:** este necesar un link către referința folosită (vedere 3D, Street View, fotografii). Sfat: folosește `/submit`."
   },
   "panel": {

@@ -8,7 +8,7 @@
     "notRegistered": "Du bist noch nicht registriert. Nutze zuerst `/register`.",
     "banned": "Du bist von diesem Event ausgeschlossen.",
     "notJudge": "Das dürfen nur Judges dieses Events.",
-    "notAdmin": "Das dürfen nur Bot-Administratoren.",
+    "notAdmin": "Das dürfen nur Bot-Administrator*innen.",
     "buildNotFound": "Build #{id} wurde nicht gefunden.",
     "guildOnly": "Dieser Befehl funktioniert nur auf einem Server.",
     "noTeam": "Kein Team",
@@ -169,16 +169,16 @@
     "invalidLink": "**Ungültiger Link!** Ein gültiger Link zu deiner Referenz ist Pflicht (z. B. `https://maps.google.com/...`).",
     "invalidArea": "Die Fläche muss eine positive Zahl in Quadratmetern sein.",
     "imagesOnly": "Bitte lade nur Bilder hoch (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Bitte hänge einen Screenshot an oder füge einen YouTube- oder imgur-Link hinzu.",
+    "imageRequired": "Bitte hänge mindestens einen Screenshot von oben mit eingezeichneten Umrissen an. YouTube-/imgur-Links sind nur eine Ergänzung.",
     "invalidMedia": "Als Medien sind nur YouTube- und imgur-Links erlaubt.",
     "success": "Dein Build **#{id}** wurde eingereicht. Die Judges wurden benachrichtigt!",
     "uploadWarning": "Einige Bilder konnten nicht dauerhaft gespeichert werden. Bitte behalte deine Originalnachricht.",
-    "messageHint": "Bitte hänge einen Screenshot an oder füge einen YouTube-/imgur-Link hinzu, dazu Koordinaten und einen Referenz-Link, oder nutze `/submit`.",
+    "messageHint": "Bitte hänge einen Screenshot von oben mit eingezeichneten Umrissen an, dazu Koordinaten und einen Referenz-Link, oder nutze `/submit`.",
     "messageNoLink": "**Einreichung abgelehnt:** Ein Link zur genutzten Referenz (3D-Ansicht, Street View, Bilder) ist Pflicht. Tipp: Nutze `/submit`."
   },
   "panel": {
     "title": "Build #{id}",
-    "builder": "Builder",
+    "builder": "Builder*in",
     "team": "Team",
     "coordinates": "Koordinaten",
     "reference": "Referenz",
@@ -189,7 +189,7 @@
     "score": "Bewertung",
     "total": "Gesamt",
     "votes": "Stimmen",
-    "notes": "Hinweise des Builders",
+    "notes": "Hinweise der bauenden Person",
     "rejected": "Abgelehnt",
     "rejectedHint": "Bessere das Build aus und drücke **Erneut einreichen**.",
     "correction": "Korrektur von {user}: {reason}",
@@ -286,18 +286,18 @@
     "points": "Punkte",
     "builds": "Builds",
     "area": "Fläche",
-    "participants": "Builder",
+    "participants": "Builder*innen",
     "waiting": "Wartet auf Judges",
     "leading": "{team} führt mit {diff} Punkten",
     "draw": "Gleichstand!",
     "updated": "Aktualisiert {time}",
-    "topBuilders": "Top-Builder"
+    "topBuilders": "Top-Builder*innen"
   },
   "announce": {
     "startTitle": "Das Build Battle hat begonnen! 🏗️",
     "startBody": "**{event}** läuft bis {end}.\nRegistriere dich mit `/register` und reiche deine Builds mit `/submit` ein. Viel Erfolg!",
     "endTitle": "Das Build Battle ist beendet",
-    "endBody": "**{event}** ist vorbei. Vielen Dank an alle, die mitgemacht haben!\nDie Gewinner werden nach der finalen Bewertung bekanntgegeben."
+    "endBody": "**{event}** ist vorbei. Vielen Dank an alle, die mitgemacht haben!\nDie Gewinner*innen werden nach der finalen Bewertung bekanntgegeben."
   },
   "wrapup": {
     "title": "Event-Abschluss · {event}",
@@ -307,8 +307,8 @@
     "totalBuilds": "Insgesamt **{total}** Builds",
     "winner": "Mit **{points}** Punkten hat **{team}** gewonnen! 🏆",
     "draw": "Unentschieden mit jeweils **{points}** Punkten!",
-    "topOverall": "Top-Builder · Gesamt",
-    "topTeam": "Top-Builder · {team}",
+    "topOverall": "Top-Builder*innen · Gesamt",
+    "topTeam": "Top-Builder*innen · {team}",
     "thanks": "Vielen Dank an alle, die mitgemacht haben!",
     "preview": "Vorschau, nur für dich sichtbar. Nutze `post: True`, um sie zu veröffentlichen.",
     "posted": "Abschluss in {count} Server(n) veröffentlicht."
@@ -317,7 +317,7 @@
     "title": "So funktioniert {event}",
     "register": "**1.** Registriere dich mit `/register <Minecraft-Name>`.",
     "submit": "**2.** Baue im Event-Gebiet und reiche dann mit `/submit` einen Screenshot von oben (mit eingezeichneten Umrissen), Koordinaten, Referenz und Link ein.",
-    "judging": "**3.** Ein Judge pro Team und ein neutraler Judge bewerten jedes Build: Grundpunkte (0–{base}), Aufwand (0–{effort}) sowie Technik & Details (0–{detail}). Es zählt der Durchschnitt.",
+    "judging": "**3.** Ein*e Judge pro Team und ein*e neutrale*r Judge bewerten jedes Build: Grundpunkte (0–{base}), Aufwand (0–{effort}) sowie Technik & Details (0–{detail}). Es zählt der Durchschnitt.",
     "track": "**4.** Verfolge deinen Fortschritt mit `/profile`, `/builds`, `/leaderboard` und `/stats`.",
     "rules": "Regeln",
     "judgesTitle": "Für Judges"

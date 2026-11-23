@@ -143,7 +143,8 @@ function createActionService({ store, panels, images, stats, access, settings, l
       if (!media) throw new UserError("submit.invalidMedia");
       // Direct imgur images are stored like uploaded screenshots
       const toStore = [...attachments, ...media.imageLinks.map((m) => ({ url: m.url, name: m.name }))];
-      if (toStore.length === 0 && media.mediaLinks.length === 0) throw new UserError("submit.mediaRequired");
+      // Judges need a top-down screenshot; videos and albums are only extras
+      if (toStore.length === 0) throw new UserError("submit.imageRequired");
 
       const stored = await images.storeAll(`${bundle.event.id}/${user.id}`, toStore);
       const build = await store.createBuild({

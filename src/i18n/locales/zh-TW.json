@@ -169,11 +169,11 @@
     "invalidLink": "**連結無效！** 需要提供有效的參考資料連結（例如 `https://maps.google.com/...`）。",
     "invalidArea": "面積必須是正數（平方公尺）。",
     "imagesOnly": "請只上傳圖片（PNG、JPG、GIF、WEBP）。",
-    "mediaRequired": "請附上一張截圖，或加上 YouTube 或 imgur 連結。",
+    "imageRequired": "請至少附上一張畫出輪廓的俯視截圖。YouTube/imgur 連結僅作補充。",
     "invalidMedia": "媒體只接受 YouTube 和 imgur 連結。",
     "success": "你的建築 **#{id}** 已提交，已通知評審！",
     "uploadWarning": "部分圖片無法永久保存，請保留你的原始訊息。",
-    "messageHint": "請附上截圖或加上 YouTube/imgur 連結，並加上座標和參考連結，或使用 `/submit`。",
+    "messageHint": "請附上畫出輪廓的俯視截圖，並加上座標和參考連結，或使用 `/submit`。",
     "messageNoLink": "**提交遭拒：** 需要提供你所用參考資料（3D 檢視、街景服務、照片）的連結。提示：使用 `/submit`。"
   },
   "panel": {

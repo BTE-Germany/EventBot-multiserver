@@ -39,7 +39,7 @@ The bot needs the **Message Content** intent if plain-message submissions are en
 |---|---|---|
 | `/register` · `/submit` · `/profile` · `/builds` · `/leaderboard` · `/stats` · `/help` · `/legal` | `/judge` · `/reject` · `/unjudged` · `/correct` · `/delete` · `/refresh` | `/dashboard` · `/wrapup` |
 
-Submissions take screenshots and/or **YouTube and imgur links** (`/submit media:` or in a plain message). Direct imgur images are stored like screenshots; videos and albums appear as buttons on the panel, with the video thumbnail as picture if there is no screenshot.
+Every submission needs at least one **top-down screenshot with the outlines drawn in**, so judges can see the footprint. A direct imgur image counts as a screenshot. **YouTube and imgur links** can be added as extras (`/submit media:` or in a plain message); videos and albums appear as buttons on the panel.
 
 Judges' builds count toward their team's total, but judges can never score (or correct) their own builds. Judges can also use the **Score** and **Reject** buttons on every judge panel. Builders get **Add info** and, after a rejection, **Resubmit**.
 

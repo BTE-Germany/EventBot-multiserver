@@ -20,7 +20,7 @@ You register with `/register` and your own Minecraft name on your team's Discord
 
 You may only submit builds that you built yourself within the event area. Do not change other people's builds without their permission.
 
-Every submission needs truthful coordinates, the reference you used with a link, and a screenshot or a YouTube or imgur link. Screenshots and notes must not contain illegal, insulting or offensive content, and must not infringe anyone else's rights.
+Every submission needs truthful coordinates, the reference you used with a link, and at least one top-down screenshot with the outlines drawn in. You can add YouTube or imgur links as extras. Screenshots and notes must not contain illegal, insulting or offensive content, and must not infringe anyone else's rights.
 
 A house only counts as complete once its lot (front yard, sidewalk, back yard, etc.) has been built. If this is missing or the quality is insufficient, judges may reject the submission with a short explanation. You can resubmit it once it is fixed.
 

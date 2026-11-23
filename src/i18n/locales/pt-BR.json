@@ -169,11 +169,11 @@
     "invalidLink": "**Link inválido!** É preciso um link válido para a sua referência (ex.: `https://maps.google.com/...`).",
     "invalidArea": "A área precisa ser um número positivo de metros quadrados.",
     "imagesOnly": "Envie apenas imagens (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Anexe um print ou adicione um link do YouTube ou imgur.",
+    "imageRequired": "Anexe pelo menos um print visto de cima com os contornos desenhados. Links do YouTube/imgur são apenas um complemento.",
     "invalidMedia": "Só são permitidos links do YouTube e imgur como mídia.",
     "success": "Sua build **#{id}** foi enviada. Os juízes já foram avisados!",
     "uploadWarning": "Algumas imagens não puderam ser salvas permanentemente. Guarde sua mensagem original.",
-    "messageHint": "Anexe um print ou adicione um link do YouTube/imgur, além das coordenadas e um link de referência, ou use `/submit`.",
+    "messageHint": "Anexe um print visto de cima com os contornos desenhados, além das coordenadas e um link de referência, ou use `/submit`.",
     "messageNoLink": "**Envio rejeitado:** é preciso um link para a referência usada (vista 3D, Street View, fotos). Dica: use `/submit`."
   },
   "panel": {

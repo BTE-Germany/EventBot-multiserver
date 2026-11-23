@@ -169,11 +169,11 @@
     "invalidLink": "**無効なリンクです！** 参考資料への有効なリンクが必要です（例: `https://maps.google.com/...`）。",
     "invalidArea": "面積は正の数（平方メートル）で入力してください。",
     "imagesOnly": "画像（PNG、JPG、GIF、WEBP）のみアップロードしてください。",
-    "mediaRequired": "スクリーンショットを添付するか、YouTube または imgur のリンクを追加してください。",
+    "imageRequired": "輪郭を描き込んだ真上からのスクリーンショットを少なくとも1枚添付してください。YouTube/imgur のリンクは補足のみです。",
     "invalidMedia": "メディアとして使用できるのは YouTube と imgur のリンクのみです。",
     "success": "建築 **#{id}** を提出しました。審査員に通知されました！",
     "uploadWarning": "一部の画像を永続的に保存できませんでした。元のメッセージは削除しないでください。",
-    "messageHint": "スクリーンショットまたは YouTube/imgur のリンクに加えて座標と参考リンクを追加するか、`/submit` を使ってください。",
+    "messageHint": "輪郭を描き込んだ真上からのスクリーンショットに加えて座標と参考リンクを追加するか、`/submit` を使ってください。",
     "messageNoLink": "**提出が却下されました：** 使用した参考資料（3D ビュー、ストリートビュー、写真）へのリンクが必要です。ヒント: `/submit` を使ってください。"
   },
   "panel": {

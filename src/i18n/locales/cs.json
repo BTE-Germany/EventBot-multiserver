@@ -169,11 +169,11 @@
     "invalidLink": "**Neplatný odkaz!** Je potřeba platný odkaz na tvou referenci (např. `https://maps.google.com/...`).",
     "invalidArea": "Plocha musí být kladné číslo v metrech čtverečních.",
     "imagesOnly": "Nahrávej prosím jen obrázky (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Přilož screenshot nebo přidej odkaz na YouTube či imgur.",
+    "imageRequired": "Přilož alespoň jeden screenshot shora s vyznačenými obrysy. Odkazy na YouTube/imgur jsou jen doplněk.",
     "invalidMedia": "Jako média jsou povoleny jen odkazy na YouTube a imgur.",
     "success": "Tvůj build **#{id}** byl odevzdán. Porotci dostali upozornění!",
     "uploadWarning": "Některé obrázky se nepodařilo trvale uložit. Ponech si prosím svou původní zprávu.",
-    "messageHint": "Přilož screenshot nebo přidej odkaz na YouTube/imgur, k tomu souřadnice a odkaz na referenci, nebo použij `/submit`.",
+    "messageHint": "Přilož screenshot shora s vyznačenými obrysy, k tomu souřadnice a odkaz na referenci, nebo použij `/submit`.",
     "messageNoLink": "**Odevzdání zamítnuto:** je potřeba odkaz na použitou referenci (3D pohled, Street View, fotky). Tip: použij `/submit`."
   },
   "panel": {

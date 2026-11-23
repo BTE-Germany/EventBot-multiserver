@@ -169,11 +169,11 @@
     "invalidLink": "**Link không hợp lệ!** Cần một link hợp lệ tới tài liệu tham khảo của bạn (vd. `https://maps.google.com/...`).",
     "invalidArea": "Diện tích phải là một số mét vuông dương.",
     "imagesOnly": "Vui lòng chỉ tải lên hình ảnh (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Hãy đính kèm ảnh chụp màn hình hoặc thêm link YouTube hay imgur.",
+    "imageRequired": "Hãy đính kèm ít nhất một ảnh chụp từ trên xuống có vẽ đường viền. Link YouTube/imgur chỉ là phần bổ sung.",
     "invalidMedia": "Chỉ cho phép link YouTube và imgur làm media.",
     "success": "Build **#{id}** của bạn đã được nộp. Giám khảo đã được thông báo!",
     "uploadWarning": "Một số ảnh không thể lưu vĩnh viễn. Vui lòng giữ lại tin nhắn gốc của bạn.",
-    "messageHint": "Hãy đính kèm ảnh chụp màn hình hoặc thêm link YouTube/imgur, kèm tọa độ và link tham khảo, hoặc dùng `/submit`.",
+    "messageHint": "Hãy đính kèm ảnh chụp từ trên xuống có vẽ đường viền, kèm tọa độ và link tham khảo, hoặc dùng `/submit`.",
     "messageNoLink": "**Bài nộp bị từ chối:** cần có link tới tài liệu tham khảo bạn đã dùng (3D, Street View, ảnh). Mẹo: dùng `/submit`."
   },
   "panel": {

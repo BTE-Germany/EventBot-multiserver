@@ -169,11 +169,11 @@
     "invalidLink": "**Érvénytelen link!** Érvényes link szükséges a referenciádhoz (pl. `https://maps.google.com/...`).",
     "invalidArea": "A területnek pozitív számnak kell lennie négyzetméterben.",
     "imagesOnly": "Kérlek, csak képeket tölts fel (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Csatolj egy képernyőképet, vagy adj meg egy YouTube- vagy imgur-linket.",
+    "imageRequired": "Csatolj legalább egy felülnézeti képernyőképet berajzolt körvonalakkal. A YouTube/imgur linkek csak kiegészítések.",
     "invalidMedia": "Médiaként csak YouTube- és imgur-linkek engedélyezettek.",
     "success": "A(z) **#{id}** buildedet beküldted. A bírák értesítést kaptak!",
     "uploadWarning": "Néhány képet nem sikerült véglegesen elmenteni. Kérlek, ne töröld az eredeti üzenetedet.",
-    "messageHint": "Csatolj egy képernyőképet vagy egy YouTube/imgur linket, add meg a koordinátákat és a referencia linkjét, vagy használd a `/submit` parancsot.",
+    "messageHint": "Csatolj egy felülnézeti képernyőképet berajzolt körvonalakkal, add meg a koordinátákat és a referencia linkjét, vagy használd a `/submit` parancsot.",
     "messageNoLink": "**Beküldés elutasítva:** a használt referencia linkje kötelező (3D nézet, Street View, fotók). Tipp: használd a `/submit` parancsot."
   },
   "panel": {

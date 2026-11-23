@@ -201,5 +201,8 @@ test("/register has no team option: the server decides the team", () => {
   assert.deepEqual(register.options.map((o) => o.name), ["minecraft"]);
   const submit = loadCommands().find((c) => c.name === "submit").json();
   assert.ok(submit.options.find((o) => o.name === "media"));
-  assert.equal(submit.options.find((o) => o.name === "image1").required, false);
+  // The top-down screenshot is mandatory; required options must come first
+  assert.equal(submit.options.find((o) => o.name === "image1").required, true);
+  const firstOptional = submit.options.findIndex((o) => !o.required);
+  assert.ok(submit.options.slice(firstOptional).every((o) => !o.required));
 });

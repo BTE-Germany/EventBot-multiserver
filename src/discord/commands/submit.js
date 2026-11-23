@@ -13,11 +13,11 @@ module.exports = defineCommand({
       choiceKeys: ["3d", "streetview", "images", "other"].map((value) => ({ value, key: `reference.${value}` })),
     },
     { name: "link", type: TYPES.STRING, required: true, max_length: 500 },
-    { name: "image1", type: TYPES.ATTACHMENT, required: false },
+    { name: "image1", type: TYPES.ATTACHMENT, required: true },
     { name: "image2", type: TYPES.ATTACHMENT, required: false },
     { name: "image3", type: TYPES.ATTACHMENT, required: false },
     { name: "area", type: TYPES.NUMBER, required: false, min_value: 0 },
-    // YouTube videos and imgur images/albums, separated by spaces
+    // Extra YouTube videos and imgur images/albums, separated by spaces
     { name: "media", type: TYPES.STRING, required: false, max_length: 1000 },
   ],
   async execute(ctx) {

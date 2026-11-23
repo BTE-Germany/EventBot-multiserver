@@ -169,11 +169,11 @@
     "invalidLink": "**Virheellinen linkki!** Toimiva linkki referenssiisi vaaditaan (esim. `https://maps.google.com/...`).",
     "invalidArea": "Pinta-alan on oltava positiivinen määrä neliömetrejä.",
     "imagesOnly": "Lataa vain kuvia (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Liitä kuvakaappaus tai lisää YouTube- tai imgur-linkki.",
+    "imageRequired": "Liitä vähintään yksi kuvakaappaus ylhäältä, johon ääriviivat on piirretty. YouTube-/imgur-linkit ovat vain lisä.",
     "invalidMedia": "Mediaksi kelpaavat vain YouTube- ja imgur-linkit.",
     "success": "Buildisi **#{id}** on lähetetty. Tuomarit on ilmoitettu!",
     "uploadWarning": "Joitakin kuvia ei voitu tallentaa pysyvästi. Säilytä alkuperäinen viestisi.",
-    "messageHint": "Liitä kuvakaappaus tai lisää YouTube-/imgur-linkki sekä koordinaatit ja referenssilinkki, tai käytä `/submit`.",
+    "messageHint": "Liitä kuvakaappaus ylhäältä piirrettyine ääriviivoineen sekä koordinaatit ja referenssilinkki, tai käytä `/submit`.",
     "messageNoLink": "**Lähetys hylätty:** linkki käyttämääsi referenssiin (3D-näkymä, Street View, valokuvat) vaaditaan. Vinkki: käytä `/submit`."
   },
   "panel": {

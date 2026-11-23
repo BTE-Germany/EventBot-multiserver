@@ -169,11 +169,11 @@
     "invalidLink": "**잘못된 링크입니다!** 참고 자료의 유효한 링크가 필요합니다 (예: `https://maps.google.com/...`).",
     "invalidArea": "면적은 양수(제곱미터)여야 합니다.",
     "imagesOnly": "이미지(PNG, JPG, GIF, WEBP)만 업로드해 주세요.",
-    "mediaRequired": "스크린샷을 첨부하거나 YouTube 또는 imgur 링크를 추가해 주세요.",
+    "imageRequired": "윤곽선을 그린 위에서 본 스크린샷을 최소 한 장 첨부하세요. YouTube/imgur 링크는 보조 자료일 뿐입니다.",
     "invalidMedia": "미디어로는 YouTube와 imgur 링크만 허용됩니다.",
     "success": "건축물 **#{id}**이(가) 제출되었습니다. 심사위원에게 알렸습니다!",
     "uploadWarning": "일부 이미지를 영구 저장하지 못했습니다. 원본 메시지를 지우지 마세요.",
-    "messageHint": "스크린샷 또는 YouTube/imgur 링크와 함께 좌표와 참고 링크를 추가하거나 `/submit`을 사용하세요.",
+    "messageHint": "윤곽선을 그린 위에서 본 스크린샷과 함께 좌표와 참고 링크를 추가하거나 `/submit`을 사용하세요.",
     "messageNoLink": "**제출 거부:** 사용한 참고 자료(3D 보기, 스트리트 뷰, 사진)의 링크가 필요합니다. 팁: `/submit`을 사용하세요."
   },
   "panel": {

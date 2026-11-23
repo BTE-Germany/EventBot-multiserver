@@ -169,11 +169,11 @@
     "invalidLink": "**Netinkama nuoroda!** Reikia tinkamos nuorodos į tavo šaltinį (pvz., `https://maps.google.com/...`).",
     "invalidArea": "Plotas turi būti teigiamas kvadratinių metrų skaičius.",
     "imagesOnly": "Įkelk tik paveikslėlius (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Pridėk ekrano nuotrauką arba YouTube ar imgur nuorodą.",
+    "imageRequired": "Pridėk bent vieną ekrano nuotrauką iš viršaus su pažymėtais kontūrais. YouTube/imgur nuorodos yra tik priedas.",
     "invalidMedia": "Kaip medija leidžiamos tik YouTube ir imgur nuorodos.",
     "success": "Tavo buildas **#{id}** pateiktas. Teisėjams pranešta!",
     "uploadWarning": "Kai kurių paveikslėlių nepavyko išsaugoti visam laikui. Neištrink savo originalios žinutės.",
-    "messageHint": "Pridėk ekrano nuotrauką arba YouTube/imgur nuorodą, taip pat koordinates ir nuorodą į šaltinį, arba naudok `/submit`.",
+    "messageHint": "Pridėk ekrano nuotrauką iš viršaus su pažymėtais kontūrais, taip pat koordinates ir nuorodą į šaltinį, arba naudok `/submit`.",
     "messageNoLink": "**Pateikimas atmestas:** būtina nuoroda į naudotą šaltinį (3D vaizdas, Street View, nuotraukos). Patarimas: naudok `/submit`."
   },
   "panel": {

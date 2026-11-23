@@ -52,12 +52,12 @@ test("registration: the server you register on is your team", async () => {
   assert.equal(build.teamId, ctx.teams.poland.id);
 });
 
-test("YouTube and imgur links are accepted as media", async () => {
+test("a screenshot is required; YouTube and imgur links are extras", async () => {
   const ctx = await seedBattle();
   await registered(ctx);
   const base = { bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE), location: "x", referenceType: "3d", referenceLink: "https://earth.google.com/x" };
 
-  // Links only, no upload: the imgur image is stored, the video and album become buttons
+  // No upload: the direct imgur image counts as screenshot, the video and album become buttons
   const { build } = await ctx.actions.submit({
     ...base,
     mediaLinks: ["https://youtu.be/dQw4w9WgXcQ", "https://i.imgur.com/AbC123x.png", "https://imgur.com/a/AbC123x", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
@@ -66,7 +66,9 @@ test("YouTube and imgur links are accepted as media", async () => {
   assert.deepEqual(build.media, ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://imgur.com/a/AbC123x"]);
 
   await rejectsWith(ctx.actions.submit({ ...base, mediaLinks: ["https://example.org/video"] }), "submit.invalidMedia");
-  await rejectsWith(ctx.actions.submit({ ...base, attachments: [], mediaLinks: [] }), "submit.mediaRequired");
+  await rejectsWith(ctx.actions.submit({ ...base, attachments: [], mediaLinks: [] }), "submit.imageRequired");
+  // A video or album alone is not enough
+  await rejectsWith(ctx.actions.submit({ ...base, mediaLinks: ["https://youtu.be/dQw4w9WgXcQ", "https://imgur.com/a/AbC123x"] }), "submit.imageRequired");
   const combined = await ctx.actions.submit({ ...base, attachments: [attachment(1)], mediaLinks: ["https://youtube.com/shorts/dQw4w9WgXcQ"] });
   assert.equal(combined.build.images.length, 1);
   assert.equal(combined.build.media.length, 1);
@@ -105,7 +107,7 @@ test("submission validates input and publishes the panels", async () => {
   const base = { bundle: ctx.bundle, guildId: IDS.guildDE, user: user(IDS.builderDE), location: "x", referenceType: "3d", attachments: [attachment()] };
   await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "not a link" }), "submit.invalidLink");
   await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", area: -5 }), "submit.invalidArea");
-  await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", attachments: [] }), "submit.mediaRequired");
+  await rejectsWith(ctx.actions.submit({ ...base, referenceLink: "https://x.y", attachments: [] }), "submit.imageRequired");
 
   const participant = await ctx.store.findParticipant(ctx.event.id, IDS.builderDE);
   await ctx.store.updateParticipant(participant.id, { banned: true });

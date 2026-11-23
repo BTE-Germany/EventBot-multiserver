@@ -25,7 +25,7 @@ module.exports = {
 
     const images = [...message.attachments.values()].filter(isImageAttachment);
     const parsed = parseMessageSubmission(message.content);
-    // A screenshot or a YouTube/imgur link, plus coordinates
+    // A screenshot (uploaded or a direct imgur image), plus coordinates
     if ((images.length === 0 && parsed.media.length === 0) || !parsed.location) return hint(message, t("submit.messageHint"));
     if (!parsed.link) return hint(message, `❌ ${t("submit.messageNoLink")}`, 9000);
 

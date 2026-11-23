@@ -169,11 +169,11 @@
     "invalidLink": "**Neispravan link!** Potreban je ispravan link na tvoju referencu (npr. `https://maps.google.com/...`).",
     "invalidArea": "Površina mora biti pozitivan broj kvadratnih metara.",
     "imagesOnly": "Molimo prenesi samo slike (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Priloži snimku zaslona ili dodaj YouTube ili imgur link.",
+    "imageRequired": "Priloži barem jednu snimku odozgo s ucrtanim obrisima. YouTube/imgur linkovi su samo dodatak.",
     "invalidMedia": "Kao mediji dopušteni su samo YouTube i imgur linkovi.",
     "success": "Tvoj build **#{id}** je predan. Suci su obaviješteni!",
     "uploadWarning": "Neke slike nije bilo moguće trajno spremiti. Molimo zadrži svoju izvornu poruku.",
-    "messageHint": "Priloži snimku zaslona ili dodaj YouTube/imgur link, uz koordinate i link na referencu, ili upotrijebi `/submit`.",
+    "messageHint": "Priloži snimku odozgo s ucrtanim obrisima, uz koordinate i link na referencu, ili upotrijebi `/submit`.",
     "messageNoLink": "**Predaja odbijena:** potreban je link na korištenu referencu (3D prikaz, Street View, fotografije). Savjet: upotrijebi `/submit`."
   },
   "panel": {

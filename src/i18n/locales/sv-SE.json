@@ -169,11 +169,11 @@
     "invalidLink": "**Ogiltig länk!** En giltig länk till din referens krävs (t.ex. `https://maps.google.com/...`).",
     "invalidArea": "Ytan måste vara ett positivt antal kvadratmeter.",
     "imagesOnly": "Ladda bara upp bilder (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Bifoga en skärmbild eller lägg till en YouTube- eller imgur-länk.",
+    "imageRequired": "Bifoga minst en skärmbild ovanifrån med inritade konturer. YouTube-/imgur-länkar är bara ett komplement.",
     "invalidMedia": "Endast YouTube- och imgur-länkar är tillåtna som media.",
     "success": "Ditt build **#{id}** har lämnats in. Domarna har meddelats!",
     "uploadWarning": "Vissa bilder kunde inte sparas permanent. Behåll ditt ursprungliga meddelande.",
-    "messageHint": "Bifoga en skärmbild eller lägg till en YouTube-/imgur-länk, plus koordinater och en referenslänk, eller använd `/submit`.",
+    "messageHint": "Bifoga en skärmbild ovanifrån med inritade konturer, plus koordinater och en referenslänk, eller använd `/submit`.",
     "messageNoLink": "**Inlämning avvisad:** en länk till referensen du använde (3D-vy, Street View, foton) krävs. Tips: använd `/submit`."
   },
   "panel": {

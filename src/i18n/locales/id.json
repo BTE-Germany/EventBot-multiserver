@@ -169,11 +169,11 @@
     "invalidLink": "**Tautan tidak valid!** Diperlukan tautan yang valid ke referensi kamu (mis. `https://maps.google.com/...`).",
     "invalidArea": "Luas harus berupa angka positif dalam meter persegi.",
     "imagesOnly": "Harap unggah gambar saja (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Lampirkan screenshot atau tambahkan tautan YouTube atau imgur.",
+    "imageRequired": "Lampirkan minimal satu screenshot dari atas dengan garis batas yang digambar. Tautan YouTube/imgur hanya tambahan.",
     "invalidMedia": "Hanya tautan YouTube dan imgur yang diizinkan sebagai media.",
     "success": "Build kamu **#{id}** sudah dikirim. Para juri sudah diberi tahu!",
     "uploadWarning": "Beberapa gambar tidak bisa disimpan secara permanen. Harap jangan hapus pesan aslimu.",
-    "messageHint": "Lampirkan screenshot atau tambahkan tautan YouTube/imgur, beserta koordinat dan tautan referensi, atau gunakan `/submit`.",
+    "messageHint": "Lampirkan screenshot dari atas dengan garis batas yang digambar, beserta koordinat dan tautan referensi, atau gunakan `/submit`.",
     "messageNoLink": "**Pengiriman ditolak:** diperlukan tautan ke referensi yang kamu gunakan (tampilan 3D, Street View, foto). Tips: gunakan `/submit`."
   },
   "panel": {

@@ -169,11 +169,11 @@
     "invalidLink": "**Lien invalide !** Un lien valide vers ta référence est requis (ex. `https://maps.google.com/...`).",
     "invalidArea": "La surface doit être un nombre positif de mètres carrés.",
     "imagesOnly": "Merci de n'envoyer que des images (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Joins une capture ou ajoute un lien YouTube ou imgur.",
+    "imageRequired": "Joins au moins une capture vue du dessus avec les contours tracés. Les liens YouTube/imgur ne sont qu'un complément.",
     "invalidMedia": "Seuls les liens YouTube et imgur sont autorisés comme médias.",
     "success": "Ton build **#{id}** a été soumis. Les juges ont été prévenus !",
     "uploadWarning": "Certaines images n'ont pas pu être enregistrées durablement. Garde ton message d'origine.",
-    "messageHint": "Joins une capture ou ajoute un lien YouTube/imgur, ainsi que les coordonnées et un lien de référence, ou utilise `/submit`.",
+    "messageHint": "Joins une capture vue du dessus avec les contours tracés, ainsi que les coordonnées et un lien de référence, ou utilise `/submit`.",
     "messageNoLink": "**Soumission refusée :** un lien vers la référence utilisée (vue 3D, Street View, photos) est requis. Astuce : utilise `/submit`."
   },
   "panel": {

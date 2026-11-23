@@ -169,11 +169,11 @@
     "invalidLink": "**Ugyldig lenke!** En gyldig lenke til referansen din er påkrevd (f.eks. `https://maps.google.com/...`).",
     "invalidArea": "Arealet må være et positivt antall kvadratmeter.",
     "imagesOnly": "Last bare opp bilder (PNG, JPG, GIF, WEBP).",
-    "mediaRequired": "Legg ved et skjermbilde, eller legg til en YouTube- eller imgur-lenke.",
+    "imageRequired": "Legg ved minst ett skjermbilde ovenfra med inntegnede omriss. YouTube-/imgur-lenker er bare et tillegg.",
     "invalidMedia": "Bare YouTube- og imgur-lenker er tillatt som media.",
     "success": "Buildet ditt **#{id}** er sendt inn. Dommerne har fått beskjed!",
     "uploadWarning": "Noen bilder kunne ikke lagres permanent. Ta vare på den opprinnelige meldingen din.",
-    "messageHint": "Legg ved et skjermbilde eller en YouTube-/imgur-lenke, og legg til koordinater og en referanselenke, eller bruk `/submit`.",
+    "messageHint": "Legg ved et skjermbilde ovenfra med inntegnede omriss, og legg til koordinater og en referanselenke, eller bruk `/submit`.",
     "messageNoLink": "**Innsending avvist:** en lenke til referansen du brukte (3D-visning, Street View, bilder) er påkrevd. Tips: bruk `/submit`."
   },
   "panel": {
